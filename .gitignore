@@ -21,6 +21,9 @@
 !lib/web/i18n/en_GB.csv
 !pub/errors/default/503.phtml
 /update/
-/vendor/
 !vendor/magento/framework/View/Element/Template/File/Validator.php
 !vendor/magento/module-media-storage/Service/ImageResize.php
+vendor/codeception
+vendor/magento/framework/Test
+vendor/magento/magento2-functional-testing-framework
+vendor/tubalmartin
