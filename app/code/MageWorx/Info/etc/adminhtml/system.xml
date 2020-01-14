@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright ©  MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_extensions" translate="label" type="text" sortOrder="900" showInDefault="1"
+                 showInWebsite="0" showInStore="0">
+            <label>My Extensions</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_Info::config_extensions</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>MageWorx Extensions</label>
+                <frontend_model>MageWorx\Info\Model\System\Extensions</frontend_model>
+            </group>
+        </section>
+        <section id="mageworx_settings" translate="label" type="text" sortOrder="950" showInDefault="1"
+                 showInWebsite="0" showInStore="0">
+            <label>Settings</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_Info::config_notification</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Notifications</label>
+                <field id="updates_notification" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Notify me about MageWorx Updates</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="offers_notification" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Notify me about MageWorx Hot offers and Exlcusive deals</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="installed_data"></field>
+                <field id="recommended_data"></field>
+            </group>
+            <group id="extensions" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Extensions</label>
+                <field id="extension_info_autoload" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Extension Info Autoload</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

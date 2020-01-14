@@ -1,0 +1,50 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+?>
+<?php
+/** @var \Amasty\MegaMenu\Block\Html\Topmenu $block */
+?>
+
+<section class="ammenu-menu-wrapper -desktop"
+         data-ammenu-js="desktop-menu"
+         data-mage-init='{"amastyMegaMenu":{"stickyStatus": <?= /* @escapeNotVerified */ $block->getStickyState()?>,
+              "desktopStatus": 1 }}'>
+    <nav class="ammenu-main-container">
+        <ul class="ammenu-items">
+            <?php foreach ($block->getMainNodes() as $mainNode) : ?>
+                <?php
+                $url = $mainNode->getUrl() ?: '#';
+                $widthMode = $block->escapeHtml($block->getWidth($mainNode));
+                $widthValue = $block->getWidthValue($mainNode);
+                $mainNodeContent = $block->getContent($mainNode);
+                ?>
+                <li class="ammenu-item -main -<?= $widthMode?> <?= /* @noEscape */  $block->getHighLightClass($mainNode)?>">
+                    <a href="<?= $block->escapeUrl($url) ?>"
+                       class="ammenu-link -main<?= ($mainNodeContent) ?' -parent': '' ?>"
+                       title="<?= $block->escapeHtml($mainNode->getName()) ?>">
+                        <?= $block->escapeHtml($mainNode->getName()) ?>
+
+                        <?php if ($label = $mainNode->getLabel()): ?>
+                            <span class="ammenu-label"
+                                  style="color: <?= $block->escapeHtml($mainNode->getLabelTextColor() ?: '#000') ?> !important;
+                                          background-color: <?= $block->escapeHtml($mainNode->getLabelBackgroundColor() ?: '#fff') ?> !important;">
+                            <?= $block->escapeHtml($label) ?>
+                        </span>
+                        <?php endif; ?></a>
+
+                    <?php if (/* @noEscape */ $mainNodeContent) : ?>
+                        <div class="ammenu-submenu-container ammenu-submenu -<?= $widthMode?>"
+                             data-ammenu-js="menu-submenu"
+                                <?= ($widthValue) ? 'style="width: ' . $widthValue . 'px"': '' ?>>
+                            <?= $mainNodeContent ?>
+                        </div>
+                    <?php endif;?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </nav>
+</section>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<hotlink xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Hotlink_Framework:etc/hotlink.xsd">
+    <platform class="\Hotlink\Framework\Model\Platform2">
+        <interaction class="\Hotlink\Framework\Module2\InteractionA">
+            <trigger class="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+            <trigger class="\Hotlink\Framework\Model\Trigger\Order\Complete" />
+            <trigger class="\Hotlink\Framework\Model\Trigger\Payment\Complete" />
+            <trigger class="\Hotlink\Framework\Model\Trigger\Checkout\Start" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\Cron" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\LostItems" />
+            <action class="\Hotlink\Framework\Model\Action\Index" />
+            <action class="\Hotlink\Framework\Model\Action\Email" />
+        </interaction>
+        <interaction class="\Hotlink\Framework\Module2\InteractionB">
+            <trigger class="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\Cron" />
+            <action class="\Hotlink\Framework\Model\Action\Cleanup" />
+        </interaction>
+    </platform>
+</hotlink>

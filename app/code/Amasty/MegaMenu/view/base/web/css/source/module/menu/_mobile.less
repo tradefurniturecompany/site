@@ -1,0 +1,90 @@
+//
+//  Amasty Mega Menu
+//  _________________________
+
+//
+//  Variables
+//  -------------------------
+@ammenu-mobile-menu__width: 90%;
+@ammenu-mobile-menu__height: 50px;
+
+//
+//  Desktop
+//  --------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    
+    .ammenu-tabs-container > .ammenu-title,
+    .ammenu-menu-wrapper.-mobile,
+    .ammenu-nav-sections:not(.-hamburger) .ammenu-title,
+    .ammenu-nav-sections:not(.-hamburger) .ammenu-content:not(:nth-child(2)) {
+        display: none !important;
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .ammenu-nav-sections {
+        & {
+            ._ammenu-menu-wrapper.-mobile;
+            ._ammenu-nav-sections.-mobile;
+            max-width: 300px;
+            overflow: auto;
+        }
+
+        .header.links {
+            .lib-css(border-bottom, 1px solid @ammenu__color__grey);
+        }
+    
+        .header.links a:hover {
+            font-weight: 600;
+            padding: 0;
+        }
+    
+        .ammenu-content > .links > .authorization-link {
+            display: none;
+        }
+        
+        .ammenu-content {
+            .lib-css(margin-top, @ammenu-mobile-menu__height);
+        }
+    
+        .ammenu-content > .links a:hover {
+            padding: 0;
+        }
+
+        .ammenu-content > .links li {
+            .lib-css(padding, @ammenu__indent__base @ammenu__indent__xl);
+        }
+        
+        .ammenu-title {
+            .lib-css(height, @ammenu-mobile-menu__height);
+            display: flex;
+            float: left;
+            box-sizing: border-box;
+            width: 33.3%;
+            text-align: center;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+    
+        .ammenu-item.-main:not(:last-of-type) {
+            .lib-css(border-bottom, 1px solid @ammenu__color__grey);
+        }
+    
+        .ammenu-link.-main {
+            padding: 16px 55px 16px 25px;
+        }
+        
+        .ammenu-link.-level1 + .ammenu-item.-child {
+            .lib-css(margin-left, @ammenu__indent__xl);
+        }
+    
+        .ammenu-categories {
+            .lib-css(padding, 0 0 @ammenu__indent__l 25px);
+        }
+    }
+}

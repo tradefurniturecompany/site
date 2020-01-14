@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ShippingTableRates
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <resource>Amasty_ShippingTableRates::amstrates_settings</resource>
+            <group id="amstrates" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Amasty Shipping Table Rates</label>
+                <frontend_model>Amasty\ShippingTableRates\Block\Adminhtml\System\Config\Form\Information</frontend_model>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled for Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="sallowspecific" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Ship to Applicable Countries</label>
+                    <frontend_class>shipping-applicable-country</frontend_class>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Ship to Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Displayed Error Message</label>
+                </field>
+                <field id="allow_promo" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow Free Shipping Promotions</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="ignore_virtual" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ignore Price and Quantity of Virtual Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="numeric_zip" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Compare post codes as</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Logic</source_model>
+                </field>
+                <field id="after_discount" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use price AFTER discount</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="including_tax" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use price INCLUDING tax</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort order</label>
+                </field>
+                <field id="dont_split" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use only one shipping type for shipping method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="showmethod" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Show Method if Not Applicable</label>
+                    <frontend_class>shipping-skip-hide</frontend_class>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="configurable_child" translate="label" type="select" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Type for configurable products</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Configurable</source_model>
+                </field>
+                <field id="bundle_child" translate="label" type="select" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Type for bundle products:</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Bundle</source_model>
+                </field>
+                <field id="volumetric_weight" translate="label" type="select" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Volume weight</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Volumetrictype</source_model>
+                </field>
+                <field id="volumetric_weight_attribute" translate="label" type="select" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Volumetric weight attribute</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Volumetric</source_model>
+                    <depends>
+                        <field id="volumetric_weight">volumetric_weight_attribute</field>
+                    </depends>
+                </field>
+                <field id="volumetric_attribute" translate="label" type="select" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Attribute</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Volumetric</source_model>
+                    <depends>
+                        <field id="volumetric_weight">volumetric_attribute</field>
+                    </depends>
+                </field>
+                <field id="dimensions_attribute" translate="label" type="select" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dimensions attribute</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Volumetric</source_model>
+                    <depends>
+                        <field id="volumetric_weight">volumetric_dimmensions_attribute</field>
+                    </depends>
+                </field>
+                <field id="first_sep_dimension_attribute" translate="label" type="select" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Attribute 1</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Volumetric</source_model>
+                    <depends>
+                        <field id="volumetric_weight">volumetric_separate_dimmension_attribute</field>
+                    </depends>
+                </field>
+                <field id="second_sep_dimension_attribute" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Attribute 2</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Volumetric</source_model>
+                    <depends>
+                        <field id="volumetric_weight">volumetric_separate_dimmension_attribute</field>
+                    </depends>
+                </field>
+                <field id="third_sep_dimension_attribute" translate="label" type="select" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Attribute 3</label>
+                    <source_model>Amasty\ShippingTableRates\Model\Config\Source\Volumetric</source_model>
+                    <depends>
+                        <field id="volumetric_weight">volumetric_separate_dimmension_attribute</field>
+                    </depends>
+                </field>
+                <field id="shipping_factor" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Factor</label>
+                    <validate>validate-number validate-digits validate-greater-than-zero</validate>
+                    <depends>
+                        <field id="volumetric_weight" separator=",">volumetric_attribute,volumetric_dimmensions_attribute,volumetric_separate_dimmension_attribute</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+        <section id="amstrates_amasty_tab" translate="label" type="text" sortOrder="190820" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>Amasty_ShippingTableRates::amstrates_settings_amasty</resource>
+            <class>separator-top</class>
+            <label>Shipping Table Rates</label>
+            <tab>amasty</tab>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="amstrates_amasty_field" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Hide Shipping Table Rates</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

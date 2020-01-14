@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="sales_order_place_after">
+		<observer name="realexcw_order_place_after" instance="Customweb\RealexCw\Observer\OrderPlaceAfter" />
+	</event>
+	<event name="checkout_submit_all_after">
+		<observer name="realexcwcheckout_submit_after" instance="Customweb\RealexCw\Observer\CheckoutSubmitAfter" />
+	</event>
+	<event name="sales_order_payment_capture">
+		<observer name="realexcw_order_payment_capture" instance="Customweb\RealexCw\Observer\OrderPaymentCapture" />
+	</event>
+	<event name="email_order_set_template_vars_before">
+    	<observer name="realexcw_email_order_vars" instance="Customweb\RealexCw\Observer\EmailOrderVars" />
+    </event>
+	
+	<event name="customweb_realexcw_transaction_save_after">
+        <observer name="customweb_realexcw_transaction_grid_sync_insert" instance="CustomwebRealexCwIndexGridSyncInsert" />
+    </event>
+    <event name="customweb_realexcw_transaction_delete_after">
+        <observer name="customweb_realexcw_transaction_grid_sync_remove" instance="CustomwebRealexCwIndexGridSyncRemove" />
+    </event>
+    <event name="config_data_dev_grid_async_indexing_disabled">
+        <observer name="customweb_realexcw_transaction_grid_async_insert" instance="CustomwebRealexCwIndexGridAsyncInsertObserver" />
+    </event>
+    
+    <event name="controller_action_predispatch_checkout_onepage_index">
+    		<observer name="customweb_realexcw_cancel_payment" instance="Customweb\RealexCw\Observer\CancelPayment" />
+    </event>
+    
+    <event name="store_add">
+        <observer name="customweb_realexcw_sequence" instance="Customweb\RealexCw\Observer\SequenceCreatorObserver" />
+    </event>
+</config>

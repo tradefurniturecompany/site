@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ShippingTableRates
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="amstrates_methods_grid_rates"/>
+    <body>
+        <referenceContainer name="left">
+            <block class="Amasty\ShippingTableRates\Block\Adminhtml\Methods\Edit\Tabs" name="amstrates_methods_edit_tabs">
+                <block class="Amasty\ShippingTableRates\Block\Adminhtml\Methods\Edit\Tab\Main" name="amstrates_methods_edit_tab_main"/>
+                <block class="Amasty\ShippingTableRates\Block\Adminhtml\Methods\Edit\Tab\Labels" name="amstrates_methods_edit_tab_labels"/>
+                <block class="Amasty\ShippingTableRates\Block\Adminhtml\Methods\Edit\Tab\Stores" name="amstrates_methods_edit_tab_stores"/>
+                <block class="Amasty\ShippingTableRates\Block\Adminhtml\Methods\Edit\Tab\Import" name="amstrates_methods_edit_tab_import"/>
+                <block class="Amasty\ShippingTableRates\Block\Adminhtml\Methods\Edit\Tab\Rates" name="amstrates_methods_edit_tab_rates">
+                    <block class="Magento\Framework\View\Element\Template" name="adminhtml.amasty.amstrates.methods.toolbar" template="Magento_Backend::pageactions.phtml"/>
+                </block>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">amstrates_methods_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">label_section</argument>
+                    <argument name="block" xsi:type="string">amstrates_methods_edit_tab_labels</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">stores_section</argument>
+                    <argument name="block" xsi:type="string">amstrates_methods_edit_tab_stores</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">import_section</argument>
+                    <argument name="block" xsi:type="string">amstrates_methods_edit_tab_import</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">rates_section</argument>
+                    <argument name="block" xsi:type="string">amstrates_methods_edit_tab_rates</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Amasty\ShippingTableRates\Block\Adminhtml\Methods\Edit" name="amstrates_methods_edit"/>
+        </referenceContainer>
+    </body>
+</page>

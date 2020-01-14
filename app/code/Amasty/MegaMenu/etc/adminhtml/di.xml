@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Amasty\MegaMenu\Ui\DataProvider\Form\Link\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="use_default" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\MegaMenu\Ui\DataProvider\Form\Link\Modifier\UseDefault</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Amasty\MegaMenu\Ui\DataProvider\Form\Category\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="use_default" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\MegaMenu\Ui\DataProvider\Form\Link\Modifier\UseDefault</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+                <item name="check_category_level" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\MegaMenu\Ui\DataProvider\Form\Category\Modifier\Level</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\MegaMenu\Ui\DataProvider\Form\Link\DataProvider">
+        <arguments>
+            <argument name="pool" xsi:type="object">Amasty\MegaMenu\Ui\DataProvider\Form\Link\Modifier\Pool</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Model\Category\DataProvider">
+        <arguments>
+            <argument name="pool" xsi:type="object">Amasty\MegaMenu\Ui\DataProvider\Form\Category\Modifier\Pool</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\MegaMenu\Plugin\Catalog\Model\Category\DataProvider">
+        <arguments>
+            <argument name="pool" xsi:type="object">Amasty\MegaMenu\Ui\DataProvider\Form\Category\Modifier\Pool</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Model\Category\DataProvider">
+        <plugin name="Amasty_MegaMenu::modify-category-data" type="Amasty\MegaMenu\Plugin\Catalog\Model\Category\DataProvider" />
+    </type>
+</config>

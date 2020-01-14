@@ -1,0 +1,108 @@
+.config-nav-block.amasty-tab strong:before {
+    background: url(../images/logo.png) no-repeat;
+    width: 16px;
+    height: 19px;
+    content: '';
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: bottom;
+}
+
+.admin__menu [data-ui-id^="menu-amasty-"] .submenu-group-title span:before,
+.admin__menu [data-ui-id^="menu-magento-"] [data-ui-id^="menu-magento-"] [data-ui-id^="menu-amasty-"] span:before {
+    background: url(../images/logo-menu.png) no-repeat;
+    width: 16px;
+    height: 19px;
+    content: '';
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: top;
+}
+
+#amasty_base_extensions table td.value,
+#amasty_base_information table td.value {
+    vertical-align: bottom;
+}
+
+.ambase-grid-message {
+    padding-left: 58px;
+    min-height: 53px;
+    background: url(../images/logo_m_table.png) no-repeat;
+}
+
+.ambase-grid-message.amasty-grid-logo {
+    background: url(../images/logo_table.png) no-repeat;
+}
+
+.admin__action-dropdown-menu .notifications-entry:not(.notifications-entry-last) {
+    padding-left: 37px;
+    background: url(../images/logo_m_popup.png) no-repeat 5px 7px;
+}
+
+.admin__action-dropdown-menu .notifications-entry[data-ambase-logo="1"] {
+    background: url(../images/logo_popup.png) no-repeat 5px 7px;
+}
+
+/* main amasty menu start*/
+#menu-menuamasty-base-menu .submenu .level-0 > a:before,
+#menu-menuamasty-base-menu .level-0:first-child > a:after {
+    content: '';
+    display: none;
+}
+
+#menu-menuamasty-base-menu .submenu .level-0 > a {
+    display: block;
+    width: 99%;
+    min-height: 0;
+    margin: .7rem 0;
+    padding: 1.25rem 1rem 1.25rem 2rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: left;
+    color: #a79d95;
+    text-transform: none;
+}
+
+#menu-menuamasty-base-menu .submenu .level-0 > a:hover {
+    background-color: #524d49;
+}
+
+#menu-menuamasty-base-menu .submenu .column .parent {
+    margin-bottom: 0;
+}
+
+#menu-menuamasty-base-menu .submenu .parent {
+    margin-bottom: 0.5rem;
+}
+
+#menu-menuamasty-base-menu .item-container .submenu {
+    transform: none;
+    opacity: 0;
+    transition-property: opacity;
+}
+
+#menu-menuamasty-base-menu .item-container._show .submenu {
+    opacity: 1;
+}
+
+#menu-menuamasty-base-menu > a:before {
+    content: '';
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMi41IiBmaWxsPSIjQUJBNjlGIi8+PHBhdGggZD0iTTEyLjkyOCAxNi4xMjNjMC0uNjItLjEzMi0xLjA5MS0uMzk1LTEuNDE2LS4zMzYtLjQxNi0uNzgtLjYyNC0xLjMzNy0uNjI0LS40MzYgMC0uODczLjIxMi0xLjMwOC42NDItLjM5Mi0uNDMtLjgzNC0uNjQyLTEuMzI3LS42NDItLjQ3OCAwLS44ODQuMTgtMS4yMi41MzgtLjMzNy4zNi0uNS43OTYtLjUgMS4zMXYyLjgxOWgxLjY2MnYtMi40NjRjMC0uMzQuMDkyLS41MS4yNzYtLjUxLjEwMSAwIC4xNy4wMzUuMjEuMTA4LjA0My4wNzQuMDYyLjIwNS4wNjIuMzk2djIuNDdoMS42NjV2LTIuNDY0YzAtLjM0LjA5Mi0uNTEuMjgtLjUxLjEwMiAwIC4xNzIuMDM1LjIxLjEwOC4wMzguMDc0LjA1OC4yMDUuMDU4LjM5NnYyLjQ3bDQuOTg2LS4wMDJ2LTEuNzkyaC0zLjMyMnYtLjgzM3oiIGZpbGw9IiMzODMzMzAiLz48cGF0aCBkPSJNNy45NTEgMTAuMjM0bDEuOTYtNS43NTMgMS45MDggNS43NTNINy45NTF6bTMuMDItOC45ODRIOC43NThMMi41IDE4Ljc1aDIuNDkxbDIuMjUyLTYuNDIzaDUuMjQybDEuMjczIDMuODE4aDIuNDkyTDEwLjk3MiAxLjI1eiIgZmlsbD0iIzM4MzMzMCIvPjwvc3ZnPg==) no-repeat center;
+    background-size: contain;
+}
+
+#menu-menuamasty-base-menu > a:hover:before,
+#menu-menuamasty-base-menu._show > a:before {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiByeD0iMi41IiBmaWxsPSIjRTVFNUU1Ii8+PHBhdGggZD0iTTEyLjkyOCAxNi4xMjNjMC0uNjItLjEzMi0xLjA5MS0uMzk1LTEuNDE2LS4zMzYtLjQxNi0uNzgtLjYyNC0xLjMzNy0uNjI0LS40MzYgMC0uODczLjIxMi0xLjMwOC42NDItLjM5Mi0uNDMtLjgzNC0uNjQyLTEuMzI3LS42NDItLjQ3OCAwLS44ODQuMTgtMS4yMi41MzgtLjMzNy4zNi0uNS43OTYtLjUgMS4zMXYyLjgxOWgxLjY2MnYtMi40NjRjMC0uMzQuMDkyLS41MS4yNzYtLjUxLjEwMSAwIC4xNy4wMzUuMjEuMTA4LjA0My4wNzQuMDYyLjIwNS4wNjIuMzk2djIuNDdoMS42NjV2LTIuNDY0YzAtLjM0LjA5Mi0uNTEuMjgtLjUxLjEwMiAwIC4xNzIuMDM1LjIxLjEwOC4wMzguMDc0LjA1OC4yMDUuMDU4LjM5NnYyLjQ3bDQuOTg2LS4wMDJ2LTEuNzkyaC0zLjMyMnYtLjgzM3oiIGZpbGw9IiMzODMzMzAiLz48cGF0aCBkPSJNNy45NTEgMTAuMjM0bDEuOTYtNS43NTMgMS45MDggNS43NTNINy45NTF6bTMuMDItOC45ODRIOC43NThMMi41IDE4Ljc1aDIuNDkxbDIuMjUyLTYuNDIzaDUuMjQybDEuMjczIDMuODE4aDIuNDkyTDEwLjk3MiAxLjI1eiIgZmlsbD0iIzM4MzMzMCIvPjwvc3ZnPg==) no-repeat center;
+    background-size: contain;
+}
+
+.admin__menu .level-0 > .submenu .submenu {
+    min-height: 100%;
+    width: 300px;
+}
+
+.admin__menu .submenu .submenu .submenu-title {
+    height: 60px;
+}
+/* main amasty menu end*/

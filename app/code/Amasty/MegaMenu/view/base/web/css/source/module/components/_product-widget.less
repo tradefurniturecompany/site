@@ -1,0 +1,57 @@
+//
+//  Amasty MegaMenu Product Widget
+//  _________________________
+
+//
+//  Common
+//  --------------------------
+
+& when (@media-common = true) {
+    .ammenu-nav-sections .ammenu-product-list {
+        &.slider .slick-slide {
+            vertical-align: top;
+        }
+
+        &.slider .product-items {
+            & {
+                opacity: 1;
+                transition: opacity .3s ease;
+            }
+
+            &:not(.slick-initialized) {
+                opacity: 0;
+            }
+        }
+        
+        &.grid {
+            padding: 0 10px;
+        }
+        
+        .action.tocart .-nocolor {
+            .lib-css(color, @ammenu__color__white) !important;
+        }
+        
+        .products-grid .product-item-info:hover *:not(.-nocolor):not(.swatch-option),
+        .products-grid .product-item-info.active *:not(.-nocolor):not(.swatch-option) {
+            color: #333 !important;
+        }
+        
+        .action.towishlist {
+            cursor: pointer;
+        }
+        
+        .product-item-actions {
+            margin-top: 10px;
+        }
+        
+        .actions-secondary .action {
+            & {
+                opacity: .7;
+            }
+            
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

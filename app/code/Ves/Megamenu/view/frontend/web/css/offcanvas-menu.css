@@ -1,0 +1,139 @@
+/* enable code to fix for Ultimo theme
+.nav-toggle > span {
+    border: 0;
+    clip: inherit;
+    height: auto;
+    margin: inherit;
+    overflow: hidden;
+    padding: 0;
+    position: inherit;
+    width: auto;
+}
+*/
+@media (min-width: 768px), print{
+    .nav-sections-item-title {
+        display: none;
+    }
+}
+.nav-sections {
+    background: #f0f0f0;
+}
+html.nav-before-open {
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 767px){
+    
+.nav-toggle:before{
+    display: none!important;
+}
+
+.nav-sections {
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: left .3s;
+    -moz-transition: left .3s;
+    -ms-transition: left .3s;
+    transition: left .3s;
+    height: 100%;
+    left: -80%;
+    left: calc(-1*(100% - 54px));
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 80%;
+    width: calc(100% - 54px);
+}
+.nav-open .nav-sections {
+    -webkit-box-shadow: 0 0 5px 0 rgba(50,50,50,0.75);
+    -moz-box-shadow: 0 0 5px 0 rgba(50,50,50,0.75);
+    -ms-box-shadow: 0 0 5px 0 rgba(50,50,50,0.75);
+    box-shadow: 0 0 5px 0 rgba(50,50,50,0.75);
+    left: 0;
+    z-index: 99;
+}
+.nav-sections-items {
+    position: relative;
+    z-index: 1;
+}
+.nav-sections-items:before, .nav-sections-items:after {
+    content: '';
+    display: table;
+}
+.nav-sections-items:after {
+    clear: both;
+}
+.nav-sections-item-title {
+    background: #e3e3e3;
+    border: solid #d7d7d7;
+    border-width: 0 0 1px 1px;
+    box-sizing: border-box;
+    float: left;
+    height: 71px;
+    padding-top: 24px;
+    text-align: center;
+    width: 33.33%;
+}
+.nav-sections-item-title.active {
+    background: transparent;
+    border-bottom: 0;
+}
+.nav-sections-item-content {
+    box-sizing: border-box;
+    float: right;
+    margin-left: -100%;
+    margin-top: 71px;
+    width: 100%;
+    padding: 25px 0;
+}
+.nav-sections-item-content:before, .nav-sections-item-content:after {
+    content: '';
+    display: table;
+}
+.nav-sections-item-content:after {
+    clear: both;
+}
+.nav-before-open body {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.nav-before-open {
+    height: 100%;
+    overflow-x: hidden;
+    width: 100%;
+}
+.nav-open .nav-toggle:after {
+    background: rgba(0,0,0,0.7);
+    content: '';
+    display: block;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+.nav-before-open .page-wrapper {
+    -webkit-transition: left .3s;
+    -moz-transition: left .3s;
+    -ms-transition: left .3s;
+    transition: left .3s;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: relative;
+}
+.nav-open .page-wrapper {
+    left: 80%;
+    left: calc(100% - 54px);
+}
+
+.header-container .skip-link {
+    left: 0px;
+    top: 0px;
+}
+.nav-sections,.header-container .nav-container {
+    background-color: #f0f0f0;
+}
+}

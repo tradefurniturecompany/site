@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+-->
+
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+<!--        <css src="Amasty_Base::vendor/slick/amslick.min.css"/>-->
+    </head>
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Amasty\MegaMenu\Block\Head" name="amasty.megamenu.head" template="Amasty_MegaMenu::head.phtml" after="-"/>
+
+            <referenceBlock name="header-wrapper">
+                <block class="Amasty\MegaMenu\Block\Toggle" name="amasty.menu.toggle" template="Amasty_MegaMenu::toggle.phtml" before="logo"/>
+                <block class="Amasty\MegaMenu\Block\Html\Topmenu" name="catalog.topnav.hamburger" template="Amasty_MegaMenu::html/hamburger/topmenu.phtml"/>
+            </referenceBlock>
+        </referenceBlock>
+
+        <referenceContainer name="page.top">
+            <referenceBlock name="navigation.sections" >
+                <action method="setTemplate">
+                    <argument name="template" xsi:type="string">Amasty_MegaMenu::sections.phtml</argument>
+                </action>
+                <action method="setHelperBlock">
+                    <argument name="helperBlock" xsi:type="object">Amasty\MegaMenu\Block\Html\Topmenu</argument>
+                </action>
+            </referenceBlock>
+            <referenceBlock name="store.menu">
+                <block class="Magento\Framework\View\Element\Template" name="catalog.topnav" template="Amasty_MegaMenu::html/topmenu.phtml" ttl="3600" before="-">
+                    <block class="Amasty\MegaMenu\Block\Html\Topmenu" name="catalog.topnav.mobile" template="Amasty_MegaMenu::html/mobile/topmenu.phtml">
+                        <arguments>
+                            <argument name="block_type" xsi:type="string">mobile</argument>
+                        </arguments>
+                    </block>
+                    <block class="Amasty\MegaMenu\Block\Html\Topmenu" name="catalog.topnav.desktop"
+                           template="Amasty_MegaMenu::html/desktop/topmenu.phtml">
+                        <arguments>
+                            <argument name="block_type" xsi:type="string">desktop</argument>
+                        </arguments>
+                    </block>
+                    <block class="Amasty\MegaMenu\Block\Html\Topmenu" name="catalog.topnav.hamburger.left" template="Amasty_MegaMenu::html/hamburger/leftmenu.phtml"/>
+                </block>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</layout>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Payrestriction
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_Payrestriction::sales_restiction" title="Payment Restrictions" module="Amasty_Payrestriction" sortOrder="100" parent="Magento_Sales::sales_operation" action="amasty_payrestriction/rule/index" resource="Amasty_Payrestriction::sales_restiction"/>
+    </menu>
+</config>

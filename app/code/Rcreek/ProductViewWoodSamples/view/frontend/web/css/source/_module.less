@@ -1,0 +1,23 @@
+.product-view-ancillary-links {
+  margin-top: 20px;
+
+  a {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+
+    img {width: 100%;}
+  }
+}
+
+@media (min-width: @screen__m) {
+  .product-view-ancillary-links .narrower-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      width: ~"calc(50% - 10px)";
+    }
+  }
+}

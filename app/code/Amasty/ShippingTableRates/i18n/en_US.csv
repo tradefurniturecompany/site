@@ -1,0 +1,154 @@
+"Shipping Table Rates","Shipping Table Rates"
+"Save and Continue Edit","Save and Continue Edit"
+"Method Information","Method Information"
+Import,Import
+"Import Rates","Import Rates"
+"Delete Existing Rates","Delete Existing Rates"
+No,No
+Yes,Yes
+"CSV File","CSV File"
+"Example file http://amasty.com/examples/shipping-table-rates.csv","Example file http://amasty.com/examples/shipping-table-rates.csv"
+Labels,Labels
+"Store View Specific Labels","Store View Specific Labels"
+"Default Label for All Store Views","Default Label for All Store Views"
+"Method Label","Method Label"
+Comment,Comment
+General,General
+Name,Name
+"Specify the ""estimated delivery"" value for the {day} variable on the Rate Configuration page or it will be automatically taken from the uploaded CSV file. Specify the ""delivery name"" value for the {name} variable on the Rate Configuration page or it will be automatically taken from the uploaded CSV file.","Specify the ""estimated delivery"" value for the {day} variable on the Rate Configuration page or it will be automatically taken from the uploaded CSV file. Specify the ""delivery name"" value for the {name} variable on the Rate Configuration page or it will be automatically taken from the uploaded CSV file."
+"Ship These Shipping Types for Free","Ship These Shipping Types for Free"
+"Products will be sent for free if the method does not contain rates applicable for them. If there will be no applicable rates in the method it won't be displayed as products with Shipping Types above will be ignored in calculations.","Products will be sent for free if the method does not contain rates applicable for them. If there will be no applicable rates in the method it won't be displayed as products with Shipping Types above will be ignored in calculations."
+"HTML tags <b>, <u>, <i>, <s> are supported.
+                    For example: This is a <b>Bold text</b>. To learn more, refer to this page: ","HTML tags <b>, <u>, <i>, <s> are supported.
+                    For example: This is a <b>Bold text</b>. To learn more, refer to this page: "
+"HTML Styles - CSS","HTML Styles - CSS"
+Image,Image
+"Please use {IMG} in Comment field to insert an image","Please use {IMG} in Comment field to insert an image"
+Status,Status
+Rates,Rates
+"Minimal rate","Minimal rate"
+"Maximal rate","Maximal rate"
+"For products with different shipping types","For products with different shipping types"
+"Sum up rates","Sum up rates"
+"Select maximal rate","Select maximal rate"
+"Select minimal rate","Select minimal rate"
+"Methods and Rates","Methods and Rates"
+"Add New Rate","Add New Rate"
+Country,Country
+State,State
+City,City
+"Zip From","Zip From"
+"Zip To","Zip To"
+"Price From","Price From"
+"Price To","Price To"
+"Weight From","Weight From"
+"Weight To","Weight To"
+"Qty From","Qty From"
+"Qty To","Qty To"
+"Shipping Type","Shipping Type"
+Rate,Rate
+PPP,PPP
+FRPP,FRPP
+FRPUW,FRPUW
+"Estimated Delivery (days)","Estimated Delivery (days)"
+"Name delivery","Name delivery"
+Action,Action
+Delete,Delete
+"Are you sure?","Are you sure?"
+"Stores & Customer Groups","Stores & Customer Groups"
+"Visible In","Visible In"
+Stores,Stores
+"Leave empty if there are no restrictions","Leave empty if there are no restrictions"
+"Applicable For","Applicable For"
+"Customer Groups","Customer Groups"
+"Method Options","Method Options"
+Back,Back
+"Save and Add New Rate","Save and Add New Rate"
+Save,Save
+"Edit Rate","Edit Rate"
+"Rate Information","Rate Information"
+Destination,Destination
+Conditions,Conditions
+"Original product cart price, without discounts.","Original product cart price, without discounts."
+"This value will be used for the {day} variable in the Method name","This value will be used for the {day} variable in the Method name"
+"This value will be used for the {name} variable in the Method name","This value will be used for the {name} variable in the Method name"
+"Base Rate for the Order","Base Rate for the Order"
+"Percentage per Product","Percentage per Product"
+"Fixed Rate per Product","Fixed Rate per Product"
+"Fixed Rate per 1 unit of weight","Fixed Rate per 1 unit of weight"
+by,by
+"Confused with configuration? No worries, please consult the <a target=""_blank"" href=""%1"">user guide</a> to properly configure the extension.","Confused with configuration? No worries, please consult the <a target=""_blank"" href=""%1"">user guide</a> to properly configure the extension."
+"Record does not exist","Record does not exist"
+"Shipping method has been successfully deleted","Shipping method has been successfully deleted"
+"Record does not exist.","Record does not exist."
+"Table Rates","Table Rates"
+"Edit Method `%1`","Edit Method `%1`"
+"Add new Shipping Table Rate","Add new Shipping Table Rate"
+"Methods ","Methods "
+"Record(s) have been updated.","Record(s) have been updated."
+"We can't activate method(s) right now. Please review the log and try again. ","We can't activate method(s) right now. Please review the log and try again. "
+"Method(s) were successfully deleted","Method(s) were successfully deleted"
+"We can't delete method(s) right now. Please review the log and try again. ","We can't delete method(s) right now. Please review the log and try again. "
+"Shipping rates have been successfully saved","Shipping rates have been successfully saved"
+"Unable to find a record to save","Unable to find a record to save"
+"Unable to find a rate to delete","Unable to find a rate to delete"
+"Rate has been deleted","Rate has been deleted"
+"Unable to find a rate to save","Unable to find a rate to save"
+"Rate has been successfully saved","Rate has been successfully saved"
+"This rate already exist!","This rate already exist!"
+"must be less than","must be less than"
+Inactive,Inactive
+Active,Active
+"As in ""Ship Bundle Items"" setting","As in ""Ship Bundle Items"" setting"
+"From bundle product","From bundle product"
+"From items in bundle","From items in bundle"
+"From associated products","From associated products"
+"From parent product","From parent product"
+"Strings, e.g. AB2%","Strings, e.g. AB2%"
+"Numbers, e.g. from 111 to 222 or from AB2 to AB19","Numbers, e.g. from 111 to 222 or from AB2 to AB19"
+None,None
+"Volumetric weight attribute","Volumetric weight attribute"
+"Volume attribute","Volume attribute"
+"Dimensions attribute","Dimensions attribute"
+"Separate dimension attribute","Separate dimension attribute"
+"Specify a valid method ID.","Specify a valid method ID."
+"Shipping Address","Shipping Address"
+"New Address","New Address"
+"Shipping Methods","Shipping Methods"
+"Select Method","Select Method"
+Price,Price
+"Method Title","Method Title"
+"Carrier Title","Carrier Title"
+Next,Next
+"Sorry, no quotes are available for this order at this time","Sorry, no quotes are available for this order at this time"
+"Field ","Field "
+" is required."," is required."
+"Amasty Shipping Table Rates","Amasty Shipping Table Rates"
+"Enabled for Checkout","Enabled for Checkout"
+Title,Title
+"Ship to Applicable Countries","Ship to Applicable Countries"
+"Ship to Specific Countries","Ship to Specific Countries"
+"Displayed Error Message","Displayed Error Message"
+"Allow Free Shipping Promotions","Allow Free Shipping Promotions"
+"Ignore Price and Quantity of Virtual Products","Ignore Price and Quantity of Virtual Products"
+"Compare post codes as","Compare post codes as"
+"Use price AFTER discount","Use price AFTER discount"
+"Use price INCLUDING tax","Use price INCLUDING tax"
+"Sort order","Sort order"
+"Use only one shipping type for shipping method","Use only one shipping type for shipping method"
+"Show Method if Not Applicable","Show Method if Not Applicable"
+"Shipping Type for configurable products","Shipping Type for configurable products"
+"Shipping Type for bundle products:","Shipping Type for bundle products:"
+"Volume weight","Volume weight"
+Attribute,Attribute
+"Attribute 1","Attribute 1"
+"Attribute 2","Attribute 2"
+"Attribute 3","Attribute 3"
+"Shipping Factor","Shipping Factor"
+"Hide Shipping Table Rates","Hide Shipping Table Rates"
+CSV,CSV
+"Are you sure you want to delete the selected method(s)?","Are you sure you want to delete the selected method(s)?"
+Activate,Activate
+Inactivate,Inactivate
+ID,ID
+"Is Active","Is Active"

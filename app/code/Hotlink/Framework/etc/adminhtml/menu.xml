@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/menu.xsd">
+    <menu>
+        <add id="Hotlink_Framework::hotlink" module="Hotlink_Framework" sortOrder="100"
+             title="Hotlink"
+             resource="Hotlink_Framework::hotlink" />
+        <add id="Hotlink_Framework::framework" module="Hotlink_Framework" parent="Hotlink_Framework::hotlink" sortOrder="100"
+             title="Framework"
+             resource="Hotlink_Framework::framework" />
+        <add id="Hotlink_Framework::log" module="Hotlink_Framework" parent="Hotlink_Framework::framework" sortOrder="10"
+             title="Log"
+             action="hotlink_framework/log"
+             resource="Hotlink_Framework::log" />
+        <add id="Hotlink_Framework::interactions" module="Hotlink_Framework" parent="Hotlink_Framework::framework" sortOrder="20"
+             title="Interactions"
+             action="hotlink_framework/interactions"
+             resource="Hotlink_Framework::interactions" />
+        <add id="Hotlink_Framework::config" module="Hotlink_Framework" parent="Hotlink_Framework::framework" sortOrder="30"
+             title="Configuration"
+             action="adminhtml/system_config/edit/section/hotlink_framework"
+             resource="Hotlink_Framework::config" />
+    </menu>
+</config>

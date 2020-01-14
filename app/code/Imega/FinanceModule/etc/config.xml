@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+  <default>
+    <retailfinance>
+      <productpage>
+        <position_selector>#imegamedia-holder</position_selector>
+        <position>replace</position>
+      </productpage>
+      <cartpage>
+        <position_selector>#imegamedia-holder</position_selector>
+        <position>replace</position>
+      </cartpage>
+      <checkout_settings>
+        <position_selector>.page-title-wrapper</position_selector>
+        <payment_method>financegateway</payment_method>
+      </checkout_settings>
+    </retailfinance>
+  </default>
+</config>

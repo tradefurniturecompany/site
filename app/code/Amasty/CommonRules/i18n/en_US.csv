@@ -1,0 +1,91 @@
+Delete,Delete
+"Are you sure you want to do this?","Are you sure you want to do this?"
+Conditions,Conditions
+"Apply the rule only if the following conditions are met (leave blank for all products).","Apply the rule only if the following conditions are met (leave blank for all products)."
+Backorders,Backorders
+"Apply the rule to","Apply the rule to"
+"Cart Price Rules","Cart Price Rules"
+"Apply Rules Only With","Apply Rules Only With"
+"Coupon Codes","Coupon Codes"
+"Apply this rule with provided coupons only. Comma separated. Create coupon in <a href=""%1"">
+<span>Promotions / Shopping Cart Rules</span></a> area first.","Apply this rule with provided coupons only. Comma separated. Create coupon in <a href=""%1"">
+<span>Promotions / Shopping Cart Rules</span></a> area first."
+"Shopping Cart Rule (discount)","Shopping Cart Rule (discount)"
+"Apply this rule with ANY specified discount rules. Create rule in 
+<a target=""_blank"" href=""%1""><span>Promotions / Shopping Cart Price Rules</span></a> area first. 
+Useful when you have MULTIPLE coupons in one rule","Apply this rule with ANY specified discount rules. Create rule in 
+<a target=""_blank"" href=""%1""><span>Promotions / Shopping Cart Price Rules</span></a> area first. 
+Useful when you have MULTIPLE coupons in one rule"
+"Do NOT Apply Rules With","Do NOT Apply Rules With"
+"Coupon codes","Coupon codes"
+"Not apply this rule with provided coupons only. Comma separated. Create coupon in
+<a href=""%1""><span>Promotions / Shopping Cart Rules</span></a> area first.","Not apply this rule with provided coupons only. Comma separated. Create coupon in
+<a href=""%1""><span>Promotions / Shopping Cart Rules</span></a> area first."
+"Not apply this rule with ANY coupon from specified discount rules. Create rule in 
+<a href=""%1""><span>Promotions / Shopping Cart Price Rules</span></a> area first.
+Useful when you have MULTIPLE coupons in one rule","Not apply this rule with ANY coupon from specified discount rules. Create rule in 
+<a href=""%1""><span>Promotions / Shopping Cart Price Rules</span></a> area first.
+Useful when you have MULTIPLE coupons in one rule"
+"Days and Time","Days and Time"
+"Days of the Week","Days of the Week"
+"Leave empty or select all to apply the rule every day","Leave empty or select all to apply the rule every day"
+"Time From:","Time From:"
+"Time To:","Time To:"
+General,General
+Name,Name
+Status,Status
+"Stores & Customer Groups","Stores & Customer Groups"
+"Apply In","Apply In"
+"Admin Area","Admin Area"
+Stores,Stores
+"Leave empty or select all to apply the rule to any store","Leave empty or select all to apply the rule to any store"
+"Apply For","Apply For"
+"Customer Groups","Customer Groups"
+"Leave empty or select all to apply the rule to any group","Leave empty or select all to apply the rule to any group"
+"All orders","All orders"
+"Backorders only","Backorders only"
+"Non backorders","Non backorders"
+Replace,Replace
+Surcharge,Surcharge
+Discount,Discount
+Sunday,Sunday
+Monday,Monday
+Tuesday,Tuesday
+Wednesday,Wednesday
+Thursday,Thursday
+Friday,Friday
+Saturday,Saturday
+Active,Active
+Inactive,Inactive
+"Please select...","Please select..."
+contains,contains
+"does not contain","does not contain"
+"starts from","starts from"
+"ends with","ends with"
+"Please Choose a Condition to Add.","Please Choose a Condition to Add."
+"Products Subselection","Products Subselection"
+"Conditions Combination","Conditions Combination"
+"Cart Attribute","Cart Attribute"
+"Customer attributes","Customer attributes"
+"Purchases history","Purchases history"
+"Number of Completed Orders","Number of Completed Orders"
+"Total Sales Amount","Total Sales Amount"
+"total quantity","total quantity"
+"total amount excl. tax","total amount excl. tax"
+"total amount incl. tax","total amount incl. tax"
+"total weight","total weight"
+"Average Order Value","Average Order Value"
+"Number of Placed Orders","Number of Placed Orders"
+is,is
+"is not","is not"
+"equals or greater than","equals or greater than"
+"equals or less than","equals or less than"
+"greater than","greater than"
+"less than","less than"
+"is one of","is one of"
+"is not one of","is not one of"
+"Please choose condition","Please choose condition"
+"Order Status","Order Status"
+"Period after order was placed","Period after order was placed"
+"If %1 %2 %3 for a subselection of items in cart matching %4 of these conditions:","If %1 %2 %3 for a subselection of items in cart matching %4 of these conditions:"
+"Orders Subselection","Orders Subselection"

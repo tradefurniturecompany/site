@@ -1,0 +1,75 @@
+.homepage-finance {
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  color: @color-gray34;
+  h2, .offer {}
+  h2 {
+    margin-top:0;
+    .lib-font-size(20);
+    font-weight: bold;
+    color: @color-orange-red1;
+  }
+  .offer {
+    color: @primary__color;
+    .lib-font-size(8);
+  }
+  .details {
+    .lib-font-size(8);
+  }
+  small {
+    .lib-font-size(6);
+  }
+}
+
+@media (min-width: @screen__xs) {
+  .homepage-finance {
+    h2 {
+      .lib-font-size(30);
+    }
+    .offer {
+      .lib-font-size(12);
+    }
+    .details {
+      .lib-font-size(12);
+    }
+    small {
+      .lib-font-size(10);
+    }
+  }
+}
+
+@media (min-width: @screen__s) {
+  .homepage-finance {
+    h2 {
+      .lib-font-size(45);
+    }
+    .offer {
+      .lib-font-size(18);
+    }
+    .details {
+      .lib-font-size(18);
+    }
+    small {
+      .lib-font-size(12);
+    }
+  }
+}
+
+@media (min-width: @screen__m) {
+  .homepage-finance {
+    h2 {
+      .lib-font-size(60);
+    }
+    .offer {
+      .lib-font-size(24);
+    }
+    .details {
+      .lib-font-size(24);
+    }
+    small {
+      .lib-font-size(12);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="layout_generate_blocks_after">
+        <observer name="mw_seobase_observer_robots" instance="MageWorx\SeoBase\Model\Observer\Robots" />
+        <observer name="mw_seobase_observer_canonical" instance="MageWorx\SeoBase\Model\Observer\Canonical" />
+        <observer name="mw_seobase_observer_hreflangs" instance="MageWorx\SeoBase\Model\Observer\Hreflangs" />
+    </event>
+</config>

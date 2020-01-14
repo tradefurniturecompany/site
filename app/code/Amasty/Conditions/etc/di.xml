@@ -1,0 +1,9 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\Conditions\Api\Data\AddressInterface" type="Amasty\Conditions\Model\Address" />
+    <preference for="Amasty\Conditions\Api\Negotiable\TotalsInformationManagementInterface" type="Amasty\Conditions\Model\Negotiable\TotalsInformationManagement" />
+
+    <type name="Magento\Quote\Model\Cart\CartTotalRepository">
+        <plugin name="Amasty_Conditions::cart_total_repository_get" type="Amasty\Conditions\Plugin\Cart\CartTotalRepository" />
+    </type>
+</config>

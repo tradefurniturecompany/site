@@ -1,0 +1,30 @@
+._itemWidth(@i) when (@i > 0) {
+    .ammenu-item.-col-@{i} {
+        width: ~"calc(100%/@{i})";
+    }
+    ._itemWidth(@i - 1);
+}
+
+._trans(@del: .3s){
+    transition: @del all ease-in;
+}
+
+._scroll(@primary_color: grey, @width: 5px, @secondary_color: white) {
+    scrollbar-color: @primary_color @secondary_color;
+
+    &::-webkit-scrollbar {
+        width: @width;
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: @primary_color;
+        border-radius: 4px;
+        width: @width;
+        cursor: pointer;
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        width: @width;
+    }
+}

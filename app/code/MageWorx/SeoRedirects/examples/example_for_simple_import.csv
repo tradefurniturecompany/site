@@ -1,0 +1,4 @@
+"Request Identifier","Target URL","Redirect Code","Store View Code"
+"test","http://site.com/test.html","301","default"
+"iphone_8","http://site.com/iphone_x","302","second"
+"tablets","http://site.com/smartphones","301","all"

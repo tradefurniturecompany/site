@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="mageworx_seourls_router" xsi:type="array">
+                    <item name="class" xsi:type="string">\MageWorx\SeoUrls\Controller\Router</item>
+                    <item name="sortOrder" xsi:type="string">21</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoUrls\Helper\SeoUrlParser">
+        <arguments>
+            <argument name="parsers" xsi:type="array">
+                <item name="4" xsi:type="object">MageWorx\SeoUrls\Helper\UrlParser\Pager</item>
+                <item name="8" xsi:type="object">MageWorx\SeoUrls\Helper\UrlParser\Layer</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="\Magento\Theme\Block\Html\Pager">
+        <plugin name="mageworx_seourls_seo_pager_urls" type="\MageWorx\SeoUrls\Plugin\Pager\AroundGetPagerUrl" sortOrder="1"/>
+    </type>
+    <type name="\Magento\Catalog\Model\Layer\Filter\Item">
+        <plugin name="mageworx_seourls_seo_item_url" type="\MageWorx\SeoUrls\Plugin\LayerFilterItem\AfterGetUrl" sortOrder="1"/>
+    </type>
+    <type name="\Magento\Catalog\Model\Layer\Filter\Item">
+        <plugin name="mageworx_seourls_seo_item_remove_url" type="\MageWorx\SeoUrls\Plugin\LayerFilterItem\AfterGetRemoveUrl" sortOrder="1"/>
+    </type>
+    <type name="\Magento\Swatches\Block\LayeredNavigation\RenderLayered">
+        <plugin name="mageworx_seourls_seo_item_remove_url" type="\MageWorx\SeoUrls\Plugin\LayerSwatches\AfterGetSwatchData" sortOrder="1"/>
+    </type>
+    <type name="\Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin name="mageworx_seourls_seo_toolbar_urls" type="\MageWorx\SeoUrls\Plugin\Pager\AroundGetPagerUrl" sortOrder="1"/>
+    </type>
+    <type name="\MageWorx\LayeredNavigation\Block\Navigation\ApplyFilters">
+        <plugin name="mageworx_seourls_seo_applyfilters_url" type="\MageWorx\SeoUrls\Plugin\ApplyFilters\AroundGetBaseFiltersUrl" sortOrder="1"/>
+    </type>
+    <type name="\MageWorx\LayeredNavigation\Block\Navigation\UrlReplacer">
+        <plugin name="mageworx_seourls_seo_replace_url" type="\MageWorx\SeoUrls\Plugin\UrlReplacer\AroundGetCurrentConvertedUrl" sortOrder="1"/>
+    </type>
+    <preference for="Magento\Catalog\Model\Layer\FilterableAttributeListInterface" type="Magento\Catalog\Model\Layer\Category\FilterableAttributeList" />
+</config>

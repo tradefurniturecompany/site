@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageWorx_SeoCategoryGrid::seocategorygrid" title="MageWorx SEO Category Grid" module="MageWorx_SeoCategoryGrid" sortOrder="50" parent="Magento_Backend::marketing" resource="MageWorx_SeoCategoryGrid::seocategorygrid"/>
+        <add id="MageWorx_SeoCategoryGrid::categorygrid" title="SEO Category Grid" module="MageWorx_SeoCategoryGrid" sortOrder="65" parent="MageWorx_SeoCategoryGrid::seocategorygrid" action="mageworx_seocategorygrid/categorygrid/" resource="MageWorx_SeoCategoryGrid::categorygrid"/>
+    </menu>
+</config>

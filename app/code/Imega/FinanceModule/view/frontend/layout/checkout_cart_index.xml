@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © 2018 imegamedia
+*
+*/
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+    <referenceBlock name="checkout.cart.totals.container">
+      <block class="Magento\Framework\View\Element\Template" name="imegamedia.holder" template="Imega_FinanceModule::holder.phtml" after="checkout.cart.totals" />
+    </referenceBlock>
+    <referenceContainer name="before.body.end">
+      <block class="Imega\FinanceModule\Block\CartCalc" name="imegamedia.cart" as="imega-cart" template="Imega_FinanceModule::cartcalc.phtml">
+    </block>
+    </referenceContainer>
+  </body>
+</page>

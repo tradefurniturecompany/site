@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Payrestriction
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="Amasty\Payrestriction\Block\Adminhtml\Rule\Edit\Tabs" name="amasty_payrestriction_rule_edit_tabs">
+                <arguments>
+                    <argument name="id" xsi:type="string">amasty_payrestriction_rule_edit_tabs</argument>
+                    <argument name="dest_element_id" xsi:type="string">edit_form</argument>
+                    <argument name="title" xsi:type="string" translate="true">Shipping Rules Options</argument>
+                </arguments>
+                <block class="Amasty\Payrestriction\Block\Adminhtml\Rule\Edit\Tab\Restrictions" name="amasty_payrestriction_rule_edit_tab_restrictions"/>
+                <block class="Amasty\Payrestriction\Block\Adminhtml\Rule\Edit\Tab\StoresGroups" name="amasty_payrestriction_rule_edit_tab_stores_groups"/>
+                <block class="Amasty\Payrestriction\Block\Adminhtml\Rule\Edit\Tab\DayTime" name="amasty_payrestriction_rule_edit_tab_daystime"/>
+                <block class="Amasty\Payrestriction\Block\Adminhtml\Rule\Edit\Tab\Conditions" name="amasty_payrestriction_rule_edit_tab_conditions"/>
+                <block class="Amasty\Payrestriction\Block\Adminhtml\Rule\Edit\Tab\Coupons" name="amasty_payrestriction_rule_edit_tab_coupons"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">restrictions</argument>
+                    <argument name="block" xsi:type="string">amasty_payrestriction_rule_edit_tab_restrictions</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">stores_groups</argument>
+                    <argument name="block" xsi:type="string">amasty_payrestriction_rule_edit_tab_stores_groups</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">daystime</argument>
+                    <argument name="block" xsi:type="string">amasty_payrestriction_rule_edit_tab_daystime</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">conditions</argument>
+                    <argument name="block" xsi:type="string">amasty_payrestriction_rule_edit_tab_conditions</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">coupons</argument>
+                    <argument name="block" xsi:type="string">amasty_payrestriction_rule_edit_tab_coupons</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Amasty\Payrestriction\Block\Adminhtml\Rule\Edit" name="ampayrestriction_rule_edit"/>
+        </referenceContainer>
+    </body>
+</page>

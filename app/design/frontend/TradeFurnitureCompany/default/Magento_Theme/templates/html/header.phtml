@@ -1,0 +1,56 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header $block
+ */
+$welcomeMessage = $block->getWelcome();
+?>
+<?php switch ($block->getShowPart()):
+    case 'other': ?>
+        <?= $block->getChildHtml() ?>
+    <?php break; ?>
+
+<?php endswitch; ?>
+
+<script type="text/javascript"
+        xml="space">
+  require([
+    'jquery'
+  ], function ($) {
+
+    var stickyNavToggle = function () {
+      var body = $('body');
+      var pageHeader = $('.page-header');
+
+      if (window.pageYOffset >= pageHeader.height()) {
+        body.addClass("sticky-nav");
+      } else {
+        body.removeClass("sticky-nav");
+      }
+    };
+
+    var stickyBannerToggle = function () {
+      var body = $('body');
+      var stickyBanner = $('.sticky-banner');
+
+      if (window.pageYOffset >= stickyBanner.height()) {
+        body.addClass("sticky-banner");
+      } else {
+        body.removeClass("sticky-banner");
+      }
+    };
+
+    $(function () {
+      if ($(window).width() >= 768) {
+        window.addEventListener('scroll', stickyNavToggle);
+        window.addEventListener('scroll', stickyBannerToggle);
+      }
+    });
+  });
+</script>

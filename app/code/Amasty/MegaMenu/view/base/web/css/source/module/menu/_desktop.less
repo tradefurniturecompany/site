@@ -1,0 +1,38 @@
+//
+//  Amasty Mega Menu Desktop
+//  _________________________
+
+//
+//  Variables
+//  ---------------------------------------------
+@ammenu-menu__max-width: @layout__max-width; // for the fixed width layout
+@ammenu-menu-indent__width: @layout-indent__width;
+
+//
+//  Desktop
+//  --------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .ammenu-menu-wrapper.-desktop {
+        display: none;
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .ammenu-nav-sections {
+        display: block;
+    }
+    
+    .ammenu-menu-wrapper.-desktop {
+        ._ammenu-menu-wrapper.-desktop;
+    
+        .ammenu-main-container {
+            padding-right: @ammenu-menu-indent__width;
+            padding-left: @ammenu-menu-indent__width;
+        }
+    }
+}

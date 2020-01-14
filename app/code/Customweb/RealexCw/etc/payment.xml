@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/payment.xsd">
+    <groups>
+        <group id="realexcw">
+            <label>Realex</label>
+        </group>
+    </groups>
+    <methods>
+        <method name="realexcw_creditcard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="realexcw_visa">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="realexcw_mastercard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="realexcw_americanexpress">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="realexcw_lasercard">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="realexcw_diners">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="realexcw_directdebits">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="realexcw_giropay">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="realexcw_paypal">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method>
+    </methods>
+</payment>

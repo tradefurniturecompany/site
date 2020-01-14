@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\MegaMenu\Api\Data\Menu\LinkInterface" type="Amasty\MegaMenu\Model\Menu\Link" />
+    <preference for="Amasty\MegaMenu\Api\LinkRepositoryInterface" type="Amasty\MegaMenu\Model\Repository\LinkRepository" />
+    <preference for="Amasty\MegaMenu\Api\Data\Menu\ItemInterface" type="Amasty\MegaMenu\Model\Menu\Item" />
+    <preference for="Amasty\MegaMenu\Api\ItemRepositoryInterface" type="Amasty\MegaMenu\Model\Repository\ItemRepository" />
+
+    <type name="Amasty\MegaMenu\Model\ResourceModel\Menu\Link\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_menu_link</argument>
+            <argument name="eventPrefix" xsi:type="string">amasty_menu_link_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">amasty_menu_link_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\MegaMenu\Model\ResourceModel\Menu\Link</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amasty_megamenu_link_listing_data_source"
+                      xsi:type="string">Amasty\MegaMenu\Model\ResourceModel\Menu\Link\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\MegaMenu\Model\OptionSource\ColorTemplate">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="light" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Light</item>
+                    <item name="menu_background" xsi:type="string">#F4F4F4</item>
+                    <item name="menu_text" xsi:type="string">#363636</item>
+                    <item name="submenu_background" xsi:type="string">#FFFFFF</item>
+                    <item name="submenu_text" xsi:type="string">#363636</item>
+                    <item name="category_hover_color" xsi:type="string">#1787E0</item>
+                    <item name="toggle_icon_color" xsi:type="string">#757575</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\MegaMenu\Model\OptionSource\ColorTemplate">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="dark" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Dark</item>
+                    <item name="menu_background" xsi:type="string">linear-gradient(180deg, #4B4947 0%, #262524 100%)</item>
+                    <item name="menu_text" xsi:type="string">#FCFCFC</item>
+                    <item name="submenu_background" xsi:type="string">#292826</item>
+                    <item name="submenu_text" xsi:type="string">#FCFCFC</item>
+                    <item name="category_hover_color" xsi:type="string">#1787E0</item>
+                    <item name="toggle_icon_color" xsi:type="string">#757575</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\MegaMenu\Model\OptionSource\ColorTemplate">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="dark_blue" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Bright Blue</item>
+                    <item name="menu_background" xsi:type="string">linear-gradient(180deg, #232D6A 0%, #364A93 92.19%)</item>
+                    <item name="menu_text" xsi:type="string">#EAE8F5</item>
+                    <item name="submenu_background" xsi:type="string">#5C89E4</item>
+                    <item name="submenu_text" xsi:type="string">#FFFFFF</item>
+                    <item name="category_hover_color" xsi:type="string">#74CBED</item>
+                    <item name="toggle_icon_color" xsi:type="string">#757575</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

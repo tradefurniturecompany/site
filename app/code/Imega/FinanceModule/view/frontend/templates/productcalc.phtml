@@ -1,0 +1,52 @@
+<?php
+/**
+ * Copyright © 2018 imegamedia. All rights reserved.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+
+<?php
+if ($this->helper('Imega\FinanceModule\Helper\ProductData')->widgetIsEnabled()){
+  $apiKey = $this->helper('Imega\FinanceModule\Helper\Data')->getApiKey();
+  $element = $this->helper('Imega\FinanceModule\Helper\ProductData')->getPositionSelector();
+  $anchorMargin = $this->helper('Imega\FinanceModule\Helper\ProductData')->getMargin();
+  $anchorWidth = $this->helper('Imega\FinanceModule\Helper\ProductData')->getWidth();
+  $priceElement = $this->helper('Imega\FinanceModule\Helper\ProductData')->getPriceElement();
+  $priceElementInner = $this->helper('Imega\FinanceModule\Helper\ProductData')->getInnerPriceElement();
+  $anchorPosition = $this->helper('Imega\FinanceModule\Helper\ProductData')->getPosition();
+  $showInline = $this->helper('Imega\FinanceModule\Helper\ProductData')->showInline();
+  $inlineSelector = $this->helper('Imega\FinanceModule\Helper\ProductData')->getInlineSelector();
+  $product = $block->getProduct();
+  $productPrice = $product->getFinalPrice();
+  $productDesc = htmlspecialchars($product->getName(), ENT_QUOTES);
+  if (null !== $product->getCustomAttribute('imegamedia_finance_filter')) {
+    $financeFilter = $product->getCustomAttribute('imegamedia_finance_filter')->getValue();
+  } else {
+    $financeFilter = 'ALL';
+  }
+?>
+  <script>
+  require([
+    'imegawidget'
+  ], function(imm){
+    imm.init({
+      apiKey: '<?php echo $apiKey ?>',
+      amount: '<?php echo $productPrice ?>',
+      description: '<?php echo $productDesc ?>',
+      financeFilter: '<?php echo $financeFilter?>',
+      insertion: '<?php echo $anchorPosition ?>',
+      element: '<?php echo $element ?>',
+      priceElement: '<?php echo $priceElement ?>',
+      priceElementInner: '<?php echo $priceElementInner ?>',
+      margin: '<?php echo $anchorMargin ?>',
+      width: '<?php echo $anchorWidth ?>',
+      <?php if($showInline) :?>
+      inlineSelector: '<?php echo $inlineSelector ?>',
+      inlineInsertMethod: 'append'
+      <?php endif ?>
+    });
+  });
+  </script>
+
+<?php } ?>

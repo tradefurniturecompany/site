@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="MageWorx\SeoRedirects\Block\Adminhtml\Redirect\Custom\Edit" name="mageworx_seoredirects_customredirect_create"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="MageWorx\SeoRedirects\Block\Adminhtml\Redirect\Custom\Edit\Tabs" name="widget_instance_edit_tabs">
+                <block class="MageWorx\SeoRedirects\Block\Adminhtml\Redirect\Custom\Edit\Tab\Properties" name="mageworx_custom_redirect_edit_tab_properties"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">properties_section</argument>
+                    <argument name="block" xsi:type="string">mageworx_custom_redirect_edit_tab_properties</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="js">
+            <block class="Magento\Backend\Block\Template" template="Magento_Widget::instance/js.phtml" name="widget_instance_js"/>
+        </referenceContainer>
+    </body>
+</page>

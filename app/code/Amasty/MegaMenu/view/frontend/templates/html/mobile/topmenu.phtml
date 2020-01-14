@@ -1,0 +1,39 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+?>
+<?php
+/** @var \Amasty\MegaMenu\Block\Html\Topmenu $block */
+?>
+
+<?php if (!$block->isHamburgerEnabled()) : ?>
+<section class="ammenu-menu-wrapper -mobile" data-ammenu-js="mobile-menu">
+    <nav class="ammenu-main-container" data-ammenu-js="tab-content">
+        <ul class="ammenu-items" data-ammenu-js="menu-items">
+            <?php foreach ($block->getMainNodes() as $mainNode) : ?>
+                <?php
+                $url = $mainNode->getUrl() ?: '#';
+                $mainNodeContent = $block->getCategoriesHtml($mainNode);
+                ?>
+                <li class="ammenu-item -main">
+                    <a href="<?= $block->escapeUrl($url) ?>"
+                       class="ammenu-link -main<?= ($mainNodeContent) ? ' -parent' : ''?> <?= /* @noEscape */ $block->getHighLightClass($mainNode)?>">
+                        <span class="ammenu-wrapper"><?= $block->escapeHtml($mainNode->getName()) ?></span>
+                    </a>
+                    <?php if ($mainNodeContent) : ?>
+                        <div class="ammenu-submenu-container ammenu-submenu" data-ammenu-js="collapse-content"  >
+                            <?= $mainNodeContent ?>
+                        </div>
+                        <div class="ammenu-toggle" data-ammenu-js="collapse-trigger">
+                            <span class="ammenu-icon" data-ammenu-js="collapse-indicator"></span>
+                        </div>
+                    <?php endif;?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </nav>
+</section>
+<?php endif; ?>

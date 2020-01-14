@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="MageWorx_HtmlSitemap::sitemap.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="MageWorx\HtmlSitemap\Block\Sitemap\Container" template="MageWorx_HtmlSitemap::sitemap/container.phtml">
+                <block class="MageWorx\HtmlSitemap\Block\Sitemap\StoreSwitcher" as="store_switcher"     template="MageWorx_HtmlSitemap::sitemap/store_switcher.phtml"/>
+                <block class="MageWorx\HtmlSitemap\Block\Sitemap\Categories"    as="category_tree"      template="MageWorx_HtmlSitemap::sitemap/categories.phtml" >
+                    <block class="MageWorx\HtmlSitemap\Block\Sitemap\Products"  as="category_products"  template="MageWorx_HtmlSitemap::sitemap/products.phtml"/>
+                </block>
+                <block class="MageWorx\HtmlSitemap\Block\Sitemap\CmsPages"      as="cms_pages"          template="MageWorx_HtmlSitemap::sitemap/cms_pages.phtml"/>
+                <block class="MageWorx\HtmlSitemap\Block\Sitemap\Links"         as="links"              template="MageWorx_HtmlSitemap::sitemap/links.phtml"/>
+                <block class="MageWorx\HtmlSitemap\Block\Sitemap\CustomLinks"   as="custom_links"       template="MageWorx_HtmlSitemap::sitemap/custom_links.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

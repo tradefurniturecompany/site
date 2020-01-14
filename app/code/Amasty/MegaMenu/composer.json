@@ -1,0 +1,24 @@
+{
+    "name": "amasty/mega-menu",
+    "description": "Mega Menu By Amasty",
+    "require": {
+        "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0",
+        "amasty/base": ">=1.8.2"
+    },
+    "suggest": {
+        "amasty/mega-menu-page-builder": "Install mega-menu-page-builder module to activate PageBuilder and Mega Menu integration."
+    },
+    "type": "magento2-module",
+    "version": "1.4.0",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\MegaMenu\\": ""
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ammegamenu>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <color>
+                <color_template>custom</color_template>
+                <menu_background>#F4F4F4</menu_background>
+                <menu_highlight>#E6E6FA</menu_highlight>
+                <menu_text>#363636</menu_text>
+                <submenu_background>#FFFFFF</submenu_background>
+                <submenu_text>#363636</submenu_text>
+                <category_hover_color>#1787E0</category_hover_color>
+                <toggle_icon_color>#757575</toggle_icon_color>
+            </color>
+        </ammegamenu>
+    </default>
+</config>

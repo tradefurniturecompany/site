@@ -1,0 +1,127 @@
+Delete,Delete
+"Are you sure you want to delete this?","Are you sure you want to delete this?"
+"Save and Continue Edit","Save and Continue Edit"
+Save,Save
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"Enable mage-menu-pagebuilder module to activate PageBuilder and Mega Menu integration. Please, run the following command in the SSH: composer require amasty/mega-menu-page-builder","Enable mage-menu-pagebuilder module to activate PageBuilder and Mega Menu integration. Please, run the following command in the SSH: composer require amasty/mega-menu-page-builder"
+"We can't change item right now. Please review the log and try again.","We can't change item right now. Please review the log and try again."
+"A total of %1 record(s) have been changed.","A total of %1 record(s) have been changed."
+"No records have been changed.","No records have been changed."
+"The link have been deleted.","The link have been deleted."
+"Can't delete item right now. Please review the log and try again.","Can't delete item right now. Please review the log and try again."
+"This Custom Menu Item no longer exists.","This Custom Menu Item no longer exists."
+"Manage Custom Menu Items","Manage Custom Menu Items"
+"Edit Custom Menu Item # %1","Edit Custom Menu Item # %1"
+"New Custom Menu Item","New Custom Menu Item"
+"Custom Menu Items","Custom Menu Items"
+"We can't delete item right now. Please review the log and try again.","We can't delete item right now. Please review the log and try again."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"No records have been deleted.","No records have been deleted."
+"The Custom Menu Item was successfully saved.","The Custom Menu Item was successfully saved."
+"Something went wrong while saving the link data. Please review the error log.","Something went wrong while saving the link data. Please review the error log."
+"Please enter valid %1","Please enter valid %1"
+"Choose an option","Choose an option"
+Custom,Custom
+Disabled,Disabled
+"Full Width","Full Width"
+Auto,Auto
+Enabled,Enabled
+"Custom URL","Custom URL"
+"CMS Page","CMS Page"
+"Amasty Landing Page","Amasty Landing Page"
+"Not installed","Not installed"
+"Unable to save item with ID %1. Error: %2","Unable to save item with ID %1. Error: %2"
+"Unable to save new item. Error: %1","Unable to save new item. Error: %1"
+"Item with specified ID ""%1"" not found.","Item with specified ID ""%1"" not found."
+"Unable to remove item with ID %1. Error: %2","Unable to remove item with ID %1. Error: %2"
+"Unable to remove item. Error: %1","Unable to remove item. Error: %1"
+"Unable to save link with ID %1. Error: %2","Unable to save link with ID %1. Error: %2"
+"Unable to save new link. Error: %1","Unable to save new link. Error: %1"
+"Link with specified ID ""%1"" not found.","Link with specified ID ""%1"" not found."
+"Unable to remove link with ID %1. Error: %2","Unable to remove link with ID %1. Error: %2"
+"Unable to remove link. Error: %1","Unable to remove link. Error: %1"
+Edit,Edit
+"Delete %1","Delete %1"
+"Are you sure you wan't to delete a %1 link?","Are you sure you wan't to delete a %1 link?"
+"You can use the menu item Add Content for showing child categories.","You can use the menu item Add Content for showing child categories."
+"You can use the variable: {{child_categories_content}} for showing child categories.","You can use the variable: {{child_categories_content}} for showing child categories."
+"Welcome, %1!","Welcome, %1!"
+"Please login ","Please login "
+"Shop by Category","Shop by Category"
+-category,-category
+"Help & Settings","Help & Settings"
+"Add to Cart","Add to Cart"
+"In stock","In stock"
+"Out of stock","Out of stock"
+"Add to Wish List","Add to Wish List"
+"Add to Compare","Add to Compare"
+Apply,Apply
+Cancel,Cancel
+"Amasty MegaMenu","Amasty MegaMenu"
+"Mega Menu","Mega Menu"
+Information,Information
+General,General
+"Enable Sticky Menu","Enable Sticky Menu"
+"Enable Hamburger Menu For Categories","Enable Hamburger Menu For Categories"
+"Color Settings","Color Settings"
+"Color Scheme Template","Color Scheme Template"
+"Menu Background Color","Menu Background Color"
+"Active Menu Item Background Color","Active Menu Item Background Color"
+"Leave empty if no highlighting for active menu items is required","Leave empty if no highlighting for active menu items is required"
+"Menu Text Color","Menu Text Color"
+"Submenu Background Color","Submenu Background Color"
+"Submenu Text Color","Submenu Text Color"
+"Menu Item Hover Color","Menu Item Hover Color"
+"Hamburger Button Color","Hamburger Button Color"
+Light,Light
+Dark,Dark
+"Bright Blue","Bright Blue"
+"Amasty MegaMenu Products","Amasty MegaMenu Products"
+"List of Products","List of Products"
+Title,Title
+"Block Layout","Block Layout"
+Grid,Grid
+Slider,Slider
+"Number of Visible Items","Number of Visible Items"
+"Slider Width(px)","Slider Width(px)"
+"Slider Autoplay","Slider Autoplay"
+"Slider Autoplay Speed(ms)","Slider Autoplay Speed(ms)"
+"Show Product Options & 'Add to Cart' Button","Show Product Options & 'Add to Cart' Button"
+"Display Page Control","Display Page Control"
+"Number of Products per Page","Number of Products per Page"
+"Number of Products to Display","Number of Products to Display"
+Template,Template
+"Amasty Products Grid Template","Amasty Products Grid Template"
+"Cache Lifetime (Seconds)","Cache Lifetime (Seconds)"
+"
+                    Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.
+                ","
+                    Time in seconds between the widget updates.
+                    <br/>If not set, equals to 86400 seconds (24 hours). To update widget instantly, go to Cache Management and clear Blocks HTML Output cache.
+                    <br/>Widget will not show products that begin to match the specified conditions until cache is refreshed.
+                "
+Conditions,Conditions
+"Custom Menu Item","Custom Menu Item"
+Back,Back
+"URL Key","URL Key"
+"Relative to Web Site Base URL.","Relative to Web Site Base URL."
+"Sort Order","Sort Order"
+Status,Status
+"Submenu Width","Submenu Width"
+"Width (px)","Width (px)"
+"Menu Label Text","Menu Label Text"
+"Menu Label","Menu Label"
+"Text Color (hex)","Text Color (hex)"
+"Background Color (hex)","Background Color (hex)"
+"Content (For Desktop Only)","Content (For Desktop Only)"
+"Add New Custom Item","Add New Custom Item"
+"All Store Views","All Store Views"
+"Store View","Store View"
+"Delete items","Delete items"
+"Are you sure to delete selected links?","Are you sure to delete selected links?"
+ID,ID
+"Mega Menu (For Desktop Only)","Mega Menu (For Desktop Only)"
+"Number of Columns with Subcategories","Number of Columns with Subcategories"
+"If the value is 0, the number of columns equals to the number of child categories. The maximum is 10.","If the value is 0, the number of columns equals to the number of child categories. The maximum is 10."

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <markup>
+                <product>
+                    <rs_enabled>1</rs_enabled>
+                    <ga_enabled>1</ga_enabled>
+                    <ga_css_selector>.description</ga_css_selector>
+                    <disable_default_review>1</disable_default_review>
+                </product>
+                <category>
+                    <rs_enabled>1</rs_enabled>
+                    <og_enabled>1</og_enabled>
+                    <ga_enabled>1</ga_enabled>
+                    <ga_css_selector>.category-description</ga_css_selector>
+                    <robots_restriction>1</robots_restriction>
+                </category>
+                <landingpage>
+                    <rs_enabled>1</rs_enabled>
+                    <og_enabled>1</og_enabled>
+                    <robots_restriction>1</robots_restriction>
+                </landingpage>
+                <page>
+                    <ga_enabled>1</ga_enabled>
+                    <ga_css_selector>.cms-content</ga_css_selector>
+                </page>
+                <website>
+                    <rs_enabled>1</rs_enabled>
+                    <og_enabled>1</og_enabled>
+                </website>
+                <breadcrumbs>
+                    <rs_enabled>1</rs_enabled>
+                </breadcrumbs>
+            </markup>
+        </mageworx_seo>
+    </default>
+</config>

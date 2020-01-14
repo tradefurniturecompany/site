@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_cms_page_edit_tab_meta_prepare_form">
+        <observer
+            name="mageworx_xmlsitemap_observer_prepare_form_in_xml_sitemap"
+            instance="MageWorx\XmlSitemap\Model\Observer\PrepareForm\CmsPage\InSitemap"
+        />       
+    </event>
+</config>

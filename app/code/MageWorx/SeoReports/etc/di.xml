@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- API -->
+    <preference for="MageWorx\SeoReports\Api\Data\CategoryReportInterface" type="MageWorx\SeoReports\Model\CategoryReport"/>
+    <preference for="MageWorx\SeoReports\Api\Data\ProductReportInterface" type="MageWorx\SeoReports\Model\ProductReport"/>
+    <preference for="MageWorx\SeoReports\Api\Data\PageReportInterface" type="MageWorx\SeoReports\Model\PageReport"/>
+
+    <!-- UI Grids -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageworx_seoreports_category_listing_data_source" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\CategoryReport\Grid\Collection</item>
+                <item name="mageworx_seoreports_category_duplicate_listing_data_source" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\CategoryReport\Grid\DuplicateCollection</item>
+                <item name="mageworx_seoreports_product_listing_data_source" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\ProductReport\Grid\Collection</item>
+                <item name="mageworx_seoreports_product_duplicate_listing_data_source" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\ProductReport\Grid\DuplicateCollection</item>
+                <item name="mageworx_seoreports_page_listing_data_source" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\PageReport\Grid\Collection</item>
+                <item name="mageworx_seoreports_page_duplicate_listing_data_source" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\PageReport\Grid\DuplicateCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoReports\Model\ResourceModel\CategoryReport\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoreports_category</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoreports_category_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">mageworx_seoreports_category_grid</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\CategoryReport</argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoReports\Model\ResourceModel\ProductReport\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoreports_product</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoreports_product_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">mageworx_seoreports_product_grid</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\ProductReport</argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoReports\Model\ResourceModel\PageReport\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoreports_page</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoreports_page_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">mageworx_seoreports_page_grid</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\PageReport</argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoReports\Model\ResourceModel\CategoryReport\Grid\DuplicateCollection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoreports_category</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoreports_category_duplicate_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">mageworx_seoreports_category_duplicate_grid</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\CategoryReport</argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoReports\Model\ResourceModel\PageReport\Grid\DuplicateCollection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoreports_page</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoreports_page_duplicate_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">mageworx_seoreports_page_duplicate_grid</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\PageReport</argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoReports\Model\ResourceModel\ProductReport\Grid\DuplicateCollection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoreports_product</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoreports_product_duplicate_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">mageworx_seoreports_product_duplicate_grid</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\SeoReports\Model\ResourceModel\ProductReport</argument>
+        </arguments>
+    </type>
+
+    <!-- Factory for Report Generators -->
+    <type name="MageWorx\SeoReports\Model\GeneratorFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="catalog_category" xsi:type="string">MageWorx\SeoReports\Model\Generator\CategoryReportGenerator</item>
+                <item name="catalog_product" xsi:type="string">MageWorx\SeoReports\Model\Generator\ProductReportGenerator</item>
+                <item name="cms_page" xsi:type="string">MageWorx\SeoReports\Model\Generator\PageReportGenerator</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Specific filters for reports' grids -->
+    <virtualType name="MageWorxSeoreportsCategoryProblems" type="MageWorx\SeoReports\Ui\Component\Listing\Column\Problems">
+        <arguments>
+            <argument name="reportConfig" xsi:type="object">\MageWorx\SeoReports\Model\Config\Category</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="MageWorxSeoreportsPageProblems" type="MageWorx\SeoReports\Ui\Component\Listing\Column\Problems">
+        <arguments>
+            <argument name="reportConfig" xsi:type="object">\MageWorx\SeoReports\Model\Config\Page</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="MageWorxSeoreportsProductProblems" type="MageWorx\SeoReports\Ui\Component\Listing\Column\Problems">
+        <arguments>
+            <argument name="reportConfig" xsi:type="object">\MageWorx\SeoReports\Model\Config\Product</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Data Providers used for filling the report tables -->
+    <virtualType name="MageWorxSeoreportsCategoryDataProvider" type="MageWorx\SeoReports\Ui\Component\DataProvider">
+        <arguments>
+            <argument name="reportConfig" xsi:type="object">\MageWorx\SeoReports\Model\Config\Category</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoreportsPageDataProvider" type="MageWorx\SeoReports\Ui\Component\DataProvider">
+        <arguments>
+            <argument name="reportConfig" xsi:type="object">\MageWorx\SeoReports\Model\Config\Page</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoreportsProductDataProvider" type="MageWorx\SeoReports\Ui\Component\DataProvider">
+        <arguments>
+            <argument name="reportConfig" xsi:type="object">\MageWorx\SeoReports\Model\Config\Product</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Grid Actions Columns -->
+    <virtualType name="MageWorxSeoreportsCategoryActions" type="MageWorx\SeoReports\Ui\Component\Listing\Column\Actions">
+        <arguments>
+            <argument name="editUrl" xsi:type="string">catalog/category/edit</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoreportsPageActions" type="MageWorx\SeoReports\Ui\Component\Listing\Column\Actions">
+        <arguments>
+            <argument name="idForEdit" xsi:type="string">page_id</argument>
+            <argument name="editUrl" xsi:type="string">cms/page/edit</argument>
+            <argument name="useStoreForEditUrl" xsi:type="boolean">false</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoreportsProductActions" type="MageWorx\SeoReports\Ui\Component\Listing\Column\Actions">
+        <arguments>
+            <argument name="editUrl" xsi:type="string">catalog/product/edit</argument>
+        </arguments>
+    </virtualType>
+</config>

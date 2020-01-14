@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="TemplateProductApplyCommand" xsi:type="object">MageWorx\SeoXTemplates\Console\Command\TemplateProductApplyCommand</item>
+                <item name="TemplateCategoryApplyCommand" xsi:type="object">MageWorx\SeoXTemplates\Console\Command\TemplateCategoryApplyCommand</item>
+                <item name="TemplateLandingPageApplyCommand" xsi:type="object">MageWorx\SeoXTemplates\Console\Command\TemplateLandingPageApplyCommand</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MageWorxSeoXTemplatesTemplateProductGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">MageWorx_SeoXTemplates\Model\ResourceModel\Template\Product\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">MageWorxSeoXTemplatesGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoXTemplatesTemplateProductGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="MageWorx\SeoXTemplates\Model\ResourceModel\Template\Product\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoxtemplates_template_product</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoxtemplates_template_product_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">template_product_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx_SeoXTemplates\Model\ResourceModel\Template\Product</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageworx_seoxtemplates_template_product_listing_data_source" xsi:type="string">MageWorx\SeoXTemplates\Model\ResourceModel\Template\Product\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MageWorxSeoXTemplatesTemplateCategoryGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">MageWorx_SeoXTemplates\Model\ResourceModel\Template\Category\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">MageWorxSeoXTemplatesGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoXTemplatesTemplateCategoryGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="MageWorx\SeoXTemplates\Model\ResourceModel\Template\Category\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoxtemplates_template_category</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoxtemplates_template_category_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">template_category_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx_SeoXTemplates\Model\ResourceModel\Template\Category</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageworx_seoxtemplates_template_category_listing_data_source" xsi:type="string">MageWorx\SeoXTemplates\Model\ResourceModel\Template\Category\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="MageWorxSeoXTemplatesTemplateCategoryFilterGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">MageWorx_SeoXTemplates\Model\ResourceModel\Template\CategoryFilter\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">MageWorxSeoXTemplatesGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoXTemplatesTemplateCategoryFilterGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="MageWorx\SeoXTemplates\Model\ResourceModel\Template\CategoryFilter\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoxtemplates_template_categoryfilter</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoxtemplates_template_categoryfilter_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">template_categoryfilter_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx_SeoXTemplates\Model\ResourceModel\Template\CategoryFilter</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageworx_seoxtemplates_template_categoryfilter_listing_data_source" xsi:type="string">MageWorx\SeoXTemplates\Model\ResourceModel\Template\CategoryFilter\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="MageWorx\SeoXTemplates\Model\Template\ManagerFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="category" xsi:type="string">MageWorx\SeoXTemplates\Model\Template\Manager\Category</item>
+                <item name="categoryfilter" xsi:type="string">MageWorx\SeoXTemplates\Model\Template\Manager\CategoryFilter</item>
+                <item name="product" xsi:type="string">MageWorx\SeoXTemplates\Model\Template\Manager\Product</item>
+                <item name="landingpage" xsi:type="string">MageWorx\SeoXTemplates\Model\Template\Manager\LandingPage</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\DataProviderProductFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Product\Eav</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Product\Eav</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Product\Eav</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Product\Eav</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Product\Eav</item>
+                <item name="6" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Product\Eav</item>
+                <item name="7" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Product\Eav</item>
+                <item name="8" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Product\Gallery</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\DbWriterProductFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Product\Eav</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Product\Eav\Url</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Product\Eav</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Product\Eav</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Product\Eav</item>
+                <item name="6" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Product\Eav</item>
+                <item name="7" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Product\Eav</item>
+                <item name="8" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Product\Gallery</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\CsvWriterProductFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Product\Eav</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Product\Eav</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Product\Eav</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Product\Eav</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Product\Eav</item>
+                <item name="6" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Product\Eav</item>
+                <item name="7" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Product\Eav</item>
+                <item name="8" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Product\Gallery</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\ConverterProductFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="product_seo_name" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Product\SeoName</item>
+                <item name="url_key" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Product\Url</item>
+                <item name="short_description" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Product\ShortDescription</item>
+                <item name="description" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Product\Description</item>
+                <item name="meta_title" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Product\MetaTitle</item>
+                <item name="meta_description" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Product\MetaDescription</item>
+                <item name="meta_keyword" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Product\MetaKeywords</item>
+                <item name="media_gallery" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Product\Gallery</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\DataProviderCategoryFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Category\Eav</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Category\Eav</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Category\Eav</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Category\Eav</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\Category\Eav</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\DbWriterCategoryFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Category\Eav</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Category\Eav</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Category\Eav</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Category\Eav</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\Category\Eav</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\CsvWriterCategoryFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Category\Eav</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Category\Eav</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Category\Eav</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Category\Eav</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\Category\Eav</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\ConverterCategoryFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="category_seo_name" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\SeoName</item>
+                <item name="description" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\Description</item>
+                <item name="meta_title" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\MetaTitle</item>
+                <item name="meta_description" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\MetaDescription</item>
+                <item name="meta_keywords" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\MetaKeywords</item>
+            </argument>
+        </arguments>
+    </type>
+    <!--Category Filter-->
+    <type name="MageWorx\SeoXTemplates\Model\DataProviderCategoryFilterFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\CategoryFilter</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\CategoryFilter</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\CategoryFilter</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\CategoryFilter</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\CategoryFilter</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\DbWriterCategoryFilterFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\CategoryFilter</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\CategoryFilter</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\CategoryFilter</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\CategoryFilter</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\CategoryFilter</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\CsvWriterCategoryFilterFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\CategoryFilter</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\CategoryFilter</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\CategoryFilter</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\CategoryFilter</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\CategoryFilter</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\ConverterCategoryFilterFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\MetaTitle</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\MetaDescription</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\MetaKeywords</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\Description</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\Category\SeoName</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--Landing Pages -->
+    <type name="MageWorx\SeoXTemplates\Model\DataProviderLandingPageFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\LandingPage</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\LandingPage</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\LandingPage</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\LandingPage</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\LandingPage</item>
+                <item name="6" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\LandingPage</item>
+                <item name="7" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\LandingPage</item>
+                <item name="8" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\LandingPage</item>
+                <item name="9" xsi:type="string">MageWorx\SeoXTemplates\Model\DataProvider\LandingPage</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\DbWriterLandingPageFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\LandingPage</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\LandingPage</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\LandingPage</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\LandingPage</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\LandingPage</item>
+                <item name="6" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\LandingPage</item>
+                <item name="7" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\LandingPage</item>
+                <item name="8" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\LandingPage</item>
+                <item name="9" xsi:type="string">MageWorx\SeoXTemplates\Model\DbWriter\LandingPage</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\CsvWriterLandingPageFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="1" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\LandingPage</item>
+                <item name="2" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\LandingPage</item>
+                <item name="3" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\LandingPage</item>
+                <item name="4" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\LandingPage</item>
+                <item name="5" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\LandingPage</item>
+                <item name="6" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\LandingPage</item>
+                <item name="7" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\LandingPage</item>
+                <item name="8" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\LandingPage</item>
+                <item name="9" xsi:type="string">MageWorx\SeoXTemplates\Model\CsvWriter\LandingPage</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoXTemplates\Model\ConverterLandingPageFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="text_1" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\LandingPage\Text</item>
+                <item name="text_2" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\LandingPage\Text</item>
+                <item name="text_3" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\LandingPage\Text</item>
+                <item name="text_4" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\LandingPage\Text</item>
+                <item name="header" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\LandingPage\Header</item>
+                <item name="meta_title" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\LandingPage\MetaTitle</item>
+                <item name="meta_description" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\LandingPage\MetaDescription</item>
+                <item name="meta_keywords" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\LandingPage\MetaKeywords</item>
+                <item name="url_key" xsi:type="string">MageWorx\SeoXTemplates\Model\Converter\LandingPage\UrlKey</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="MageWorxSeoXTemplatesTemplateLandingPageGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">MageWorx_SeoXTemplates\Model\ResourceModel\Template\LandingPage\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">MageWorxSeoXTemplatesTemplateLandingPageGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoXTemplatesTemplateLandingPageGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="MageWorx\SeoXTemplates\Model\ResourceModel\Template\LandingPage\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoxtemplates_template_landingpage</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoxtemplates_template_landingpage_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">template_landingpage_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx_SeoXTemplates\Model\ResourceModel\Template\LandingPage</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageworx_seoxtemplates_template_landingpage_listing_data_source" xsi:type="string">MageWorx\SeoXTemplates\Model\ResourceModel\Template\LandingPage\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Fix for attribute scope for custom category attribute. @see https://github.com/magento/magento2/issues/13440 -->
+    <type name="MageWorx\SeoAll\Plugin\AddCategoryCustomAttributesPlugin">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="search_engine_optimization" xsi:type="array">
+                    <item name="category_seo_name" xsi:type="string">category_seo_name</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Installation call -->
+    <type name="MageWorx\SeoAll\Model\SetupInitiator">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="listeners" xsi:type="array">
+                    <item name="MageWorx_SeoXTemplates" xsi:type="string">MageWorx\SeoXTemplates\Setup\UpgradeSchema</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

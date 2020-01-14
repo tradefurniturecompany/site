@@ -1,0 +1,2264 @@
+commit 7ded8378d6d73fa6e7ed83fc5313af8496b5806c
+Merge: 05a770d b949c85
+Author: haitv282 <haitv282@gmail.com>
+Date:   Wed Jun 13 10:21:02 2018 +0700
+
+    Merge branch 'develop'
+    
+    # Conflicts:
+    #       composer.json
+
+commit b949c85a1991b29a6aa923cfb469beefd9e224f6
+Author: haitv282 <haitv282@gmail.com>
+Date:   Wed Jun 13 09:47:52 2018 +0700
+
+    Release v2.5.0
+
+commit 390a8c3f3e46161beb1d55ca201401ea763ed346
+Author: datvm <bambimo01@gmail.com>
+Date:   Wed Jun 13 08:57:06 2018 +0700
+
+    Fix item list toggle
+
+commit f61e99f56d33406940b978b7c21ea0337fc8ce18
+Author: datvm <bambimo01@gmail.com>
+Date:   Wed Jun 13 08:48:33 2018 +0700
+
+    Fix sample Seal CMS block
+
+commit 8808f5792d28faf16e14cdc955b796f8ae1cf503
+Author: datvm <bambimo01@gmail.com>
+Date:   Tue Jun 12 16:49:50 2018 +0700
+
+    Add sample seal CMS static block
+
+commit 93fc34ad06529171f3908605e3823e0b5b11da43
+Author: datvm <bambimo01@gmail.com>
+Date:   Tue Jun 12 10:27:02 2018 +0700
+
+    Fix show/hide product list toggle
+
+commit 9857efb717646b283a57f4fa5b5356e1ef150558
+Author: datvm <bambimo01@gmail.com>
+Date:   Mon Jun 11 15:05:10 2018 +0700
+
+    Format code & Add config to show/hide item list toggle
+
+commit de4f39d0f58c7d95aefbc723cdd974e1bb68a440
+Author: datvm <bambimo01@gmail.com>
+Date:   Mon Jun 11 10:54:09 2018 +0700
+
+    Update item qty animate
+
+commit a96d4c87b624a0efe8dd2035500809de34fe3d69
+Author: datvm <bambimo01@gmail.com>
+Date:   Fri Jun 8 13:43:16 2018 +0700
+
+    Minor fix for CMS static block
+
+commit 6a7d4637db545007b999cc23880e009167158a3a
+Author: datvm <bambimo01@gmail.com>
+Date:   Fri Jun 8 13:41:52 2018 +0700
+
+    Can hide items list 1h
+
+commit dea7752f18bfa042551af631cf9d02042429861a
+Author: datvm <bambimo01@gmail.com>
+Date:   Fri Jun 8 13:40:33 2018 +0700
+
+    Can hide items list
+
+commit 9d57a0603a5c5c17e46a806a0ccd761f2ffc11a6
+Author: datvm <bambimo01@gmail.com>
+Date:   Fri Jun 8 13:36:57 2018 +0700
+
+    Update qty reflect mini cart
+
+commit a65085735aa4845973bfaf81448543dd8978c373
+Author: datvm <bambimo01@gmail.com>
+Date:   Fri Jun 8 08:20:38 2018 +0700
+
+    Add layout 2 columns with floating column
+
+commit d341fd9d5ec7648bca95694acfb39aaacde1959f
+Author: datvm <bambimo01@gmail.com>
+Date:   Fri May 25 16:28:12 2018 +0700
+
+    Scroll page to empty fields on validation P.3 (fix)
+
+commit 451ee52415dd416834bf83b45db7709eab5da55a
+Author: datvm <bambimo01@gmail.com>
+Date:   Thu May 24 09:33:10 2018 +0700
+
+    Fix sortOrder for compatibility with custom address attributes
+
+commit 05a770d0c227a60568c72e9b569227aa59243529
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Wed May 23 10:39:47 2018 +0000
+
+    Update composer.json
+
+commit b724c01df5aa7c0cb48148674dbb9afbe7cd6c05
+Author: datvm <bambimo01@gmail.com>
+Date:   Wed May 23 14:15:45 2018 +0700
+
+    Show custom address attributes and follow their sortOrder properties set by third party extensions (Compatible with some custom attribute extensions: Tig_Postcode, Amasty_Orderattr, Bss_CheckoutCustomField)
+
+commit 2a087c5d10198e3a80576fa2a247d4cd9b9207e6
+Author: datvm <bambimo01@gmail.com>
+Date:   Wed May 23 08:19:28 2018 +0700
+
+    Check element before merging to avoid merging blank ones
+
+commit 6e7877300e0f8023972e43b0b15f2587d69ce54d
+Author: datvm <bambimo01@gmail.com>
+Date:   Wed May 16 11:24:09 2018 +0700
+
+    Fix bug cannot add the same amount of configurable products as their stock quantities
+
+commit 1062f90a9ad8420109c66988e93de395ec984e94
+Author: Brian <haitv282@gmail.com>
+Date:   Tue May 8 08:53:13 2018 +0000
+
+    Update composer.json
+
+commit c79f2bf0ac0220be616168253a964551e4f7b8f8
+Author: haitv282 <haitv282@gmail.com>
+Date:   Tue May 8 15:08:24 2018 +0700
+
+    Revert saveShippingInformation from Jimmy (waiting for new solution)
+
+commit 9a9c7c602167d97171a149b1d0512401857f3ebc
+Author: haitv282 <haitv282@gmail.com>
+Date:   Tue May 8 11:56:45 2018 +0700
+
+    Fix bug Item qty increment > 1
+
+commit 2a7b757b4f590635da8ad887cec7481549787fb4
+Author: datvm <bambimo01@gmail.com>
+Date:   Mon May 7 11:01:37 2018 +0700
+
+    Fix bug sometimes street fields not bound
+
+commit e3dca09211b27beceb215a1ae2f10e67ba1da023
+Author: datvm <bambimo01@gmail.com>
+Date:   Mon May 7 10:58:07 2018 +0700
+
+    Scroll page to empty fields on validation P.2 (fix)
+
+commit 17797879b79725200dfd54bad80535f45f73dfc4
+Author: Hieu Nguyen Minh <jimmy@mageplaza.com>
+Date:   Wed Apr 18 09:32:03 2018 +0000
+
+    update dependency
+
+commit eb944101043b9043953d1a927e74a6ea545dac4e
+Author: Hieu Nguyen Minh <jimmy@mageplaza.com>
+Date:   Wed Apr 18 08:00:43 2018 +0000
+
+    add shippingmethod exist check
+
+commit fe91e10bb7383cf6fefa120384b53981aca5a9ea
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Wed Apr 11 07:13:56 2018 +0000
+
+    Update system.xml
+
+commit 91653e07de65b7a2044f7d31ce0b8031eb00c97c
+Author: Jimmy <jimmy@mageplaza.com>
+Date:   Fri Apr 6 18:48:01 2018 +0700
+
+    push back copyright date
+
+commit 6bc53f2a7d8cedc2f5407ef2419a56fa46ccebd2
+Author: Jimmy <jimmy@mageplaza.com>
+Date:   Fri Apr 6 18:44:19 2018 +0700
+
+    add setShippingInformationAction - rewrite check
+
+commit ad2038fc128b17e85ba140931325c8181fb33064
+Author: Jimmy <jimmy@mageplaza.com>
+Date:   Fri Apr 6 18:42:39 2018 +0700
+
+    add setShippingInformation - reload when all fields entered
+
+commit c9b173adcb80e0ef3c54926f19bc51a8357fc6a8
+Author: haitv282 <haitv282@gmail.com>
+Date:   Mon Apr 2 16:51:12 2018 +0700
+
+    Update version
+
+commit d2e1969981c397480462f1ac7dd83c15d3607ffe
+Author: haitv282 <haitv282@gmail.com>
+Date:   Mon Apr 2 15:53:14 2018 +0700
+
+    Format code
+
+commit fc3947b27a2d26d573ced7279b4812e0f3ec2341
+Author: datvm <bambimo01@gmail.com>
+Date:   Tue Mar 27 14:19:28 2018 +0700
+
+    Fix bug customer attribute labels cannot be translated
+
+commit 2ff24a8ad1f11ef0ac20bc44a77bed4a514a1605
+Author: Jimmy <jimmy@mageplaza.com>
+Date:   Fri Mar 23 09:48:14 2018 +0700
+
+    register account
+
+commit f708fbacb562795fe915201e289be115fbf639f2
+Author: Jimmy <jimmy@mageplaza.com>
+Date:   Wed Mar 21 16:45:43 2018 +0700
+
+    fix logic code geoip
+
+commit 9de27a5046ee31b043b2a35d5cdf48c0e644c162
+Author: Jimmy <jimmy@mageplaza.com>
+Date:   Wed Mar 21 15:01:05 2018 +0700
+
+    refactor geoip, default country
+
+commit 4674ae827e3746932c72dcea7eefac9f1b097e5e
+Author: datvm <bambimo01@gmail.com>
+Date:   Wed Mar 21 11:29:34 2018 +0700
+
+    Scroll page to empty fields on validation (email/password, shipping/billing/new address, shipping/payment methods)
+
+commit a8dfc42cbf89e622b3b1d47ecaf7235c4a1f1355
+Author: Jimmy <jimmy@mageplaza.com>
+Date:   Wed Mar 21 10:46:38 2018 +0700
+
+    excluded GEOIP if not in restricted Countries
+
+commit c22687e20eaf5cecc5eefe01d7a9d3fa9226a14e
+Author: Jimmy <jimmy@mageplaza.com>
+Date:   Wed Mar 21 10:27:48 2018 +0700
+
+    excluded GEOIP if not in restricted Countries
+
+commit b7102bdc455d155bae56f4381ed44bcca22651a6
+Author: haitv282 <haitv282@gmail.com>
+Date:   Fri Mar 16 17:10:56 2018 +0700
+
+    Revert composer package name
+
+commit b9df99188e121b371b2cca5c8a8f560148e6423a
+Author: haitv282 <haitv282@gmail.com>
+Date:   Fri Mar 16 17:01:02 2018 +0700
+
+    update version composer
+
+commit b4469af3dd3da52226b96b65ec8c84e9e0c659a3
+Author: haitv282 <haitv282@gmail.com>
+Date:   Fri Mar 16 16:56:51 2018 +0700
+
+    Remove UG thua
+
+commit 673fa0f4c0e46d3226a0e8448f310df7f71bafdb
+Merge: f1c30fc 93a56f8
+Author: haitv282 <haitv282@gmail.com>
+Date:   Fri Mar 16 16:56:21 2018 +0700
+
+    Merge branches 'develop' and 'master' of gitlab.com:mageplaza/osc-m2 into develop
+    
+    # Conflicts:
+    #       composer.json
+
+commit f1c30fcfa56514f208c14749c20289be68db37c2
+Author: haitv282 <haitv282@gmail.com>
+Date:   Fri Mar 16 16:48:03 2018 +0700
+
+    Add tmp font name (error with old Core module)
+
+commit 0eeaea76fcc7fd8e10919064a0fb5525ce7326e9
+Author: haitv282 <haitv282@gmail.com>
+Date:   Fri Mar 16 15:51:42 2018 +0700
+
+    Fix bug: Customer cannot login after register via osc
+
+commit e8505687947613ed9fd1aef4386035a2a29e52df
+Author: haitv282 <haitv282@gmail.com>
+Date:   Fri Mar 16 08:44:08 2018 +0700
+
+    update acl
+
+commit fd32eb096b28aefb65d2d6995d6c3798a8c7b3dd
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Mar 15 18:13:40 2018 +0700
+
+    Move GeoIp to lib, change helper structure, format code
+
+commit 8d8438a8a9e00795e8d47305e271182a70cf8cf3
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Mar 15 09:57:30 2018 +0700
+
+    Correct helper function
+
+commit e9952e339bde73219bb577887b10ea3d5364af01
+Merge: d917162 677e66a
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Mar 8 17:07:21 2018 +0700
+
+    Merge remote-tracking branch 'origin/develop' into develop
+
+commit d91716203bf99e66b514534d3c4b0d2e002d8e0a
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Mar 8 17:05:47 2018 +0700
+
+    Format code & update copyright
+
+commit 677e66ac3e110b68cb19478b9c07b4cf933feae3
+Author: datvm <bambimo01@gmail.com>
+Date:   Thu Mar 8 17:04:37 2018 +0700
+
+    Fix bug some text not able to translated P.2
+
+commit 3cb77dd5497291a2d14b3bd2333edc835e6b0352
+Author: datvm <bambimo01@gmail.com>
+Date:   Thu Mar 8 16:59:39 2018 +0700
+
+    Fix bug some text not able to translated
+
+commit 9a9f7cbbcdf0a640fe16e077b5cb57376b999f7c
+Author: Jimmy <jimmy@mageplaza.com>
+Date:   Thu Mar 8 11:24:36 2018 +0700
+
+    add maxmind-reader to composer
+
+commit 7ed7853e0e81f1623bb66737338366330d2f2994
+Author: datvm <bambimo01@gmail.com>
+Date:   Thu Feb 8 15:43:18 2018 +0700
+
+    Test name
+
+commit 85a73d93f6500378ab89b3cf1b299015356a5dea
+Author: DESKTOP-70TS5HM\Mageplaza <bambimo01@gmail.com>
+Date:   Thu Feb 8 15:34:13 2018 +0700
+
+    Fix empty billing address when disable Show billing address and buy virtual products
+
+commit 084af4b21c459bfe33ee51d602edf9b5ac7a459d
+Author: Hieu Nguyen Minh <jimmy@mageplaza.com>
+Date:   Wed Jan 10 09:07:51 2018 +0000
+
+    remove duplicated id
+
+commit 93a56f883387652271eb0d0759447e5e27bf0c0f
+Author: Sam <sam@mageplaza.com>
+Date:   Thu Jan 4 17:24:07 2018 +0700
+
+    add UG
+
+commit 4b953aa49bf43408d3d18637be419186cd0e0ce2
+Author: Sam <sam@mageplaza.com>
+Date:   Thu Jan 4 17:23:53 2018 +0700
+
+    add UG
+
+commit 9c992f575132ef96abf2e82bb13ad10c5f6e6c74
+Author: Hieu Nguyen Minh <jimmy@mageplaza.com>
+Date:   Wed Dec 27 05:02:23 2017 +0000
+
+    enhance get default payment methods
+
+commit c23ef7c25af74bd443ad16cd65dceee8a8209115
+Merge: 2dee026 564f38b
+Author: haitv282 <haitv282@gmail.com>
+Date:   Fri Dec 22 14:58:06 2017 +0700
+
+    Merge remote-tracking branch 'origin/develop' into develop
+
+commit 2dee026ae035b95ddb63cdcd4e02f7bcc83f760b
+Author: haitv282 <haitv282@gmail.com>
+Date:   Fri Dec 22 14:56:03 2017 +0700
+
+    Fix bug cannot reload shipping method with country use region field
+
+commit b6a6a57c99ec9fabf5973afe67bb75960489cc3f
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Dec 14 02:20:07 2017 +0000
+
+    Update composer.json
+
+commit 564f38b74f53a535e7e177fb36d26774af771b56
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Dec 14 08:51:44 2017 +0700
+
+    fix bug error if no default address, error with virtual order and addressList > 1
+
+commit 9db6f134ef27cc2bde66ee5bffeeee9bc9239a9d
+Author: haitv282 <haitv282@gmail.com>
+Date:   Tue Dec 12 11:43:30 2017 +0700
+
+    Fix bug cannot get payment method for virtual order (customer logged in)
+
+commit da8003b1be1dde3063d27f39691ddc46470c42cc
+Author: haitv282 <haitv282@gmail.com>
+Date:   Tue Dec 12 11:42:43 2017 +0700
+
+    Fix bug create account when checkout 2.2.1
+
+commit 53b1a152cb6428533d37b968c980f48968b81ef4
+Author: haitv282 <haitv282@gmail.com>
+Date:   Tue Dec 12 11:42:11 2017 +0700
+
+    Fix bug redirect to Osc with configurable product
+
+commit 7b3f702af91fa8927bd2e30ea42505d1741eaab8
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Tue Nov 14 18:10:13 2017 +0700
+
+    fix create account osc 2.1.x
+
+commit e2c6178d6abc85dab956c6f896716d08e0b7e648
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Mon Oct 23 08:47:28 2017 +0700
+
+    Fix compatible Amazon Pay
+
+commit fea195f74b1ba3d99c7b19689c4f70140a51ccd9
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Fri Oct 20 15:01:06 2017 +0700
+
+    Compatible Amazon pay
+
+commit 32eb54d572d9d8fa4108c09a402805c9bbe450ea
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Thu Oct 19 17:33:33 2017 +0700
+
+    Improve: add email to quote
+
+commit 77e17d664fea9636c0eb7968b042abfc509b3f8b
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Thu Oct 19 16:50:04 2017 +0700
+
+    fix billing address: getCacheKey of null
+
+commit 5fca5ac05d47b6da9eb05298761d67f77e4d83e8
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Thu Oct 19 16:47:38 2017 +0700
+
+    Improve: Add email to quote
+
+commit 8f17f08a391f89c556506299f49eff34043cdd75
+Merge: 2340731 50a2840
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Oct 19 13:08:36 2017 +0700
+
+    Merge branches 'develop' and 'master' of gitlab.com:mageplaza/osc-m2 into develop
+    
+    # Conflicts:
+    #       composer.json
+
+commit 234073152316f2588546fa5a61d24e156805bcb0
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Oct 19 13:01:59 2017 +0700
+
+    Merge branch 'develop' of gitlab.com:mageplaza/osc-m2 into develop
+    
+    # Conflicts:
+    #       Helper/Config.php
+
+commit f235009d098aa9de9c388e3af5186a6e57f1938e
+Merge: 8c31718 621af42
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Oct 19 12:58:54 2017 +0700
+
+    Merge branch 'develop' of gitlab.com:mageplaza/osc-m2 into develop
+
+commit 8c31718e7972f50fbcb0c04f36812897451982d6
+Merge: e65a9ce dccefe3
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Oct 19 12:57:51 2017 +0700
+
+    Merge branch 'develop' of gitlab.com:mageplaza/osc-m2 into develop
+    
+    # Conflicts:
+    #       Helper/Config.php
+
+commit 621af429ac9f3e9cddce0593c21388dbd87c19b2
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Thu Oct 19 11:29:34 2017 +0700
+
+    fix "OSC 69 - Lỗi Term Agreement khi chọn payment = paypal"
+
+commit e65a9cebab8ed83e569b6f70a9f0c175e59dcda0
+Author: haitv282 <haitv282@gmail.com>
+Date:   Thu Oct 19 10:18:13 2017 +0700
+
+    EQP + comment
+
+commit dccefe3cb0bf3e16aa2d62b5a4de51625c1a2802
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Thu Oct 19 09:58:04 2017 +0700
+
+    fix "check term and condition"
+
+commit dca57a7bee28b03592fda19a2b0470d213e58ea9
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Wed Oct 18 17:00:51 2017 +0700
+
+    fix "validation term and conditions when term and conditions show in payment area"
+
+commit a2a6afe586f03daa2f5e2898b67ca12c6302927c
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Wed Oct 18 15:39:19 2017 +0700
+
+    fix "create account with paypal"
+
+commit d663bde11f516542135218efa36f9fe1b9cfb675
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Wed Oct 18 15:27:56 2017 +0700
+
+    fix "paypal"
+
+commit ee2237b1c46d584c43f9cdc1e9870fdb199ebf99
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Wed Oct 18 13:54:26 2017 +0700
+
+    fix "street undefined"
+
+commit aa4052763def81e63fa7dc6f9d4cff33a1a5ff96
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Wed Oct 18 11:23:45 2017 +0700
+
+    fix "OSC-68 material - Lỗi không lưu message order trong admin khi order thành công"
+
+commit a1998a0e6b1488062fafe409e026e4d8dc7dc563
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Wed Oct 18 10:51:04 2017 +0700
+
+    fix "OSC-65"
+
+commit 8d402ee631da2582b9d9cd5e487cc77c4acc58fb
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Tue Oct 17 17:10:54 2017 +0700
+
+    fix "Lỗi trang Succes khi Order thành công OSC-66"
+
+commit 0b3742ab9ccc63fbfc8c171e0c20ec9798bfed65
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Tue Oct 17 17:00:25 2017 +0700
+
+    fix "Lỗi ko hiện Message của Item ở Frontend OSC-67"
+
+commit b313eac194a7b5f080254b787f05ac7ea5b813be
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Tue Oct 17 15:56:15 2017 +0700
+
+    fix "Improve material OSC-63"
+
+commit 22a353e2ea1884491082e558778a873bfd1ca63c
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Tue Oct 17 15:03:33 2017 +0700
+
+    fix css "Improve payment method"
+
+commit 6142ab828b1b9072b9c47443610e18dc1a5e542d
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Mon Oct 16 17:13:26 2017 +0700
+
+    fixed "Can not place order with create account in magento 2.2.0"
+
+commit 517c0a402010d1e2d16e4423ca37868f76db59ff
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Fri Oct 13 16:19:13 2017 +0700
+
+    fix "Lỗi Manage Fields Page"
+
+commit 6a45d45cc2c609baac63268b96f808462f930b93
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Fri Oct 13 11:20:59 2017 +0700
+
+    Fix: "Can not place order with create account when missing the required fields, ex: Phone Number
+
+commit 25d6e50bd826972b32451189fd54e7d0f714ad46
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Fri Oct 6 16:40:41 2017 +0700
+
+    Save guest email address into quote
+
+commit aef17c9f58b8700cc07fe9feab9c5acb8efe083d
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Fri Oct 6 13:41:32 2017 +0700
+
+    fix can not save billing address when change payment method
+
+commit 827e8580925325b1bbc71d20dcaf2974a76b7921
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Fri Oct 6 11:48:10 2017 +0700
+
+    fix issue can not place order when create account with paypal express
+
+commit cacfc8abf9cf7a11cc4885a847fbf78d8773120b
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Fri Oct 6 10:37:37 2017 +0700
+
+    resolve conflict
+
+commit b643a508f66731ca2718161a6026b60ff1535b99
+Author: Tam <luongtam1101995>
+Date:   Fri Oct 6 09:53:53 2017 +0700
+
+    fix street field material design
+
+commit fc40572b9203a1a812491ad9f67eda8d3acd0d02
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Thu Oct 5 17:36:32 2017 +0700
+
+    fix the email was not saved when default checked checkbox news letter
+
+commit 6e2cfd2534facba3eb2ad65b3d120ef287c8f965
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Thu Oct 5 17:22:46 2017 +0700
+
+    fix for custom customer address attribute
+
+commit f03c7b92fd4d7551213101a41f7f4088449bf1a2
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Thu Oct 5 15:31:19 2017 +0700
+
+    fix Braintree Paypal get undefined shipping address
+
+commit a4b4627a779bd4c55a63a2c4a83cc21f75e6d870
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Wed Oct 4 17:26:35 2017 +0700
+
+    rename 'Field Management' to 'Manage Fields'
+
+commit 50a284014a6917429c266bf682c43c27eaed0565
+Author: Sam <sam@mageplaza.com>
+Date:   Wed Sep 27 11:05:52 2017 +0700
+
+    update docs
+
+commit 18525168e41ec713c3c3966677cb0ad6728abade
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Tue Aug 22 13:52:00 2017 +0700
+
+    fix old version Paypal Braintree, fix blocked popup Paypal Braintree
+
+commit a3dfe253dec39abdf70de01beb3aa0d1a93ac863
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Aug 16 00:58:09 2017 +0000
+
+    Update composer.json
+
+commit baa9c4925a9ac488504acc9cc309bc9f8f5f52fe
+Author: haitv282 <haitv282@gmail.com>
+Date:   Tue Aug 15 19:04:31 2017 +0700
+
+    solved conflict width sbb
+
+commit b1c9bc085128555b1b9ec36ee44b72192877be61
+Author: haitv282 <haitv282@gmail.com>
+Date:   Tue Aug 15 18:55:15 2017 +0700
+
+    solved conflict after merge
+
+commit 3f90b63e5484137b41958b217c487716c0afc47f
+Merge: 0e021c1 00e6fb4
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Aug 15 11:34:11 2017 +0000
+
+    Merge branch 'develop' into 'master'
+    
+    Develop
+    
+    See merge request !13
+
+commit 00e6fb45a824d2551a43abb077625ab959ddd0fd
+Merge: 01a84a5 0e021c1
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Aug 15 11:27:54 2017 +0000
+
+    Merge branch 'master' into 'develop'
+    
+    # Conflicts:
+    #   Block/Survey.php
+    #   Helper/Config.php
+    #   Observer/RedirectToOneStepCheckout.php
+    #   Setup/UpgradeData.php
+    #   etc/module.xml
+    #   i18n/en_US.csv
+    #   view/frontend/templates/onepage/success/survey.phtml
+    #   view/frontend/web/css/style.css
+    #   view/frontend/web/js/view/delivery-time.js
+    #   view/frontend/web/js/view/form/element/email.js
+
+commit 01a84a5d42b07f05169e59913c35fb1273f626ed
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Mon Aug 14 13:22:03 2017 +0700
+
+    Format code.
+
+commit 0b6a13cb4560dd302bbaca33dd5e6e0699ad45cc
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Fri Aug 11 22:18:58 2017 +0700
+
+    Fix responsive for devices 4 inch.
+
+commit 0e021c162201eed889c65ab2505fc5e1126e7db0
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri Aug 11 07:44:06 2017 +0000
+
+    Update README.md
+
+commit 0d7c7f783b4cd5139ba073b165b5fa08483e61e4
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Fri Aug 11 13:30:22 2017 +0700
+
+    Fix css osc.
+
+commit 80ec7a4ee5054f3171bc6257c5cd55e0d0d9f497
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Thu Aug 10 16:06:54 2017 +0700
+
+    Add comment config, fix House Security Code,Material design
+
+commit e6096ac1541830eac065aafbd98da64c3e61178f
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Thu Aug 10 15:50:56 2017 +0700
+
+    Add comment config, fix House Security Code,Material design
+
+commit 3633fed4e95d71f9f038da05c8e57a195986cbfa
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Wed Aug 9 18:34:22 2017 +0700
+
+    Fix design and Gift message items.
+
+commit 6fb74a75f5724637758b66f065c72615fc1c8ec6
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Wed Aug 9 12:52:03 2017 +0700
+
+    Fix checkbox filled_in
+
+commit 8e63c4ee1725380fc239b04d8ff522087a6eb54a
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Wed Aug 9 12:03:14 2017 +0700
+
+    Fix checkbox filled_in
+
+commit 450f3fa2c77409a18b183b1e46a7fd81d7da9431
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Aug 8 18:37:09 2017 +0700
+
+    Add pointer-events for input
+
+commit fa7d1ea0029ac3e6b88c07dcea5c3e98edce5fd4
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Aug 8 18:29:23 2017 +0700
+
+    Fix Material design and Compatible Social login on One Step Checkout page with Etheme_yourstore
+
+commit 421c0f1b64f100e9cd251c0bf6afc340754ae840
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Mon Aug 7 14:18:05 2017 +0700
+
+    Add ripple affect, fix survey,redirect to One Step Checkout page
+
+commit 3e75056b9bdea36cdf447de68db6df6f5da40e49
+Author: Tam <luongtam1101995>
+Date:   Fri Aug 4 16:10:05 2017 +0700
+
+    Add column "osc_order_house_security_code" and update version
+
+commit 95b184cf15107998e04b682730068a499252fb05
+Author: Tam <luongtam1101995>
+Date:   Thu Aug 3 16:41:29 2017 +0700
+
+    Compatible Mp Affiliate
+
+commit 8c06f59df27bc4792094121ac78dcfbcff9cf681
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Thu Aug 3 11:41:29 2017 +0700
+
+    Fix Compatible Themes
+
+commit 70cd82452e7723e08c501e905bea8581553cf4c9
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Wed Aug 2 18:27:52 2017 +0700
+
+    Fix material design
+
+commit c32215998f3c77fa150223886dca012962b999c9
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Wed Aug 2 16:16:25 2017 +0700
+
+    Fix default material color
+
+commit 06492510c1f3ce50c7e42a136f87051a7fb173de
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Wed Aug 2 16:02:03 2017 +0700
+
+    Format code
+
+commit 7e0456947a2b66f1445e85bb61bcdbd350d4b022
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Wed Aug 2 15:59:16 2017 +0700
+
+    Format code
+
+commit c73238649ce8500f5cebb2403da47332b1a08791
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Wed Aug 2 14:20:57 2017 +0700
+
+    Compatible Theme(Sm_agood)
+
+commit 9aec38f3835a425bfb7eea2dbf6fc3c3d1b239b0
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Wed Aug 2 10:29:36 2017 +0700
+
+    Compatible Theme(Etheme_yourstore)
+
+commit ec8c8adf36624bff40d8d18ae8b842de97b3a573
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Aug 1 19:20:18 2017 +0700
+
+    Material Design All
+
+commit 31285e751e488df8a384e5f701487ebbc5eaf7b7
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Aug 1 19:15:16 2017 +0700
+
+    Material Design
+
+commit a7de8a0756f6c441b702155c8126ea02b4ffc4e0
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Fri Jul 28 13:41:36 2017 +0700
+
+    compatible with module TIG_PostNL
+
+commit b4e9ec2255fe689f5f8af1558071e50dfd007b65
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Fri Jul 28 11:43:54 2017 +0700
+
+    compatible with module TIG_PostNL
+
+commit 2b487c4fd18633e64abe69c52dcb342c711e83fd
+Author: zero <tien.uet.qh2011@gmail.com>
+Date:   Fri Jul 28 10:00:45 2017 +0700
+
+    fix paypal-braintree for magento version 2.1.7
+
+commit 740376747a4f606a0d1b1555b0674bcc47acc8f0
+Author: Tam <Tam>
+Date:   Thu Jul 27 16:40:24 2017 +0700
+
+    House Security Code
+
+commit f9cd8a5460487bc4bdabd7e365fa0cc450e0a58f
+Merge: 2d9981d f66e5a7
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Tue Jul 25 09:37:22 2017 +0000
+
+    Merge branch 'fix_test_environments' into 'master'
+    
+    Fix Magento Marketplace Q&A Review
+    
+    See merge request !12
+
+commit 550ecb8bf0f7387bcde1bb43b5e3647d251e0792
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Jul 25 11:32:44 2017 +0700
+
+    Fix Geo Ip Config
+
+commit d70799aacfcc9b26792a150fc795affecfea02b7
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Jul 25 11:29:50 2017 +0700
+
+    Fix Geo Ip
+
+commit 2d9981d4da19b8a189f00f1f7e8e7d4786845a77
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Mon Jul 24 09:56:27 2017 +0000
+
+    Update README.md
+
+commit 4632398d02f90e9f78ff2e102bc31eca122f0862
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Mon Jul 24 09:56:22 2017 +0000
+
+    Update USER-GUIDE.md
+
+commit 66c5ad3bdafca4f0f343d5ace8ee5c4b1e92b697
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Mon Jul 24 14:13:09 2017 +0700
+
+    Fix Default Country, Email, Synchronous Shipping Method with Order Summary
+
+commit 82ca20ff3f7f553944dcba3ab2aa16c4010764e2
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Mon Jul 24 09:58:21 2017 +0700
+
+    Gift Message Items
+
+commit f66e5a7a4b18de9742d09790f12ca6de3ef6d890
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Sat Jul 22 09:24:15 2017 +0700
+
+    Fix test environments
+
+commit fe1918016872c587dc33af24dd3e44fe1530d814
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Jul 18 11:45:23 2017 +0700
+
+    Add LICENSE Geo IP and Compatible Amasty_ShippingTableRates
+
+commit 149fbef7749a5ecd710db1dd982676649276b5b3
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Jul 18 11:30:29 2017 +0700
+
+    Geo IP
+
+commit ea78f4e881eacdf6b562b5644648a44636d9edba
+Author: Sam <sam@mageplaza.com>
+Date:   Mon Jul 17 19:25:37 2017 +0700
+
+    Update CSV
+
+commit 594c0184c6e9dd6b603f7182c858fb59c8f28d94
+Author: Sam <sam@mageplaza.com>
+Date:   Thu Jul 13 12:03:30 2017 +0700
+
+    Update en_US.csv
+
+commit f6b7123d9722c6c9820508067e81637b94ce0754
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Tue Jul 4 02:39:45 2017 +0000
+
+    Update README.md
+
+commit a55c8dc798dbd3953f3c1712a7319f192a9b1f10
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Tue Jul 4 02:38:47 2017 +0000
+
+    Update USER-GUIDE.md
+
+commit 2337d06e50cff2043de0d851df6b6d84f3bb47a2
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri Jun 30 10:25:28 2017 +0000
+
+    Update composer.json
+
+commit 5c2d82d5aaf49f8046960021384834405d3cb15a
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri Jun 30 10:20:48 2017 +0000
+
+    Update composer.json
+
+commit 724455b8f6ab76bdbb968ab53fb323f60b18c24e
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri Jun 30 10:20:30 2017 +0000
+
+    Update composer.json
+
+commit 33ab1ab19ec012bde6d93f88b8168637530a0602
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri Jun 30 10:18:50 2017 +0000
+
+    Add new file
+
+commit 340c68d65244b00189f61d068c5fbcc6285bd54e
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri Jun 30 10:18:42 2017 +0000
+
+    Update README.md
+
+commit 646293e57e598dea7aee18185c346408993e019e
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri Jun 30 10:16:46 2017 +0000
+
+    Update README.md
+
+commit 83203465ab1cd28a16a3fdcf8c9443b3d1fc33e4
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri Jun 30 10:15:13 2017 +0000
+
+    Add new file
+
+commit 429549170f10b38fa7d64c6955440d7bccd96a82
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri Jun 30 10:14:24 2017 +0000
+
+    Update CHANGELOG
+
+commit 38df10b7954fd56bc4cc4a56aca4ed13534969ed
+Merge: 008bad6 355e3ef
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Thu Jun 29 09:49:02 2017 +0000
+
+    Merge branch 'develop' into 'master'
+    
+    Develop
+    
+    See merge request !10
+
+commit 355e3ef80cbb57d1e78a95e9e58ebd044b7fc961
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Thu Jun 29 09:49:00 2017 +0000
+
+    Develop
+
+commit 7c50405da656e89f758149d717cf725c57c25c3b
+Merge: 7b1d03d 008bad6
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Thu Jun 29 09:48:08 2017 +0000
+
+    Merge branch 'master' into 'develop'
+    
+    # Conflicts:
+    #   etc/adminhtml/system.xml
+
+commit 008bad689c9a46575c4a63d5e55447e9aff3f8ca
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Thu Jun 29 09:31:27 2017 +0000
+
+    Add changelog
+
+commit 7b1d03d51b132d1bd133ec865fc91fceebf2fdf5
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Jun 27 17:25:12 2017 +0700
+
+    Move order comment to shipping method, Fix Gift Wrap, Fix bug default payment from admin and Compatible MultiSafepay,Add remove delivery time
+
+commit 39f7c253cf815e8dbb570adb653b2cbc791cd7a4
+Author: Jacker <ngovanvinh4895@gmail.com>
+Date:   Tue Jun 27 16:51:01 2017 +0700
+
+    Fix bug Shipping Method
+
+commit e62c14510e5fb4bcacf0cd0cdd9c4fa594b4dba4
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri May 19 07:42:41 2017 +0000
+
+    Update composer.json
+
+commit f825e03932d87fb42249e803133257099c6b8a3f
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Fri May 19 07:42:10 2017 +0000
+
+    Update composer.json
+
+commit 7155fb38c5e083e10167b88638af79364958af73
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Fri May 19 14:35:51 2017 +0700
+
+    Trigger login fix
+
+commit 9fd0066777719de71b41b3bb605c011eb79cb8a8
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Fri May 19 14:19:06 2017 +0700
+
+    Trigger login fix
+
+commit 28efaf8e5553b6c95cb3ef2582bfed6a74095708
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Fri May 19 14:16:32 2017 +0700
+
+    Trigger login
+
+commit d5d2c2e099d33f059ec81c8b634e556cb121b4cf
+Author: Brian <haitv282@gmail.com>
+Date:   Tue May 16 18:47:17 2017 +0700
+
+    small fix
+
+commit eca5f240e2ebc8c6afe063756a445824f7ccf000
+Merge: 8541867 24c6259
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Apr 24 11:52:13 2017 +0700
+
+    Merge remote-tracking branch 'origin/dev' into dev
+
+commit 85418679b52ce9225e269f60fff239efbed76a49
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Apr 24 11:51:41 2017 +0700
+
+    minor bugs
+
+commit 24c6259b647eb577343926371f742b614a50a689
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Fri Apr 21 14:25:52 2017 +0700
+
+    Fix url redirect to One Step Checkout page
+
+commit 4b05b6b43e73022251621a6a828af20bcd2780cf
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Fri Apr 21 14:20:39 2017 +0700
+
+    Fix bug qty not remove item when qty equal zero
+
+commit 66db35d9277f73b6ae03d76e7974a7cfe412793c
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Sun Apr 16 10:46:38 2017 +0700
+
+    After Adding a Product Redirect to OneStepCheckout Page
+
+commit 2d7ce38d8bc52117ea3a5589e220d045959d1515
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Sun Apr 16 10:24:41 2017 +0700
+
+    Survey features
+
+commit e6572dcc7598484b8b8ff8499120c491f4223615
+Merge: 968d27b cc0d262
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Apr 14 04:12:54 2017 +0000
+
+    Merge branch 'dev' into 'master'
+    
+    Dev
+    
+    See merge request !9
+
+commit cc0d262c15c7e5dc2553e122b1f7a2115e5bae98
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Apr 14 11:10:47 2017 +0700
+
+    refix deliverytime select day off & newsleter check default
+
+commit b0568486464a032c8a1ed24f02f2568337176472
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Apr 14 02:09:51 2017 +0700
+
+    Apply coupon block loading compatible with Magento 2.1.x
+
+commit b5f92aed72898d8944f3e04ba376450538d8a321
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Apr 13 23:54:18 2017 +0700
+
+    Refix Set default title: Commit b7162c8e
+
+commit 1140fb53a2d5d43e8d121e810aaf3de6062f1256
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Apr 13 23:51:28 2017 +0700
+
+    Refix Remove osc data Local Storage after place order: https://gitlab.com/mageplaza/osc-m2/commit/8c50c38e56bbed1abe2952a3cb7c2108c0af2438
+
+commit 82be4c8f24fff5f53a642f79d19a45aacbb4bbd4
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Apr 13 21:43:03 2017 +0700
+
+    Fix bug cannot validate agreement when placing order
+
+commit 968d27bda3cb1aa56b70b4ceb11dd23f75ee10f9
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Apr 12 20:03:47 2017 +0700
+
+    add if module enable to config social login link
+
+commit e9b4b76e1e7e8a5915d489fbb14e1dea8adb8e88
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Wed Apr 12 09:11:29 2017 +0000
+
+    Update composer.json
+
+commit 168b4d048b2422e91d197ec9daa841f48b12b576
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Apr 12 15:49:42 2017 +0700
+
+    Fix bug only disable guest checkout when osc enable
+
+commit 37bfdd8a63a96f631927723d40420daa124e48f4
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Wed Apr 12 07:27:42 2017 +0000
+
+    Update composer.json
+
+commit b6621c65084eff8786872242aa8de0c37e3f8040
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Wed Apr 12 07:26:15 2017 +0000
+
+    Update composer.json
+
+commit 8c50c38e56bbed1abe2952a3cb7c2108c0af2438
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Mon Apr 10 11:21:09 2017 +0700
+
+    Remove osc data Local Storage after place order
+
+commit 6afaae7d7e57f8fae20df94630144264cd516c94
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Sun Apr 9 06:22:30 2017 +0000
+
+    Update composer.json
+
+commit ef1d56dcc4525471b418f6459b66e84b0b3fb3e7
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Sun Apr 9 05:15:41 2017 +0000
+
+    Update composer.json
+
+commit 44ade5d2adc6c7dbd28f186b4201456a566e470f
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Sun Apr 9 04:27:58 2017 +0000
+
+    Update composer.json
+
+commit fa35f4b4889e4c553494eeb423e0304149cf3c9f
+Author: Sam Thomas <sam@mageplaza.com>
+Date:   Sun Apr 9 04:27:27 2017 +0000
+
+    Update composer.json
+
+commit 04c4c815cb7cbce146d55c5ac9b5630a00a77f52
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Sun Apr 9 09:06:05 2017 +0700
+
+    Fix bug Delivery Time: Days Off = Sun
+
+commit 239e6afca1a9337f7096138fb708d630c381664f
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Sun Apr 9 08:56:29 2017 +0700
+
+    Fix error Uncaught ReferenceError: Unable to process binding "blockLoader: function (){return isLoading }" on Magento version 2.1.3 or higher
+
+commit b7162c8eec32a74cdbda7a6ab0d2ad9bd33fedae
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Sat Apr 8 08:32:07 2017 +0700
+
+    Set default title
+
+commit abe1e63222c07eea53ab4fb3b71ddaf5b3650915
+Merge: a181257 90cf2f0
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Apr 7 04:12:46 2017 +0000
+
+    Merge branch 'dev' into 'master'
+    
+    Dev
+    
+    See merge request !8
+
+commit 90cf2f048c16cf4b94a5b7c551d8a6495b138218
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Apr 7 10:21:05 2017 +0700
+
+    minor bugs & comment
+
+commit 6ad947a6ae68e5a00e58c71ed86dd3d11593dc67
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Sun Apr 2 21:04:20 2017 +0700
+
+    fix css on mobile devices
+
+commit a18125701777c1049facbaf42e965940c6294ca6
+Merge: f093da4 0f30fb8
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Mar 30 08:27:36 2017 +0000
+
+    Merge branch 'dev' into 'master'
+    
+    Dev
+    
+    See merge request !7
+
+commit 0f30fb82c226244bcd0ac628cf7179ec58eefb93
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Mar 30 15:08:29 2017 +0700
+
+    fix bug create account for virtual order
+
+commit 18b442e1193c632279bf841a6cfc6e9b99f5c127
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Mar 28 16:20:15 2017 +0700
+
+    optimize load shipping process when address is already filled
+
+commit 589ef763bcfacc6b275662973763ab6a8be6c654
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Mar 27 17:28:23 2017 +0700
+
+    color '#' bug + default active payment method 'vault'
+
+commit bc3732be474641c298e107f1c61f6319b9de1188
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Mar 27 14:26:20 2017 +0700
+
+    fix bug get payment method system.xml
+
+commit f093da4210a63729dff1e39dbcc05a75b5a252a1
+Merge: 1bd13dc dfecf4e
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Mar 22 10:11:01 2017 +0000
+
+    Merge branch 'dev' into 'master'
+    
+    Dev
+    
+    See merge request !6
+
+commit dfecf4e7df04a696e660825f33611874be661280
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Mar 22 17:06:59 2017 +0700
+
+    update payment method for virtual quote + style
+
+commit 1355c78407301de792638b8dea0c9c85081f70f0
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Mar 22 12:58:17 2017 +0700
+
+    css bug
+
+commit 00368667428c90990476ea87c5a0d1c1a050611f
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Mar 9 17:35:38 2017 +0700
+
+    collect total when address change + fix bug js billing address when login (has address)
+
+commit ffa87270d3893d237228b75aba3ae984e39985df
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Mar 6 17:11:56 2017 +0700
+
+    small bugs
+
+commit 1bd13dc12aa2b0be9a711084353e23e15a39a04b
+Merge: 16d9663 1e7db13
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Feb 17 03:52:38 2017 +0000
+
+    Merge branch 'dev' into 'master'
+    
+    Dev
+    
+    See merge request !5
+
+commit 1e7db13e0c5ca145adb4d025ff8e94c66d27b1af
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Feb 17 10:50:08 2017 +0700
+
+    fix bug + delivery time
+
+commit 7ab377c10214817cf8380a2188afae3705925c75
+Author: hp <ngovanvinh4895@gmail.com>
+Date:   Wed Feb 15 22:00:54 2017 +0700
+
+    Fix Date Format  Delivery Time
+
+commit 03b47dca63807785ea1a05e58b99f3865b799465
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Wed Feb 15 11:18:22 2017 +0700
+
+    Fix TOC from admin
+
+commit 0fbe6958b6bf3725c848bdeb087b46c1c216afb7
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Tue Feb 14 21:08:34 2017 +0700
+
+    Fix Default Payment Method
+
+commit 0e0036e0e8e51cb3273ed3f7f1fb4b3b4d9c32c9
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Sat Feb 11 08:54:54 2017 +0700
+
+    Fix Delivery Time
+
+commit 1a1aab8766a5c429b79a75e5fbf4d41af7c9a161
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Sat Feb 11 08:50:39 2017 +0700
+
+    Fix Delivery Time
+
+commit fda5f59e2bcabb812cb2ec846101841cc1813743
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Sat Feb 11 08:49:02 2017 +0700
+
+    Fix Delivery Time
+
+commit f63fcb4b8617fcbf22edf4810f7cd63747da5a48
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Wed Feb 8 00:25:41 2017 +0700
+
+    Delivery Time
+
+commit 16d966344deac712f8d238e7a47b3c363b61a417
+Merge: d19f5f3 5d78db6
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Jan 20 11:24:05 2017 +0000
+
+    Merge branch 'dev' into 'master'
+    
+    Dev
+    
+    See merge request !4
+
+commit 5d78db6ca628cd253145d2ad850730eca9a2fb74
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Jan 20 15:27:20 2017 +0700
+
+    add comment
+
+commit 71c63178a557faff955e83096f952ca370604463
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Tue Jan 17 16:39:35 2017 +0700
+
+    switch To-From Gift Message, add required password,Compatible MP Social Login
+
+commit aa4cf20e4cc8fe14fee323e68eceb9e4a5aae47b
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Wed Jan 11 09:16:39 2017 +0700
+
+    Fix Gift Message
+
+commit a9c32f8f321bb78e10bfe3c1fc6451297f568c01
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Tue Jan 10 14:26:20 2017 +0700
+
+    Fix Gift Message
+
+commit c1a6d95e0aad8595635d95f5ebd0db20da63bf08
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Wed Dec 28 08:29:15 2016 +0700
+
+    Gift Message
+
+commit d8f75e403d420d4cd7acd5e792997da7c1f61ab7
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Dec 26 14:57:12 2016 +0700
+
+    fix bug create account on magento > 2.1.1
+
+commit d19f5f3f791bbdff036e1663f2d2b8e2520f7bd8
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Dec 26 14:49:36 2016 +0700
+
+    revert change on master
+
+commit 28a49c89d8ff7acb3f4294675450deb3e19d5871
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Dec 26 14:39:17 2016 +0700
+
+    fix bug create account on magento > 2.1.1
+
+commit c4bced29e0dc81d0e53c39afaca9803ac57481c2
+Merge: 176918a a06d741
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Dec 22 07:51:25 2016 +0000
+
+    Merge branch 'dev' into 'master'
+    
+    Dev
+    
+    See merge request !3
+
+commit a06d741e5bf8851e02d800716ebdfd8484443352
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Dec 22 14:50:14 2016 +0700
+
+    bug design
+
+commit 4d2042161b09004beef38fb8a0cee8984e33467e
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Dec 20 17:40:35 2016 +0700
+
+    bug js on IE
+
+commit 7b734e37610b30552c935bf971d90687c3272936
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Dec 20 16:58:13 2016 +0700
+
+    set default config for giftwrap
+
+commit 4b7cb831c4fe575b8abcab66f671236ec737d020
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Dec 20 16:16:08 2016 +0700
+
+    field management
+
+commit 39c7eed4ffa2d4d4b45cf084301d9322634e4960
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Thu Dec 15 17:47:56 2016 +0700
+
+    Gift wrap thieu
+
+commit 72a0018eb9a692464f1e9de4a12acedcfe4366d3
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Thu Dec 15 17:44:13 2016 +0700
+
+    Gift wrap thieu
+
+commit 7dcf1c2ade5377989e0da425a1d3588d7ae129f0
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Thu Dec 15 17:16:01 2016 +0700
+
+    Gift wrap thieu
+
+commit 18284076021e209c97d02b3544d07539f0664d49
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Thu Dec 15 16:26:40 2016 +0700
+
+    Gift wrap
+
+commit 0e3c931478dc81a84326b49a137d4a58c83cd1f6
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Dec 14 14:33:14 2016 +0700
+
+    address position
+
+commit cccf96d8bd4a466d0b17b4717fa511a2ddb50a06
+Merge: bff6f2d b82f30d
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Dec 13 16:08:30 2016 +0700
+
+    Merge remote-tracking branch 'origin/dev' into dev
+    
+    # Conflicts:
+    #       view/frontend/templates/generator/css/design.phtml
+
+commit bff6f2dc93d8900e9e1868ce46092bb25ece03cd
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Dec 13 16:05:46 2016 +0700
+
+    position + popup login
+
+commit b82f30df87fc67b9a0990b638ad4bc30f185024d
+Author: Sam <sam@mageplaza.com>
+Date:   Wed Dec 7 18:10:19 2016 +0700
+
+    fix switch syntax
+
+commit 176918a34499527554c40d15f830aa5778a75a4a
+Merge: 66f0495 9386161
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Dec 6 08:21:15 2016 +0000
+
+    Merge branch 'dev' into 'master'
+    
+    fix bug create account and some design error
+    
+    See merge request !2
+
+commit 9386161b2f89af940ea5eb6e27d36a5ee3df9228
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Dec 6 15:17:33 2016 +0700
+
+    fix bug create account and some design error
+
+commit 66f04955c41226cf27b2ecc00d704f7965c692a8
+Author: Sam <sam@mageplaza.com>
+Date:   Mon Dec 5 18:55:50 2016 +0700
+
+    add readme, composer
+
+commit 4373e24c00a102a14f988155992ae1f1aaf767bf
+Merge: 3b1f2e3 de161ca
+Author: Sam <sam@mageplaza.com>
+Date:   Mon Dec 5 18:54:08 2016 +0700
+
+    Merge branch 'dev'
+    
+    # Conflicts:
+    #       Block/Adminhtml/Plugin/OrderViewTabInfo.php
+    #       Block/Checkout/LayoutProcessor.php
+    #       Block/Container.php
+    #       Block/Generator/Css.php
+    #       Controller/Index/Index.php
+    #       Helper/Config.php
+    #       Helper/Data.php
+    #       Model/System/Config/Source/Address/Suggest.php
+    #       Model/System/Config/Source/Design.php
+    #       Model/System/Config/Source/Enableddisabled.php
+    #       Model/System/Config/Source/Layout.php
+    #       Model/System/Config/Source/Payment/Methods.php
+    #       Model/System/Config/Source/Shipping/Methods.php
+    #       Setup/InstallSchema.php
+    #       etc/acl.xml
+    #       etc/adminhtml/menu.xml
+    #       etc/adminhtml/routes.xml
+    #       etc/adminhtml/system.xml
+    #       etc/config.xml
+    #       etc/frontend/di.xml
+    #       etc/frontend/routes.xml
+    #       etc/module.xml
+    #       i18n/en_US.csv
+    #       registration.php
+    #       view/adminhtml/layout/sales_order_view.xml
+    #       view/adminhtml/templates/order/additional.phtml
+    #       view/adminhtml/templates/order/view/comment.phtml
+    #       view/frontend/layout/onestepcheckout_index_index.xml
+    #       view/frontend/layout/sales_order_view.xml
+    #       view/frontend/requirejs-config.js
+    #       view/frontend/templates/description.phtml
+    #       view/frontend/templates/generator/css/design.phtml
+    #       view/frontend/templates/order/additional.phtml
+    #       view/frontend/templates/order/view/comment.phtml
+    #       view/frontend/web/css/images/review/btn-minus.png
+    #       view/frontend/web/css/images/review/btn-plus.png
+    #       view/frontend/web/css/images/review/btn-remove.png
+    #       view/frontend/web/js/action/set-checkout-information.js
+    #       view/frontend/web/js/model/payment-service.js
+    #       view/frontend/web/js/view/payment.js
+    #       view/frontend/web/js/view/review/addition.js
+    #       view/frontend/web/js/view/review/checkout-agreements.js
+    #       view/frontend/web/template/container/form/element/input.html
+    #       view/frontend/web/template/container/payment.html
+    #       view/frontend/web/template/container/summary.html
+
+commit de161ca71b7105f8f07d84f7c145b24a1e4b1bb4
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Dec 1 10:37:01 2016 +0700
+
+    coding standard
+
+commit 7b9a8f650fac791229e8169b28ce4a1dc3569fa9
+Author: s100 <s@s100>
+Date:   Wed Nov 30 17:24:53 2016 +0700
+
+    auto EQP
+
+commit d9bfd3084aaab9dad89ce1f93be8d0f84d5de392
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Nov 30 16:44:35 2016 +0700
+
+    coding standard
+
+commit 3b1f2e38ab08e7353a1e43d7adcecb1cd0778eed
+Author: Sam <sam@mageplaza.com>
+Date:   Wed Nov 30 16:30:29 2016 +0700
+
+    merge version 2
+
+commit 48e88e8ba41d446d8d27b073b7539246e18e5f7f
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Nov 30 13:40:01 2016 +0700
+
+    style & validate
+
+commit 012243e3f139c78cafdc99787ab4315d4f979e26
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Nov 29 14:49:04 2016 +0700
+
+    style & validate
+
+commit cfc7e4b27fe4e249acdeff873fc2928c23b6fb2f
+Merge: 61037bf ccfd137
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Nov 28 16:32:28 2016 +0700
+
+    Merge remote-tracking branch 'origin/dev' into dev
+
+commit 61037bff574cb6fccb9a56b3686d632981b0540c
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Nov 28 16:32:06 2016 +0700
+
+    style
+
+commit ccfd13700d593ec31c25518c839cf5d002d5c586
+Author: Sam <sam@mageplaza.com>
+Date:   Sat Nov 26 17:52:49 2016 +0700
+
+    add readme
+
+commit 77aa2a3913bcd4ac49c4f4b23c3824220181ead3
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Nov 26 17:29:53 2016 +0700
+
+    newsletter
+
+commit fab234eabcd96e683622646e89a6b9cf56986ecf
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Nov 26 14:50:39 2016 +0700
+
+    fix bug street
+
+commit a14dcf99eb181bd46d2053eb15316efe746231f8
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Nov 26 14:43:48 2016 +0700
+
+    fix bug street
+
+commit a87c52ca1dc3ad6cbc33bec2984b5c0bbd24076f
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Nov 26 14:20:14 2016 +0700
+
+    flat design style
+
+commit a21d4274e56ea9867b5e97779e1be38040da29e6
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 25 15:33:22 2016 +0700
+
+    commit
+
+commit 1a5272a9df7ac566cb65cef6b56f45eb36509346
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 25 13:59:42 2016 +0700
+
+    commit
+
+commit 11579f02f71827218343f02c9fb3040a4bd6fac5
+Merge: a90b547 b5add5b
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 25 13:53:35 2016 +0700
+
+    Merge remote-tracking branch 'origin/dev' into dev
+
+commit a90b54741b763c95ddc36c163faad413dde0495c
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 25 13:53:13 2016 +0700
+
+    commit
+
+commit b5add5b07bd05e612afffcd2e784e68a842d29ec
+Author: Sam <sam@mageplaza.com>
+Date:   Fri Nov 25 11:59:00 2016 +0700
+
+    add csv
+
+commit c6ae901b746e7b6256b10e6e70d4b93cf48b998d
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 25 11:36:11 2016 +0700
+
+    commit
+
+commit b0edf4b639b1d52e6db2e26b8b5f86f4983739b5
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 25 09:33:56 2016 +0700
+
+    commit
+
+commit 6b91602c36dd7bd188f8f20d3cf4c02123c6b12f
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 25 08:35:33 2016 +0700
+
+    commit
+
+commit d9496be2648ef9ed2880b482035bbd3dde94a595
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Nov 23 12:06:31 2016 +0700
+
+    customer login address
+
+commit 57737c87e12228d993713e9b06d13e7bb39d69fe
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Mon Nov 21 15:49:11 2016 +0700
+
+    Design shipping methods
+
+commit 4a9f06509743dd813337174e1154d32378355c30
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Nov 21 09:58:08 2016 +0700
+
+    default country
+
+commit 853db5592b5be48f427607daa94b0530907564ad
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 18 16:40:21 2016 +0700
+
+    remove default country in configuration
+
+commit 28d7998473ae3380681f1a73292a525128cf35d6
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 18 16:39:50 2016 +0700
+
+    default country for shipping method
+
+commit 8c6095088a0bd6923b38c603f18a1a1ffe4e6995
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 18 11:40:52 2016 +0700
+
+    fix bug cannot save shipping address
+
+commit 6ee8c0a11fdf360eb7fd7a00d264fd7bdad78a49
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Nov 16 10:55:38 2016 +0700
+
+    fix bug js require jquery
+
+commit 61bdfb25097cb9e6d6bafd8cdcf3841af48d405a
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Nov 15 17:59:07 2016 +0700
+
+    change default config
+
+commit 8065c3e36bbab2354b9ad6fd2cd167589e1b2feb
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Nov 15 17:42:43 2016 +0700
+
+    google
+
+commit 0ff48403fa428dc6b5c490e4e8e13ba1a0297e0a
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Nov 15 08:17:48 2016 +0700
+
+    shipping
+
+commit 881b15ed95ccec5402e4e1587843ed0b508ef25a
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Nov 14 16:16:23 2016 +0700
+
+    google auto complete
+
+commit ec8b0645c89da6df62b0b1e45a5da3b4a13408f9
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Nov 12 15:58:47 2016 +0700
+
+    google auto complete
+
+commit cf2bf19879c10c23b7dd316fa2e4e50b18387ad3
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 11 10:37:31 2016 +0700
+
+    Save order information
+
+commit c1e8d5cd349aea3741acae71923b255059847cc8
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Nov 10 17:03:35 2016 +0700
+
+    Save order information
+
+commit 5a5198c3cb7a97d97dd114456005196204372c32
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Nov 10 16:30:42 2016 +0700
+
+    Place order button
+
+commit 77ea44e258f637ebbe29cbefee58f2fe16d7456e
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Nov 10 16:30:19 2016 +0700
+
+    Place order button
+
+commit 750075d82e3a78be09da348082eb6f9626add29a
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Nov 9 17:51:18 2016 +0700
+
+    Place order button
+
+commit e6957142ad46abcc8c6d7aa2582dc4ce069c31d8
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Nov 4 15:48:00 2016 +0700
+
+    Place order button
+
+commit 2611cf0e2774eea905d2dc219b59ca5a27f9926f
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Nov 2 17:37:43 2016 +0700
+
+    lung tung
+
+commit fbeabc776f284c217026a53c92475b187adaf156
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Oct 31 16:03:54 2016 +0700
+
+    add google auto detect address key + fix bug specific country
+
+commit a1e85bad27a8ca541194334b0c99a8f363149bcd
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Oct 31 10:40:05 2016 +0700
+
+    fix bug get shipping method list with some provider don't have getAllowedMethods() function
+
+commit 872f1ab5eb4fd92452ba60f0d294e66e0cbc0a3a
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Oct 26 15:45:30 2016 +0700
+
+    address position + move billing address
+
+commit fde0bfe7ff990676f8735dea368bd0b1bc45ec54
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Oct 25 11:59:44 2016 +0700
+
+    up thieu
+
+commit 92a2e6315ffb34a2efc6100dd59ad52de5be3325
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Oct 25 11:58:57 2016 +0700
+
+    disable payment loading, set default payment/shipping method, style, correct Vinh's code
+
+commit 806397836e455a5ae0a17421fd2e3bb4b5de0c00
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Mon Oct 24 17:26:06 2016 +0700
+
+    Order comment and  Fix coupon code
+
+commit b2a33f2246d99128cc2a337b6a52dfcebde99212
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Oct 22 10:31:59 2016 +0700
+
+    remove billing address detail
+
+commit a75137bd461f9e47056458d7863668e7da35f2ff
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Oct 22 10:10:43 2016 +0700
+
+    correct style
+
+commit 1142d438aec109b58a07775f9f1136afc0dd76ee
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Oct 21 17:29:05 2016 +0700
+
+    add place order area
+
+commit 47e8686554e95ace263dbc9365fcb177379598fd
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Oct 21 14:14:52 2016 +0700
+
+    set default country for billing address, used for payment method depend country
+
+commit 5ef352954c31bac62d19b7cb08efd5634cd5cf8b
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Oct 21 13:48:36 2016 +0700
+
+    don't allow guest checkout if cart has downloadable product
+
+commit a832ed0dfd50952b4a0de5f27e099991fe89e006
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Oct 20 12:06:33 2016 +0700
+
+    format cart detail
+
+commit 42bae68281ad58e1b14b10bd354439023af43d6b
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Oct 20 10:58:12 2016 +0700
+
+    remove billing address from address area
+
+commit 96cacba97932f201f533c4eb508601bccc5e5967
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Oct 20 10:37:10 2016 +0700
+
+    review item button style
+
+commit a597c4c0c4aea3ceddf5d9db3e3bfff340672cbb
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Oct 20 10:10:02 2016 +0700
+
+    bug
+
+commit f18943f9fafe095585add2c1dac8ca9ac34c6f90
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Thu Oct 20 09:46:19 2016 +0700
+
+    css
+
+commit 8abbba6962e201f9c06e46d87c39109d0feec0cc
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Wed Oct 19 17:54:50 2016 +0700
+
+    comit ajax qty  thieu
+
+commit 7758d92a1c3553545da5d21a4d2ca5807e19aa00
+Author: VinhNV <vinhnt@mageplaza.com>
+Date:   Wed Oct 19 10:02:00 2016 +0700
+
+    Update code ajax qty
+
+commit 7bb9092b809093e19a7fb2e99b33fd4489cd68ef
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Oct 18 00:00:58 2016 +0700
+
+    fix google auto detect change region
+
+commit 8055b73b113578e610bdcc850d4fed8936bf09a9
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Oct 14 14:37:09 2016 +0700
+
+    fix bug default payment method (cannot choose default payment)
+
+commit 0da7cf9ac301151c34be21f678f05a65e846f742
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Oct 13 15:04:37 2016 +0700
+
+    fix bug total don't show
+
+commit 7664a1e287cc0918516c1ebffbd732b2c28cfe09
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Oct 13 10:47:18 2016 +0700
+
+    remove alert message on iframe
+
+commit 5b7796e2d8ec4e4561e4a7f877cf1abea6408073
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Oct 13 10:43:01 2016 +0700
+
+    fix google auto complete, address region error, shipping method for address select, move payment iframe -> popup, compatible with multisagepay, add error message container
+
+commit 1301369779709f186f4faa595fcc74becbe78a91
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Oct 12 17:33:24 2016 +0700
+
+    reinitial
+
+commit e08d67e029e5c5b1707b224e9814356fd5b3c121
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Oct 12 14:16:12 2016 +0700
+
+    initial
+
+commit 47ccfedc74574fcfec0a8239e5d57775341b9da5
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Oct 7 10:25:33 2016 +0700
+
+    initial new osc
+
+commit 994d1b7f129b1f7ef5b625f9513fca02f6717f9f
+Author: SMP <sam@mageplaza.com>
+Date:   Tue Oct 4 14:04:23 2016 +0700
+
+    clean
+
+commit 1f617618b408595917e25d3100b22a91fa7c3925
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Sep 29 11:10:20 2016 +0700
+
+    Fix bug: shipping method/payment method depend country cannot show when select default country or address validate fail (telephone required but not input)
+
+commit 80344ed243a754ddc861a839087be5152623743c
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Sep 29 09:39:20 2016 +0700
+
+    fix bug get payment information if site don't have object window.authenticationConfig
+
+commit db6618acaa839a7cdf2d78d19f2214e057448919
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Sep 27 18:35:13 2016 +0700
+
+    fix bug hide all osc page if regionRequired
+
+commit 1ee6ad48765492d31800c708aea4557189fc3b75
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Sep 27 18:32:53 2016 +0700
+
+    Fix bug alway get all country collection select
+
+commit 8016cb51ee9e3cf481930a8b54d776cb735ba80b
+Author: SMP <sam@mageplaza.com>
+Date:   Sat Sep 24 17:24:10 2016 +0700
+
+    revert mp
+
+commit 0e2fb45bdc4e7d9d939197fabc0ae3ef18e24703
+Merge: e9a6fb9 eace15c
+Author: SMP <sam@mageplaza.com>
+Date:   Sat Sep 24 17:15:31 2016 +0700
+
+    Merge remote-tracking branch 'origin/master'
+
+commit e9a6fb9005ddae2a8cd8044cfe263e04b1a6d5cf
+Author: SMP <sam@mageplaza.com>
+Date:   Sat Sep 24 17:14:09 2016 +0700
+
+    fix order extra current_order
+
+commit eace15ca3ee31cc1cfe38864244f28469999b462
+Merge: 1807cec 0882c2d
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Sep 24 16:55:04 2016 +0700
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 1807cecddbeea82eb978ee70f82d386e8741b4eb
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Sep 24 16:54:10 2016 +0700
+
+    fix bug checkbox Ship to same address uncheck after refresh page
+
+commit e840b156914622464503bf270450e98a99e79fe1
+Author: Brian <haitv282@gmail.com>
+Date:   Sat Sep 24 15:26:41 2016 +0700
+
+    fix payment validator for braintree paypal
+
+commit 0882c2d83ee8be16d7fdc39f7eeca618f6fb162a
+Author: SMP <sam@mageplaza.com>
+Date:   Sat Sep 24 14:59:31 2016 +0700
+
+    fix error line 62
+
+commit fac449b6fe864f4e6dfe1d4944828c70a045b6d4
+Author: SMP <sam@mageplaza.com>
+Date:   Sat Sep 24 14:58:13 2016 +0700
+
+    optimize code
+
+commit 1d84e117853563eb67d953716898a2094dc83e01
+Author: SMP <sam@mageplaza.com>
+Date:   Sat Sep 24 14:47:51 2016 +0700
+
+    move to mp_
+
+commit b309ae753b1bb0e5d8b3f49efbb1eef1cd8f9bfa
+Author: SMP <sam@mageplaza.com>
+Date:   Sat Sep 24 14:43:40 2016 +0700
+
+    display order comment in order, invoice
+
+commit fb2df15b93b92e452460ce3b0d90a9503bab1cd6
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Sep 23 15:10:56 2016 +0700
+
+    create action reload review (compatible with ms reward points)
+
+commit 5ac0ee8e1fb4ffcc9c26d86c8a3677d3131f9454
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Sep 23 11:02:33 2016 +0700
+
+    fix minicart bug (cannot update inside minicart, error design minicart after update osc item)
+
+commit c0eeaadc9cb3e5796958b2596ba39f1379818650
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Sep 22 12:02:59 2016 +0700
+
+    fix secure url + js khai bao window.checkout
+
+commit fb53a6040854680be0f1ca1dec68521dc561bf63
+Author: Brian <haitv282@gmail.com>
+Date:   Thu Sep 22 12:01:59 2016 +0700
+
+    fix secure url + js khai bao window.checkout
+
+commit 279e173eafaac95c0e40379cd240aeca699070e0
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Sep 21 17:44:52 2016 +0700
+
+    Correct translate file and generate csv file
+
+commit 96a1871ff2ff0fbd3e67ddf55ce03d6a6aaf9a7a
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Sep 21 14:56:47 2016 +0700
+
+    Fix bug choose default shipping/payment method
+
+commit 245ad321719ccb4c30f22313f51577520283bab9
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Sep 21 10:20:08 2016 +0700
+
+    email template
+
+commit ef4c4972cb1f3f84d8931458da893075187a9429
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Sep 20 17:04:48 2016 +0700
+
+    fix bug order with address selection
+
+commit 68bdd91ff45613352719ae44e5dcf7b3641c9d83
+Author: Brian <haitv282@gmail.com>
+Date:   Mon Sep 19 10:54:19 2016 +0700
+
+    fix bug email template
+
+commit b8cfddc8a600ada3d11519b56f267986fc3bfa5b
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Sep 16 17:31:13 2016 +0700
+
+    change how to catch button checkout
+
+commit c4cda38dc3ed9af77f68d128228ed848c8c1e9c3
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Sep 16 16:07:41 2016 +0700
+
+    osc shipping
+
+commit f4fce3f46752adae8b2af1818cb036d2e7a76b80
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Sep 16 14:29:55 2016 +0700
+
+    shipping
+
+commit 757c3ceb867d25b30befcc44a751fb89b644dd8f
+Merge: 740ee9b d0edd97
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Sep 14 22:21:14 2016 +0700
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 740ee9b68b1e412c560ae28b42d16908412a4340
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Sep 14 22:18:47 2016 +0700
+
+    fix braintree + add shipping address to quote js
+
+commit d0edd976589718f30f4508401f71f4a683c9e229
+Author: SMP <sam@mageplaza.com>
+Date:   Mon Sep 12 17:15:56 2016 +0700
+
+    require core
+
+commit 4b92defc46f74d83cf9bff9653c6ad3eb6832819
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Sep 9 10:17:55 2016 +0700
+
+    Remove Varien Form (Error if prototype not load by default)
+
+commit 505d3c8f88147ad044dc1df7515f2e15954ae04c
+Author: Brian <haitv282@gmail.com>
+Date:   Wed Sep 7 10:51:28 2016 +0700
+
+    save address data right when loading page
+
+commit dc5f6b457783bb2d1441873e0ca2d5c16a7ca552
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Sep 6 20:07:31 2016 +0700
+
+    alert error message
+
+commit d787634da3cba292b8725623d6d06d63e6d89b3e
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Sep 6 19:47:47 2016 +0700
+
+    fix bug place order (street object) & show error if place order fail
+
+commit e39f870637998c19e8f3a65e7f8732e637dba3a8
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Sep 6 18:19:49 2016 +0700
+
+    remove menu
+
+commit 036fed1c9a81a4843eaa4146047368bd699573af
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Sep 6 11:03:43 2016 +0700
+
+    fix bug paypal express
+
+commit 39af0fa39db5519f571ef9d92937f655a637bf70
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Sep 6 09:56:31 2016 +0700
+
+    add icon for One Step Checkout menu
+
+commit 3efdd6234cca102f9252a011cdc21966288865b9
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Aug 26 17:29:42 2016 +0700
+
+    initial
+
+commit 9d571a55b008d6536f5a462d6eaaab1ea67e59ae
+Author: Brian <haitv282@gmail.com>
+Date:   Fri Aug 12 09:48:42 2016 +0700
+
+    fix bug khong hien payment method khi ajax
+
+commit 7393b46a8a5486bb4dd5e39f858270f1aa0045bf
+Author: SMP <sam@mageplaza.com>
+Date:   Fri Jul 22 16:55:39 2016 +0700
+
+    add docs
+
+commit 3f4e5032d8bfde4b196263614068281fbd3a6e1c
+Merge: 6be8530 f556ef9
+Author: SMP <sam@mageplaza.com>
+Date:   Tue Jul 19 14:47:08 2016 +0700
+
+    Merge branch 'master' of gitlab.com:mageplaza/osc-m2
+
+commit 6be8530e402dc607ebdd5aa62aa5e34adad19c2b
+Author: SMP <sam@mageplaza.com>
+Date:   Tue Jul 19 14:46:49 2016 +0700
+
+    Fix bug permission + Change root folder of module
+
+commit f556ef96ecd04ade7c416013a2172d54ccdcb762
+Author: Brian <haitv282@gmail.com>
+Date:   Tue Jul 19 14:17:56 2016 +0700
+
+    fix google api key
+
+commit fe111f72fe09dba30d78c4f50661de7be3c99c0e
+Author: SMP <sam@mageplaza.com>
+Date:   Fri May 27 11:35:44 2016 +0700
+
+    init

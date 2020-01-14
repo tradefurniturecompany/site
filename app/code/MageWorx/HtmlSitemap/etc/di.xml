@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--<type name="Magento\Framework\Console\CommandList">-->
+        <!--<arguments>-->
+            <!--<argument name="commands" xsi:type="array">-->
+                <!--<item name="XmlSitemapGenerateCommand" xsi:type="object">MageWorx\XmlSitemap\Console\Command\XmlSitemapGenerateCommand</item>-->
+            <!--</argument>-->
+        <!--</arguments>-->
+    <!--</type>-->
+    <!--<type name="Magento\Sitemap\Model\Observer">-->
+        <!--<plugin name="aroundScheduledGenerateSitemaps" type="MageWorx\XmlSitemap\Plugin\CronGenerateSitemap" sortOrder="1"/>-->
+    <!--</type>-->
+    <!--<type name="MageWorx\XmlSitemap\Model\GeneratorFactory">-->
+        <!--<arguments>-->
+            <!--<argument name="generators" xsi:type="array">-->
+                <!--<item name="category" xsi:type="string">MageWorx\XmlSitemap\Model\Generator\Category</item>-->
+                <!--<item name="product" xsi:type="string">MageWorx\XmlSitemap\Model\Generator\Product</item>-->
+                <!--<item name="cms" xsi:type="string">MageWorx\XmlSitemap\Model\Generator\Page</item>-->
+                <!--<item name="additional_link" xsi:type="string">MageWorx\XmlSitemap\Model\Generator\AdditionalLinks</item>-->
+                <!--<item name="generators_by_observer" xsi:type="string">MageWorx\XmlSitemap\Model\Generator</item>-->
+            <!--</argument>-->
+        <!--</arguments>-->
+    <!--</type>-->
+    <!--<preference for="MageWorx\XmlSitemap\Model\WriterInterface"-->
+                <!--type="MageWorx\XmlSitemap\Model\Writer"/>-->
+    <!--<virtualType name="MageWorxXmlSitemapGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">-->
+        <!--<arguments>-->
+            <!--<argument name="appliers" xsi:type="array">-->
+                <!--<item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>-->
+                <!--<item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>-->
+            <!--</argument>-->
+        <!--</arguments>-->
+    <!--</virtualType>-->
+    <!--<virtualType name="MageWorxXmlSitemapSitemapGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">-->
+        <!--<arguments>-->
+            <!--<argument name="collection" xsi:type="object" shared="false">MageWorx\XmlSitemap\Model\ResourceModel\Sitemap\Collection</argument>-->
+            <!--<argument name="filterPool" xsi:type="object" shared="false">MageWorxXmlSitemapGirdFilterPool</argument>-->
+        <!--</arguments>-->
+    <!--</virtualType>-->
+    <!--<type name="MageWorx\XmlSitemap\Model\ResourceModel\Sitemap\Grid\Collection">-->
+        <!--<arguments>-->
+            <!--<argument name="mainTable" xsi:type="string">sitemap</argument>-->
+            <!--<argument name="eventPrefix" xsi:type="string">mageworx_xmlsitemap_sitemap_collection</argument>-->
+            <!--<argument name="eventObject" xsi:type="string">sitemap_collection</argument>-->
+            <!--<argument name="resourceModel" xsi:type="string">MageWorx\XmlSitemap\Model\ResourceModel\Sitemap</argument>-->
+        <!--</arguments>-->
+    <!--</type>-->
+    <!--<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">-->
+        <!--<arguments>-->
+            <!--<argument name="collections" xsi:type="array">-->
+                <!--<item name="mageworx_xmlsitemap_sitemap_listing_data_source" xsi:type="string">MageWorx\XmlSitemap\Model\ResourceModel\Sitemap\Grid\Collection</item>-->
+                <!--<item name="cms_page_listing_data_source" xsi:type="string">Magento\Cms\Model\ResourceModel\Page\Grid\Collection</item>-->
+            <!--</argument>-->
+        <!--</arguments>-->
+    <!--</type>-->
+
+    <!-- Fix for attribute scope for custom category attribute. @see https://github.com/magento/magento2/issues/13440 -->
+    <type name="MageWorx\SeoAll\Plugin\AddCategoryCustomAttributesPlugin">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="search_engine_optimization" xsi:type="array">
+                    <item name="in_html_sitemap" xsi:type="string">in_html_sitemap</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

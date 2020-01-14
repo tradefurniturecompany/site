@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="ammegamenu" translate="label" type="text" sortOrder="130507" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>Amasty_MegaMenu::config</resource>
+            <class>separator-top</class>
+            <label>Mega Menu</label>
+            <tab>amasty</tab>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\MegaMenu\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="sticky" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Sticky Menu</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="hamburger_enabled" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Hamburger Menu For Categories</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="color" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Color Settings</label>
+                <depends>
+                    <field id="ammegamenu/general/enabled">1</field>
+                </depends>
+
+                <field id="color_template" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Color Scheme Template</label>
+                    <source_model>Amasty\MegaMenu\Model\OptionSource\ColorTemplate</source_model>
+                    <frontend_model>Amasty\MegaMenu\Block\Adminhtml\System\Config\Field\ColorTemplate</frontend_model>
+                </field>
+
+                <field id="menu_background" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Background Color</label>
+                    <validate>color</validate>
+                    <frontend_model>Amasty\MegaMenu\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                </field>
+                <field id="menu_highlight" translate="label,comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Active Menu Item Background Color</label>
+                    <comment>Leave empty if no highlighting for active menu items is required</comment>
+                    <validate>color</validate>
+                    <frontend_model>Amasty\MegaMenu\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                </field>
+                <field id="menu_text" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Text Color</label>
+                    <validate>color</validate>
+                    <frontend_model>Amasty\MegaMenu\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                </field>
+                <field id="submenu_background" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Submenu Background Color</label>
+                    <validate>color</validate>
+                    <frontend_model>Amasty\MegaMenu\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                </field>
+                <field id="submenu_text" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Submenu Text Color</label>
+                    <validate>color</validate>
+                    <frontend_model>Amasty\MegaMenu\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                </field>
+                <field id="category_hover_color" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Item Hover Color</label>
+                    <validate>color</validate>
+                    <frontend_model>Amasty\MegaMenu\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                </field>
+                <field id="toggle_icon_color" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hamburger Button Color</label>
+                    <validate>color</validate>
+                    <frontend_model>Amasty\MegaMenu\Block\Adminhtml\System\Config\Field\Color</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

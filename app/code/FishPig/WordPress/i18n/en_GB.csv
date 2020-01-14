@@ -1,0 +1,86 @@
+Archives,Archives
+Categories,Categories
+"Tag Cloud","Tag Cloud"
+"Recent Comments","Recent Comments"
+Meta,Meta
+Menu,Menu
+Pages,Pages
+"Recent Posts","Recent Posts"
+"No Comments","No Comments"
+"%s Comments","%s Comments"
+"1 Comment","1 Comment"
+Search,Search
+"Entity not found!","Entity not found!"
+Home,Home
+"Go to Home Page","Go to Home Page"
+"Your comment has been posted and is awaiting moderation.","Your comment has been posted and is awaiting moderation."
+"Your comment has been posted.","Your comment has been posted."
+Blog,Blog
+"Continue reading <span class=""meta-nav"">&rarr;</span>","Continue reading <span class=""meta-nav"">&rarr;</span>"
+&hellip;,&hellip;
+"The email address entered did not appear to be a valid email address. Please enter a valid email address.","The email address entered did not appear to be a valid email address. Please enter a valid email address."
+"The WordPress address you entered did not appear to be a valid URL. Please enter a valid URL.","The WordPress address you entered did not appear to be a valid URL. Please enter a valid URL."
+"The Site address you entered did not appear to be a valid URL. Please enter a valid URL.","The Site address you entered did not appear to be a valid URL. Please enter a valid URL."
+"The timezone you have entered is not valid. Please select a valid timezone.","The timezone you have entered is not valid. Please select a valid timezone."
+"A structure tag is required when using custom permalinks. <a href=""%s"">Learn more</a>","A structure tag is required when using custom permalinks. <a href=""%s"">Learn more</a>"
+https://codex.wordpress.org/Using_Permalinks#Choosing_your_permalink_structure,https://codex.wordpress.org/Using_Permalinks#Choosing_your_permalink_structure
+"%s, %s","%s, %s"
+"%s, and %s","%s, and %s"
+"%s and %s","%s and %s"
+"Posted On","Posted On"
+Tags,Tags
+"Posted By","Posted By"
+"There are no posts matching your selection.","There are no posts matching your selection."
+"Leave a Reply","Leave a Reply"
+"Sorry, you must be logged in to post a comment.","Sorry, you must be logged in to post a comment."
+Login,Login
+Name,Name
+Email,Email
+Website,Website
+Comment,Comment
+"Leave a comment","Leave a comment"
+"Loading next step...","Loading next step..."
+"Please wait...","Please wait..."
+"%1 Comments","%1 Comments"
+"%1 at %2","%1 at %2"
+Reply,Reply
+"Select Month","Select Month"
+M,M
+T,T
+W,W
+F,F
+S,S
+"Select Category","Select Category"
+"%1 on %2","%1 on %2"
+"Powered by WordPress, state-of-the-art semantic personal publishing platform.","Powered by WordPress, state-of-the-art semantic personal publishing platform."
+WordPress.org,WordPress.org
+"Magento eCommerce","Magento eCommerce"
+Magento,Magento
+"Magento WordPress Integration","Magento WordPress Integration"
+"Magento Extensions","Magento Extensions"
+"%s [...]","%s [...]"
+"Search Posts","Search Posts"
+"&larr; Older Comments","&larr; Older Comments"
+"Newer Comments &rarr;","Newer Comments &rarr;"
+"Leave a reply","Leave a reply"
+"1 Reply","1 Reply"
+"% Replies","% Replies"
+Pages:,Pages:
+"About %s","About %s"
+"View all posts by %s <span class=""meta-nav"">&rarr;</span>","View all posts by %s <span class=""meta-nav"">&rarr;</span>"
+"Main Sidebar","Main Sidebar"
+(Edit),(Edit)
+"Post author","Post author"
+"%1$s at %2$s","%1$s at %2$s"
+Edit,Edit
+"Continue reading %s","Continue reading %s"
+"Previous page","Previous page"
+"Next page","Next page"
+Page,Page
+FishPig,FishPig
+WordPress,WordPress
+"WordPress Integration Setup","WordPress Integration Setup"
+Enabled,Enabled
+Path,Path
+"Enter the path to your WordPress installation.","Enter the path to your WordPress installation."
+"Theme Integration","Theme Integration"

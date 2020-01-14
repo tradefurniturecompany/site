@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/realexcw/transactions/:id" method="GET">
+        <service class="Customweb\RealexCw\Api\TransactionRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="Customweb_RealexCw::transactions" />
+        </resources>
+    </route>
+    <route url="/V1/realexcw/transactions/payment-id/:id" method="GET">
+        <service class="Customweb\RealexCw\Api\TransactionRepositoryInterface" method="getByPaymentId"/>
+        <resources>
+            <resource ref="Customweb_RealexCw::transactions" />
+        </resources>
+    </route>
+    <route url="/V1/realexcw/transactions/order-id/:id" method="GET">
+        <service class="Customweb\RealexCw\Api\TransactionRepositoryInterface" method="getByOrderId"/>
+        <resources>
+            <resource ref="Customweb_RealexCw::transactions" />
+        </resources>
+    </route>
+    <route url="/V1/realexcw/transactions/:id" method="GET">
+        <service class="Customweb\RealexCw\Api\TransactionRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="Customweb_RealexCw::transactions" />
+        </resources>
+    </route>
+    <route url="/V1/realexcw/transactions" method="GET">
+        <service class="Customweb\RealexCw\Api\TransactionRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Customweb_RealexCw::transactions" />
+        </resources>
+    </route>
+    <route url="/V1/realexcw/transactions/:id/status" method="GET">
+        <service class="Customweb\RealexCw\Api\TransactionManagementInterface" method="getStatus"/>
+        <resources>
+            <resource ref="Customweb_RealexCw::transactions" />
+        </resources>
+    </route>
+    <route url="/V1/realexcw/transactions/:id/update" method="GET">
+        <service class="Customweb\RealexCw\Api\TransactionManagementInterface" method="update"/>
+        <resources>
+            <resource ref="Customweb_RealexCw::transactions" />
+        </resources>
+    </route>
+    <route url="/V1/realexcw/transactions/:id/delete-alias" method="GET">
+        <service class="Customweb\RealexCw\Api\TransactionManagementInterface" method="deleteAlias"/>
+        <resources>
+            <resource ref="Customweb_RealexCw::customer_aliases" />
+        </resources>
+    </route>
+    
+    <route url="/V1/guest-carts/:cartId/realexcw/checkout/authorize" method="POST">
+        <service class="Customweb\RealexCw\Api\CheckoutManagementInterface" method="authorize"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/carts/mine/realexcw/checkout/authorize" method="POST">
+        <service class="Customweb\RealexCw\Api\CheckoutManagementInterface" method="authorize"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/guest-carts/:cartId/realexcw/checkout/payment-form/:paymentMethod" method="GET">
+        <service class="Customweb\RealexCw\Api\CheckoutManagementInterface" method="getGuestPaymentForm"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/carts/mine/realexcw/checkout/payment-form/:paymentMethod" method="GET">
+        <service class="Customweb\RealexCw\Api\CheckoutManagementInterface" method="getPaymentForm"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+</routes>

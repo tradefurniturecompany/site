@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="MageWorx_SeoXTemplates::catalog/category-selector.css"/>
+    </head>
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Category\Edit" name="mageworx_seoxtemplates_template_category_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Category\Edit\Tabs" name="mageworx_seoxtemplates_template_category_tabs">
+                <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Category\Edit\Tab\Main" name="mageworx_seoxtemplates_template_category_edit_tab_main"/>
+                <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Category\Edit\Tab\Categories" name="mageworx_seoxtemplates_template_category_edit_tab_categories"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">template_category</argument>
+                    <argument name="block" xsi:type="string">mageworx_seoxtemplates_template_category_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">categories</argument>
+                    <argument name="block" xsi:type="string">mageworx_seoxtemplates_template_category_edit_tab_categories</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

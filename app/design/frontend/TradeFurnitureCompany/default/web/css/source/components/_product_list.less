@@ -1,0 +1,46 @@
+.products.list .product-item-details .price-box {
+  .old-price{
+    padding-right: 5px;
+    .price-container{
+      color:#2c4e6a;
+      background: linear-gradient(to left bottom, transparent 47.75%, currentColor 49.5%, currentColor 50.5%, transparent 52.25%);
+      .price-label{
+        display: none;
+      }
+    }
+
+  }
+  .special-price {
+    .price-label,
+    .price {
+      color: red;
+    }
+  }
+}
+
+/* amasty megamenu seems to have caused a box sizing rule to get removed */
+.products.list .product-item-info {
+  box-sizing: border-box !important;
+}
+
+@media (max-width: @screen__s) {
+  .products.list .actions-primary {
+    visibility: visible !important;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .toolbar-sorter.sorter {
+    position: static;
+    width: 100%;
+    right: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    select {
+      flex: 2 1 auto;
+    }
+  }
+}

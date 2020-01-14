@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="magento_catalog_api_data_categoryinterface_save_after">
+        <observer name="amasty_megamenu_category_additional_save" instance="Amasty\MegaMenu\Observer\Category\ContentSave" />
+    </event>
+</config>

@@ -1,0 +1,188 @@
+"Save Custom Canonical URL","Save Custom Canonical URL"
+"Edit Custom Canonical URL","Edit Custom Canonical URL"
+"New Custom Canonical URL","New Custom Canonical URL"
+"Canonical Information","Canonical Information"
+"Canonical From:","Canonical From:"
+Type,Type
+"Canonical To:","Canonical To:"
+"Link without 'http[s]://' as 'my/custom/url' 
+            will be converted to 'http[s]://(store_URL_here)/my/custom/url'<br>
+            Link with 'http[s]://' will be added as it is.","Link without 'http[s]://' as 'my/custom/url' 
+            will be converted to 'http[s]://(store_URL_here)/my/custom/url'<br>
+            Link with 'http[s]://' will be added as it is."
+URL,URL
+"Select Product...","Select Product..."
+"Select Category...","Select Category..."
+"Select Page...","Select Page..."
+"Store View","Store View"
+"Custom Canonical URL","Custom Canonical URL"
+Store,Store
+"Hreflang Code","Hreflang Code"
+Product,Product
+Category,Category
+"CMS Page","CMS Page"
+"Landing Page","Landing Page"
+ID,ID
+SKU,SKU
+Visibility,Visibility
+Status,Status
+Marketing,Marketing
+"MageWorx Canonical URLs","MageWorx Canonical URLs"
+"Сustom Сanonical URLs","Сustom Сanonical URLs"
+"Page not found","Page not found"
+"Custom Canonical URLs","Custom Canonical URLs"
+"The Custom Canonical has been deleted.","The Custom Canonical has been deleted."
+"We can't delete the Custom Canonical right now. Please review the log and try again.","We can't delete the Custom Canonical right now. Please review the log and try again."
+"Custom Canonical is not found.","Custom Canonical is not found."
+"A total of %1 record(s) were deleted.","A total of %1 record(s) were deleted."
+"It is impossible to save Custom Canonical for %1 Store","It is impossible to save Custom Canonical for %1 Store"
+"Source and target entities can't be identical!","Source and target entities can't be identical!"
+"[%1 Store]","[%1 Store]"
+"The Custom Canonical for %1 Store has been saved.","The Custom Canonical for %1 Store has been saved."
+"The Custom Canonical has been saved.","The Custom Canonical has been saved."
+"Something went wrong while saving the Custom Canonical.","Something went wrong while saving the Custom Canonical."
+"Custom Canonical for this source entity already exists","Custom Canonical for this source entity already exists"
+"Could not save the Custom Canonical URL: %1","Could not save the Custom Canonical URL: %1"
+"Custom Canonical with ID ""%1"" does not exist.","Custom Canonical with ID ""%1"" does not exist."
+"Could not delete the Custom Canonical URL: %1","Could not delete the Custom Canonical URL: %1"
+"It is impossible to save Custom Canonical: Source and Target entities can't be identical!","It is impossible to save Custom Canonical: Source and Target entities can't be identical!"
+"Canonical Tag for Pages Filtered by Layered Navigation Leads to","Canonical Tag for Pages Filtered by Layered Navigation Leads to"
+"Hreflang Identifier","Hreflang Identifier"
+"The setting is enabled. You can see the other options in","The setting is enabled. You can see the other options in"
+"This setting is disabled. You can enable it in","This setting is disabled. You can enable it in"
+"<i>SEO -> SEO Hreflangs URLs</i> config section","<i>SEO -> SEO Hreflangs URLs</i> config section"
+"This setting was added by MageWorx SEO Suite","This setting was added by MageWorx SEO Suite"
+"Meta Robots","Meta Robots"
+Add,Add
+Crop,Crop
+Disable,Disable
+"Filtered Page","Filtered Page"
+"Current Category","Current Category"
+"By ID","By ID"
+"By URL Key","By URL Key"
+"By Hreflang Key","By Hreflang Key"
+"Custom URL","Custom URL"
+"Use Default","Use Default"
+"Use Custom","Use Custom"
+"Use Config","Use Config"
+"Checkout Pages","Checkout Pages"
+"Contact Us Page","Contact Us Page"
+"Customer Account Pages","Customer Account Pages"
+"Product Compare Pages","Product Compare Pages"
+"RSS Feeds","RSS Feeds"
+"Search Pages","Search Pages"
+"Send Product Pages","Send Product Pages"
+"Wishlist Pages","Wishlist Pages"
+"--Please Select--","--Please Select--"
+Global,Global
+Website,Website
+Edit,Edit
+Delete,Delete
+"Delete Custom Canonical URL","Delete Custom Canonical URL"
+"Are you sure you want to delete the selected custom canonical url?","Are you sure you want to delete the selected custom canonical url?"
+"All Store Views","All Store Views"
+"Same as Source Entity","Same as Source Entity"
+"Canonical Url","Canonical Url"
+"Link without 'http[s]://' as 'my/custom/url'
+                            will be converted to 'http[s]://(store_URL_here)/my/custom/url'.
+                            Link with 'http[s]://' will be added as it is.","Link without 'http[s]://' as 'my/custom/url'
+                            will be converted to 'http[s]://(store_URL_here)/my/custom/url'.
+                            Link with 'http[s]://' will be added as it is."
+Choose...,Choose...
+SEO,SEO
+"SEO Base","SEO Base"
+"Hreflang URLs Settings:","Hreflang URLs Settings:"
+"The <a target=""_blank"" href=""https://support.google.com/webmasters/answer/189077?hl=en"">hreflang tag</a> helps the Web crawler understand which version of the website should be shown for a certain location. The hreflang settings can be managed depending on the store view. To change the store view use the dropdown on the upper left side of the configuration page.","The <a target=""_blank"" href=""https://support.google.com/webmasters/answer/189077?hl=en"">hreflang tag</a> helps the Web crawler understand which version of the website should be shown for a certain location. The hreflang settings can be managed depending on the store view. To change the store view use the dropdown on the upper left side of the configuration page."
+"Hreflang URLs Scope","Hreflang URLs Scope"
+"
+                            Specify the Alternate URLs Scope. If set to <i>Website</i>, the Hreflang URLs work within one website only. If set to <i>Global</i>, the Hreflang URLs work between websites.
+                        ","
+                            Specify the Alternate URLs Scope. If set to <i>Website</i>, the Hreflang URLs work within one website only. If set to <i>Global</i>, the Hreflang URLs work between websites.
+                        "
+"Enable Hreflang URLs ▾","Enable Hreflang URLs ▾"
+"If set to Yes, you can change this setting separately for Categories, Products, CMS Pages and <a target=""_blank"" href=""https://www.mageworx.com/magento2-landing-pages.html"">Mageworx Landing Pages</a> (if installed).","If set to Yes, you can change this setting separately for Categories, Products, CMS Pages and <a target=""_blank"" href=""https://www.mageworx.com/magento2-landing-pages.html"">Mageworx Landing Pages</a> (if installed)."
+"Enabled for Category","Enabled for Category"
+"Enabled for Product","Enabled for Product"
+"Enabled for CMS pages","Enabled for CMS pages"
+"Enabled for Landing Pages","Enabled for Landing Pages"
+"Only <a target=""_blank"" href=""https://www.mageworx.com/magento2-landing-pages.html"">Mageworx Landing Pages</a> supported.","Only <a target=""_blank"" href=""https://www.mageworx.com/magento2-landing-pages.html"">Mageworx Landing Pages</a> supported."
+"Use Language Code from Default Locale ▾","Use Language Code from Default Locale ▾"
+"If set to <i>No</i>, overwrites the <a target=""blank"" href=""https://docs.magento.com/m2/ce/user_guide/stores/locale-options.html"">default locale</a> of the storeview","If set to <i>No</i>, overwrites the <a target=""blank"" href=""https://docs.magento.com/m2/ce/user_guide/stores/locale-options.html"">default locale</a> of the storeview"
+"Select Language Code","Select Language Code"
+"Change the hreflang language code of the store view","Change the hreflang language code of the store view"
+"Add Country Code ▾","Add Country Code ▾"
+"Allows diversifying country codes for the storeviews with the same language but different countries (like British, Canadian and US store views for the same English locale)","Allows diversifying country codes for the storeviews with the same language but different countries (like British, Canadian and US store views for the same English locale)"
+"Use Country Code from Magento Settings ▾","Use Country Code from Magento Settings ▾"
+"If set to <i>No</i>, overwrites the default country code.","If set to <i>No</i>, overwrites the default country code."
+"Select Country Code","Select Country Code"
+"Change the hreflang country code of the store view.","Change the hreflang country code of the store view."
+X-default,X-default
+"Adds the <a target=""_blank"" href=""https://webmasters.googleblog.com/2013/04/x-default-hreflang-for-international-pages.html"">x-default attribute</a> for the pages that don't target any specific language or locale and are the default ones to be shown to the customers if no localized pages for them are found.","Adds the <a target=""_blank"" href=""https://webmasters.googleblog.com/2013/04/x-default-hreflang-for-international-pages.html"">x-default attribute</a> for the pages that don't target any specific language or locale and are the default ones to be shown to the customers if no localized pages for them are found."
+"Multi-stores CMS pages relation","Multi-stores CMS pages relation"
+"Specifies how to identify the same CMS page for different store views. Use <i>By ID</i> if you create one page for different stores, therefore, their ID will be the same. Use <i>By URL</i> Key if you created separate pages for different stores and assign them the same URL. Use <i><a target=""_blank"" href=https://support.mageworx.com/manuals/seosuite/#cms-pages>By Hreflang Key</a></i> for the pages that are linked manually.
+                        ","Specifies how to identify the same CMS page for different store views. Use <i>By ID</i> if you create one page for different stores, therefore, their ID will be the same. Use <i>By URL</i> Key if you created separate pages for different stores and assign them the same URL. Use <i><a target=""_blank"" href=https://support.mageworx.com/manuals/seosuite/#cms-pages>By Hreflang Key</a></i> for the pages that are linked manually.
+                        "
+"Overview of Alternate Hreflang Settings","Overview of Alternate Hreflang Settings"
+"To observe the changes, click the <b>Save Config</b> button.","To observe the changes, click the <b>Save Config</b> button."
+"Canonical URLs Settings:","Canonical URLs Settings:"
+"You need to <a target=""_blank"" href=""https://support.mageworx.com/manuals/seosuite/#canonical-urls-settings"">disable the standard Magento canonical</a> first.","You need to <a target=""_blank"" href=""https://support.mageworx.com/manuals/seosuite/#canonical-urls-settings"">disable the standard Magento canonical</a> first."
+"Add Canonical URL Meta Header","Add Canonical URL Meta Header"
+"The default setting to add the <a target=""_blank"" href=""https://support.mageworx.com/manuals/seosuite/#glossary"">canonical</a> tag.","The default setting to add the <a target=""_blank"" href=""https://support.mageworx.com/manuals/seosuite/#glossary"">canonical</a> tag."
+"Disable Canonical URL for Pages with NOINDEX robots","Disable Canonical URL for Pages with NOINDEX robots"
+"Disables the canonical URL if the page has the NOINDEX meta robots tag. Useful as the NOINDEX pages won't be shown in the search results.","Disables the canonical URL if the page has the NOINDEX meta robots tag. Useful as the NOINDEX pages won't be shown in the search results."
+"Canonical URL won't be added for these pages","Canonical URL won't be added for these pages"
+"
+                            Hides the canonical URL on the pages added in this setting.<br/>Action names allowed: use catalog_category_view for all categories, catalog_product_view for all products.
+                        ","
+                            Hides the canonical URL on the pages added in this setting.<br/>Action names allowed: use catalog_category_view for all categories, catalog_product_view for all products.
+                        "
+"Cross Domain Canonical","Cross Domain Canonical"
+"Define the main storeview for the canonical URL. Useful for websites with several storeviews having the same or quite similar content. Use Custom URL to add any other website.","Define the main storeview for the canonical URL. Useful for websites with several storeviews having the same or quite similar content. Use Custom URL to add any other website."
+"Cross Domain Canonical - Custom URL","Cross Domain Canonical - Custom URL"
+"Canonical Tag For Associated Product","Canonical Tag For Associated Product"
+"The associated products of the chosen product types will have the canonical tag pointed to the parent (main) product.","The associated products of the chosen product types will have the canonical tag pointed to the parent (main) product."
+"Trailing Slash For Home Page Canonical URL","Trailing Slash For Home Page Canonical URL"
+"The homepage can be indexed as both https://www.site.com and https://www.site.com/. The canonical can either have this trailing slash (add) or not (crop). The trailing slash can be added to the pages without suffix .html or .htm","The homepage can be indexed as both https://www.site.com and https://www.site.com/. The canonical can either have this trailing slash (add) or not (crop). The trailing slash can be added to the pages without suffix .html or .htm"
+"Trailing Slash For Canonical URLs","Trailing Slash For Canonical URLs"
+"The web pages can be indexed as both https://www.site.com/page and https://www.site.com/page/. The canonical can either have this trailing slash (add) or not (crop). The trailing slash can be added to the pages without suffix .html or .htm","The web pages can be indexed as both https://www.site.com/page and https://www.site.com/page/. The canonical can either have this trailing slash (add) or not (crop). The trailing slash can be added to the pages without suffix .html or .htm"
+"Use Pager For Category Canonical URL","Use Pager For Category Canonical URL"
+"Add or remove the pager (?p=2 etc.) parameter from the canonical tag on the category pages.","Add or remove the pager (?p=2 etc.) parameter from the canonical tag on the category pages."
+"Canonical Tag for Category Layered Navigation","Canonical Tag for Category Layered Navigation"
+"
+                            To see the differences among the options, <a target=""_blank"" href=""https://support.mageworx.com/manuals/seosuite/#canonical-tag-LN"">click here</a>. To overwrite this setting for each product attribute individually, go to <i>Attributes Grid>Attribute>Storefront Properties</i> and change the 'Canonical Tag for Pages Filtered by Layered Navigation Leads to' setting. To overwrite this setting for some product, go to Products <i>Grid>Product>Search Engine Optimization</i>.
+                        ","
+                            To see the differences among the options, <a target=""_blank"" href=""https://support.mageworx.com/manuals/seosuite/#canonical-tag-LN"">click here</a>. To overwrite this setting for each product attribute individually, go to <i>Attributes Grid>Attribute>Storefront Properties</i> and change the 'Canonical Tag for Pages Filtered by Layered Navigation Leads to' setting. To overwrite this setting for some product, go to Products <i>Grid>Product>Search Engine Optimization</i>.
+                        "
+"Canonical Tag if any LN Filter Use Multiple Selection","Canonical Tag if any LN Filter Use Multiple Selection"
+"
+                            Manages the canonical for any link that has the one-time selection of the several filters options within the same filter (multi-select). This setting works with <a href=""https://www.mageworx.com/magento-2-layered-navigation.html"" target=""_blank"">MageWorx LayeredNavigation extension</a>
+                        ","
+                            Manages the canonical for any link that has the one-time selection of the several filters options within the same filter (multi-select). This setting works with <a href=""https://www.mageworx.com/magento-2-layered-navigation.html"" target=""_blank"">MageWorx LayeredNavigation extension</a>
+                        "
+"Meta Robots Settings:","Meta Robots Settings:"
+"NOINDEX, FOLLOW Robots Meta Header<br>for Pages Without Content","NOINDEX, FOLLOW Robots Meta Header<br>for Pages Without Content"
+"NOINDEX, FOLLOW Robots Meta Header<br>for Additional Pages","NOINDEX, FOLLOW Robots Meta Header<br>for Additional Pages"
+"NOINDEX, NOFOLLOW Robots Meta Header<br>for Additional Pages","NOINDEX, NOFOLLOW Robots Meta Header<br>for Additional Pages"
+"Default Meta Robots For Category LN Pages","Default Meta Robots For Category LN Pages"
+"Count of filters for set NOINDEX, FOLLOW for LN","Count of filters for set NOINDEX, FOLLOW for LN"
+"Robots for Attributes Combinations","Robots for Attributes Combinations"
+"Set NOINDEX, FOLLOW for LN Filters with Multiple Selection","Set NOINDEX, FOLLOW for LN Filters with Multiple Selection"
+"
+                            If enabled, the one-time selection of the several filters options within the same filter (multi-select) hides the URL from indexation. This setting is compatible with <a href=""https://www.mageworx.com/magento-2-layered-navigation.html"" target=""_blank"">MageWorx LayeredNavigation extension</a>
+                        ","
+                            If enabled, the one-time selection of the several filters options within the same filter (multi-select) hides the URL from indexation. This setting is compatible with <a href=""https://www.mageworx.com/magento-2-layered-navigation.html"" target=""_blank"">MageWorx LayeredNavigation extension</a>
+                        "
+"Add Link Rel=""next/prev"" on the Category Page","Add Link Rel=""next/prev"" on the Category Page"
+"This tag points the Web crawler, where exactly the first and the last category pages are, and what page is a next or a previous one.","This tag points the Web crawler, where exactly the first and the last category pages are, and what page is a next or a previous one."
+Name,Name
+"Add New Custom Canonical URL","Add New Custom Canonical URL"
+Select...,Select...
+"Source Store View","Source Store View"
+"Target Store View","Target Store View"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+"Source Entity Type","Source Entity Type"
+"Source Entity Id","Source Entity Id"
+"Target Entity Type","Target Entity Type"
+"Target Entity Id","Target Entity Id"
+"Cross Domain Store","Cross Domain Store"
+"Cross Domain URL","Cross Domain URL"

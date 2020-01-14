@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="info" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+        <label>Module info</label>
+        <field id="version" translate="label" type="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Module version</label>
+            <frontend_model>\Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Version</frontend_model>
+        </field>
+    </group>
+
+</include>

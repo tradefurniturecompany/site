@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <all>
+                <length>
+                    <meta_title_max>70</meta_title_max>
+                    <meta_description_max>150</meta_description_max>
+                    <meta_keywords_max>100</meta_keywords_max>
+                    <h1_max>70</h1_max>
+                    <url_path_max>100</url_path_max>
+                </length>
+            </all>
+        </mageworx_seo>
+    </default>
+</config>

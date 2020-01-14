@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<!--
+		/*
+	   * This, like all post types inherits from wordpress_post_view_default.xml
+	   * You can add specific customisations here for 'pages'
+	   * Create any wordpress_posttype_view.xml files (where posttype is the actual post type) to target a specific post type
+	   */
+	  -->
+	</body>
+</page>

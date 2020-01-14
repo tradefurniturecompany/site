@@ -1,0 +1,41 @@
+{
+    "name": "hotlink\/framework",
+    "version": "2.0.10",
+    "time": "2018-10-05",
+    "type": "magento2-module",
+    "description": "Framework for building Magento integrations using interactions",
+    "autoload": {
+        "psr-4": {
+            "Hotlink\\Framework\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    },
+    "require": {
+        "magento\/framework": ">=100.0.4",
+        "php": "~5.5.0|~5.6.0|~7.0.0"
+    },
+    "keywords": [
+        "hotlink",
+        "framework",
+        "integration",
+        "scalable",
+        "interaction",
+        "performance",
+        "platform",
+        "service"
+    ],
+    "homepage": "http://www.hotlink.technology/magento/framework",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Jonathan Doull",
+            "email": "contact@hotlink.technology",
+            "homepage": "http://www.hotlink.technology"
+        }
+    ],
+    "support" : {
+        "email": "support@hotlink.technology"
+    }
+}

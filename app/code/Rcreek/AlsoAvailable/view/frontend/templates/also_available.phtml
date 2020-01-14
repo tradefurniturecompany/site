@@ -1,0 +1,43 @@
+<div class="alternate-links-wrapper">
+  <div class="alternate-links-col1">
+    <?php if ($this->getDarkUrl() || $this->getLightUrl() || $this->getNaturalUrl()): ?>
+      <div class="also-available">
+        <h3>Also Available In</h3>
+    <?php endif; ?>
+
+        <div class="also-available-container">
+            <?php if ($this->getDarkUrl()): ?>
+              <a href="<?php echo $this->getDarkUrl() ?>"
+                 class="available-in available-in--dark"
+                 title="dark"><img src="<?php echo $block->getViewFileUrl('Rcreek_AlsoAvailable::images/dark-v3.jpg'); ?>"/></a>
+            <?php endif; ?>
+
+            <?php if ($this->getLightUrl()): ?>
+              <a href="<?php echo $this->getLightUrl() ?>"
+                 class="available-in available-in--light"
+                 title="light"><img src="<?php echo $block->getViewFileUrl('Rcreek_AlsoAvailable::images/light-v3.jpg'); ?>"/></a>
+            <?php endif; ?>
+
+            <?php if ($this->getNaturalUrl()): ?>
+              <a href="<?php echo $this->getNaturalUrl() ?>"
+                 class="available-in available-in--natural"
+                 title="natural"><img src="<?php echo $block->getViewFileUrl('Rcreek_AlsoAvailable::images/natural-v3.jpg'); ?>"/></a>
+            <?php endif; ?>
+        </div>
+
+    <?php if ($this->getDarkUrl() || $this->getLightUrl() || $this->getNaturalUrl()): ?>
+      </div>
+    <?php endif; ?>
+  </div>
+  <div class="alternate-links-col2">
+      <?php $cat = $this->getTheRelevantMoreCollectionsSub(); ?>
+      <?php if ($cat): ?>
+        <div class="view-all">
+          <a href="<?php echo $cat->getUrl() ?>"><span>View all items in the '<?php echo $cat->getName() ?>' collection</span></a>
+        </div>
+      <?php endif; ?>
+  </div>
+</div>
+
+
+

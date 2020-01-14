@@ -1,0 +1,172 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Osc
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+$_sortedFields = $block->getSortedFields();
+$_availableFields = $block->getAvailableFields();
+$_helper = $block->getHelperData();
+?>
+<div class="field-postion-content" id="field-position-sortable">
+    <div id="position-save-messages">
+        <div class="messages">
+            <div class="message message-success success position-save-messages" style="display: none">
+                <div data-ui-id="messages-message-success" id="position-save-messages-success"></div>
+            </div>
+            <div class="message message-error error position-save-messages" style="display: none">
+                <div data-ui-id="messages-message-error" id="position-save-messages-error"></div>
+            </div>
+        </div>
+    </div>
+    <div id="containment">
+        <div class="column left">
+            <div class="field-wrapper available-wrapper">
+                <div class="field-title available">
+                    <h2><?= /** @noEscape */ __('AVAILABLE FIELDS') ?></h2>
+                </div>
+                <div class="field field-available">
+                    <ul class="sortable-list ui-sortable">
+                        <?php foreach ($_availableFields as $field) : ?>
+                            <li class="sortable-item" id="<?= /** @noEscape */ $field->getId() ?>"
+                                code="<?= /** @noEscape */ $field->getAttributeCode() ?>">
+                                <div class="attribute-label">
+                                    <?= /** @noEscape */ $field->getFrontendLabel() ?>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="column right">
+            <div class="field-wrapper sorted-wrapper">
+                <div class="field-title sorted-title">
+                    <h2><?= /** @noEscape */ __('SORTED FIELDS') ?></h2>
+                </div>
+                <div class="field field-sorted">
+                    <ul class="sortable-list ui-sortable">
+                        <?php foreach ($_sortedFields as $field) : ?>
+                            <li class="sortable-item <?= /** @noEscape */ $field->getColspan() == 12 ? 'wide' : '' ?>"
+                                id="<?= /** @noEscape */ $field->getId() ?>"
+                                code="<?= /** @noEscape */ $field->getAttributeCode() ?>">
+                                <div class="attribute-label">
+                                    <?= /** @noEscape */ $field->getFrontendLabel() ?>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clearer">&nbsp;</div>
+    </div>
+</div>
+<script>
+    require(['jquery', 'prototype', 'jquery/ui'], function ($j) {
+        //<![CDATA[
+        $j(function () {
+            $j("#field-position-sortable .sortable-list").sortable({
+                connectWith: '#field-position-sortable .sortable-list',
+                containment: '#containment',
+                placeholder: "suggest-position",
+                start: function (e, hash) {
+                    if (hash.item.hasClass('wide')) {
+                        hash.placeholder.addClass('wide');
+                    }
+                }
+            });
+
+            $j("#field-position-sortable .sortable-list").disableSelection();
+            $j("#field-position-sortable .sortable-list .sortable-item").addClass('left');
+
+            /*Resize able*/
+            $j("#containment ul li .attribute-label").resizable({
+                maxHeight: 40,
+                minHeight: 40,
+                helper: "ui-resizable-border",
+                stop: function (e, ui) {
+                    var field = ui.element.parent();
+                    (ui.element.width() * 2 > field.width()) ?
+                        field.addClass('wide') :
+                        field.removeClass('wide');
+
+                    ui.element.css({width: ''});
+                }
+            });
+        });
+
+        function savePosition() {
+            var fields = [];
+
+            $j('.right .sortable-item').each(function (index, el) {
+                fields.push({
+                    code: $j(el).attr('code'),
+                    colspan: $j(el).hasClass('wide') ? 12 : 6
+                });
+            });
+
+            updateMessage(false);
+
+            new Ajax.Request('<?= /** @noEscape */ $block->getAjaxUrl() ?>', {
+                parameters: {
+                    fields: JSON.stringify(fields)
+                },
+                onSuccess: function (response) {
+                    var message = '<?= /** @noEscape */ __('Error during save field position.') ?>',
+                        success = false;
+                    try {
+                        if (response.responseText.isJSON()) {
+                            response = response.responseText.evalJSON();
+                            message = response.message;
+                            success = response.success;
+                        }
+                    } catch (e) {
+                        success = false;
+                    }
+
+                    updateMessage(true, success, message);
+                }
+            });
+        }
+
+        function updateMessage(show, success, message) {
+            var resultMessage = 'position-save-messages',
+                messageType = (typeof success !== 'undefined' && success) ? 'success' : 'error';
+
+            if (!show) {
+                $j('.' + resultMessage).hide();
+                return;
+            }
+
+            var messageElement = $j('#' + resultMessage + '-' + messageType);
+            messageElement.html(message);
+            messageElement.parent().show();
+        }
+
+        window.saveOscPosition = savePosition;
+        //]]>
+    });
+</script>
+
+<?php $design = $block->getHelperData()->getDesignConfig(); ?>
+<style type="text/css">
+    .field-title {
+        background-color: <?= /** @noEscape */ (isset($design['heading_background']) && $design['heading_background']) ? $design['heading_background'] : '#FF7800' ?>;
+    }
+</style>

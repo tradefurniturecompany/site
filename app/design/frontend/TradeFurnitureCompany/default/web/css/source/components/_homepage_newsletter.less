@@ -1,0 +1,142 @@
+/* NEWSLETTER SECTION */
+.block.newsletter {
+  background-color: @primary__color;
+  padding: 30px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.newsletter-text {
+  flex: 1 0 100%;
+  padding-right: 20px;
+  box-sizing: border-box;
+  .lib-font-size(12);
+  h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 900;
+    .lib-font-size(20);
+  }
+}
+
+.block.newsletter .newsletter-form {
+  flex: 1 0 100%;
+  padding: 0;
+  box-sizing: border-box;
+  margin-top: 20px;
+  input {
+    width: 100%;
+    background: @primary__color;
+    border: 1px solid #fff;
+    color: #fff;
+    .lib-font-size(14);
+
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #fff;
+      opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: #fff;
+    }
+
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: #fff;
+    }
+  }
+
+  .action.subscribe {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .field.newsletter {
+    width: 100%;
+  }
+  .control {
+    width: 100%;
+  }
+  .field .control:before {color: #fff;}
+  .actions {
+    width: 100%;
+    display: block;
+
+    button {
+      background-color: @primary__color;
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 6px 15px;
+    }
+  }
+
+}
+
+@media (min-width: @screen__m) {
+  .block.newsletter {
+    flex-wrap: nowrap;
+  }
+
+  .newsletter-text {
+    flex: 1 0 50%;
+  }
+
+  .block.newsletter .newsletter-form {
+    flex: 1 0 50%;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: @screen__l) {
+
+  .block.newsletter {
+    flex-wrap: nowrap;
+  }
+
+  .newsletter-text {
+    flex: 1 0 50%;
+    .lib-font-size(18);
+    h2 {
+      .lib-font-size(30);
+    }
+  }
+
+  .block.newsletter .newsletter-form {
+    flex: 1 0 50%;
+    margin-top: 0;
+
+    .field.newsletter {
+      width: 70%;
+      float: left;
+    }
+    .control {
+      width: 100%;
+    }
+    input {
+      width: 100%;
+      .lib-font-size(18);
+    }
+    .field .control:before {color: #fff;}
+    .actions {
+      width: 30%;
+      float: left;
+
+      .action.subscribe {
+        background-color: @primary__color;
+        color: #fff;
+        border: 2px solid #fff;
+        padding: 4px 15px;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+
+
+
+

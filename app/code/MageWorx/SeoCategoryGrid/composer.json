@@ -1,0 +1,24 @@
+{
+  "name": "mageworx/module-seocategorygrid",
+  "description": "SEO Category Grid module for Magento 2",
+  "require": {
+      "mageworx/module-seoall": ">=2.2.1",
+      "magento/module-catalog": ">=100.0.0 <104",
+      "magento/framework": ">=100.0.0 <103",
+      "magento/module-ui": ">=100.0.0 <102"
+  },
+  "type": "magento2-module",
+  "version": "2.0.1",
+  "license": [
+      "OSL-3.0",
+      "AFL-3.0"
+  ],
+  "autoload": {
+      "files": [
+          "registration.php"
+      ],
+      "psr-4": {
+          "MageWorx\\SeoCategoryGrid\\": ""
+      }
+  }
+}

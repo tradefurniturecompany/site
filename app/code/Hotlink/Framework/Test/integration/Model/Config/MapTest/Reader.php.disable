@@ -1,0 +1,33 @@
+<?php
+namespace Hotlink\Framework\Test\integration\Model\Config\MapTest;
+
+class Reader extends \Hotlink\Framework\Model\Config\Map\Reader
+{
+
+    public function __construct(
+        \Magento\Framework\Config\FileResolverInterface $fileResolver,
+        \Magento\Framework\Config\ConverterInterface $converter,
+        \Hotlink\Framework\Test\integration\Model\Config\MapTest\Schema\Locator $schemaLocator,
+        \Magento\Framework\Config\ValidationStateInterface $validationState,
+        $fileName = 'hotlink.xml',
+        $idAttributes = [],
+        $domDocumentClass = 'Magento\Framework\Config\Dom',
+        $defaultScope = 'global'
+    )
+    {
+        $path = \Hotlink\Framework\Filesystem::getRelativePath( __FILE__, 'hotlink*.xml' );
+        $defaultScope = dirname( $path );
+        $fileName = basename( $path );
+        parent::__construct(
+            $fileResolver,
+            $converter,
+            $schemaLocator,
+            $validationState,
+            $fileName,
+            $idAttributes,
+            $domDocumentClass,
+            $defaultScope
+        );
+    }
+
+}

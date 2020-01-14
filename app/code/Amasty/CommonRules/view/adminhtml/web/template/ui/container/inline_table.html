@@ -1,0 +1,22 @@
+<div class="admin__field" attr="'data-index': index">
+    <label if="element.label" class="admin__field-label" attr="for: element.uid">
+        <span text="element.label"/>
+    </label>
+
+    <div class="admin__field-control" data-role="grid-wrapper">
+        <table class="data-grid" data-role="grid">
+            <tbody>
+            <tr class="data-row">
+                <!-- ko foreach: { data: elems, as: 'elem'}  -->
+                <td if="elem.template"
+                    visible="elem.visible"
+                    disable="elem.disabled"
+                    template="elem.template"
+                    style="border: none;"
+                    attr="'data-index': index"/>
+                <!-- /ko -->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <html_sitemap>
+                <show_stores>0</show_stores>
+                <show_categories>1</show_categories>
+                <category_max_depth></category_max_depth>
+                <show_products>1</show_products>
+                <use_cat_display_mode>1</use_cat_display_mode>
+                <product_url_length>1</product_url_length>
+                <cat_prod_sort_order>1</cat_prod_sort_order>
+                <show_cms_pages>1</show_cms_pages>
+                <show_links>1</show_links>
+                <show_custom_links>1</show_custom_links>
+                <title>Sitemap</title>
+                <meta_description>Sitemap Tree: Categories - Products</meta_description>
+                <meta_keywords>sitemap, categories, products, pages</meta_keywords>
+            </html_sitemap>
+            <common_sitemap>
+                <trailing_slash_home_page>0</trailing_slash_home_page>
+                <trailing_slash>1</trailing_slash>
+            </common_sitemap>
+        </mageworx_seo>
+    </default>
+</config>

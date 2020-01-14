@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <virtualType name="Hotlink\Framework\Model\Notification\Observer" type="Magento\AdminNotification\Observer\PredispatchAdminActionControllerObserver">
+        <arguments>
+            <argument name="feedFactory" xsi:type="object">Hotlink\Framework\Model\Notification\FeedFactory</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Hotlink\Framework\Model\Notification\FeedFactory" type="Magento\AdminNotification\Model\FeedFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">\Hotlink\Framework\Model\Notification\Feed</argument>
+        </arguments>
+    </virtualType>
+
+</config>

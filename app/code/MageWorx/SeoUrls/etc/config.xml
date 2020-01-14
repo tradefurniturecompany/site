@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <seourls>
+                <category>
+                    <use_in_attribute>0</use_in_attribute>
+                    <use_in_pager>0</use_in_pager>
+                    <pager_var_name>p</pager_var_name>
+                    <use_invert_redirect>0</use_invert_redirect>
+                    <seofilters_identifier>l</seofilters_identifier>
+                </category>
+            </seourls>
+        </mageworx_seo>
+    </default>
+</config>

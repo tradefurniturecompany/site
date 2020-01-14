@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Magento_Sales::sales">
+					<resource id="Magento_Sales::sales_operation">
+						<resource id="Customweb_Base::sales_customweb"  title="Customweb" sortOrder="100" />
+					</resource>
+				</resource>
+				<resource id="Magento_Backend::stores">
+					<resource id="Customweb_Base::config"  title="Customweb" sortOrder="100" />
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

@@ -1,0 +1,118 @@
+@media (min-width: 768px), print {
+	.realexcw_fieldset {
+		width: 48%;
+	}
+}
+
+
+/*** EXTERNAL CHECKOUT ***/
+
+.realexcw-externalcheckout-login .nav-sections,
+.realexcw-externalcheckout-login .nav-toggle,
+.realexcw-externalcheckout-login .panel.wrapper,
+.realexcw-externalcheckout-login .page-footer,
+.realexcw-externalcheckout-login .minicart-wrapper,
+.realexcw-externalcheckout-login .block-search,
+.realexcw-externalcheckout-login .compare.wrapper,
+.realexcw-externalcheckout-review .nav-sections,
+.realexcw-externalcheckout-review .nav-toggle,
+.realexcw-externalcheckout-review .panel.wrapper,
+.realexcw-externalcheckout-review .page-footer,
+.realexcw-externalcheckout-review .minicart-wrapper,
+.realexcw-externalcheckout-review .block-search,
+.realexcw-externalcheckout-review .compare.wrapper {
+	display: none;
+}
+
+.realexcw-externalcheckout-review .modal-popup .modal-footer .action-hide-popup {
+	line-height: 1.42857143;
+    padding: 0;
+    color: #1979c3;
+    text-decoration: none;
+    background: none;
+    border: 0;
+    display: inline;
+    border-radius: 0;
+    font-weight: 400;
+}
+
+#external-checkout-progress-wrapper .place-order-actions {
+	margin: 20px 0 0;
+	text-align: center;
+	padding: 0;
+	list-style: none none;
+}
+
+#external-checkout-progress-wrapper .place-order-actions .action.primary.checkout {
+	width: 100%;
+	line-height: 2.2rem;
+    padding: 14px 17px;
+    font-size: 1.8rem;
+}
+
+#external-checkout-review-table .item-actions {
+	display: none;
+}
+
+
+/*** CHECKOUT ***/
+
+.customweb-realexcw-payment-form .card-brand-image-box {
+	display: inline-block;
+}
+
+.customweb-realexcw-payment-form .card-brand-image-color.brand-is-deselected {
+	display:none;
+}
+
+.customweb-realexcw-payment-form .card-brand-image-grey.brand-is-selected {
+	display:none;
+}
+
+.customweb-realexcw-payment-form .card-brand-image-selection {
+	margin: 5px 0;
+}
+
+.customweb-realexcw-payment-form .card-brand-image-selection img {
+	width:auto;
+	height: 20px;
+	margin-right: 3px;
+}
+
+.customweb-realexcw-payment-form .invalid-card-number,
+.customweb-realexcw-payment-form .invalid-cvc-number {
+	border-color: #ed8380;
+	background-image: url(../images/invalid.png) !important;
+	background-position: right 5px center;
+	background-repeat: no-repeat !important;
+}
+
+.customweb-realexcw-payment-form .valid-card-number,
+.customweb-realexcw-payment-form .valid-cvc-number {
+	background-image: url(../images/valid.png) !important;
+	background-position: right 5px center;
+	background-repeat: no-repeat !important;
+}
+
+.customweb-realexcw-payment-form .multi-control:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.customweb-realexcw-payment-form .multi-control > div > div {
+	width: auto;
+	float: left;
+	margin-right: 5px;
+	margin-top: 0;
+}
+
+.customweb-realexcw-payment-form .help-block {
+	margin-top: 7px;
+}
+
+.customweb-realexcw-payment-form .card-number .multi-control > div > div,
+.customweb-realexcw-payment-form .alias .multi-control > div > div {
+	width: 100%;
+	float: none;
+	margin: 0;
+}

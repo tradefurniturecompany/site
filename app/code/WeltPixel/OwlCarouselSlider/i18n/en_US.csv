@@ -1,0 +1,165 @@
+Banners,Banners
+"Add New Banner","Add New Banner"
+"Save Banner","Save Banner"
+"Close Window","Close Window"
+"Save and Continue Edit","Save and Continue Edit"
+"Save and Close","Save and Close"
+"Banner Details","Banner Details"
+Title,Title
+"Show Title","Show Title"
+Yes,Yes
+No,No
+Description,Description
+"Show Description","Show Description"
+Status,Status
+"Banner Status","Banner Status"
+Slider,Slider
+URL,URL
+"GA Promo ID","GA Promo ID"
+"GA Promo Name","GA Promo Name"
+"GA Promo Creative","GA Promo Creative"
+"GA Promo Position","GA Promo Position"
+Target,Target
+"Same Window","Same Window"
+"New Window Tab","New Window Tab"
+"Button Text","Button Text"
+"Insert the text which is displayed on the button. To display the button make sure you fill the URL filed also.","Insert the text which is displayed on the button. To display the button make sure you fill the URL filed also."
+"Banner Type","Banner Type"
+Video,Video
+Image,Image
+"Mobile Image","Mobile Image"
+"Create Custom Banner here","Create Custom Banner here"
+"Alt Text","Alt Text"
+"Banner Class","Banner Class"
+"Wrapper class name of the current banner. It can be used in Custom CSS field to style each banner from the slider. This is displayed only after you 
+                    saved the banner.","Wrapper class name of the current banner. It can be used in Custom CSS field to style each banner from the slider. This is displayed only after you 
+                    saved the banner."
+"Custom HTML Content","Custom HTML Content"
+"Custom CSS","Custom CSS"
+"Banner Valid From","Banner Valid From"
+"Valid From","Valid From"
+"Banner Valid To","Banner Valid To"
+"Valid To","Valid To"
+"Edit Banner '%1'","Edit Banner '%1'"
+"New Banner","New Banner"
+"Banner Information","Banner Information"
+"Banner ID","Banner ID"
+"Slider ID","Slider ID"
+Edit,Edit
+CSV,CSV
+XML,XML
+Excel,Excel
+Delete,Delete
+"Are you sure?","Are you sure?"
+"Change Status","Change Status"
+Sliders,Sliders
+"Add New Slider","Add New Slider"
+"Save Slider","Save Slider"
+"Create Banner","Create Banner"
+"You have to save the banner and close this window!","You have to save the banner and close this window!"
+"Banner Title","Banner Title"
+"Sort Order","Sort Order"
+"Slider Details","Slider Details"
+"Slider Status","Slider Status"
+"<strong>Slider General Configuration</strong>","<strong>Slider General Configuration</strong>"
+"Next/Prev Buttons","Next/Prev Buttons"
+True,True
+False,False
+Dots,Dots
+"Banner Transition Effect","Banner Transition Effect"
+"Center Item","Center Item"
+StagePadding,StagePadding
+Margin,Margin
+Items,Items
+Loop,Loop
+LazyLoad,LazyLoad
+Autoplay,Autoplay
+AutoplayTimeout,AutoplayTimeout
+AutoplayHoverPause,AutoplayHoverPause
+"Auto Height","Auto Height"
+"<strong>Slider Responsive Breakpoints.<br/>This configuration will overwrite the main slider options.</strong>","<strong>Slider Responsive Breakpoints.<br/>This configuration will overwrite the main slider options.</strong>"
+"Breakpoint 1","Breakpoint 1"
+"Breakpoint 2","Breakpoint 2"
+"Breakpoint 3","Breakpoint 3"
+"Breakpoint 4","Breakpoint 4"
+"Edit Slider '%1'","Edit Slider '%1'"
+"New Slider","New Slider"
+"Slider Information","Slider Information"
+"Change status","Change status"
+"General Carousel Settings","General Carousel Settings"
+"General Slider Settings","General Slider Settings"
+"Breakpoint ","Breakpoint "
+"Breakpoint Carousel Options","Breakpoint Carousel Options"
+"This configuration will overwrite the General Carousel Options.","This configuration will overwrite the General Carousel Options."
+"General Carousel Options","General Carousel Options"
+"<b style=""font-size: 16px""><a style=""font-size: 16px"" target=""_blank"" href=""https://www.weltpixel.com/owl-carousel-and-slider.html"">Upgrade to Pro version</a> to enable this functionality.</b>","<b style=""font-size: 16px""><a style=""font-size: 16px"" target=""_blank"" href=""https://www.weltpixel.com/owl-carousel-and-slider.html"">Upgrade to Pro version</a> to enable this functionality.</b>"
+"Delete successfully!","Delete successfully!"
+"Please select banner(s).","Please select banner(s)."
+"A total of %1 banner(s) have been deleted.","A total of %1 banner(s) have been deleted."
+"A total of %1 banner(s) status have been changed.","A total of %1 banner(s) status have been changed."
+"The banner has been saved.","The banner has been saved."
+"Something went wrong while saving the banner.","Something went wrong while saving the banner."
+"Delete successfully !","Delete successfully !"
+"This slider no longer exists.","This slider no longer exists."
+"Please select slider(s).","Please select slider(s)."
+"A total of %1 slider(s) have been deleted.","A total of %1 slider(s) have been deleted."
+"A total of %1 slider(s) status have been changed.","A total of %1 slider(s) status have been changed."
+"The slider has been saved.","The slider has been saved."
+"Something went wrong while saving the slider.","Something went wrong while saving the slider."
+"--- Please select a slider ---","--- Please select a slider ---"
+Custom,Custom
+"Default Magento","Default Magento"
+"Specific Category","Specific Category"
+"Default Magento & Specific Category","Default Magento & Specific Category"
+"Select Custom Slider...","Select Custom Slider..."
+"Select Products Slider...","Select Products Slider..."
+"New Products","New Products"
+"Best-sell Products","Best-sell Products"
+"Sale Products","Sale Products"
+"Recently Viewed","Recently Viewed"
+Slide,Slide
+Fade,Fade
+Enabled,Enabled
+Disabled,Disabled
+"Related Products","Related Products"
+"We found other products you might like!","We found other products you might like!"
+"More Choices:","More Choices:"
+"Check items to add to the cart or","Check items to add to the cart or"
+"select all","select all"
+"Add to Cart","Add to Cart"
+"In stock","In stock"
+"Out of stock","Out of stock"
+"Add to Wish List","Add to Wish List"
+"Add to Compare","Add to Compare"
+"View More","View More"
+"OWL Product Carousels","OWL Product Carousels"
+"General Configuration for OWL Product Carousels and Banner Sliders","General Configuration for OWL Product Carousels and Banner Sliders"
+"Display wishlist","Display wishlist"
+"Display compare","Display compare"
+"New Products Carousel Settings","New Products Carousel Settings"
+"Enable Carousel","Enable Carousel"
+"Show Price","Show Price"
+"Show Add To Cart","Show Add To Cart"
+"Show Wishlist","Show Wishlist"
+"Show Compare","Show Compare"
+"Random Sort","Random Sort"
+"Max Items","Max Items"
+Center,Center
+"Best Sell Products Carousel Settings","Best Sell Products Carousel Settings"
+"Sale Products Carousel Settings","Sale Products Carousel Settings"
+"Recently Viewed Products Carousel Settings","Recently Viewed Products Carousel Settings"
+"Related Products Carousel Settings","Related Products Carousel Settings"
+"Up-Sells Products Carousel Settings","Up-Sells Products Carousel Settings"
+"Cross-Sell Products Carousel Settings","Cross-Sell Products Carousel Settings"
+"Custom Category Products Carousel Settings","Custom Category Products Carousel Settings"
+"Owl Slider","Owl Slider"
+"General Settings","General Settings"
+"Enable Google Analytics Tracking","Enable Google Analytics Tracking"
+"Enable Hover Image on products","Enable Hover Image on products"
+"Mobile Breakpoint","Mobile Breakpoint"
+" <b style=""font-size: 16px""><a style=""font-size: 16px"" target=""_blank"" href=""https://www.weltpixel.com/owl-carousel-and-slider.html"">Upgrade to Pro version</a> to enable this functionality.</b> "," <b style=""font-size: 16px""><a style=""font-size: 16px"" target=""_blank"" href=""https://www.weltpixel.com/owl-carousel-and-slider.html"">Upgrade to Pro version</a> to enable this functionality.</b> "
+"WeltPixel - Custom Slider Widget","WeltPixel - Custom Slider Widget"
+"Custom Slider","Custom Slider"
+"WeltPixel - Products Carousel Widget","WeltPixel - Products Carousel Widget"
+"Products Slider Type","Products Slider Type"
+"WeltPixel - Custom Category Product Carousel","WeltPixel - Custom Category Product Carousel"

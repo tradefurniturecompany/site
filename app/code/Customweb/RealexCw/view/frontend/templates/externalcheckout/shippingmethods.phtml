@@ -1,0 +1,118 @@
+<?php
+/**
+ * You are allowed to use this API in your web application.
+ *
+ * Copyright (C) 2018 by customweb GmbH
+ *
+ * This program is licenced under the customweb software licence. With the
+ * purchase or the installation of the software in your application you
+ * accept the licence agreement. The allowed usage is outlined in the
+ * customweb software licence which can be found under
+ * http://www.sellxed.com/en/software-license-agreement
+ *
+ * Any modification or distribution is strictly forbidden. The license
+ * grants you the installation in one application. For multiuse you will need
+ * to purchase further licences at http://www.sellxed.com/shop.
+ *
+ * See the customweb software licence agreement for more details.
+ *
+ *
+ * @category	Customweb
+ * @package		Customweb_RealexCw
+ * 
+ */
+
+/* @var $block \Customweb\RealexCw\Block\ExternalCheckout\ShippingMethods */
+?>
+
+<ul class="opc-progress-bar" id="external-checkout-progress-bar">
+	<li class="opc-progress-bar-item _complete">
+		<span><?php echo __('Login & Register') ?></span>
+	</li>
+	<li class="opc-progress-bar-item _active">
+		<span><?php echo __('Review') ?></span>
+	</li>
+</ul>
+
+<div class="messages" id="external-checkout-shipping-messages">
+	<?php $messages = $block->getErrorMessages(); if (!empty($messages)) : ?>
+		<?php foreach ($messages as $message) : ?>
+			<div class="message-error error message"
+				data-ui-id="message-error">
+				<div><?php echo $block->escapeHtml($message) ?></div>
+			</div>
+		<?php endforeach; ?>
+	<?php endif; ?>
+</div>
+
+<?php if (!$block->getContext()->getQuote()->isVirtual()) : ?>
+	<div class="opc-wrapper">
+		<ol class="opc">
+			<li class="external-checkout-shipping-method">
+				<div class="step-title"><?php echo __('Shipping Methods') ?></div>
+				<div id="checkout-step-shipping_method" class="step-content">
+					<div id="checkout-shipping-method-load">
+						<table class="table-checkout-shipping-method">
+							<thead>
+								<tr class="row">
+									<th class="col col-method"><?php echo __('Select Method') ?></th>
+									<th class="col col-price"><?php echo __('Price') ?></th>
+									<th class="col col-method"><?php echo __('Method Title') ?></th>
+									<th class="col col-carrier"><?php echo __('Carrier Title') ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php $_shippingRateGroups = $block->getShippingRates(); ?>
+								<?php $_sole = count($_shippingRateGroups) == 1; foreach ($_shippingRateGroups as $code => $_rates) : ?>
+									<?php $_sole = $_sole && count($_rates) == 1; foreach ($_rates as $_rate): ?>
+										<?php if (!$_rate->getErrorMessage()): ?>
+											<tr class="row" onclick="jQuery('#s_method_<?php echo $_rate->getCode() ?>').prop('checked', true); jQuery('#external-checkout-save-shipping-method-button').click();">
+												<td class="col col-method">
+													<?php if ($_sole) : ?>
+														<input name="shipping_method"
+															type="radio"
+															value="<?php echo $_rate->getCode() ?>"
+															id="s_method_<?php echo $_rate->getCode() ?>"
+															checked="checked"
+															class="radio"
+															/>
+													<?php else : ?>
+														<input name="shipping_method"
+															type="radio"
+															value="<?php echo $_rate->getCode() ?>"
+															id="s_method_<?php echo $_rate->getCode() ?>"
+															<?php if($_rate->getCode()===$block->getAddressShippingMethod()) echo 'checked="checked"' ?>
+															class="radio"
+															/>
+													<?php endif; ?>
+												</td>
+											   <td class="col col-price">
+													<span class="price">
+														<span class="price"><?php echo $block->getShippingPriceHtml($_rate); ?></span>
+													</span>
+												</td>
+
+												<td class="col col-method" id="label_method_<?php echo $_rate->getCode() ?>"><?php echo $block->escapeHtml($_rate->getMethodTitle()) ?></td>
+
+												<td class="col col-carrier" id="label_carrier_<?php echo $_rate->getCode() ?>"><?php echo $block->escapeHtml($block->getCarrierName($code)) ?></td>
+											</tr>
+										<?php else : ?>
+											<tr class="row row-error">
+												<td class="col col-error" colspan="4">
+													<div class="message error">
+														<div><?php echo $block->escapeHtml($_rate->getErrorMessage()) ?></div>
+													</div>
+												</td>
+											</tr>
+										<?php endif; ?>
+									<?php endforeach; ?>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<button id="external-checkout-save-shipping-method-button" type="submit" class="no-display"></button>
+			</li>
+		</ol>
+	</div>
+<?php endif; ?>

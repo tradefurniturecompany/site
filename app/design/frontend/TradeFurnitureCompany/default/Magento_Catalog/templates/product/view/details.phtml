@@ -1,0 +1,60 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php if ($detailedInfoGroup = $block->getGroupChildNames('detailed_info', 'getChildHtml')): ?>
+
+  <div class="accordion-image-wrapper">
+    <div class="accordion-wrapper product info detailed">
+        <?php $layout = $block->getLayout(); ?>
+      <div class="collapsibleContainer"
+           data-mage-init='{"accordion":{"active": "0"}}'>
+          <?php foreach ($detailedInfoGroup as $name): ?>
+              <?php
+              $html = $layout->renderElement($name);
+              if (!trim($html)) {
+                  continue;
+              }
+              $alias = $layout->getElementAlias($name);
+              $label = $block->getChildData($alias, 'title');
+              ?>
+            <div class="collapsibleTab"
+                 aria-labeledby="tab-label-<?= /* @escapeNotVerified */
+                 $alias ?>-title"
+                 data-role="collapsible"
+                 id="tab-label-<?= /* @escapeNotVerified */
+                 $alias ?>">
+              <div ><?= /* @escapeNotVerified */
+                  $label ?></div>
+            </div>
+            <div class="collapsibleContent"
+                 data-role="content">
+                <?= /* @escapeNotVerified */
+                $html ?>
+            </div>
+          <?php endforeach; ?>
+      </div>
+    </div>
+    <div class="image-wrapper">
+      <?php
+      $bannerStatus = ($this->getChildBlock('additional')) ? $this->getChildBlock('additional')->getProduct()->getData('show_free_delivery_banner') : 0;
+
+      if ($bannerStatus == 1) {
+          $bannerIdentifier = 'product_view_by_details_promo';
+      } else {
+          $bannerIdentifier = 'product_view_by_details';
+      }
+
+      echo $this->getLayout()
+          ->createBlock('Magento\Cms\Block\Block')
+          ->setBlockId($bannerIdentifier)
+          ->toHtml();
+      ?>
+    </div>
+  </div>
+<?php endif; ?>

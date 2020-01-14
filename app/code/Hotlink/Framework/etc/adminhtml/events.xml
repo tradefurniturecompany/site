@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="hotlink_framework_trigger_admin_user_request">
+        <observer name="triggerAdminUserRequest" instance="\Hotlink\Framework\Model\Trigger\Admin\User\Request" />
+    </event>
+
+    <!-- START: Realtime stock updates -->
+    <!-- admin edit product -->
+    <event name="catalog_product_edit_action">
+        <observer name="hotlink_framework_trigger_stock_update_realtime" instance="\Hotlink\Framework\Model\Trigger\Stock\Update\Realtime" />
+    </event>
+    <!-- END: Realtime stock updates -->
+
+    <event name="controller_action_predispatch">
+        <observer name="hotlink" instance="Hotlink\Framework\Model\Notification\Observer" />
+    </event>
+
+</config>

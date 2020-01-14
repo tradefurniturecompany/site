@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_category_save_commit_after">
+        <observer name="mw_update_category_report_on_category_save" instance="MageWorx\SeoReports\Observer\CategoryReportUpdateObserver"/>
+    </event>
+    <event name="catalog_category_delete_after_done">
+        <observer name="mw_update_category_report_on_category_removal" instance="MageWorx\SeoReports\Observer\CategoryReportUpdateObserver"/>
+    </event>
+    <event name="catalog_product_save_commit_after">
+        <observer name="mw_update_product_report_on_product_save" instance="MageWorx\SeoReports\Observer\ProductReportUpdateObserver"/>
+    </event>
+    <event name="catalog_product_delete_after_done">
+        <observer name="mw_update_product_report_on_product_removal" instance="MageWorx\SeoReports\Observer\ProductReportUpdateObserver"/>
+    </event>
+    <event name="cms_page_save_commit_after">
+        <observer name="mw_update_page_report_on_page_save" instance="MageWorx\SeoReports\Observer\PageReportUpdateObserver"/>
+    </event>
+    <event name="cms_page_delete_commit_after">
+        <observer name="mw_update_page_report_on_page_removal" instance="MageWorx\SeoReports\Observer\PageReportUpdateObserver"/>
+    </event>
+</config>

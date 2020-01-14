@@ -1,0 +1,24 @@
+{
+    "name": "mageworx/module-seomarkup",
+    "description": "SEO Markup extension for Magento 2",
+    "require": {
+        "magento/module-catalog"            : ">=100.0.0 <104",
+        "magento/module-cms"                : ">=100.0.0 <104",
+        "magento/module-eav"                : ">=100.0.0 <103",
+        "magento/framework"                 : ">=100.0.0 <103",
+        "magento/module-store"              : ">=100.0.0 <102",
+        "magento/module-ui"                 : ">=100.0.0 <102"
+    },
+    "type": "magento2-module",
+    "version": "2.4.8",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "MageWorx\\SeoMarkup\\": ""
+        }
+    }
+}

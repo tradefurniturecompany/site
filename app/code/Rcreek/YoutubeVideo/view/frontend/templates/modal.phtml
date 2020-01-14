@@ -1,0 +1,5 @@
+<?php /** @var Rcreek\YoutubeVideo\Block\YoutubeVideo $block */ ?>
+
+<div id="popup-youtube-video" style="display:none; padding-bottom: <?php echo $block->getPaddingBottomPercentage();?>%;">
+    <?php /* @noEscape */ echo $block->getEmbeddedHtml() ?>
+</div>

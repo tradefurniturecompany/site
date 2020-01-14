@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="hotlink_framework_monitor_cron">
+        <observer name="hotlink_framework_trigger_monitor_cron" instance="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+    </event>
+
+    <!-- START: Realtime stock updates -->
+    <!-- view product -->
+    <event name="catalog_controller_product_view">
+        <observer name="hotlink_framework_trigger_stock_update_realtime" instance="\Hotlink\Framework\Model\Trigger\Stock\Update\Realtime" />
+    </event>
+
+    <!-- add to basket -->
+    <event name="sales_quote_product_add_after">
+        <observer name="hotlink_framework_trigger_stock_update_realtime" instance="\Hotlink\Framework\Model\Trigger\Stock\Update\Realtime" />
+    </event>
+
+    <!-- view basket -->
+    <event name="sales_quote_item_collection_products_after_load">
+        <observer name="hotlink_framework_trigger_stock_update_realtime" instance="\Hotlink\Framework\Model\Trigger\Stock\Update\Realtime" />
+    </event>
+
+    <!-- before place order -->
+    <event name="checkout_submit_before">
+        <observer name="hotlink_framework_trigger_stock_update_realtime" instance="\Hotlink\Framework\Model\Trigger\Stock\Update\Realtime" />
+    </event>
+    <!-- END: Realtime stock updates -->
+
+    <event name="sales_model_service_quote_submit_success">
+        <observer name="hotlink_framework_trigger_order_placed" instance="\Hotlink\Framework\Model\Trigger\Order\Placed" />
+    </event>
+
+</config>

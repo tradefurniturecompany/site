@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="hotlink" translate="label" sortOrder="1000">
+            <label>Hotlink</label>
+        </tab>
+
+        <section id="hotlink_framework" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Framework</label>
+            <tab>hotlink</tab>
+            <resource>Hotlink_Framework::config</resource><!-- acl id -->
+
+            <include path="Hotlink_Framework::system/version.xml" />
+            <include path="Hotlink_Framework::system/installation.xml" />
+            <include path="Hotlink_Framework::system/log_cleaning.xml" />
+
+        </section>
+    </system>
+</config>

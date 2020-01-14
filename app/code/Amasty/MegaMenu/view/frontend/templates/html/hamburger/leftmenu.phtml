@@ -1,0 +1,78 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+?>
+<?php
+/** @var \Amasty\MegaMenu\Block\Html\Topmenu $block */
+?>
+<?php if ($block->isHamburgerEnabled()) : ?>
+    <span class="ammenu-menu-close-btn" data-ammenu-js="menu-toggle">✖</span>
+    <p class="ammenu-menu-welcome" data-bind="scope: 'customer'">
+            <!-- ko if: customer().fullname  -->
+            <span class="message" data-bind="text: new String('<?= $block->escapeHtml(__('Welcome, %1!', '%1')) ?>').replace('%1', customer().fullname)"></span>
+                <!-- /ko -->
+                <!-- ko ifnot: customer().fullname  -->
+            <span class="message" data-bind='html:"<?= $block->escapeHtml(__('Please login ')) ?>"'></span>
+            <!-- /ko -->
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+    </p>
+    <section class="ammenu-menu-wrapper -hamburger"
+             data-mage-init='{"amastyMegaMenu":{}}'>
+        <p class="ammenu-menu-header"><?= $block->escapeHtml( __('Shop by Category')) ?></p>
+        <nav class="ammenu-main-container" data-ammenu-js="tab-content">
+            <ul class="ammenu-items" data-ammenu-js="menu-items">
+                <?php foreach ($block->getHamburgerMainNodes() as $mainNode) : ?>
+                    <?php
+                    $url = $mainNode->getUrl() ?: '#';
+                    $widthMode = $block->escapeHtml($block->getWidth($mainNode));
+                    $widthValue = $block->getWidthValue($mainNode);
+                    $mainNodeContent = $block->getContent($mainNode);
+                    $itemType = $mainNode['is_category'] ? $block->escapeHtml(__('-category')) : '-custom';
+                    $parentStatus = $mainNodeContent ? '-parent' : '';
+                    ?>
+
+                    <li class="ammenu-item -main -<?= $widthMode ?> <?= $block->escapeHtml($parentStatus) ?> <?= $block->escapeHtml($itemType) ?>">
+                        <?php if (/* @noEscape */ $mainNode->hasChildren()) : ?>
+                            <div class="ammenu-submenu-container ammenu-submenu -<?= $widthMode ?>"
+                                 data-ammenu-js="collapse-content" aria-selected="true" style="<?= ($widthValue) ? 'width: ' . $widthValue . 'px;' : '' ?>">
+                                <?= $mainNodeContent ?>
+                            </div>
+                            <div class="ammenu-toggle" data-ammenu-js="collapse-trigger">
+                                <span class="ammenu-icon" data-ammenu-js="collapse-indicator"></span>
+                            </div>
+                        <?php endif; ?>
+                        <a href="<?= $block->escapeUrl($url) ?>"
+                           class="ammenu-link -main <?= $block->escapeHtml($parentStatus) ?>
+                           <?= /* @noEscape */ $block->getHighLightClass($mainNode)?>"
+                           title="<?= $block->escapeHtml($mainNode->getName()) ?>">
+                            <?= $block->escapeHtml($mainNode->getName()) ?>
+
+                            <?php if ($label = $mainNode->getLabel()): ?>
+                                <span class="ammenu-label" style="color: <?= $block->escapeHtml($mainNode->getLabelTextColor() ?: '#000') ?> !important;
+                                              background-color: <?= $block->escapeHtml($mainNode->getLabelBackgroundColor() ?: '#fff') ?> !important;">
+                                <?= $block->escapeHtml($label) ?>
+                            </span>
+                            <?php endif; ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </nav>
+        <p class="ammenu-menu-header"><?= $block->escapeHtml(__('Help & Settings')) ?></p>
+    </section>
+<?php endif; ?>

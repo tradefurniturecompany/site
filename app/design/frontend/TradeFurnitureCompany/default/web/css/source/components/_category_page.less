@@ -1,0 +1,148 @@
+.catalog-category-view {
+  .page-title-wrapper .page-title {
+    text-align: center;
+    color: @primary__color;
+    font-weight: 800;
+    margin: 0 0 12px 0;
+    .lib-font-size(28);
+    display: block;
+  }
+
+  .category-view-image-desc {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .category-image {
+      flex: 1 0 100%;
+      margin-bottom: 30px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .category-description {
+      width: 100%;
+      height: auto;
+      margin-bottom: 0;
+      text-align: left;
+      color: #575757;
+
+      .text-wrapper {
+        height: 50px;
+        overflow: hidden
+      }
+      
+      #toggle {
+        color: #006bb4;
+      }
+    }
+  }
+}
+
+
+.category-page-subcategories {
+  margin: 0 -15px;
+}
+
+.category-page-subcategories:after {
+  content: ' ';
+  display: table;
+  clear: both;
+}
+
+.category-page-subcategory-box {
+  width: 100%;
+  padding: 15px;
+  float: left;
+  box-sizing: border-box;
+
+  .proportions {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+  }
+
+  a:hover .padding {
+    transform: scale(1.05);
+  }
+
+  .padding {
+    transition: transform 500ms ease-in-out;
+    padding: 10px;
+  }
+
+  p {
+    width: 100%;
+    background-color: @primary__color;
+    color: @color-white;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+
+@media (min-width: @screen__s) {
+  .category-page-subcategory-box {
+    width: 50%;
+  }
+}
+
+@media (min-width: @screen__m) {
+  .catalog-category-view {
+    .category-view-image-desc {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+
+      .category-image {
+        flex: 0 1 33.333%;
+        margin-bottom: 30px;
+        padding-right: 30px;
+      }
+
+      .category-description {
+        max-width: 100%;
+        flex: 0 1 66.666%;
+        margin-bottom: 0;
+        text-align: left;
+        color: #575757;
+      }
+    }
+  }
+
+  .category-mango-furniture,
+  .category-sheesham-furniture {
+    .category-view-image-desc {
+      display: block;
+    }
+  }
+
+  .category-page-subcategory-box {
+    width: 33.333333%;
+  }
+}
+
+@media (min-width: @screen__l) {
+  .category-page-subcategory-box {
+    width: 25%;
+  }
+}
+
+.product-item {
+  .price-box.price-final_price {
+    min-height: 57px;
+  }
+}

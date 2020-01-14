@@ -1,0 +1,175 @@
+//
+//  Amasty Mega Menu
+//  _________________________
+
+
+//
+//  Common
+//  --------------------------
+
+& when (@media-common = true) {
+    .ammenu-menu-wrapper {
+        .ammenu-toggle {
+            .lib-css(padding, @ammenu__indent__base);
+            display: flex;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+            margin: 12px 0 0;
+        }
+        
+        .ammenu-icon {
+            & {
+                position: relative;
+                display: inline-block;
+                width: 20px;
+                min-width: 20px;
+                height: 8px;
+                margin: auto;
+            }
+            
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                top: 3px;
+                display: inline-block;
+                width: 12px;
+                
+                height: 2px;
+                transition: all .3s ease;
+            }
+            
+            &:before {
+                left: 0;
+            }
+            
+            &:after {
+                right: 0;
+            }
+        }
+        
+        .ammenu-icon.-small {
+            & {
+                .lib-css(margin-left, @ammenu__indent__l);
+                width: 12px;
+                min-width: 12px;
+            }
+            
+            &:before,
+            &:after {
+                width: 8px;
+                height: 2px;
+            }
+        }
+        
+        .ammenu-icon:after,
+        .ammenu-icon.-small.-down:before,
+        .ammenu-submenu.-collapsed + .ammenu-toggle .ammenu-icon:before {
+            .lib-css(background-color, @ammenu__color__black);
+            transform: rotate(45deg);
+        }
+        
+        .ammenu-icon:before,
+        .ammenu-icon.-small.-down:after,
+        .ammenu-submenu.-collapsed + .ammenu-toggle .ammenu-icon:after,
+        .ammenu-submenu.-collapsed + .ammenu-link {
+            .lib-css(background-color, @ammenu__color__black);
+            transform: rotate(-45deg);
+        }
+        
+        .ammenu-submenu.-collapsed + .ammenu-link {
+            .lib-css(background-color, @ammenu__color__black)!important;
+        }
+    }
+    
+    .ammenu-menu-toggle {
+        & {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        &.-hamburger.-porto {
+            
+            & ~ .logo {
+                margin: @ammenu__indent__base 0 @ammenu__indent__base @ammenu__indent__xl * 2;
+            }
+        }
+        
+        .ammenu-icon {
+            display: block;
+            width: 25px;
+            margin: 3px 0;
+            border: 1px solid;
+            border-radius: 1px;
+            transition: all .1s ease;
+        }
+    }
+    
+    .ammenu-menu-toggle.-active {
+        .ammenu-icon:nth-of-type(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .ammenu-icon:nth-of-type(2) {
+            opacity: 0;
+        }
+        
+        .ammenu-icon:nth-of-type(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    }
+    
+    .header.content [class*="nav-toggle"],
+    .header.content [class*="toggle-nav"] {
+        display: none !important;
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .ammenu-menu-toggle {
+        &:not(.-hamburger) {
+            display: none !important;
+        }
+        
+        &.-hamburger {
+            .lib-css(margin, 0 @ammenu__indent__base 0 0);
+            float: left;
+            position: inherit;
+        }
+        
+        &.-hamburger.-porto {
+            & {
+                margin: @ammenu__indent__xl 0 0 0;
+            }
+            
+            & ~ .minicart-wrapper {
+                margin: 0;
+                top: 16px;
+            }
+        }
+    }
+}
+
+//
+//  Mobile -
+//  --------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .ammenu-menu-toggle {
+        height: auto;
+        top: 23px;
+    }
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Customweb_RealexCw::transactions" title="Realex Transactions" module="Customweb_RealexCw" sortOrder="10" parent="Customweb_Base::sales_customweb" action="realexcw/transaction" resource="Customweb_RealexCw::transaction" />
+
+        <add id="Customweb_RealexCw::config" title="Realex" module="Customweb_RealexCw" sortOrder="100" parent="Customweb_Base::config" action="realexcw/config" resource="Customweb_RealexCw::config"/>
+    </menu>
+</config>

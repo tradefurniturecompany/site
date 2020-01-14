@@ -1,0 +1,196 @@
+//
+//  Amasty Mega Menu
+//  _________________________
+
+//
+//  Variables
+//  ---------------------------------------------
+@ammenu__color__grey__border: #c4c4c4;
+
+//
+//  Common
+//  --------------------------
+
+& when (@media-common = true) {
+    .ammenu-nav-sections.-hamburger {
+        .ammenu-title,
+        .greet,
+        .switcher,
+        .customer-welcome {
+            display: none;
+        }
+    }
+    
+    .ammenu-menu-wrapper.-hamburger {
+        .ammenu-label {
+            .lib-css(transform, translate(@ammenu__indent__base / 2, -(@ammenu__indent__base)));
+            padding: 1px 5px;
+            font-size: 10px;
+            text-transform: initial;
+        }
+    
+        .ammenu-link.-main {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+}
+
+//
+//  Desktop
+//  --------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .ammenu-menu-wrapper.-hamburger-top {
+
+        & {
+            ._ammenu-menu-wrapper.-desktop;
+            .lib-css(margin, 0 0 @ammenu__indent__xl 0);
+            clear: both;
+        }
+
+        .ammenu-items {
+            padding: 0;
+        }
+    }
+
+    .ammenu-nav-sections.-hamburger {
+
+        & {
+            ._ammenu-menu-wrapper.-mobile;
+            ._ammenu-nav-sections.-mobile;
+            max-width: 360px;
+        }
+
+        .links {
+            .lib-css(padding, 0 @ammenu__indent__l * 2);
+        }
+    }
+
+    .ammenu-menu-wrapper.-hamburger {
+        .lib-css(padding, 0 @ammenu__indent__l * 2);
+
+        .ammenu-item.-main {
+            .lib-css(padding, @ammenu__indent__base 0);
+            text-transform: capitalize;
+        }
+    
+        .ammenu-item.-custom {
+            display: none;
+        }
+
+        .ammenu-item > .ammenu-wrapper {
+            .lib-css(padding, 0 @ammenu__indent__base 0 0);
+            text-align: left;
+            white-space: nowrap;
+            font-size: 16px;
+        }
+
+        .ammenu-wrapper a {
+            .lib-css(padding, @ammenu__indent__base / 2);
+            border: 1px solid transparent;
+            display: inline-block;
+            text-align: left;
+            font-weight: 600;
+
+            &:hover {
+                .lib-css (color, @ammenu__color__blue__light);
+                .lib-css (border, 1px solid @ammenu__color__blue__light);
+            }
+        }
+
+        .ammenu-wrapper a:hover {
+            .lib-css (color, @ammenu__color__blue__light);
+        }
+
+        .ammenu-wrapper > .ammenu-item {
+            margin-left: 0;
+        }
+
+        .ammenu-toggle {
+            bottom: 0;
+            margin: 0;
+            transform: rotate(-90deg);
+        }
+
+        .ammenu-submenu-container {
+            .lib-css(background, @ammenu__color__white);
+            .lib-css(padding, @ammenu__indent__base);
+            .lib-css(margin, 0 0 0 @ammenu__indent__l * 2);
+            ._trans();
+            left: 100%;
+            top: 0;
+            min-width: 280px;
+            position: absolute;
+            box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .ammenu-categories-container {
+            display: flex;
+        }
+
+        .ammenu-categories-container .ammenu-item {
+            flex-basis: 50%;
+        }
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .ammenu-menu-wrapper.-hamburger-top {
+        display: none;
+    }
+    
+    .ammenu-nav-sections.-hamburger {
+        & {
+            overflow-x: hidden;
+        }
+        
+        .ammenu-link.-main {
+            .lib-css(padding, @ammenu__indent__l 0);
+        }
+        
+        .header.links {
+            .lib-css(padding, 0 @ammenu__indent__l);
+        }
+        
+        .customer-welcome {
+            display: block;
+        }
+    
+        .customer-welcome .links {
+            padding: 0;
+        }
+    }
+    
+    .ammenu-menu-wrapper.-hamburger {
+
+        & {
+            .lib-css(padding, 0 @ammenu__indent__l);
+        }
+
+        .ammenu-item {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .ammenu-item .ammenu-link {
+            flex-basis: 100%;
+            order: 1;
+        }
+
+        .ammenu-item .ammenu-submenu-container {
+            padding: @ammenu__indent__l @ammenu__indent__base;
+            order: 2;
+            width: 100%;
+        }
+
+        .ammenu-categories-container {
+            padding: 0;
+        }
+    }
+}

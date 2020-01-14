@@ -1,0 +1,41 @@
+"Save and Continue Edit","Save and Continue Edit"
+Rule,Rule
+"Days & Time","Days & Time"
+Restrictions,Restrictions
+Methods,Methods
+"Rule Configuration","Rule Configuration"
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"Payment Restrictions","Payment Restrictions"
+"Record(s) have been updated.","Record(s) have been updated."
+"Record does not exist","Record does not exist"
+"Payment Restriction has been successfully deleted","Payment Restriction has been successfully deleted"
+"Please select a rule to duplicate.","Please select a rule to duplicate."
+"The rule has been duplicated. Please feel free to activate it.","The rule has been duplicated. Please feel free to activate it."
+"This item no longer exists.","This item no longer exists."
+Rules,Rules
+"Record(s) were successfully deleted","Record(s) were successfully deleted"
+"Payment Restriction has been successfully saved","Payment Restriction has been successfully saved"
+"Unable to find a record to save","Unable to find a record to save"
+Active,Active
+Inactive,Inactive
+Duplicate,Duplicate
+Edit,Edit
+"Restricts For All","Restricts For All"
+"Restricts In All","Restricts In All"
+Information,Information
+General,General
+"Include tax in subtotal","Include tax in subtotal"
+"Use subtotal after discount","Use subtotal after discount"
+"Shipping Rules Options","Shipping Rules Options"
+"Add Rule","Add Rule"
+Activate,Activate
+"Are you sure you wan't to activate selected items?","Are you sure you wan't to activate selected items?"
+Inactivate,Inactivate
+"Are you sure you wan't to inactivate selected items?","Are you sure you wan't to inactivate selected items?"
+Delete,Delete
+"Delete selected items?","Delete selected items?"
+ID,ID
+Status,Status
+Name,Name
+"Customer Groups","Customer Groups"
+"Store Views","Store Views"

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Hotlink_Framework::hotlink">
+                    <resource id="Hotlink_Brightpearl::platform" title="Brightpearl" translate="title">
+                        <resource id="Hotlink_Brightpearl::interactions" title="Interactions" translate="title"/>
+                        <resource id="Hotlink_Brightpearl::authorisation" title="Authorisation" translate="title"/>
+                        <resource id="Hotlink_Brightpearl::oauth2" title="OAuth2 Authorisation" translate="title"/>
+                    </resource>
+                </resource>
+
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Hotlink_Framework::configuration">
+                                <resource id="Hotlink_Brightpearl::config" title="Brightpearl" sortOrder="60" />
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

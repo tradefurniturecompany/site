@@ -1,0 +1,17 @@
+"Please enable the SOAP extension on server, it's required in Magento2, check more details at <a href=""http://devdocs.magento.com/guides/v2.1/install-gde/system-requirements-tech.html#required-php-extensions"" target=""_blank"">here</a>. If you can not enable the SOAP, please skip the license message, you can active in the future. We are sorry for any inconvenience. ","Please enable the SOAP extension on server, it's required in Magento2, check more details at <a href=""http://devdocs.magento.com/guides/v2.1/install-gde/system-requirements-tech.html#required-php-extensions"" target=""_blank"">here</a>. If you can not enable the SOAP, please skip the license message, you can active in the future. We are sorry for any inconvenience. "
+"SOAP extension is not loaded.","SOAP extension is not loaded."
+"Something went wrong while validating license. Please contact %1","Something went wrong while validating license. Please contact %1"
+"<a href=""http://venustheme.com"" target=""_BLANK"" title=""Venustheme.com - Premium Magento Template Club"">Venustheme.com</a>","<a href=""http://venustheme.com"" target=""_BLANK"" title=""Venustheme.com - Premium Magento Template Club"">Venustheme.com</a>"
+All,All
+"General Settings","General Settings"
+"Enabled Bootstrap Js","Enabled Bootstrap Js"
+"Version: 3.3.5","Version: 3.3.5"
+"Enabled Owl Carousel Js","Enabled Owl Carousel Js"
+"Version: 2.0.0-beta.3","Version: 2.0.0-beta.3"
+"Enabled Colorbox Popup Js","Enabled Colorbox Popup Js"
+"Version: 1.5.14","Version: 1.5.14"
+"Enabled Fancybox Popup Js","Enabled Fancybox Popup Js"
+"Version: 2.1.5","Version: 2.1.5"
+"Enabled Fancybox Mousewell Js","Enabled Fancybox Mousewell Js"
+"Manage Licenses","Manage Licenses"
+Market,Market

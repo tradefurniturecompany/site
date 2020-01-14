@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="Hotlink_Brightpearl_Model_Interaction_Order_Payment_Export" sortOrder="700" showInDefault="1" translate="label" showInWebsite="1" showInStore="1">
+        <label>Interaction : Export order payment</label>
+        <attribute type="hotlink" interaction="true" />
+    </group>
+
+</include>

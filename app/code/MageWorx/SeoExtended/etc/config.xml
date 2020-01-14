@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <extended>
+                <meta>
+                    <pager_in_title>beginning</pager_in_title>
+                    <pager_in_description>beginning</pager_in_description>
+                    <pager_in_keywords>beginning</pager_in_keywords>
+                    <cut_title_prefix_suffix>0</cut_title_prefix_suffix>
+                    <layered_filters_in_title>1</layered_filters_in_title>
+                    <layered_filters_in_description>1</layered_filters_in_description>
+                    <layered_filters_in_keywords>0</layered_filters_in_keywords>
+                    <page_num_string>Page %p</page_num_string>
+                    <pager_in_lp_title>1</pager_in_lp_title>
+                    <pager_in_lp_description>1</pager_in_lp_description>
+                    <layered_filters_lp_in_title>1</layered_filters_lp_in_title>
+                    <layered_filters_lp_in_description>1</layered_filters_lp_in_description>
+                    <layered_filters_lp_in_keywords>0</layered_filters_lp_in_keywords>
+                </meta>
+            </extended>         
+        </mageworx_seo>
+    </default>
+</config>

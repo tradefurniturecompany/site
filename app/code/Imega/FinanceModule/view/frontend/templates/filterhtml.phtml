@@ -1,0 +1,18 @@
+<?php
+/**
+* Copyright © 2018 imegamedia. All rights reserved.
+*/
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$product = $block->getProduct();
+$name = $product->getName();
+if (null !== $product->getCustomAttribute('imegamedia_finance_filter')) {
+  $financeFilter = $product->getCustomAttribute('imegamedia_finance_filter')->getValue();
+} else {
+  $financeFilter = 'ALL';
+}
+?>
+<span data-finance-filter="<?php echo $financeFilter ?>"></span>

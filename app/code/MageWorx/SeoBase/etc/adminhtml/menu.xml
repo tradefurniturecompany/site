@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageWorx_SeoBase::canonical_urls" title="MageWorx Canonical URLs" module="MageWorx_SeoBase" sortOrder="50" parent="Magento_Backend::marketing" resource="MageWorx_SeoBase::canonical_urls"/>
+        <add id="MageWorx_SeoBase::manage_canonical_urls" title="Сustom Сanonical URLs" module="MageWorx_SeoBase" sortOrder="65" parent="MageWorx_SeoBase::canonical_urls" action="mageworx_seobase/customcanonical/" resource="MageWorx_SeoBase::manage_canonical_urls"/>
+    </menu>
+</config>

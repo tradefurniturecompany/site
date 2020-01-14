@@ -1,0 +1,60 @@
+body .fotorama__nav-wrap .fotorama_vertical_ratio .fotorama__img{
+    width: auto;
+    height: 100%;
+    position: relative;
+    top:0;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+body .fotorama__nav-wrap .fotorama_vertical_ratio.fotorama__thumb{
+    text-align: center;
+}
+
+.cms-our-showroom .page-title-wrapper {
+    width: 1220px;
+    margin: 0 auto;
+}
+
+.cms-our-showroom #maincms {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.cms-our-showroom .showroom-slider-slide {
+    width: 100%;
+    padding-bottom: 66.9%;
+    height: 0;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+
+.cms-our-showroom .left50 {
+    float: left;
+    width: 50%;
+}
+
+.cms-our-showroom .pad20 {
+    padding: 0 20px 0 20px;
+}
+
+@media screen and (max-width: 1300px) {
+
+    .cms-our-showroom .left50 {
+        float: none;
+        width: 100%;
+    }
+
+    .cms-our-showroom #maincms {
+        width: 100%;
+    }
+
+    .cms-our-showroom .page-title-wrapper {
+        width: 100%;
+        margin-left: 20px;
+    }
+
+}

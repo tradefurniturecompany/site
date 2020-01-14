@@ -1,0 +1,15 @@
+<?php
+if($menu = $this->getMenu()){
+	$data = $this->helper("\Ves\Megamenu\Helper\Data");
+	$menuItems = $menu->getData('menuItems');
+	$structure = json_decode($menu->getStructure(), true);
+	$html = '';
+	if(is_array($structure)){
+		foreach ($structure as $k => $v) {
+			$itemData = $data->renderMenuItemData($v, [], $menuItems);
+			$html .= $data->drawItem($itemData);
+		}
+	}
+	$html = $data->filter($html);
+	echo $html;
+}

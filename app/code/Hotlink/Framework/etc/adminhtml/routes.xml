@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <!-- Magento bug : route id and frontName must match, since frontName used during rendering but id used
+             during routing for secret key validation -->
+        <route id="hotlink_framework" frontName="hotlink_framework">
+            <module name="Hotlink_Framework" before="Magento_Backend"/>
+        </route>
+    </router>
+</config>

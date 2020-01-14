@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Payrestriction
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="ampayrestriction_rule_listing_data_source" xsi:type="string">Amasty\Payrestriction\Model\ResourceModel\Rule\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="\Magento\Payment\Helper\Data">
+        <plugin name="Amasty_Payrestriction::Payrestriction" type="Amasty\Payrestriction\Plugin\Payrestriction" />
+    </type>
+    <type name="Magento\Payment\Block\Form\Container">
+        <plugin name="Amasty_Payrestriction::PayrestrictionAdmin" type="Amasty\Payrestriction\Plugin\Admin\Payrestriction" />
+    </type>
+    <type name="Magento\Payment\Model\MethodList">
+        <plugin name="Amasty_Payrestriction::MethodList" type="Amasty\Payrestriction\Plugin\MethodList"/>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Config">
+        <plugin name="Amasty_Payrestriction::ProductAttributes" type="Amasty\Payrestriction\Plugin\ProductAttributes" />
+    </type>
+    <type name="Magento\Paypal\Model\Config">
+        <plugin name="Amasty_Payrestriction::PaypalConfig" type="Amasty\Payrestriction\Plugin\PaypalConfig" />
+    </type>
+    <virtualType name="AmpayrestrictionRuleGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Amasty\Payrestriction\Model\ResourceModel\Rule\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">AmpayrestrictionGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\Payrestriction\Model\ResourceModel\Rule\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">am_payrestriction_rule</argument>
+            <argument name="eventPrefix" xsi:type="string">amasty_payrestriction_rule_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">payrestriction_rule_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Payrestriction\Model\ResourceModel\Rule</argument>
+        </arguments>
+    </type>
+    <type name="\Magento\SalesRule\Setup\UpgradeData">
+        <plugin name="Amasty_Payrestriction::SetupUpgradeData" type="Amasty\Payrestriction\Plugin\Setup\UpgradeData" />
+    </type>
+</config>

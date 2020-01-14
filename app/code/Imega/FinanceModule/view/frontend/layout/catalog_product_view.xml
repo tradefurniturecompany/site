@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright © 2018 imegamedia
+*
+*/
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+    <referenceBlock name="product.info.main">
+      <block class="Magento\Framework\View\Element\Template" name="imegamedia.holder" template="Imega_FinanceModule::holder.phtml" after="product.info.price" />
+    </referenceBlock>
+    <referenceContainer name="before.body.end">
+      <block class="Magento\Catalog\Block\Product\View" name="imegamedia.product" as="imegaproduct" template="Imega_FinanceModule::productcalc.phtml" />
+    </referenceContainer>
+  </body>
+</page>

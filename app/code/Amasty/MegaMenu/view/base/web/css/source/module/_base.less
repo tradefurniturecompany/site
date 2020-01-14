@@ -1,0 +1,199 @@
+//
+//  Amasty Mega Menu
+//  _________________________
+
+//
+//  Variables
+//  ---------------------------------------------
+@ammenu__color__grey__head: #e5e5e5;
+
+//
+//  Common
+//  --------------------------
+
+& when (@media-common = true) {
+    //Admin
+    .pagebuilder-content-type-wrapper .ammenu-item {
+        list-style: none;
+    }
+    
+    .ammenu-tabs-container {
+        ._scroll();
+        cursor: auto;
+    }
+    
+    .ammenu-submenu-container[aria-selected="true"] {
+        & ~ .ammenu-toggle .ammenu-icon:after,
+        & ~ .ammenu-toggle .ammenu-icon:before {
+            .lib-css(background-color, @ammenu__color__blue__light);
+        }
+        
+        & ~ .ammenu-link {
+            .lib-css(color, @ammenu__color__blue__light);
+        }
+    }
+    
+    .ammenu-menu-close-btn {
+        & {
+            .lib-css(color, @ammenu__color__grey);
+            position: absolute;
+            top: @ammenu__indent__xxl;
+            right: -34px;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            height: 15px;
+            width: 15px;
+            font-size: 20px;
+            cursor:pointer;
+        }
+        
+        &:hover {
+            .lib-css(color, @ammenu__color__black);
+        }
+    }
+    
+    .ammenu-menu-welcome {
+        & {
+            .lib-css(padding, 22px  @ammenu__indent__l * 2);
+            .lib-css(margin, 0 0 @ammenu__indent__xl);
+            .lib-css(background, @ammenu__color__blue__light);
+            .lib-css(color, @ammenu__color__white);
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-size: 16px;
+        }
+    }
+    
+    .ammenu-nav-sections {
+        & {
+            .lib-css(background, @ammenu__color__white);
+        }
+        
+        table img {
+            max-width: inherit;
+        }
+        
+        .ammenu-menu-header {
+            .lib-css(color, @ammenu__color__grey__head);
+            .lib-css(border-bottom, 1px solid @ammenu__color__grey__border);
+            .lib-css(margin, @ammenu__indent__base 0);
+            .lib-css(padding, 0 0 @ammenu__indent__base 0);
+            display: block;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+        }
+    }
+    
+    .ammenu-wrapper {
+        margin: 0;
+        display: block;
+        width: 100%;
+    }
+    
+    .ammenu-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99998;
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        background-color: fade(@ammenu__color__white, 80%);
+    }
+    
+    .ammenu-menu-wrapper {
+        
+        & {
+            ._trans();
+        }
+        
+        &.-hide {
+            opacity: 0;
+        }
+        
+        &.-sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            width: 100%;
+        }
+    }
+    
+    .ammenu-menu-wrapper.-mobile & .ammenu-link.-main,
+    .ammenu-menu-wrapper.-desktop & .ammenu-link.-level1 {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    
+    .ammenu-menu-wrapper.-mobile & .ammenu-link.-level1,
+    .ammenu-menu-wrapper.-hamburger & .ammenu-link.-level1 {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    
+    .ammenu-menu-wrapper.-mobile & .ammenu-link.-main:before,
+    .ammenu-menu-wrapper.-desktop & .ammenu-link.-level1:before {
+        content: "";
+        display: inline-block;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+        margin: 6px 10px 0 0;
+        width: 10px;
+        min-width: 10px;
+        height: 10px;
+        border: 2px solid;
+        border-radius: 12px;
+        box-sizing: border-box;
+        vertical-align: top;
+    }
+    
+    .ammenu-link {
+        .lib-css(color, @ammenu__color__black);
+        
+        &:hover {
+            text-decoration: none;
+        }
+        
+        &.-main {
+            .lib-css(color, @ammenu__color__black);
+        }
+    }
+    
+    .ammenu-link > .ammenu-wrapper {
+        vertical-align: top;
+    }
+    
+    .ammenu-content > .links {
+        .lib-css(border-bottom, 1px solid @ammenu__color__grey);
+    }
+    
+    .ammenu-content > .links > li {
+        .lib-css(border-bottom, 1px solid @ammenu__color__grey);
+        display: block;
+        font-size: 1.6rem;
+        margin: 0;
+        text-decoration: none;
+    }
+    
+    .header.links {
+        margin: 0;
+        padding: 0;
+        list-style: none none;
+    }
+
+    .ammenu-submenu-container .ambrands-link {
+        display: none;
+    }
+
+    .ammenu-submenu-container .ambrands-list-popup {
+        position: relative;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}

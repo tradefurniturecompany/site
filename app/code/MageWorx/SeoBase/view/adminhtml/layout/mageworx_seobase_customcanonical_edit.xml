@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="MageWorx\SeoBase\Block\Adminhtml\Canonical\Custom\Edit\Tabs" name="mageworx_seobase_customcanonical_edit_tabs">
+                <block class="MageWorx\SeoBase\Block\Adminhtml\Canonical\Custom\Edit\Tab\Information" name="mageworx_seobase_customcanonical_edit_tab_information"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">customcanonical_information</argument>
+                    <argument name="block" xsi:type="string">mageworx_seobase_customcanonical_edit_tab_information</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="MageWorx\SeoBase\Block\Adminhtml\Canonical\Custom\Edit" name="mageworx_seobase_customcanonical_edit"/>
+        </referenceContainer>
+        <referenceContainer name="js">
+            <block class="Magento\Backend\Block\Template" template="Magento_Widget::instance/js.phtml" name="widget_instance_js"/>
+        </referenceContainer>
+    </body>
+</page>

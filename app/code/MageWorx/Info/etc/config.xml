@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright ©  MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_settings>
+            <general>
+                <updates_notification>1</updates_notification>
+                <offers_notification>1</offers_notification>
+            </general>
+            <extensions>
+                <extension_info_autoload>1</extension_info_autoload>
+            </extensions>
+        </mageworx_settings>
+    </default>
+</config>

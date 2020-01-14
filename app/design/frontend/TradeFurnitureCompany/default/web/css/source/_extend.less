@@ -1,0 +1,100 @@
+//
+// Custom Icons
+// ----------------------------------------------
+
+//hacks for ie11
+.ie10 .page-wrapper,
+.ie11 .page-wrapper {
+  height: auto !important;
+}
+
+/* REF: http://rossmchugh.com/extending-magento2s-icon-font-system/ */
+// see lib/web/css/source/lib/variables/_typography.less
+@icons__font-path: '@{baseDir}fonts/icomoon4';
+@icons__font-name: 'icomoon4';
+// See lib/web/css/source/lib/variables/_icons.less
+@icon-my-account: '\e90f';
+@icon-sign-in: '\e90c';
+@icon-create-account: '\e910';
+@icon-phone: '\e90e';
+
+@icon-facebook: '\e906';
+@icon-twitter: '\e90b';
+@icon-instagram: '\e908';
+@icon-linkedin: '\e909';
+@icon-google-plus: '\e907';
+@icon-pintrest: '\e90a';
+
+@icon-call: '\e902';
+@icon-search-thin: '\e903';
+@icon-basket: '\e904';
+@icon-user: '\e905';
+
+@icon-home: '\e901';
+@icon-favorite: '\e900';
+
+/* this is a bug fix for firefox and slick inside flex */
+.columns .column.main {
+  min-width: 0;
+  min-height: 0;
+}
+
+.cms-home .block-static-block > div {
+  min-width: 0;
+  min-height: 0;
+}
+@import 'vendor/_slick.less';
+@import 'vendor/_slick-theme.less';
+
+@import 'components/_page_layout.less';
+@import 'components/_header.less';
+@import 'components/_footer.less';
+
+//ves banner replaced by welt
+//@import 'components/_homepage_banner.less';
+@import 'components/_homepage_slick_sliders.less';
+@import 'components/_homepage_welcome.less';
+@import 'components/_homepage_category.less';
+@import 'components/_homepage_promo.less';
+@import 'components/_homepage_finance.less';
+@import 'components/_homepage_secondary_content.less';
+@import 'components/_homepage_newsletter.less';
+@import 'components/_homepage_blog.less';
+
+@import 'components/_product_view.less';
+@import 'components/_product_list.less';
+@import 'components/_category_page.less';
+@import 'components/_listings.less';
+@import 'components/_minicart.less';
+@import 'components/_checkout.less';
+@import 'components/_bespoke_cms_pages.less';
+@import 'components/_search_listing.less';
+@import 'components/_amasty_megamenu_overrides.less';
+
+//imega finance override
+#imega-modal h3 {
+  //we don't use this orange anywhere else, but it's what they asked for
+  background-color: #ffaf00 !important;
+  color: #fff !important;
+}
+
+//fix the annoying gap between subscribe box and checkout button
+.osc-place-order-block.checkout-addition-block {
+  margin-top: 15px;
+  height: 71px;
+}
+
+
+@media (min-width: @screen__m) {
+  .navigation .level1 {
+    margin-bottom: @submenu-desktop-item__margin-bottom;
+  }
+}
+
+.page-main > {
+  .page-title-wrapper {
+    .page-title {
+      word-break: normal;
+    }
+  }
+}

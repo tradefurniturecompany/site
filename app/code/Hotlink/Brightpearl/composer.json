@@ -1,0 +1,44 @@
+{
+    "name": "hotlink\/brightpearl",
+    "version": "2.7.0",
+    "time": "2019-06-24",
+    "type": "magento2-module",
+    "description": "Magneto2 integration with Brightpearl platform",
+    "autoload": {
+        "psr-4": {
+            "Hotlink\\Brightpearl\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    },
+    "require": {
+        "hotlink\/framework": "~2",
+        "magento\/framework": ">=100.0.4",
+        "magento/module-catalog": ">=103.0.0",
+        "php": "~5.5.0|~5.6.0|~7.0.0"
+    },
+    "keywords": [
+        "hotlink",
+        "framework",
+        "integration",
+        "brightpearl",
+        "scalable",
+        "interaction",
+        "performance",
+        "platform",
+        "service"
+    ],
+    "homepage": "http://www.hotlink.technology/magento/brightpearl",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Jonathan Doull",
+            "email": "contact@hotlink.technology",
+            "homepage": "http://www.hotlink.technology"
+        }
+    ],
+    "support" : {
+        "email": "support@brightpearl.com"
+    }
+}

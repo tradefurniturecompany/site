@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="MageWorx\SeoMarkup\Block\Head\SocialMarkup\Page\DefaultPage" name="mageworx_seomarkup_block_head_social_page_default" />
+            <block class="MageWorx\SeoMarkup\Block\Head\Json\Website" name="mageworx_seomarkup_block_head_json_website" />
+            <block class="MageWorx\SeoMarkup\Block\Head\Json\Seller" name="mageworx_seomarkup_block_head_json_seller" />
+            <block class="MageWorx\SeoMarkup\Block\Head\Json\Breadcrumbs\Page" name="mageworx_seomarkup_block_head_json_breadcrumbs" />
+            <block class="MageWorx\SeoMarkup\Block\Head\Json\Page" name="mageworx_seomarkup_block_head_json_page" />
+        </referenceBlock>
+    </body>
+</page>

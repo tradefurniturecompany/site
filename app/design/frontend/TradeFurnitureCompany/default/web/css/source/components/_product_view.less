@@ -1,0 +1,386 @@
+//get rid of the hash after the sku attribute label
+.product-info-main .product.attribute.sku .type:after {
+  content: ':' !important;
+}
+
+.product-info-main .product-info-stock-sku {
+  margin-top: -1.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0 !important;
+  display: block;
+  text-align: left;
+}
+
+.product-info-main .product-info-stock-sku .sku {
+  float: none !important;
+}
+
+@media (min-width: @screen__m) {
+  .product-info-main .product-info-stock-sku {
+    margin-bottom: 0;
+  }
+}
+
+
+.also-available {
+  margin-bottom: 20px;
+}
+
+.available-in {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.available-in--dark {
+  background-color: @color-brownie1;
+}
+
+.available-in--light {
+  background-color: @color-yellow-light1;
+}
+
+.available-in--dark {
+  background-color: @color-yellow-light3;
+}
+
+.product-item-name {
+  word-wrap: normal !important;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+
+.product-info-main .product-info-price .price-box {
+  width: auto;
+}
+
+@media (min-width: @screen__s) {
+  .product-info-main .product-info-price {
+    .price-box .price-container .price {
+      .lib-font-size(40);
+    }
+  }
+
+  .product-info-main .product-info-price {
+    .price-box .old-price .price-container .price {
+      .lib-font-size(20);
+    }
+  }
+}
+
+.product-info-main .product-info-price {
+
+  .special-price .price-container {
+    font-size: 12px;
+  }
+
+  .old-price{
+    display: block;
+    padding-bottom: 6px;
+    .price-container {
+    background: linear-gradient(to left bottom, transparent 47.75%, currentColor 49.5%, currentColor 50.5%, transparent 52.25%);
+    }
+  }
+
+  .special-price .price-container > span {
+    margin-bottom: 0;
+  }
+
+  .special-price {
+    .price-label {
+      position: initial;
+      height: auto;
+      margin: 0;
+      overflow: initial;
+      width: auto;
+      clip: initial;
+      display: inline !important;
+      font-size: 24px;
+      line-height: 24px;
+    }
+    .price-container{
+      color:red;
+    }
+    .price-label:after {
+      content: none !important;
+    }
+
+    .price-wrapper {
+      display: inline !important;
+    }
+  }
+
+  .special-price + .old-price {
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+
+    .price-final_price,
+    .price-wrapper {
+      .lib-font-size(20);
+    }
+
+    .price-label {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .sticky-add-to-basket {
+    display: none;
+  }
+
+  .box-tocart {
+    .fieldset {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .field {
+      width: 100px;
+      margin: 0 20px 0 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .fieldset > .field > .label {
+      margin: 0 5px 0 0;
+    }
+
+    .qty .qty {
+      float: left;
+      margin-right: 5px;
+    }
+
+    .action.tocart:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    .action.tocart span:before {
+      content: @icon-cart;
+      font-family: @icon-font;
+      margin-right: 5px;
+    }
+  }
+
+}
+
+@media (min-width: @screen__m) {
+  .page-layout-1column .product-info-main {
+    width: 100%;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .page-layout-1column .product.media {
+    width: 100%;
+    padding: 0;
+    box-sizing: content-box;
+  }
+
+  .product-info-main .product-info-price {
+    margin-bottom: 0;
+    border-bottom: none;
+
+    .price-box {
+      padding-bottom: 0;
+    }
+  }
+
+  .product-info-main .product-info-price {
+    display: block;
+  }
+
+  .product-info-main .price-box.price-final_price {
+    display: block;
+  }
+
+  .product-options-wrapper {
+    margin-bottom: 20px;
+
+    select {
+      width: auto;
+    }
+  }
+
+  .product-info-main .product-info-stock-sku {
+    display: block;
+    text-align: left;
+    padding-left: 0;
+
+    .stock {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .sku {
+      float: left;
+    }
+  }
+
+  .product-options-bottom {
+    display: none;
+  }
+
+  .product-add-form .box-tocart {
+    display: none;
+  }
+
+  .sticky-add-to-basket {
+    float: right;
+    margin-top: 30px;
+
+    .sticky-qty-label,
+    .sticky-qty {
+      display: inline-block;
+    }
+
+    .sticky-qty {
+      width: 50px;
+      margin-left: 3px;
+    }
+
+    .sticky-tocart {
+      background-color: @color-orange-red1 !important;
+      color: white !important;
+      margin-top: -3px;
+    }
+
+    .sticky-tocart span:before {
+      font-family: @icon-font;
+      content: @icon-cart;
+      margin-right: 3px;
+    }
+  }
+
+  //They've changed their minds again about making this stick, so now add to basket will disappear off screen!!!
+  //body.sticky-product-heading {
+  //  .desktop-sticky-bar {
+  //    position: fixed;
+  //    top: 48px;
+  //    left: 0;
+  //    right: 0;
+  //    padding: 20px 0 0;
+  //    background: #fff;
+  //    width: 100%;
+  //    max-width: 1240px;
+  //    margin: 0 auto;
+  //    box-sizing: border-box;
+  //    z-index: 2;
+  //    border-bottom: 1px solid @primary__color;
+  //  }
+  //
+  //  .product-info-main {
+  //    //push content below fixed header and fixed sticky bar
+  //    padding-top: 137px;
+  //  }
+  //}
+}
+
+//@media (min-width: 1240px) {
+//  .sticky-product-heading {
+//    .desktop-sticky-bar {
+//      padding: 20px 0 0;
+//    }
+//  }
+//}
+
+.collapsibleContainer {
+
+}
+
+.collapsibleTab {
+  padding: 1rem 0;
+  cursor: pointer;
+  font-weight: bold;
+  border-top: 1px solid #ddd;
+  position: relative;
+}
+
+.collapsibleTab::after {
+  border-left: 5px solid #000;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  content: "";
+  height: 0;
+  position: absolute;
+  top: 14px;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 0;
+}
+
+.collapsibleTab[aria-expanded="true"]::after {
+  border-bottom: 0;
+  border-top: 5px solid #000;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 0;
+}
+
+.collapsibleContent {
+  padding: 1rem 0;
+}
+
+.accordion-image-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .accordion-wrapper {
+    flex: 1 1;
+    padding-right: 2rem;
+  }
+
+  .image-wrapper {
+    flex: 1 1;
+
+    a {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+
+/* Override for the finance module styling on product view */
+#imega-widget-anchor {
+  max-width: 270px !important;
+}
+
+@media (max-width: @screen__m) {
+  .accordion-image-wrapper {
+    .accordion-wrapper {
+      flex-basis: 100%;
+      padding-right: 0;
+    }
+
+    .image-wrapper {
+      flex-basis: 100%;
+    }
+  }
+}
+
+

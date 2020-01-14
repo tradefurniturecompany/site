@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Apptrian
+ * @package   Apptrian_ImageOptimizer
+ * @author    Apptrian
+ * @copyright Copyright (c) Apptrian (http://www.apptrian.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="apptrian_extensions" translate="label" sortOrder="1000000">
+            <label>Apptrian Extensions</label>
+        </tab>
+        <section id="apptrian_imageoptimizer" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Image Optimizer</label>
+            <tab>apptrian_extensions</tab>
+            <resource>Apptrian_ImageOptimizer::config_system</resource>
+            <group id="about" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>About</label>
+                <frontend_model>Apptrian\ImageOptimizer\Block\Adminhtml\About</frontend_model>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <comment>Enables or disables extension.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="batch_size" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Batch Size</label>
+                    <comment>Number of images to be optimized per request.</comment>
+                    <validate>validate-no-html-tags validate-digits validate-greater-than-zero</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\BatchSize</backend_model>
+                </field>
+                <field id="paths" translate="label comment tooltip" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Paths</label>
+                    <comment>Paths to be scanned for images.</comment>
+                    <tooltip><![CDATA[Paths are relative to your Magento root directory.<br />Use "/" as directory separator.<br />Use ";" to separate paths.]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Paths</backend_model>
+                </field>
+                <field id="heading_scan" translate="label" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>1. Scan and Reindex</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="scan" translate="label" type="button" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Start Scan and Reindex Process</label>
+                    <frontend_model>Apptrian\ImageOptimizer\Block\Adminhtml\Button\Scan</frontend_model>
+                </field>
+                <field id="heading_optimize" translate="label" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>2. Optimize</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="optimize" translate="label" type="button" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Start Optimization Process</label>
+                    <frontend_model>Apptrian\ImageOptimizer\Block\Adminhtml\Button\Optimize</frontend_model>
+                </field>
+                <field id="heading_stats" translate="label" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Progress Bar</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="stats" translate="label tooltip" type="button" sortOrder="9" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Bar on the right represents how many images are optimized.</label>
+                    <tooltip><![CDATA[Every time you click "Start Optimization Process" (or cron job executes) depending on "Batch Size" value and number of indexed files, progress bar will move.<br />If progress bar does not move most likely reason is file permissions.<br /><strong>Utility binaries located in module_root/bin must be executable which means you have to set right permissions on files inside this directory.</strong><br />If you are getting less than 100% despite you clicked "Start Optimization Process" button more than several times and the percentage is stuck to same value that means some of your files are corrupt. To find out which files are corrupt in "Utility" section for "Log Utility Output" select "Yes". Refresh your cache and click "Start Optimization Process" button again. After it is done you will find a list of corrupt files in<br />var/log/debug.log<br />You can inspect the log and fix the files yourself. Do not forget to set "Log Utility Output" back to "No".]]></tooltip>
+                    <frontend_model>Apptrian\ImageOptimizer\Block\Adminhtml\Stats</frontend_model>
+                </field>
+                <field id="heading_clear" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Clear Index</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="clear" translate="label" type="button" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>This resets above progress bar and you will have to index and optimize all images again.</label>
+                    <frontend_model>Apptrian\ImageOptimizer\Block\Adminhtml\Button\Clear</frontend_model>
+                </field>
+            </group>
+            <group id="cron" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Cron</label>
+                <field id="heading_warning" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>WARNING! Do not change any options! (Unless you know what you are doing.)</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="enabled_scan" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Scan and Reindex Process Cron Job</label>
+                    <comment>Enables or disables scan and reindex process cron job.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="expression_scan" translate="label comment tooltip" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cron Expression for Scan and Reindex Process</label>
+                    <comment><![CDATA[Cron expression used to trigger scan and reindex process. Example: 15 4 * * * (once a day at 4:15 AM)]]></comment>
+                    <tooltip><![CDATA[Examples:<br />*/5 * * * * (every 5 minutes)<br />0,30 * * * * (twice an hour)<br />0 * * * * (once an hour)<br />0 0,12 * * * (twice a day)<br />0 0 * * * (once a day)<br />0 0 * * 0 (once a week)<br />0 0 1,15 * * (1st and 15th)<br />0 0 1 * * (once a month)<br />0 0 1 1 * (once a year)]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Cron</backend_model>
+                    <depends>
+                        <field id="enabled_scan">1</field>
+                    </depends>
+                </field>
+                <field id="enabled_optimize" translate="label comment" type="select" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Optimization Process Cron Job</label>
+                    <comment>Enables or disables optimization process cron job.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="expression_optimize" translate="label comment tooltip" type="text" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cron Expression for Optimization Process</label>
+                    <comment><![CDATA[Cron expression used to trigger image optimization process. Example: 0 * * * * (once an hour)]]></comment>
+                    <tooltip><![CDATA[Examples:<br />*/5 * * * * (every 5 minutes)<br />0,30 * * * * (twice an hour)<br />0 * * * * (once an hour)<br />0 0,12 * * * (twice a day)<br />0 0 * * * (once a day)<br />0 0 * * 0 (once a week)<br />0 0 1,15 * * (1st and 15th)<br />0 0 1 * * (once a month)<br />0 0 1 1 * (once a year)]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Cron</backend_model>
+                    <depends>
+                        <field id="enabled_optimize">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="utility" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Utility</label>
+                <field id="heading_warning" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>WARNING! Do not change any options! (Unless you know what you are doing.)</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <attribute type="shared">1</attribute>
+                </field>
+                <field id="use64bit" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Use 64-bit Utilities</label>
+                    <comment>Use only if your site is on 64-bit server.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="log_output" translate="label comment" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Log Utility Output</label>
+                    <comment>Log output information generated by utilities.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="permissions" translate="label comment tooltip" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Force File Permissions</label>
+                    <comment>Force file permissions after optimization. Example: 0644</comment>
+                    <tooltip><![CDATA[Optimization utilities might change permissions of files they optimize (usually to 0644 or 0666). Use this option to force permissions you want. If you do not want to force file permission leave this field empty.]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Permissions</backend_model>
+                </field>
+                <field id="path" translate="label comment tooltip" type="text" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Utilities Path</label>
+                    <comment>Path to optimization utilities.</comment>
+                    <tooltip><![CDATA[Path is relative to module root directory.<br />Module root directory can be <strong>app/code/Apptrian/ImageOptimizer</strong><br />or<br /><strong>vendor/apptrian/image-optimizer</strong><br />Use "/" as directory separator.<br />Inside this directory you must have following directories:<br /><strong>elf32</strong><br /><strong>elf64</strong><br /><strong>win32</strong><br /><strong>win64</strong><br /> Inside these directories put <strong>command line binaries</strong>.]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Path</backend_model>
+                </field>
+                <field id="gif" translate="label comment tooltip" type="text" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>GIF Utility</label>
+                    <comment>Optimization utility for .gif files.</comment>
+                    <tooltip><![CDATA[Do not include the .exe extension for Windows binaries.<br /><strong>Command line binaries only!</strong>]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Utility</backend_model>
+                </field>
+                <field id="gif_path" translate="label comment tooltip" type="text" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>GIF Utility Exact Path</label>
+                    <comment>WARNING! Read the tooltip for more information.</comment>
+                    <tooltip><![CDATA[If utility you want to use is already installed on your server, you can specify exact path to it. When generating command this exact path to utility will be used and then "Utility Options" will be appended to it. Example:<br/>/usr/bin/gifsicle<br/>If your utility is added to your system path (which means it is accessible from every directory) then type only utility executable filename. If you do not want to use this option leave this field empty. (Do not leave any white space characters.)]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\ExactPath</backend_model>
+                </field>
+                <field id="gif_options" translate="label comment tooltip" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>GIF Utility Options</label>
+                    <comment>Options for optimization of .gif files.</comment>
+                    <tooltip><![CDATA[The <strong>%filepath%</strong> will be substituted with image file path by the extension.]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Options</backend_model>
+                </field>
+                <field id="jpg" translate="label comment tooltip" type="text" sortOrder="9" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>JPG Utility</label>
+                    <comment>Optimization utility for .jpg files.</comment>
+                    <tooltip><![CDATA[Do not include the .exe extension for Windows binaries.<br /><strong>Command line binaries only!</strong>]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Utility</backend_model>
+                </field>
+                <field id="jpg_path" translate="label comment tooltip" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>JPG Utility Exact Path</label>
+                    <comment>WARNING! Read the tooltip for more information.</comment>
+                    <tooltip><![CDATA[If utility you want to use is already installed on your server, you can specify exact path to it. When generating command this exact path to utility will be used and then "Utility Options" will be appended to it. Example:<br/>/usr/bin/jpegtran<br/>If your utility is added to your system path (which means it is accessible from every directory) then type only utility executable filename. If you do not want to use this option leave this field empty. (Do not leave any white space characters.)]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\ExactPath</backend_model>
+                </field>
+                <field id="jpg_options" translate="label comment tooltip" type="text" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>JPG Utility Options</label>
+                    <comment>Options for optimization of .jpg files.</comment>
+                    <tooltip><![CDATA[The <strong>%filepath%</strong> will be substituted with image file path by the extension.]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Options</backend_model>
+                </field>
+                <field id="png" translate="label comment tooltip" type="text" sortOrder="12" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>PNG Utility</label>
+                    <comment>Optimization utility for .png files.</comment>
+                    <tooltip><![CDATA[Do not include the .exe extension for Windows binaries.<br /><strong>Command line binaries only!</strong>]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Utility</backend_model>
+                </field>
+                <field id="png_path" translate="label comment tooltip" type="text" sortOrder="13" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>PNG Utility Exact Path</label>
+                    <comment>WARNING! Read the tooltip for more information.</comment>
+                    <tooltip><![CDATA[If utility you want to use is already installed on your server, you can specify exact path to it. When generating command this exact path to utility will be used and then "Utility Options" will be appended to it. Example:<br/>/usr/bin/optipng<br/>If your utility is added to your system path (which means it is accessible from every directory) then type only utility executable filename. If you do not want to use this option leave this field empty. (Do not leave any white space characters.)]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\ExactPath</backend_model>
+                </field>
+                <field id="png_options" translate="label comment tooltip" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>PNG Utility Options</label>
+                    <comment>Options for optimization of .png files.</comment>
+                    <tooltip><![CDATA[The <strong>%filepath%</strong> will be substituted with image file path by the extension.]]></tooltip>
+                    <validate>validate-no-html-tags</validate>
+                    <backend_model>Apptrian\ImageOptimizer\Model\Config\Options</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

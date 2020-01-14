@@ -1,0 +1,150 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Osc
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/*
+	Alignment
+------------------------------------------------------------------- */
+/* Floats */
+
+.clear, .clearer {
+    clear: both;
+}
+
+.clearer {
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+}
+
+.field-wrapper .field ul .suggest-position {
+    height: 40px;
+    float: left;
+    width: 48%;
+    background: #cccccc;
+    margin: 1%;
+    padding: 0;
+}
+
+/*
+------------------------------------------------------------------- */
+
+/* General */
+
+.column {
+    width: 49%;
+}
+
+.field-wrapper .field {
+    background: #fafafa;
+    width: 100%;
+    display: block;
+    text-align: center;
+    min-height: 50px;
+}
+
+.field-wrapper .field ul {
+    display: inline-block;
+    padding: 2% 0;
+    width: 100%;
+    min-height: 450px;
+}
+
+.field-wrapper .field ul li {
+    /*float: left;*/
+    margin: 1%;
+    width: 48%;
+}
+
+.field-wrapper .field ul li .attribute-label {
+    border: 1px solid #cccccc;
+    text-align: center;
+    padding: 10px 10px;
+    cursor: move;
+    background: #ffffff;
+    height: 20px !important;
+    box-sizing: content-box;
+}
+
+.available-wrapper .ui-resizable-handle {
+    display: none !important;
+}
+
+.ui-resizable-s {
+    display: none !important;
+}
+
+/*Billing field*/
+.sorted-wrapper .field ul li.wide {
+    width: 98%;
+}
+
+/* Containment area */
+
+#containment {
+    padding: 0 30px;
+    margin-top: 20px;
+}
+
+.ui-resizable-border {
+    border: 1px dotted #cccccc;
+}
+
+.field-title {
+    font-weight: 600;
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.field-title h2 {
+    margin: 0 0 0 35px;
+    color: #ffffff !important;
+}
+
+.field-title.available h2 {
+    margin: 0 0 0 20px;
+}
+
+.field-title.sorted-title {
+    background-image: url(images/billing_title.png);
+}
+
+.field-title.available {
+    background-image: url(images/next.png);
+}
+
+.f-left, .left {
+    float: left;
+}
+
+.f-right, .right {
+    float: right;
+}
+
+ul.sortable-list {
+    list-style: none !important;
+}
+
+/** Additional Content*/
+.order-osc-additional .admin__page-section-item {
+    float: left;
+    width: 50%;
+}

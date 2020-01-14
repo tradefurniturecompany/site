@@ -1,0 +1,96 @@
+"Save Crosslink","Save Crosslink"
+"Edit Crosslink '%1'","Edit Crosslink '%1'"
+"New Crosslink","New Crosslink"
+Destination,Destination
+"Use in Product","Use in Product"
+"Use in Category","Use in Category"
+"Use in CMS Page","Use in CMS Page"
+"Use in Landing Page","Use in Landing Page"
+"Crosslink Info","Crosslink Info"
+Keyword,Keyword
+"Link Alt/Title","Link Alt/Title"
+"Link Target","Link Target"
+"Store View","Store View"
+"NOTE: Cross Link will be build in the chosen store views.","NOTE: Cross Link will be build in the chosen store views."
+Reference,Reference
+"NOTE: Cross link will not be shown on the page if this page is specified as target page for this keyword.","NOTE: Cross link will not be shown on the page if this page is specified as target page for this keyword."
+"Custom URL","Custom URL"
+"Max Replacement Count per Page","Max Replacement Count per Page"
+"Max # of this keyword per page. 100 is the max value.","Max # of this keyword per page. 100 is the max value."
+Priority,Priority
+"100 is the highest priority.","100 is the highest priority."
+Nofollow,Nofollow
+"Is Active","Is Active"
+"Select Category...","Select Category..."
+"Select Product...","Select Product..."
+"Select Landing Page...","Select Landing Page..."
+"Cross Link","Cross Link"
+"NOTE: Enter one keyword (keyword phrase) per line. A new cross link rule will be created for each entered keyword.","NOTE: Enter one keyword (keyword phrase) per line. A new cross link rule will be created for each entered keyword."
+"For multiple keywords use the Reduced Multisave Priority feature. It reduces the keyword priority for every next keyword on the list (thus, the most important keywords appear in the first place).","For multiple keywords use the Reduced Multisave Priority feature. It reduces the keyword priority for every next keyword on the list (thus, the most important keywords appear in the first place)."
+"Adding '+' before or after a keyword will apply the Cross Link rule to all its variations. E.g. Entering 'iphone 5+' will apply the rule to 'iphone 5s', 'iphone 5c', etc. (but not to 'iphone 5').","Adding '+' before or after a keyword will apply the Cross Link rule to all its variations. E.g. Entering 'iphone 5+' will apply the rule to 'iphone 5s', 'iphone 5c', etc. (but not to 'iphone 5')."
+"For more info, follow the %1 link %2.","For more info, follow the %1 link %2."
+"Link without 'http[s]://' as customer/account/<br>will be converted to<br>http[s]://(store_URL_here)/customer/account/","Link without 'http[s]://' as customer/account/<br>will be converted to<br>http[s]://(store_URL_here)/customer/account/"
+"Link with 'http[s]://' will be added as it is.","Link with 'http[s]://' will be added as it is."
+"Crosslink Information","Crosslink Information"
+"The crosslink has been deleted.","The crosslink has been deleted."
+"Crosslink not found.","Crosslink not found."
+Crosslink,Crosslink
+"The crosslink no longer exists.","The crosslink no longer exists."
+"New Cross Link","New Cross Link"
+Crosslinks,Crosslinks
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the page.","Something went wrong while saving the page."
+"The crosslink has been saved.","The crosslink has been saved."
+"The crosslinks has been saved with reduce priority.","The crosslinks has been saved with reduce priority."
+"Something went wrong while saving the crosslink.","Something went wrong while saving the crosslink."
+"Product Page","Product Page"
+"Category Page","Category Page"
+"CMS Page Content","CMS Page Content"
+"Landing Page","Landing Page"
+"Product Short Description","Product Short Description"
+"Product Description","Product Description"
+Yes,Yes
+No,No
+"Don't Use","Don't Use"
+"For Blank","For Blank"
+"For All","For All"
+Product,Product
+Category,Category
+_self,_self
+_blank,_blank
+Edit,Edit
+Delete,Delete
+"Delete ""${ $.$data.name }""","Delete ""${ $.$data.name }"""
+"Are you sure you want to delete the Crosslink ""${ $.$data.name }"" ?","Are you sure you want to delete the Crosslink ""${ $.$data.name }"" ?"
+SEO,SEO
+"SEO Cross Links","SEO Cross Links"
+"SEO crosslinks connect related site pages or pages with similar content by some keyword","SEO crosslinks connect related site pages or pages with similar content by some keyword"
+"Enable ▾","Enable ▾"
+"If <i>Enabled</i>, <a target=""_blank"" href=""https://support.mageworx.com/manuals/crosslinks/#manage-cross-links"">the created crosslinks</a> will be inserted on the fly on all the relevant pages. These crosslinks can be <a target=""_blank"" href=""https://support.mageworx.com/manuals/crosslinks/#individual-settings"">individually disabled</a> for any Product/Category page.","If <i>Enabled</i>, <a target=""_blank"" href=""https://support.mageworx.com/manuals/crosslinks/#manage-cross-links"">the created crosslinks</a> will be inserted on the fly on all the relevant pages. These crosslinks can be <a target=""_blank"" href=""https://support.mageworx.com/manuals/crosslinks/#individual-settings"">individually disabled</a> for any Product/Category page."
+"Total Max Replacement Count<br>for Product Page","Total Max Replacement Count<br>for Product Page"
+"Cross Links are displayed in the description fields.","Cross Links are displayed in the description fields."
+"Total Max Replacement Count<br>for Category Page","Total Max Replacement Count<br>for Category Page"
+"Total Max Replacement Count<br>for CMS Page","Total Max Replacement Count<br>for CMS Page"
+"Cross Links can be displayed in the content field (with the exception of the widget contents).<br>NOTE: Cross Links cannot be created on the homepage.","Cross Links can be displayed in the content field (with the exception of the widget contents).<br>NOTE: Cross Links cannot be created on the homepage."
+"Total Max Replacement Count<br>for Landing Page","Total Max Replacement Count<br>for Landing Page"
+"Cross Links can be displayed in the top/bottom blocks","Cross Links can be displayed in the top/bottom blocks"
+"Use Product/Category Name<br>in the Cross Link's Alt Tag","Use Product/Category Name<br>in the Cross Link's Alt Tag"
+"Replace on Product Page In","Replace on Product Page In"
+"&nbsp;&nbsp;&nbsp;&nbsp;Default Link Target","&nbsp;&nbsp;&nbsp;&nbsp;Default Link Target"
+"&nbsp;&nbsp;&nbsp;&nbsp;Default Link Reference","&nbsp;&nbsp;&nbsp;&nbsp;Default Link Reference"
+"&nbsp;&nbsp;&nbsp;&nbsp;Default Replacement Count","&nbsp;&nbsp;&nbsp;&nbsp;Default Replacement Count"
+"Default maximum # of time one created keyword is equipped with a crosslink per one page.","Default maximum # of time one created keyword is equipped with a crosslink per one page."
+"&nbsp;&nbsp;&nbsp;&nbsp;Default Priority","&nbsp;&nbsp;&nbsp;&nbsp;Default Priority"
+"&nbsp;&nbsp;&nbsp;&nbsp;Enable by Default","&nbsp;&nbsp;&nbsp;&nbsp;Enable by Default"
+"If set to <i>Yes</i>, the created crosslinks will be enabled automatically.","If set to <i>Yes</i>, the created crosslinks will be enabled automatically."
+"&nbsp;&nbsp;&nbsp;&nbsp;Default Values for<br>&nbsp;&nbsp;&nbsp;&nbsp;'Destination' Tab","&nbsp;&nbsp;&nbsp;&nbsp;Default Values for<br>&nbsp;&nbsp;&nbsp;&nbsp;'Destination' Tab"
+"Use in Cross Linking","Use in Cross Linking"
+"Use in Crosslinking","Use in Crosslinking"
+"Add New Crosslink","Add New Crosslink"
+"Delete items","Delete items"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+Disable,Disable
+Enable,Enable
+ID,ID
+"Link Title","Link Title"
+"Replacement Count","Replacement Count"

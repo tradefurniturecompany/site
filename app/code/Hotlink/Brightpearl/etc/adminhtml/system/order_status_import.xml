@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="Hotlink_Brightpearl_Model_Interaction_Order_Status_Realtime_Import" sortOrder="1500" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+        <label>Interaction : Import order status (real-time)</label>
+        <attribute type="hotlink" interaction="true" />
+        <field id="notify_customer" translate="label" type="select" sortOrder="350" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Notify customer</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Send customer an email about order status change]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+    </group>
+
+    <group id="Hotlink_Brightpearl_Model_Interaction_Order_Status_Bulk_Import" sortOrder="1510" showInDefault="1" translate="label">
+        <label>Interaction : Import order status (bulk)</label>
+        <attribute type="hotlink" interaction="true" />
+        <field id="lookbehind" translate="label" type="select" sortOrder="200" showInDefault="1" >
+            <label>Lookbehind</label>
+            <frontend_model>\Hotlink\Framework\Block\Adminhtml\System\Config\Form\Field\Scalar</frontend_model>
+            <backend_model>\Hotlink\Framework\Model\System\Config\Form\Field\Scalar\Backend</backend_model>
+            <source_model>\Hotlink\Framework\Model\Interaction\Environment\Parameter\Scalar\Timespan</source_model>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="sort_by" translate="label" type="select" sortOrder="400" showInDefault="1" >
+            <label>Sort by</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Sort\Field</source_model>
+            <comment><![CDATA[Field to sort API results by.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="sort_direction" translate="label" type="select" sortOrder="500" showInDefault="1" >
+            <label>Sort direction</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Sort\Direction</source_model>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="batch" translate="label" sortOrder="600" showInDefault="1">
+            <label>Batch</label>
+            <comment><![CDATA[Number of records to fetch per Brightpearl query.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="sleep" translate="label" sortOrder="700" showInDefault="1">
+            <label>Sleep</label>
+            <comment>Pause between database saves (in millionths of a second).</comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+    </group>
+</include>

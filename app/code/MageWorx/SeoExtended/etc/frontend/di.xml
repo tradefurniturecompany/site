@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="MageWorx\SeoExtended\Model\PageNumFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="catalog_category_view" xsi:type="string">MageWorx\SeoExtended\Model\PageNum\Category</item>
+                <item name="mageworx_landingpagespro_landingpage_view" xsi:type="string">MageWorx\SeoExtended\Model\PageNum\Category</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoExtended\Model\FiltersConvertorFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="catalog_category_view" xsi:type="string">MageWorx\SeoExtended\Model\FiltersConvertor\Category</item>
+                <item name="mageworx_landingpagespro_landingpage_view" xsi:type="string">MageWorx\SeoExtended\Model\FiltersConvertor\Category</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Page\Title">
+        <plugin name="MageWorx_SeoExtended::get" type="MageWorx\SeoExtended\Plugin\Title\CropPrefixSuffix" sortOrder="1" disabled="false"/>
+    </type>
+    <type name="MageWorx\SeoExtended\Model\MetaUpdaterFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="catalog_category_view" xsi:type="string">MageWorx\SeoExtended\Model\MetaUpdater\Category</item>
+                <item name="mageworx_landingpagespro_landingpage_view" xsi:type="string">MageWorx\SeoExtended\Model\MetaUpdater\LandingPage</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

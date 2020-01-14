@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <base>
+                <canonical>
+                    <use_canonical>1</use_canonical>
+                    <product_canonical_url_type>canonical_type_root</product_canonical_url_type>
+                    <trailing_slash_home_page>0</trailing_slash_home_page>
+                    <trailing_slash>1</trailing_slash>
+                    <use_pager_in_canonical>1</use_pager_in_canonical>
+                    <canonical_for_ln>0</canonical_for_ln>
+                    <canonical_for_ln_multiple>2</canonical_for_ln_multiple>
+                    <disable_by_robots>0</disable_by_robots>
+                </canonical>
+                <robots>
+                    <robots_for_ln_multiple>1</robots_for_ln_multiple>
+                </robots>
+                <use_next_prev>1</use_next_prev>
+            </base>         
+        </mageworx_seo>
+    </default>
+</config>

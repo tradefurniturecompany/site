@@ -1,0 +1,14 @@
+<?php $subcategories = $this->getSubcategories(); ?>
+<div class="category-page-subcategories">
+    <?php foreach ($subcategories as $category): ?>
+      <div class="category-page-subcategory-box">
+        <a href="<?php echo $category->getUrl() ?>">
+          <div class="padding">
+            <div class="proportions"
+                 style="background-image: url('<?php echo $category->getImageUrl(); ?>');"></div>
+          </div>
+          <p><?php echo $category->getName(); ?></p>
+        </a>
+      </div>
+    <?php endforeach; ?>
+</div>

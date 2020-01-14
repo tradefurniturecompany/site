@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MageWorx\SeoExtended\Api\CategoryFilterRepositoryInterface" type="MageWorx\SeoExtended\Model\CategoryFilterRepository" />
+    <preference for="MageWorx\SeoExtended\Api\Data\CategoryFilterInterface" type="MageWorx\SeoExtended\Model\CategoryFilter" />
+    <virtualType name="MageWorxSeoExtendedCategoryFilterGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">MageWorx\SeoExtended\Model\ResourceModel\CategoryFilter\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">MageWorxSeoExtendedGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoExtendedGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="MageWorx\SeoExtended\Model\ResourceModel\CategoryFilter\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seoextended_category</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seoextended_categoryfilter_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">categoryfilter_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\SeoExtended\Model\ResourceModel\CategoryFilter</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageworx_seoextended_categoryfilter_listing_data_source" xsi:type="string">MageWorx\SeoExtended\Model\ResourceModel\CategoryFilter\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="\MageWorx\SeoXTemplates\Model\Template\CategoryFilter">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="category_filter_collection_factory" xsi:type="object">MageWorx\SeoExtended\Model\ResourceModel\CategoryFilter\CollectionFactory</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

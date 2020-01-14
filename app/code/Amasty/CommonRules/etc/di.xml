@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_CommonRules
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Amasty\CommonRules\Model\OptionProvider\Pool">
+        <arguments>
+            <argument name="optionProviders" xsi:type="array">
+                <item name="calculation" xsi:type="object">Amasty\CommonRules\Model\OptionProvider\Provider\CalculationOptionProvider</item>
+                <item name="carriers" xsi:type="object">Amasty\CommonRules\Model\OptionProvider\Provider\CarriersOptionProvider</item>
+                <item name="customer_group" xsi:type="object">Amasty\CommonRules\Model\OptionProvider\Provider\CustomerGroupOptionProvider</item>
+                <item name="days" xsi:type="object">Amasty\CommonRules\Model\OptionProvider\Provider\DaysOptionProvider</item>
+                <item name="payment_method" xsi:type="object">Amasty\CommonRules\Model\OptionProvider\Provider\PaymentMethodOptionProvider</item>
+                <item name="sales_rules" xsi:type="object">Amasty\CommonRules\Model\OptionProvider\Provider\RulesOptionProvider</item>
+                <item name="status" xsi:type="object">Amasty\CommonRules\Model\OptionProvider\Provider\StatusOptionProvider</item>
+                <item name="times" xsi:type="object">Amasty\CommonRules\Model\OptionProvider\Provider\TimesOptionProvider</item>
+                <item name="backorders" xsi:type="object">Amasty\CommonRules\Model\OptionProvider\Provider\BackorderOptionProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\CommonRules\Model\Rule\Factory\HandleFactory">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="customer" xsi:type="object">Amasty\CommonRules\Model\Rule\Condition\Customer</item>
+                <item name="orders" xsi:type="object">Amasty\CommonRules\Model\Rule\Condition\Orders</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\CommonRules\Model\Rule\Factory\CombineHandleFactory">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="total" xsi:type="object">Amasty\CommonRules\Model\Rule\Condition\Total</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

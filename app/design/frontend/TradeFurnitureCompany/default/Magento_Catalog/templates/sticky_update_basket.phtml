@@ -1,0 +1,49 @@
+<div class="sticky-add-to-basket">
+  <label for="sticky-qty"
+         class="sticky-qty-label">Qty</label>
+  <input type="number"
+         value="1"
+         min="1"
+         id="sticky-qty"
+         name="sticky-qty"
+         class="sticky-qty"
+  />
+  <button class="action tocart sticky-tocart"><span><?php echo __('Add to Cart')?></span></button>
+</div>
+<script type="text/javascript"
+        xml="space">
+  require([
+    'jquery'
+  ], function ($) {
+
+    // Get the header
+    var body = $('body');
+    var pageHeader = $('.page-header');
+    var nav = $(".nav-sections-wrapper");
+
+    // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function productHeadingStickyToggle() {
+
+      if (window.pageYOffset >= (pageHeader.height() + nav.height() - 22)) {
+        body.addClass("sticky-product-heading");
+      } else {
+        body.removeClass("sticky-product-heading");
+      }
+    }
+
+    $(function () {
+      $('#sticky-qty').on('change', function () {
+        $('.product-add-form .qty').val($(this).val());
+      });
+      $('.sticky-tocart').on('click', function () {
+        $('.product-add-form .tocart').trigger('click');
+        $('.product-add-form').focus();
+      });
+
+      if ($(window).width() >= 768) {
+        // When the user scrolls the page, execute myFunction
+        window.addEventListener('scroll', productHeadingStickyToggle);
+      }
+    });
+  });
+</script>

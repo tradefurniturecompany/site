@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <seoxtemplates>
+                <crop_root_category>1</crop_root_category>
+                <enabled_cron_notify>0</enabled_cron_notify>
+                <error_email><![CDATA[]]></error_email>
+                <error_email_template>mageworx_seoxtemplates_generate_error_email_template</error_email_template>
+                <error_email_identity>general</error_email_identity>
+            </seoxtemplates>
+        </mageworx_seo>
+    </default>
+</config>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name ="mageworx_seoxtemplates_product_template_apply">
+        <observer name="mw_seoxtemplates_do_apply_template_product" instance="MageWorx\SeoXTemplates\Model\Observer\ApplyTemplateProduct" />
+    </event>
+    <event name ="mageworx_seoxtemplates_category_template_apply">
+        <observer name="mw_seoxtemplates_do_apply_template_category" instance="MageWorx\SeoXTemplates\Model\Observer\ApplyTemplateCategory" />
+    </event>
+    <event name ="mageworx_seoxtemplates_landingpage_template_apply">
+        <observer name="mw_seoxtemplates_do_apply_template_landingpage" instance="MageWorx\SeoXTemplates\Model\Observer\ApplyTemplateLandingPage" />
+    </event>
+    <event name="adminhtml_mageworx_landingpagespro_landingpage_on_delete">
+        <observer name="delete_landingpage_from_relation" instance="MageWorx\SeoXTemplates\Model\Observer\DeleteLandingPageFromRelation" />
+    </event>
+</config>

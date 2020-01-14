@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Page\Config\Renderer">
+        <plugin name="Amasty_MegaMenu::make-css" type="Amasty\MegaMenu\Plugin\View\Page\Config\Renderer" />
+    </type>
+
+    <type name="Smartwave\Porto\Block\Template">
+        <plugin name="Amasty_MegaMenu::menu-for-porto" type="Amasty\MegaMenu\Plugin\Porto\Block\Template" />
+    </type>
+</config>

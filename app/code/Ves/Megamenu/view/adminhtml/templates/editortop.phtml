@@ -1,0 +1,17 @@
+<ul id="editor-top">
+	<li><a href="#base_fieldset"><?php echo __('General Settings'); ?></a></li>
+	<li><a href="#menueditor"><?php echo __('Menu Editor'); ?></a></li>
+</ul>
+<script type="text/javascript">
+	require(["jquery"], function(){
+		jQuery("#editor-top a:first").addClass("active");
+		jQuery("#editor-top a").click(function(){
+			var targetE = jQuery(this).attr("href");
+			jQuery("#menueditor, #base_fieldset").hide();
+			jQuery(targetE).show();
+			jQuery('#editor-top a').removeClass("active");
+			jQuery(this).toggleClass("active");
+			return false;
+		});
+	});
+</script>

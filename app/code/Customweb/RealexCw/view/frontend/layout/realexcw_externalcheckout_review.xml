@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<update handle="checkout_cart_item_renderers" />
+	<body>
+		<container name="root">
+			<block class="Customweb\RealexCw\Block\ExternalCheckout\Review" name="customweb_realexcw_externalcheckout_review">
+				<block class="Magento\Framework\View\Element\RendererList" name="checkout.cart.item.renderers" as="renderer.list" />
+				<block class="Magento\CheckoutAgreements\Block\Agreements" name="realexcw.external_checkout.agreements" as="agreements" template="Customweb_RealexCw::externalcheckout/agreements.phtml" />
+                <block class="Customweb\RealexCw\Block\ExternalCheckout\Totals" name="realexcw.external_checkout.totals" as="totals" template="Customweb_RealexCw::externalcheckout/totals.phtml" />
+                <block class="Magento\GiftMessage\Block\Cart\GiftOptions" name="checkout.cart.order.actions.gift_options" as="gift_options" template="Magento_GiftMessage::cart/gift_options.phtml" cacheable="false">
+	                <arguments>
+	                    <argument name="jsLayout" xsi:type="array">
+	                        <item name="types" xsi:type="array"/>
+	                        <item name="components" xsi:type="array">
+	                            <item name="giftOptionsCart" xsi:type="array">
+	                                <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
+	                                <item name="config" xsi:type="array">
+	                                    <item name="template" xsi:type="string">Magento_GiftMessage/gift-message</item>
+	                                    <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
+	                                </item>
+	                            </item>
+	                        </item>
+	                    </argument>
+	                </arguments>
+	            </block>
+			</block>
+		</container>
+	</body>
+</page>

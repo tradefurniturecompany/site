@@ -1,0 +1,87 @@
+<?php
+   $back = 0;
+   $front = "#FFF";
+   $front = "#aaa";
+   $levelName = 'INF';
+   $item = $block->getItem();
+   $html = ( $data = $item->getData() ) ? $block->getDataHtml( $data ) : false;
+
+   switch ( $item->getLevel() )
+      {
+      case \Hotlink\Framework\Model\Report\Item::LEVEL_FATAL:
+          $front = "#f0382b";
+          $back = "#ffff00";
+          $borderColour ="#edd500";
+          $levelName = 'FTL';
+          break;
+      case \Hotlink\Framework\Model\Report\Item::LEVEL_ERROR:
+          $back = "#f0382b";
+          $front = "#ffffff";
+          $borderColour ="#e01308";
+          $levelName = 'ERR';
+          break;
+      case \Hotlink\Framework\Model\Report\Item::LEVEL_WARN:
+          $front = "#ffab23";
+          $back = "#eee";
+          $borderColour ="#f49600";
+          $levelName = 'WRN';
+          break;
+      case \Hotlink\Framework\Model\Report\Item::LEVEL_INFO:
+          $back = "#8ac403";
+          $front = "#ffffff";
+          $borderColour = "#77aa00";
+          $levelName = 'INF';
+          break;
+      case \Hotlink\Framework\Model\Report\Item::LEVEL_DEBUG:
+          $back = " #3d93f6";
+          $front = "#FFF";
+          $borderColour = "#2678d6";
+          $levelName = 'DBG';
+          break;
+      case \Hotlink\Framework\Model\Report\Item::LEVEL_TRACE:
+          $back = "#aaaaaa";
+          $front = "#ffffff";
+          $borderColour ="#969696";
+          $levelName = 'TRC';
+          break;
+      }
+
+    $levelClass = 'item-level-' . $levelName;
+    $sectionClass = 'item-section-'.$item->getSection();
+    $first = true;
+   ?>
+
+<div id="item-<?php echo $item->getId(); ?>" style="clear:both; position:relative; font-family: Verdana;" class="report-data-item <?php echo $sectionClass.' '.$levelClass.' '.$sectionClass.'-'.$levelClass;?>">
+  <div class="benchmark" style="float:right; top:0; right: 0; color:#EA7601;font-family: Verdana; font-size: 10px; padding-top: 2px; width: 275px; text-align: right; display: inline-block; margin-right: 15px; ">
+       <?php echo sprintf( '%0.3f', $block->getItemDuration() ); ?> sec / <?php echo sprintf( '%0.2f', $item->getMemory() ); ?> mb
+      [ <?php echo $item->getSuccess(); ?>s / <?php echo $item->getFail(); ?>f ] T: <?php echo sprintf( '%0.3f', $block->getElapsedTime() ); ?> sec
+  </div>
+  <div class="ids" style="font-size: 11px; font-weight: normal; padding:0px; width: 40px; display:inline-block; border: 1px;"><?php echo $item->getId(); ?></div>
+  <div class="item-batch" style="font-size: 11px; font-weight: normal; padding:2px 0 2px 0; width: 20px; display:inline-block; border: 1px;"><?php if ( $item->getBatch() ): ?><?php echo $item->getBatch(); ?><?php endif; ?></div>
+  <div id="item-section-<?php echo $item->getId(); ?>" class="item-section" style="font-size: 11px; font-weight: normal; padding:0px; width: 120px; display:inline-block; border: 1px;"><?php echo $item->getSection(); ?></div>
+  <div class="level-wrap" style="padding: 0 0 0 <?php echo ( $item->getIndent() * 20); ?>px; font-size: 12px; margin: 5px 0 0 5px; display:inline-block; width: calc( 100% - <?php echo 500 + ( $item->getIndent() * 20); ?>px); vertical-align: top;">
+
+    <?php if ( $html ): ?>
+      <input type="checkbox" id="checkbox-data-<?php echo $item->getId(); ?>" style="float:left; display: none;" onchange="var checked = document.getElementById( 'checkbox-data-<?php echo $item->getId(); ?>' ).checked; document.getElementById( 'message-data-<?php echo $item->getId(); ?>' ).style.display = ( checked ? 'block' : 'none' ); document.getElementById( 'icon-data-<?php echo $item->getId(); ?>' ).innerHTML = ( checked ? '&#9660;&nbsp;' : '&#9654;&nbsp;' );">
+      <label for="checkbox-data-<?php echo $item->getId(); ?>">
+        <span id="icon-data-<?php echo $item->getId(); ?>" style="float:left;">&#9654;&nbsp;</span>
+    <?php endif; ?>
+
+      <div id="item-level-<?php echo $item->getId(); ?>" class="item-level" style="float:left; border: 2px solid <?php echo $borderColour?>; border-radius:10px; background-color:<?php echo $back?>; color: <?php echo $front?>;font-size: 9px; font-weight: bold; padding:2px 2px 2px 2px; width: 50px; display: inline-block; text-align: center;"><?php echo $levelName; ?></div>
+    <?php if ( $html ): ?>
+      </label>
+
+    <?php endif; ?>
+      <div class="level-reference" style="display: inline-block; margin: 0 0 0 5px; font-size: 12px; padding: 2px 0 2px 0; word-break: break-all; float:left; max-width: calc(100% - 70px);">
+      <?php echo $block->getReference(); ?>
+      <?php echo nl2br( htmlspecialchars( $item->getMessage() ) ); ?>
+      </div>
+  </div>
+
+  <?php if ( $html ): ?>
+    <div class="message-data" id="message-data-<?php echo $item->getId(); ?>" style="float:left; display:none; max-width: 100%; box-sizing: border-box; margin: 5px 0 5px 0; padding: 5px 2% 5px 2%; word-wrap: break-word; border-left: 4px solid <?php echo $borderColour; ?>;">
+      <?php echo $html; ?>
+    </div>
+  <?php endif; ?>
+
+</div>

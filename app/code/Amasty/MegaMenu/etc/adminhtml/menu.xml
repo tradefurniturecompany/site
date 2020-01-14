@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_MegaMenu::menu" title="Amasty MegaMenu" module="Amasty_MegaMenu" parent="Magento_Backend::content" sortOrder="160" resource="Amasty_MegaMenu::menu"/>
+        <add id="Amasty_MegaMenu::menu_links" title="Custom Menu Items" module="Amasty_MegaMenu" parent="Amasty_MegaMenu::menu" resource="Amasty_MegaMenu::menu_links" action="ammegamenu/link/index" sortOrder="10"/>
+    </menu>
+</config>

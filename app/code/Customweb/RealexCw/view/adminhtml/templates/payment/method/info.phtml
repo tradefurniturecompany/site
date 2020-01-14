@@ -1,0 +1,81 @@
+<?php
+/**
+ * You are allowed to use this API in your web application.
+ *
+ * Copyright (C) 2018 by customweb GmbH
+ *
+ * This program is licenced under the customweb software licence. With the
+ * purchase or the installation of the software in your application you
+ * accept the licence agreement. The allowed usage is outlined in the
+ * customweb software licence which can be found under
+ * http://www.sellxed.com/en/software-license-agreement
+ *
+ * Any modification or distribution is strictly forbidden. The license
+ * grants you the installation in one application. For multiuse you will need
+ * to purchase further licences at http://www.sellxed.com/shop.
+ *
+ * See the customweb software licence agreement for more details.
+ *
+ *
+ * @category	Customweb
+ * @package		Customweb_RealexCw
+ *
+ */
+
+/* @var $block \Customweb\RealexCw\Block\Payment\Method\Info */
+
+$transaction = $block->getTransaction();
+?>
+
+<?php if ($block->isShowMethodImage()) : ?>
+	<div class="field payment-image">
+		<img src="<?php echo $block->getViewFileUrl('Customweb_RealexCw/images/payment/method/' . $block->escapeHtml($block->getMethod()->getPaymentMethodName()) . '.png') ?>" />
+	</div>
+<?php endif; ?>
+<?php echo $block->escapeHtml($block->getMethod()->getTitle()) ?>
+<?php if ($transaction) : ?>
+	<div class="admin__page-section-item-content realexcw-payment-information-block">
+		<table class="data-table admin__table-secondary">
+			<tr>
+				<th><?php echo __('Transaction Id')?></th>
+				<td><a href="<?php echo $block->getTransactionViewUrl() ?>"><span><?php echo $transaction->getId() ?></span></a></td>
+			</tr>
+			<?php foreach($transaction->getTransactionObject()->getTransactionLabels() as $label) : ?>
+			<tr>
+				<th>
+					<?php echo $block->escapeHtml($label['label']) ?>
+					<?php if (isset($label['description'])) : ?>
+						<div class="tooltip"><span class="help"><span></span></span><div class="tooltip-content"><?php echo $block->escapeHtml($label['description']) ?></div></div>
+					<?php endif; ?>
+				</th>
+				<td><?php echo $block->escapeHtml($label['value']) ?></td>
+			</tr>
+			<?php endforeach; ?>
+		</table>
+	</div>
+
+	<?php
+	$historyItems = $transaction->getTransactionObject()->getHistoryItems();
+	if (!empty($historyItems)) : ?>
+	<div class="edit-order-comments realexcw-payment-history-block">
+		<?php foreach(array_reverse($historyItems) as $historyItem) : ?>
+			<ul class="note-list">
+				<li class="note-list-item">
+					<?php $creationDate = $historyItem->getCreationDate()->format('Y-m-d H:i:s'); ?>
+					<span class="note-list-date"><?php echo $block->formatDate($creationDate, \IntlDateFormatter::MEDIUM) ?></span>
+					<span class="note-list-time"><?php echo $block->formatTime($creationDate, \IntlDateFormatter::MEDIUM) ?></span>
+					<span class="note-list-status"><?php echo $block->escapeHtml(__(ucfirst($historyItem->getActionPerformed()))) ?></span>
+					<div class="note-list-comment"><?php echo $block->escapeHtml((string)$historyItem->getMessage()) ?></div>
+				</li>
+			</ul>
+		<?php endforeach; ?>
+	</div>
+	<?php endif; ?>
+
+	<?php if ($transaction->getTransactionObject()->getPaymentInformation() != null) : ?>
+		<div class="realexcw-transaction-payment-information-block">
+			<h4><?php echo __('Payment Information') ?></h4>
+			<?php echo $transaction->getTransactionObject()->getPaymentInformation() ?>
+		</div>
+	<?php endif; ?>
+<?php endif; ?>

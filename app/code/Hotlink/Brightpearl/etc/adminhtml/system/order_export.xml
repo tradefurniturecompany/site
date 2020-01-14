@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="Hotlink_Brightpearl_Model_Interaction_Order_Export" sortOrder="600" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+        <label>Interaction : Export order</label>
+        <attribute type="hotlink" interaction="true" />
+        <field id="update_existing_customers" translate="label" type="select" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Update existing customers</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Select Yes to update existing customer records in Brightpearl with changes observed in Magento.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="company_from" translate="label" sortOrder="305" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Address company name priority</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Address\Company\Priority\Map</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model>
+            <comment><![CDATA[List of Magento sources which should be used to extract the company name from.<br/>Sources will be used in sequence, until a non-empty value is found.]]>
+            </comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="giftmessage_field" translate="label" type="select" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Gift messages custom field</label>
+            <source_model>Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Custom\Field</source_model>
+            <comment><![CDATA[Select the Brightpearl custom field to be used to send gift messages to Brightpearl.]]>
+            </comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="include_marketing_details" translate="label" type="select" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Include marketing details</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Select Yes to send newsletter subscription status to Brightpearl.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+
+        <field id="shipping_heading" translate="label" type="text" sortOrder="400" showInDefault="1">
+            <label>Shipping Method Export Maps</label>
+            <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="shipping_map_isomorphic" translate="label" sortOrder="410" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Isomorphic</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Shipping\Method\Map</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model>
+            <comment><![CDATA[Magento shipping method to Brightpearl shipping method mapping. These are checked first to identify a Brightpearl shipping method.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="shipping_map_nonisomorphic" translate="label" sortOrder="420" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Nonisomorphic</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Shipping\Method\Regex</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model>
+            <comment><![CDATA[Determine a Brightpearl shipping method by examining the Magento shipping code text.
+            <br/>
+            <br/>
+            When no shipping method mapping is identified from the Isomorphic map (above), Magento's shipping method code is checked against each entry (in the order defined) for a match. An entry may be simple text or a regular expression.
+            <br/>
+            <br/>Regular expressions should be entered using PHP/PCRE syntax (start and end with a forward slash), eg:
+            <br/>
+            <br/>Regular expression: <span style="float:right; padding-right:50px;"><code class="php">/^matrix_date_[0-9]+$/i</code></span>
+            <br/>
+            <br/>matches: <span style="float:right; padding-right:50px;"><code class="str">matrix_date_123</code>, <code class="str">matrix_DATE_9</code>, <code class="str">Matrix_Date_00000</code></span>
+            <br/>
+            <br/>does not match: <span style="float:right; padding-right:50px;"><code class="strf">matrix_date_abcd</code>, <code class="strf">xmatrix_date_123</code></span>
+            <br/>
+            <br/>See <a href="http://bit.ly/25wProR" target="_blank">PHP PCRE Regex Syntax</a>.
+            ]]>
+            </comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="shipping_default" translate="label" type="select" sortOrder="430" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default shipping method</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Shipping\Method</source_model>
+            <comment><![CDATA[Default shipping method to use when none of the above successfully determine the Brightpearl shipping method.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+
+        <field id="heading_customisation" translate="label" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Customisation</label>
+            <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+            <comment><![CDATA[Supports mapping of custom Magento data onto exported order data.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="customisation_map" translate="label" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="1" >
+            <label>Customisation map</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Order\Customisation\Map</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model>
+            <comment><![CDATA[Custom Magento order data to Brightpearl order data mapping.<br/>
+            This mechanism supports simple mapping of non-standard Magento data (eg. from third party modules) onto the Brightpearl order json structure.<br/>
+            A value is determined using the Evaluate column expression, optionally modified by the Transform column expression, and written to json via the Output column expression.<br/>
+            Valid CSV strings are defined by PHP's <a target="_blank" href="http://php.net/manual/en/function.str-getcsv.php">str_getcsv</a> routine.
+            <br/>
+            <table class="note">
+               <tr>
+                  <td></td>
+                  <td><b>Description</b></td>
+                  <td><b>Example</b></td>
+               </tr>
+               <tr>
+                  <td><b>Evaluate</b><br/>
+                  </i>(Required)</i>
+                  </td>
+                  <td>A comma separated list of terms to evaluate.<br/>
+                  A term is a dot separated path of method calls to invoke against an order object to obtain a property.<br/>
+                  Terms are evaluated in the defined order (left to right).<br/>
+                  The result of the first term that evaluates is returned.<br/>
+                  When a term is enclosed in [square brackets], the literal string between brackets is returned rather than evaluated, and this can be used to specify a default.<br/>
+                  Evaluation fails if method calls fail on all terms, and no default is defined.
+                  </td>
+                  <td>
+                    getStatusLabel<br/>
+                    getPayment.getShippingAmount<br/>
+                    getShippingAddress.getRegionCode,getStatusLabel<br/>
+                    [PremiumStore]<br/>
+                    getShippingMethod.getCode,[Dropship]<br/>
+                    getPayment.getCustomField,[n/a]
+                  </td>
+               </tr>
+               <tr>
+                 <td><b>Transform</b><br/>
+                 </i>(Optional)</i>
+                </td>
+                  <td>When given, modifies the evaluated value using the transform expression (to apply formatting or lookups).<br/>
+                  When no brackets surround the expression, sprintf is used to format the value.<br/>
+                  When enclosed in [square brackets], the PHP date function is used to format the value.<br/>
+                  When enclosed in {curly brackets}, the expression represents a comma separated lookup, and a lookup value is sought.<br/>
+                  &nbsp;&nbsp;&nbsp;<i>csv note: if a lookup entry contains a comma, double quote the entire entry.</i><br/>
+                  If no suitable lookup is found, the evaluation is considered to have failed.</td>
+                  <td>%s<br/>
+                  %t<br/>
+                  [d M Y H:i:s]<br/>
+                  {0=No,1=Yes,2=Maybe,"3=No,never"}<br/>
+                  {0=EMail Opt Out,1=EMail Opt In,N=Newsletter,U=Unsubscribe}<br/>
+                  </td>
+               </tr>
+               <tr>
+                  <td><b>Output</b><br/>
+                  </i>(Required)</i>
+                  </td>
+                  <td>A dot separated path to a settable property on these objects:<br/>
+                  customer<br/>
+                  customer.billingAddress<br/>
+                  customer.shippingAddress<br/>
+                  order<br/>
+                  order.shipping<br/>
+                  order.total<br/>
+                  order.rows
+                  </td>
+                  <td>customer.middlename<br/>
+                  customer.billingAddress.notes<br/>
+                  order.shipping.timeSlot<br/>
+                  order.shipping.preferredDeliveryDate</td>
+               </tr>
+               <tr>
+                  <td><b>Processsing</b><br/>
+                  </i>(Required)</i>
+                  </td>
+                  <td>Determine behaviour in case of a failed evaluation.<br/>
+                  <span style="margin-left:20px; width:70px; display:inline-block;"><i>Skip</i></span>ignore the issue and continue the order export<br/>
+                  <span style="margin-left:20px; width:70px; display:inline-block;"><i>Warn</i></span>report a warning, and continue the order export<br/>
+                  <span style="margin-left:20px; width:70px; display:inline-block;"><i>Halt</i></span>report an error, and cause the order's export to fail
+                  </td>
+                  <td></td>
+               </tr>
+            </table>
+            ]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+
+    </group>
+</include>

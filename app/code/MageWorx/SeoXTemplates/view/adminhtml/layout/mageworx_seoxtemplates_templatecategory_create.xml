@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Category\Create" name="mageworx_seoxtemplates_template_category_create"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Category\Create\Tabs" name="mageworx_seoxtemplates_template_category_tabs">
+                <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Category\Create\Tab\Main" name="mageworx_seoxtemplates_template_category_create_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">template_category</argument>
+                    <argument name="block" xsi:type="string">mageworx_seoxtemplates_template_category_create_tab_main</argument>
+                </action>             
+            </block>
+        </referenceContainer>
+    </body>
+</page>
