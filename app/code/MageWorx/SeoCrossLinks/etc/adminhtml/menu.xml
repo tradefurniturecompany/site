@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageWorx_SeoCrossLinks::seosuite"   title="MageWorx SEO Cross Links" module="MageWorx_SeoCrossLinks" sortOrder="50" parent="Magento_Backend::marketing"  resource="MageWorx_SeoCrossLinks::seosuite" />
+        <add id="MageWorx_SeoCrossLinks::crosslinks" title="Cross Links" module="MageWorx_SeoCrossLinks" sortOrder="65" parent="MageWorx_SeoCrossLinks::seosuite" action="mageworx_seocrosslinks/crosslink/" resource="MageWorx_SeoCrossLinks::crosslinks" />
+    </menu>
+</config>

@@ -1,0 +1,15 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Rcreek\YoutubeVideo\Block\YoutubeVideo"
+                   name="product-view-youtube-icon"
+                   template="Rcreek_YoutubeVideo::icon.phtml"
+                   after="product.info.media"/>
+            <block class="Rcreek\YoutubeVideo\Block\YoutubeVideo"
+                   name="product-view-youtube-modal"
+                   template="Rcreek_YoutubeVideo::modal.phtml"
+                   after="product-view-youtube-icon"/>
+        </referenceContainer>
+    </body>
+</page>

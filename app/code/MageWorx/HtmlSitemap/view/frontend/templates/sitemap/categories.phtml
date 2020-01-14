@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+
+<?php
+$level = 0;
+/**
+ * @type array
+ * @see \MageWorx\HtmlSitemap\Model\ResourceModel\Catalog\Category
+ */
+$items = $block->getTreeCategoryCollection();
+?>
+
+<?php if (!empty($items)): ?>
+<h3><?php echo __('Catalog') ?></h3>
+<ul class="categories">
+<?php foreach ($items as $item): ?>
+    <?php if ($level < $block->getLevel($item)): ?>
+        <ul class="categories">
+    <?php endif ?>
+    <?php if ($level > $block->getLevel($item)): ?>
+            </li><?php echo str_repeat('</ul></li>', $level - $block->getLevel($item));?>
+    <?php endif ?>
+    <?php if ($level && $level == $block->getLevel($item)): ?>
+            </li>
+    <?php endif ?>
+    <li class="level-<?php echo $block->getLevel($item) ?> category">
+        <a href="<?php echo $block->escapeUrl($item->getUrl()) ?>"><?php echo $block->escapeHtml($item->getName()) ?></a>
+    <?php if ($block->isShowProducts($item)): ?>
+    <?php echo $block->getChildBlock('category_products')->setCategoryId($item->getId())->toHtml() ?>
+    <?php endif ?>
+
+    <?php $level = $block->getLevel($item) ?>
+<?php endforeach; ?>
+<?php echo str_repeat('</li></ul>', $level + 1) ?>
+<?php endif;

@@ -1,0 +1,62 @@
+<?php
+/**
+ * You are allowed to use this API in your web application.
+ *
+ * Copyright (C) 2018 by customweb GmbH
+ *
+ * This program is licenced under the customweb software licence. With the
+ * purchase or the installation of the software in your application you
+ * accept the licence agreement. The allowed usage is outlined in the
+ * customweb software licence which can be found under
+ * http://www.sellxed.com/en/software-license-agreement
+ *
+ * Any modification or distribution is strictly forbidden. The license
+ * grants you the installation in one application. For multiuse you will need
+ * to purchase further licences at http://www.sellxed.com/shop.
+ *
+ * See the customweb software licence agreement for more details.
+ *
+ *
+ * @category	Customweb
+ * @package		Customweb_RealexCw
+ * 
+ */
+
+/* @var $block \Customweb\RealexCw\Block\Customer\Aliases */
+?>
+
+<?php $_aliases = $block->getAliases(); ?>
+<?php if ($_aliases && count($_aliases)): ?>
+    <div class="table-wrapper realexcw-customer-alias">
+        <table class="data table table-realexcw-customer-alias-items" id="my-realexcw-alias-table">
+            <caption class="table-caption"><?php echo __('Realex Aliases') ?></caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col id"><?php echo __('Alias') ?></th>
+                    <th scope="col" class="col date"><?php echo __('Creation Date') ?></th>
+                    <th scope="col" class="col shipping"><?php echo __('Payment Method') ?></th>
+                    <th scope="col" class="col actions">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($_aliases as $_alias): ?>
+                    <tr>
+                        <td data-th="<?php echo __('Alias') ?>" class="col alias"><?php echo $block->escapeHtml($_alias->getAliasForDisplay()) ?></td>
+                        <td data-th="<?php echo __('Creation Date') ?>" class="col date"><?php echo $block->formatDate($_alias->getCreatedAt()) ?></td>
+                        <td data-th="<?php echo __('Payment Method') ?>" class="col payment-method"><?php echo $block->escapeHtml($block->formatPaymentMethod($_alias->getPaymentMethod())) ?></td>
+                        <td data-th="<?php echo __('Actions') ?>" class="col actions">
+                            <a href="<?php echo $block->getDeleteUrl($_alias) ?>" class="action delete">
+                                <span><?php echo __('Delete') ?></span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('You have no stored aliases.'); ?></span></div>
+<?php endif ?>

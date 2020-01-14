@@ -1,0 +1,546 @@
+<script type="text/javascript">
+if (window.Interaction == undefined) {
+    window.Interaction = {};
+}
+
+/**
+ * Apply multi-select Filters
+ * Auto scroll (if enabled)
+ * Adds sections dynamically
+ * Uses Loading overlay when filter
+ */
+
+Interaction.Report = function() {
+
+    var LEVEL_PREFIX    = 'item-level-';
+    var BUTTON_PREFIX   = 'button-';
+    var SECTION_PREFIX  = 'item-section-';
+    var SELECTED_CLASS  = 'selected';
+    var FILTER_SECTION  = '.report-filter-section';
+    var FILTER_BUTTONS  = 'filter-buttons';
+
+    var filterLevels   = ['FTL', 'ERR', 'WRN', 'INF', 'DBG', 'TRC'];
+    var filterSections = [];
+
+    var levels = ['FTL', 'ERR', 'WRN', 'INF', 'DBG', 'TRC'];
+    var sections = [];
+
+    var style = false;
+    var STYLE_ID = 'report-style';
+
+    var getStyle = function() {
+        if (style === false) {
+            var sheets = document.styleSheets,
+                length = sheets.length;
+            for (var i=0; i< length; i++) {
+                var sh = sheets[i];
+                if (sh.ownerNode && sh.ownerNode.id == STYLE_ID) {
+                    style = sh;
+                    return;
+                }
+            }
+        }
+
+        return style;
+    };
+
+    var _addListener = function(element, eventName, handler) {
+        if (element.addEventListener) {
+            element.addEventListener(eventName, handler, false);
+        }
+        else if (element.attachEvent) {
+            element.attachEvent('on' + eventName, handler);
+        }
+        else {
+            element['on' + eventName] = handler;
+        }
+    };
+
+    var _generateSectionButton = function(section) {
+        var button = document.createElement('button'),
+            buttonClass = SECTION_PREFIX+section+' '+'button'+' '+BUTTON_PREFIX+section + ' ' +'selected',
+            buttonClick = function(){ return report.sectionFilter( section ); },
+            span = document.createElement('span');
+
+        span.innerHTML = section;
+        button.appendChild( span );
+        button.className = buttonClass;
+        _addListener( button, 'click', buttonClick );
+        //button.onclick = buttonClick;
+        return button;
+    };
+
+    /*                                */
+    /*   Filter visibility checkbox   */
+    /*                                */
+    var filterCheckbox = document.getElementById( 'filter-visibility' );
+    var filterTable = document.getElementById( 'filter-table' );
+    var scrollCheckbox = document.getElementById( 'report-autoscroll' );
+    var reportDiv = document.getElementById( 'report-header' );
+
+    var setFilterVisibility = function( show ) {
+        if ( show ) {
+            filterTable.style.display = 'block';
+        } else {
+            filterTable.style.display = 'none';
+        }
+    };
+
+    this.toggleFilter = function() {
+
+        if (window.event && window.event.target) {
+            var checked = window.event.target.checked ? true : false;
+        }
+
+        filterCheckbox.checked = checked;
+
+        setFilterVisibility( checked );
+    };
+
+    // Initialise filter visibility
+    setFilterVisibility( filterCheckbox.checked );
+
+    /*                                */
+    /*   Autoscroll checkbox          */
+    /*                                */
+    var autoscrollInputs = false;
+    var finished = false;
+
+    window.reportInterval = false;   // intervals must be global (js requirements)
+
+    var autoscroll = function() {
+        window.scrollTo( 0, document.body.scrollHeight );
+    };
+
+    var clearInterval = function() {
+        if ( window.reportInterval ) {
+            window.clearInterval( window.reportInterval );
+        }
+    };
+
+    this.finish = function() {
+        finished = true;
+        var checked;
+        if ( scrollCheckbox.checked ) {
+            autoscroll();
+        }
+        this.setAutoscroll( false );
+    };
+
+    this.setAutoscroll = function( checked ) {
+        clearInterval();
+
+        scrollCheckbox.checked = checked;
+        if ( checked ) {
+            autoscroll();
+            if ( !finished ) {
+                window.reportInterval = window.setInterval( autoscroll, 200 );  // 1000 = 1 second
+            }
+        }
+    };
+
+    this.toggleAutoscroll = function() {
+
+        if (window.event && window.event.target) {
+
+            var checked = window.event.target.checked ? true : false;
+            this.setAutoscroll( checked );
+
+        } else {
+
+            clearInterval();
+
+        }
+    };
+
+    // Init autoscroll
+    this.setAutoscroll( scrollCheckbox.checked );
+
+    var changeDisplay = function(selector, display) {
+        if (getStyle()) {
+            var rules = getStyle().cssRules,
+                length = rules.length;
+            for (var i=0; i<length; i++) {
+                var cssRule = rules[i];
+                if ((cssRule.selectorText == selector || cssRule.selectorText == selector.toLowerCase())) {
+                    display = display ? '' : 'none';
+                    if (cssRule.style.display != display) {
+                        cssRule.style.display = display;
+                    }
+                }
+            }
+        }
+    };
+
+    var filterReportItems = function() {
+        sections.forEach(function(section){
+            var showSection = true;
+            if (filterSections.indexOf(section) == -1) {
+                showSection = false;
+            }
+
+            levels.forEach(function(level){
+                var showLevel = true
+                if (filterLevels.indexOf(level) == -1) {
+                    showLevel = false;
+                }
+                // Engage CSS rule
+                var selector = '.'+SECTION_PREFIX+section+'-'+LEVEL_PREFIX+level;
+                if (showSection && showLevel) {
+                    changeDisplay(selector, 1);
+                } else {
+                    changeDisplay(selector, 0);
+                }
+            });
+        });
+    };
+
+    var _removeElement = function( item, arr ) {
+        var index = arr.indexOf( item );
+        if ( index != -1 ) {
+            arr.splice( index, 1 );
+        }
+        return arr;
+    }
+
+    var setFilterButton = function( level, enabled ) {
+        // Change styling on button, and remove button from filter list
+        var cssSelector = '.button-' + level;
+        if ( enabled ) {
+
+            if ( filterLevels.indexOf( level ) < 0 ) {
+                filterLevels.push( level );
+            }
+
+            document.querySelectorAll( cssSelector ).forEach( function(b) {
+                _addClassName( b, SELECTED_CLASS );
+                //b.addClassName(SELECTED_CLASS);
+            });
+
+            // $$( cssSelector ).each(function(b){
+            //         b.addClassName(SELECTED_CLASS);
+            //     });
+
+        } else {
+
+            _removeElement( level, filterLevels );
+
+            document.querySelectorAll( cssSelector ).forEach( function(b) {
+                _removeClassName( b, SELECTED_CLASS );
+            });
+
+            // $$( cssSelector ).each(function(b){
+            //         b.removeClassName(SELECTED_CLASS);
+            //     })
+        }
+        filterReportItems();
+    };
+
+    var _checkFilter = function(filter, source, button) {
+        if (filter == undefined || source == undefined) {
+            return;
+        }
+
+        var result;
+        var index = source.indexOf(filter);
+        if (index !== -1) {
+
+            _removeElement( filter, source );
+            result = source;
+
+            if (button) {
+                document.querySelectorAll( '.'+button ).forEach( function(b) {
+                    _removeClassName( b, SELECTED_CLASS );
+                    //b.removeClassName(SELECTED_CLASS);
+                })
+            } else {
+                document.querySelectorAll( '.'+BUTTON_PREFIX+filter ).forEach(function(b){
+                    _removeClassName( b, SELECTED_CLASS );
+                    //b.removeClassName(SELECTED_CLASS);
+                });
+            }
+
+            // if (button) {
+            //     $$('.'+button).each(function(b){
+            //         b.removeClassName(SELECTED_CLASS);
+            //     })
+            // } else if ($$('.'+BUTTON_PREFIX+filter).length > 0){
+            //     $$('.'+BUTTON_PREFIX+filter).each(function(b){
+            //         b.removeClassName(SELECTED_CLASS);
+            //     });
+            // }
+
+        } else {
+            source.push(filter);
+
+            if (button) {
+                document.querySelectorAll( '.'+button ).forEach( function(b) {
+                    _addClassName( b, SELECTED_CLASS );
+                    //b.addClassName(SELECTED_CLASS);
+                });
+            } else {
+               document.querySelectorAll( '.'+BUTTON_PREFIX+filter ).forEach( function(b) {
+                   _addClassName( b, SELECTED_CLASS );
+                   //b.addClassName(SELECTED_CLASS);
+               });
+            }
+
+            // if (button) {
+            //     $$('.'+button).each(function(b){
+            //         b.addClassName(SELECTED_CLASS);
+            //     });
+            // } else if ($$('.'+BUTTON_PREFIX+filter).length > 0){
+            //    $$('.'+BUTTON_PREFIX+filter).each(function(b){
+            //        b.addClassName(SELECTED_CLASS);
+            //    });
+            // }
+
+            result = source;
+        }
+
+        return result;
+    };
+
+    this.levelFilter = function(level) {
+        document.body.style.display = 'none';
+
+        filterLevels = _checkFilter(level, filterLevels);
+        filterReportItems();
+
+        if (window.event) {
+            window.event.stopPropagation();
+            //Event.stop(window.event);
+        }
+
+        document.body.style.display = '';
+        return false;
+    };
+
+    this.sectionFilter = function(section) {
+
+        filterSections = _checkFilter(section, filterSections);
+        filterReportItems();
+
+        if (window.event) {
+            window.event.stopPropagation();
+            //Event.stop(window.event);
+        }
+        return false;
+    };
+
+    var _addSection = function(section) {
+        if (sections.indexOf(section) == -1) {
+            sections.push(section);
+            filterSections.push(section);
+
+            var button = _generateSectionButton(section);
+
+            document.querySelectorAll( FILTER_SECTION ).forEach( function(s, i) {
+                var el = s.querySelector( '.'+FILTER_BUTTONS );
+                if ( el ) {
+                    if (i == 0) {
+                        el.appendChild(button);
+                    } else {
+                        el.appendChild( button.cloneNode( true ) );
+                    }
+                }
+            });
+
+            // $$(FILTER_SECTION).each(function(s, i){
+            //     if (i == 0) {
+            //         s.down('.'+FILTER_BUTTONS).appendChild(button);
+            //     } else {
+            //         s.down('.'+FILTER_BUTTONS).appendChild(button.cloneNode(true));
+            //     }
+            // });
+
+            levels.forEach(function(level){
+                // Create CSS rule
+                var selector = '.'+SECTION_PREFIX+section+'-'+LEVEL_PREFIX+level;
+                if (getStyle() !== false) {
+                    var rule = '';
+                    if ( filterLevels.indexOf( level ) < 0 ) {
+                        rule="display: none;";
+                    }
+                    if (getStyle().addRule !== undefined) {
+                        getStyle().addRule(selector, rule);
+                    } else if (getStyle().insertRule !== undefined) {
+                        selector += ' {' + rule + '}';
+                        var index = getStyle().cssRules.length;
+                        getStyle().insertRule(selector, index);
+                    }
+                }
+            });
+        }
+    };
+
+    this.addNewSection = function(section) {
+        if (section instanceof Array) {
+            section.each(function(s){
+                _addSection(s);
+            });
+        } else {
+            _addSection(section);
+        }
+
+    };
+
+    var _hasClassName = function( element, className ) {
+        return ( (" " + element.className + " ").replace(/[\n\t]/g," ").indexOf( " " + className + " " ) > -1 );
+    };
+
+    var _addClassName = function(element, className) {
+        if (! _hasClassName( element, className ) )
+            element.className += ( element.className ? ' ' : '' ) + className;
+        return element;
+    };
+
+    var _removeClassName = function(element, className) {
+        var classes = (" " + element.className + " ").replace(/[\n\t]/g," ").split( ' ' );
+        _removeElement( className, classes );
+        element.className = classes.join( ' ' );
+        return element;
+    };
+
+    var _addHeaderClass = function() {
+        if (! _hasClassName( document.body, 'adminhtml-interaction-log-edit' ) ) {
+            _addClassName( reportDiv, 'iframe-content-header' );
+        }
+        // if (! $$('body')[0].hasClassName('adminhtml-interaction-log-edit')) {
+        //     $('report-header').addClassName('iframe-content-header');
+        // }
+    };
+
+    var _init = function() {
+
+        /*
+        filterLevels = _checkFilter( 'DBG', filterLevels );
+        filterLevels = _checkFilter( 'TRC', filterLevels );
+        */
+        filterReportItems();
+        _addHeaderClass();
+    }
+
+    _init();
+}
+
+</script>
+
+
+<style type="text/css" id="report-style">
+    body { margin: 0; }
+    button.button{
+        font-size: 12px;
+        font-weight: normal;
+        width: 100px;
+        display: inline-block;
+        text-align: center;
+        padding:5px;
+        margin: 0 5px 0 0;
+        border: solid 2px #aaa;
+        color:#fff;
+        border-radius: 5px;
+        background: #bababa;
+        box-shadow:inset 0px 1px 1px 0px rgba(255,255,255,0.65);
+        font-weight: bold;
+        opacity:0.3;
+    }
+
+    button.level-FTL { background-color: #fff30d; color: #f0382b; border-color:#edd500;  }
+    button.level-ERR { background-color: #f0382b; border-color:#e01308; }
+    button.level-WRN { background-color: #ffab23; border-color:#f49600; }
+    button.level-INF { background-color: #8ac403; border-color:#77aa00; }
+    button.level-TRC { background-color: #aaaaaa; border-color:#969696; }
+    button.level-DBG { background-color: #3d93f6; border-color:#2678d6; }
+
+    button.selected{
+        border: solid 3px #fff;
+        opacity: 1;
+    }
+
+    button.level-FTL.selected {box-shadow:inset 0px 2px 1px 0px #edd500; }
+    button.level-ERR.selected {box-shadow:inset 0px 2px 1px 0px #e01308; }
+    button.level-WRN.selected {box-shadow:inset 0px 2px 1px 0px #f49600; }
+    button.level-INF.selected {box-shadow:inset 0px 2px 1px 0px #77aa00; }
+    button.level-TRC.selected {box-shadow:inset 0px 2px 1px 0px #969696; }
+    button.level-DBG.selected {box-shadow:inset 0px 2px 1px 0px #2678d6; }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    #filter-fixed-bar {
+       margin: 5px 0 5px 7px;
+       padding: 0;
+    }
+
+    .float-left {
+       float: left;
+       margin-right: 30px;
+       font-size: 12px;
+       font-family: Arial, Sans-Serif;
+       vertical-align: middle;
+       font-weight: bold;
+    }
+
+    #filter-table{ margin: 10px 0 0 0; }
+
+    #filter-table td{   padding:5px;  }
+
+    #filter-table .filter-title{font-size: 12px;font-family: Arial, Sans-Serif; vertical-align: middle; font-weight: bold;}
+    div.content-header-floating { display: none; position: fixed; left: 0px; top: 0;width: 100%;border-bottom: solid 1px #988753;z-index: 100;background: #ffffff;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1.0)"/* IE8 */;opacity: 1.0;}
+
+    .iframe-content-header {
+        position: fixed;
+        top:0;
+        left: 0;
+        width: 100%;
+        padding-bottom: 10px;
+        border-bottom: 1px solid grey;
+        background: #fff;
+        z-index: 999;
+    }
+
+    /* .under-content-header {content: '.'; height: 15px;} */
+    .under-content-header { content: '.'; height: 50px; }
+
+    .content-header-floating {
+       padding-left: 42px;
+    }
+
+</style>
+<div id="report-header" class="content-header" style="display: inline;">
+    <div id="filter-fixed-bar" style="clear: both;">
+       <div id="filter-visibility-container" class="float-left">
+          <label for="filter-visibility"><span>Show Filter</span></label>
+          <input id="filter-visibility" type="checkbox" name="filter-visibility" value="" onclick="javascript:report.toggleFilter()"/>
+       </div>
+       <div id="filter-autoscroll" class="float-left">
+          <label for="report-autoscroll"><span>Autoscroll</span></label>
+          <input id="report-autoscroll" type="checkbox" name="report-autoscroll" value="" <?php if ( $block->getAutoscrollChecked() ): ?><?php echo 'checked="checked"'; ?><?php endif; ?> onclick="javascript:report.toggleAutoscroll()"/>
+       </div>
+       <div style="clear:both; height: 1px; width: 1px;">&nbsp;</div>
+    </div>
+    <table id="filter-table" class="report-filter-table">
+        <tr id="filter-section" class="report-filter-section">
+            <td class="filter-title">Sections</td>
+            <td class="filter-buttons"></td>
+        </tr>
+        <tr id="filter-level">
+            <td class="filter-title">Levels</td>
+            <td class="filter-buttons">
+                <button class="button filter-level level-FTL button-FTL selected" onclick="return report.levelFilter('FTL')" ><span>FTL</span></button>
+                <button class="button filter-level level-ERR button-ERR selected" onclick="return report.levelFilter('ERR')"><span>ERR</span></button>
+                <button class="button filter-level level-WRN button-WRN selected" onclick="return report.levelFilter('WRN')"><span>WRN</span></button>
+                <button class="button filter-level level-INF button-INF selected" onclick="return report.levelFilter('INF')"><span>INF</span></button>
+                <button class="button filter-level level-DBG button-DBG selected" onclick="return report.levelFilter('DBG')"><span>DBG</span></button>
+                <button class="button filter-level level-TRC button-TRC selected" onclick="return report.levelFilter('TRC')"><span>TRC</span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="under-content-header"></div>
+
+<script>
+window.report = new Interaction.Report();
+</script>

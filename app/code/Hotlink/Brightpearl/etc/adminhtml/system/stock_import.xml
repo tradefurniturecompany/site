@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="shared_stock" sortOrder="200" translate="label" showInDefault="1" showInWebsite="1">
+        <label>Shared : Stock settings</label>
+        <field id="warehouse" translate="label" type="multiselect" sortOrder="200" showInDefault="1" showInWebsite="1">
+            <label>Warehouse(s)</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Warehouse</source_model>
+            <comment><![CDATA[Warehouse(s) used to calculate inventory levels.]]></comment>
+        </field>
+
+        <field id="skip_unmanaged" translate="label" type="select" sortOrder="300" showInDefault="1" showInWebsite="1">
+            <label>Skip unmanaged</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Select Yes to skip importing stock availability for products with 'Manage Stock' No. <br/> Select No to import stock availability even when 'Manage Stock' is No.]]></comment>
+        </field>
+        <field id="put_back_instock" translate="label" type="select" sortOrder="400" showInDefault="1" showInWebsite="1">
+            <label>Back in stock</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Select Yes to set product back in stock when availability greater than out of stock threshold.<br/> Select No to leave product out of stock. Qty is updated in both cases.]]></comment>
+        </field>
+        <field id="set_qty_zero_when_missing" translate="label" type="select" sortOrder="500" showInDefault="1" showInWebsite="1">
+            <label>Qty zero when availability missing</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Select Yes to set qty to 0 (zero) when availability is missing in Brightpearl response. <br/>Select No to reject the sku.]]></comment>
+        </field>
+    </group>
+
+    <group id="Hotlink_Brightpearl_Model_Interaction_Stock_Bulk_Import" sortOrder="300" showInDefault="1" translate="label">
+        <label>Interaction : Import stock levels (bulk)</label>
+        <attribute type="hotlink" interaction="true" />
+        <field id="batch" translate="label" sortOrder="600" showInDefault="1">
+            <label>Batch</label>
+            <comment>Number of products in a batch.</comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="sleep" translate="label" sortOrder="700" showInDefault="1">
+            <label>Sleep</label>
+            <comment>Pause between database saves (in millionths of a second).</comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="api_timeout" translate="label" sortOrder="800" showInDefault="1">
+            <label>API Timeout</label>
+            <comment>Number of milliseconds should the module wait for Brightpearl API to respond.</comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+    </group>
+    <group id="Hotlink_Brightpearl_Model_Interaction_Stock_Realtime_Import" sortOrder="400" showInDefault="1" showInWebsite="1" translate="label">
+        <label>Interaction : Import stock levels (real-time)</label>
+        <attribute type="hotlink" interaction="true" />
+
+        <field id="performance_heading" type="text" sortOrder="3000" showInDefault="1">
+            <label>Performance</label>
+            <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+
+        <field id="stock_ttl_trigger_map" translate="label" sortOrder="3010" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Trigger(s) (TTL)</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Stock\Ttl\Map</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model>
+            <comment>TTL per trigger.</comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="stock_ttl" translate="label" sortOrder="3020" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default Time-to-live (TTL)</label>
+            <comment>Number of seconds until a stock record is considered stale, forcing a Brightpearl requery.</comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="api_timeout" translate="label" sortOrder="3030" showInDefault="1">
+            <label>Api Timeout</label>
+            <comment>Number of milliseconds should the module wait for Brightpearl API to respond.</comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+    </group>
+
+</include>

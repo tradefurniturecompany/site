@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+			<shippingtable>
+                <active>0</active>
+                <title>Shipping Table Rates</title>
+                <sort_order>100</sort_order>
+                <sallowspecific>0</sallowspecific>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <model>Magesales\Shippingtable\Model\Carrier\Table</model>
+                <allow_promo>1</allow_promo>
+                <numeric_zip>1</numeric_zip>
+                <ignore_virtual>1</ignore_virtual>
+                <after_discount>0</after_discount>
+                <including_tax>0</including_tax>
+                <dont_split>0</dont_split>
+                <showmethod>0</showmethod>
+            </shippingtable>
+		</carriers>
+    </default>
+</config>

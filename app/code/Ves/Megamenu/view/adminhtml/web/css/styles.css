@@ -1,0 +1,682 @@
+/**
+ * Nestable
+ */
+
+.dd {
+    min-height: 200px;
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    list-style: none;
+    font-size: 13px;
+    line-height: 20px;
+    float: left;
+}
+
+.dd-list {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.dd-list .dd-list {
+    padding-left: 30px;
+}
+.dd-collapsed .dd-list {
+    display: none;
+}
+
+.dd-item,
+.dd-empty,
+.dd-placeholder {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    /* min-height: 20px; */
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.dd-handle {
+    border: 1px solid #dfdfdf;
+    padding: 6px 15px;
+    height: auto;
+    min-height: 50px;
+    width: 100%;
+    line-height: 30px;
+    word-wrap: break-word;
+    cursor: move;
+    background: #fafafa;
+    color: #23282d;
+    margin: 9px 0 0;
+}
+
+.dd-handle:hover {
+    border-color: #999;
+}
+
+.dd-item > button {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    float: left;
+    width: 25px;
+    height: 20px;
+    margin: 5px 0;
+    padding: 0;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.dd-item > button[data-action="collapse"] {
+    text-indent: 0;
+    margin: 15px 5px 5px 5px;
+    position: absolute;
+    right: 90px;
+}
+
+.dd-item > button[data-action="expand"] {
+    text-indent: 0;
+    margin: 13px 5px 5px 5px;
+    position: absolute;
+    right: 90px;
+}
+
+.dd-placeholder,
+.dd-empty {
+    margin: 5px 0;
+    padding: 0;
+    min-height: 30px;
+    background: #f2fbff;
+    border: 1px dashed #b6bcbf;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.dd-empty {
+    border: 1px dashed #bbb;
+    min-height: 100px;
+    background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+    -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image: -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image: linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+    linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+.dd-dragel {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+}
+.dd-dragel > .dd-item .dd-handle {
+    margin-top: 0;
+}
+.dd-dragel .dd-handle {
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+    box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+}
+
+/**
+ * Nestable Extras
+ */
+
+.nestable-lists {
+    display: block;
+    float: left;
+    /* padding: 30px 0; */
+    width: 100%;
+    border: 0;
+}
+
+#nestable-menu {
+    padding: 0;
+    margin: 20px 0;
+}
+
+#nestable-output,
+#nestable2-output {
+    width: 100%;
+    height: 7em;
+    font-size: 0.75em;
+    line-height: 1.333333em;
+    font-family: Consolas, monospace;
+    padding: 5px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+#nestable2 .dd-handle {
+    color: #fff;
+    border: 1px solid #999;
+    background: #bbb;
+    background: -webkit-linear-gradient(top, #bbb 0%, #999 100%);
+    background: -moz-linear-gradient(top, #bbb 0%, #999 100%);
+    background: linear-gradient(top, #bbb 0%, #999 100%);
+}
+#nestable2 .dd-handle:hover {
+    background: #bbb;
+}
+#nestable2 .dd-item > button:before {
+    color: #fff;
+}
+
+@media only screen and (min-width: 700px) {
+    
+    /* .dd { float: left; width: 48%; }
+        .dd + .dd { margin-left: 2%; } */
+
+}
+
+.dd-hover > .dd-handle {
+    background: #2ea8e5 !important;
+}
+
+/**
+ * Nestable Draggable Handles
+ */
+
+.dd3-content {
+    display: block;
+    height: 30px;
+    margin: 5px 0;
+    padding: 5px 10px 5px 40px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background: -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background: linear-gradient(top, #fafafa 0%, #eee 100%);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.dd3-content:hover {
+    color: #2ea8e5;
+    background: #fff;
+}
+
+.dd-dragel > .dd3-item > .dd3-content {
+    margin: 0;
+}
+
+.dd3-item > button {
+    margin-left: 30px;
+}
+
+.dd3-handle {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    width: 30px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid #aaa;
+    background: #ddd;
+    background: -webkit-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background: -moz-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background: linear-gradient(top, #ddd 0%, #bbb 100%);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.dd3-handle:before {
+    content: '.';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 100%;
+    text-align: center;
+    text-indent: 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+}
+.dd3-handle:hover {
+    background: #ddd;
+}
+
+.btn-remove:hover,
+.btn-edit:hover,.btn-duplicate:hover
+{
+    cursor: pointer
+}
+.btn-duplicate:hover {
+    background-color: red;
+    color: #FFF;
+}
+.btn-remove:hover {
+    background-color: red;
+    color: #FFF;
+}
+.btn-remove {
+    float: right;
+    padding: 2px 8px;
+    margin: 12px 5px 5px 5px;
+    background: #CCC;
+    width: auto;
+}
+.btn-edit:hover {
+    color: #FFF;
+    background-color: #eb5202;
+}
+.btn-edit {
+    float: right;
+    padding: 2px 8px;
+    margin: 12px 5px 5px 5px;
+    background: #CCC;
+}
+.btn-duplicate {
+    float: right;
+    padding: 2px 8px;
+    margin: 12px 5px 5px 5px;
+    background: #CCC;
+}
+.ves-megamenu-editor .editor-right {
+    width: 70%;
+    float: right;
+}
+.ves-megamenu-editor .editor-left {
+    float: left;
+    width: 30%;
+}
+.vitem {
+    display: none;
+}
+.vitem.active {
+    display: block;
+}
+
+.ves-megamenu-editor .m-label {
+    width: 20%;
+    text-align: right;
+    display: inline-block;
+    font-size: 15px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.ves-megamenu-editor .m-box {
+    width: 60%;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.ves-megamenu-editor .m-box input,
+.ves-megamenu-editor .m-box select,
+.ves-megamenu-editor .m-box textarea {
+    width: 100%;
+}
+.ves-megamenu-editor .m-box input,
+.ves-megamenu-editor .m-box select {
+    box-sizing: border-box;
+    border: 1px solid #adadad;
+    border-radius: 1px;
+    padding: 4px;
+    color: #303030;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    height: 33px;
+}
+
+.ves-megamenu-editor .m-box input:focus,
+.ves-megamenu-editor .m-box select:focus {
+    border-color: #007bdb;
+    box-shadow: none;
+    outline: 0;
+}
+
+.ves-megamenu-editor .m-row {
+    margin-bottom: 3rem;
+    margin-top: 1.5rem;
+}
+
+.ves-megamenu-editor #params {
+    display: none;
+}
+.megamenu-editor {
+    float: left;
+    width: 55%;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+#nestable li.active>.dd-handle {
+    border-color: #eb5202;
+}
+.megamenu-editor input {
+    width: 100%;
+}
+.megamenu-editor select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-image: url('../images/arrows-bg.svg'), linear-gradient(#e3e3e3, #e3e3e3), linear-gradient(#adadad, #adadad);
+    background-position: calc(100% - 12px) -34px, 100%, calc(100% - 3.2rem) 0;
+    background-size: auto, 3.2rem 100%, 1px 100%;
+    max-width: 100%;
+    min-width: 8.5rem;
+    padding-bottom: .5rem;
+    padding-right: 4.4rem;
+    padding-top: .5rem;
+    transition: border-color .1s linear;
+    padding-right: 4.4rem !important;
+}
+
+.megamenu-editor select:focus {
+    background-image: url('../images/arrows-bg.svg'), linear-gradient(#e3e3e3, #e3e3e3), linear-gradient(#eb5202, #eb5202);
+    background-position: calc(100% - 12px) 13px, 100%, calc(100% - 3.2rem) 0;
+}
+.megamenu-editor select,
+.megamenu-editor input,
+.megamenu-editor textarea {
+    border: 1px solid #ccc;
+    padding: .6rem 1rem .6rem;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    transition: border-color .1s linear;
+    vertical-align: baseline;
+}
+.megamenu-editor textarea {
+    width: 100%;
+    min-height: 100px;
+}
+.megamenu-editor input:focus,
+.megamenu-editor textarea:focus,
+.megamenu-editor select:focus {
+    border-color: #eb5202;
+}
+.megamenu-editor .ves-hidden {
+    display: none;
+}
+.megamenu-editor .input-file {
+    border: 0;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    float: none;
+    margin-left: 20px;
+}
+.megamenu-editor .preview-image {
+    float: left;
+    width: 100%;
+}
+.megamenu-editor .preview-image img {
+    float: left;
+    max-width: 100%;
+    max-height: 200px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.megamenu-editor .control-group {
+    float: left;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.megamenu-editor .control-group .control-label {
+    width: 17%;
+    float: left;
+    text-align: right;
+    margin-right: 3%;
+    padding-top: 5px;
+    color: #303030;
+}
+
+.megamenu-editor .control-group .controls {
+    float: left;
+    width: 80%;
+}
+
+.megamenu-editor .input-media input {
+    width: 75%;
+    margin-right: 1%;
+}
+/* .modal-slide.magento._show{
+    z-index: 900 !important;
+    } */
+.megamenu-editor .ves-separator {
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 15px;
+    color: #666;
+    border-left: #CCC solid 5px;
+    padding: 2px 12px;
+    text-align: left;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    width: 100%;
+}
+
+.megamenu-editor .field-cm {
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+.megamenu-editor .ves-fieldset {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.megamenu-editor .ves-fieldset .ves-fieldset-title {
+    clear: both;
+    color: #303030;
+    cursor: pointer;
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: .025em;
+    padding: 1.9rem 2.7rem 1.9rem 0;
+    position: relative;
+    text-decoration: none;
+    transition: color .15s linear;
+}
+
+.megamenu-editor .ves-fieldset .ves-fieldset-title:after {
+    content: "\f078";
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    right: 10px;
+    top: 40%;
+}
+
+.megamenu-editor .ves-fieldset.active .ves-fieldset-title:after {
+    content: "\f077";
+}
+.ves-field-list {
+    float: left;
+    margin: 0 0 20px;
+    position: relative;
+}
+.admin__data-grid-loading-mask {
+    z-index: 100;
+    background: #FFF;
+}
+
+.admin__data-grid-loading-mask .spinner {
+    top: 150px;
+}
+
+.megamenu-editor .input-media {
+    float: left;
+    width: 100%;
+}
+
+.cat-label {
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    padding: 0 4px;
+    text-transform: none;
+    vertical-align: middle;
+    line-height: 16px;
+}
+.cat-label-v1 {
+    background: #5bd2ec none repeat scroll 0 0;
+}
+.cat-label-v2 {
+    background: #d52462 none repeat scroll 0 0;
+}
+.cat-label-v3 {
+    background: #ff2f00 none repeat scroll 0 0;
+}
+.child-translate {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    /* Split because IE10 won't honor the percentage in translate(-50%, -50%) */
+    z-index: 999;
+}
+.slide {
+    top: -50%;
+    transition: top 1s;
+}
+
+.slide.in {
+    top: 50%;
+    z-index: 99999;
+}
+#edit_form {
+    position: relative;
+    overflow: hidden
+}
+
+.child-translate .btn-close {
+    float: right;
+    padding: 5px 10px;
+    background: #FFF;
+    border-radius: 30px;
+    margin-right: -33px;
+    margin-top: -10px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 9999;
+    right: 0;
+    background-color: #000;
+}
+.child-translate .btn-close:hover {
+    background: #F00
+}
+.child-translate .btn-close i {
+    color: #FFF;
+}
+.child-translate img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.ves-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: none;
+    z-index: 8010;
+    background: url(../images/overlay.png);
+    bottom: 0;
+    right: 0;
+}
+.veseditor-header {
+    padding-left: calc(100% * 0.333333 + 10px);
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.ves-notify {
+    position: fixed;
+    top: 50%;
+    right: -150px;
+    z-index: 5000;
+    background: #27ae60;
+    color: #FFF;
+    padding: 15px;
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 2px rgba(0,0,0,.2);
+    border-radius: 2px;
+}
+.ves-notify.in {
+    right: 45px;
+}
+.ves-notify.out {
+    right: -150px;
+    opacity: 0.2
+}
+#editor-top {
+    background: #f1f1f1;
+    padding-left: 10px;
+    margin-bottom: 40px
+}
+#editor-top li {
+    display: inline-block
+}
+#editor-top a {
+    padding: 20px;
+    display: inline-block;
+    color: #333
+}
+#editor-top a:hover {
+    text-decoration: none;
+}
+#editor-top a.active {
+    border-top: 4px solid #eb5202;
+    background: #FFF;
+}
+#menueditor{
+    display: none;
+}
+.btn-add{
+    background-color: #eb5202;
+    border-color: #eb5202; 
+    color: #FFF;
+}
+.btn-add:hover{
+    background-color: #ba4000;
+    border-color: #b84002;
+    color: #FFF;
+}
+.vesmegamenu-menu-edit .modal-slide.magento._show{
+    z-index: 910 !important;
+}
+#menu-note{
+    display: none;
+}
+.vesmegamenu-menu-edit .modal-slide._show,.vesmegamenu-menu-edit  .modal-popup._show {
+    z-index: 920!important;
+}

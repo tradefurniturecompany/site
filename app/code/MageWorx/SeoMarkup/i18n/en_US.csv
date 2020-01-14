@@ -1,0 +1,127 @@
+"Map any existing product attribute to the Schema.org %link.","Map any existing product attribute to the Schema.org %link."
+"Assign the current product attribute options to the Schema.org condition options such as %new, %used, %refurbished or %damaged.","Assign the current product attribute options to the Schema.org condition options such as %new, %used, %refurbished or %damaged."
+Home,Home
+"Go to Home Page","Go to Home Page"
+"-- Please Select --","-- Please Select --"
+lb,lb
+kg,kg
+SEO,SEO
+"SEO Markup","SEO Markup"
+"Adds <a target=""_blank"" href=""https://support.mageworx.com/manuals/richsnippets/#glossary"">rich snippets</a> to your existing website HTML. <br/><b>Note:</b> adding snippets to your site in the search results may take some time as the search bots do not include this information immediately.","Adds <a target=""_blank"" href=""https://support.mageworx.com/manuals/richsnippets/#glossary"">rich snippets</a> to your existing website HTML. <br/><b>Note:</b> adding snippets to your site in the search results may take some time as the search bots do not include this information immediately."
+Product,Product
+"These settings are for the snippet configuration on the products pages.","These settings are for the snippet configuration on the products pages."
+"Enable In Rich Snippets","Enable In Rich Snippets"
+"Adds the snippets that will be shown on the search engine results page. The store owner can preview the snippet data on the <a target=""_blank"" href=""https://search.google.com/structured-data/testing-tool"">special page</a>. By default and without any configurations, the product entity will include the following attributes: product name, preview image, rating, price, availability and website language.","Adds the snippets that will be shown on the search engine results page. The store owner can preview the snippet data on the <a target=""_blank"" href=""https://search.google.com/structured-data/testing-tool"">special page</a>. By default and without any configurations, the product entity will include the following attributes: product name, preview image, rating, price, availability and website language."
+"Enable In Open Graph","Enable In Open Graph"
+"Enable In Twitter Cards","Enable In Twitter Cards"
+"To enable the feature, make sure you enter Twitter Username in the Common section.","To enable the feature, make sure you enter Twitter Username in the Common section."
+"Enable for Google Assistant","Enable for Google Assistant"
+"CSS Selectors","CSS Selectors"
+"You can specify a few values separated by commas.","You can specify a few values separated by commas."
+"Best Rating","Best Rating"
+"Disable Default Review Markup","Disable Default Review Markup"
+"Disabled review markup added by theme.","Disabled review markup added by theme."
+"Description Attribute Code","Description Attribute Code"
+"Select the Description Attribute Code from Magento match it to Schema.org <a target=""_blank"" href=""https://schema.org/description"">description snippet</a>.","Select the Description Attribute Code from Magento match it to Schema.org <a target=""_blank"" href=""https://schema.org/description"">description snippet</a>."
+"Add SKU","Add SKU"
+"Enable to match the SKU Attribute code from Magento to Schema.org <a target=""_blank"" href=""https://schema.org/sku"">SKU snippet</a>.","Enable to match the SKU Attribute code from Magento to Schema.org <a target=""_blank"" href=""https://schema.org/sku"">SKU snippet</a>."
+"SKU Attribute Code","SKU Attribute Code"
+"Select the SKU Attribute Code from Magento.","Select the SKU Attribute Code from Magento."
+"Add Category","Add Category"
+"Enable to match the product category to Schema.org <a target=""_blank"" href=""https://pending.schema.org/category"">category snippet</a>.","Enable to match the product category to Schema.org <a target=""_blank"" href=""https://pending.schema.org/category"">category snippet</a>."
+"Use Deepest Category","Use Deepest Category"
+"Handles the situation if some product is assigned to different categories.","Handles the situation if some product is assigned to different categories."
+"Add Color","Add Color"
+"Enable to match the Color Attribute code from Magento to Schema.org <a target=""_blank"" href=""https://schema.org/color"" color snippet</a>.","Enable to match the Color Attribute code from Magento to Schema.org <a target=""_blank"" href=""https://schema.org/color"" color snippet</a>."
+"Color Attribute Code","Color Attribute Code"
+"Select the Color Attribute Code from Magento.","Select the Color Attribute Code from Magento."
+"Add Manufacturer","Add Manufacturer"
+"Enable to match the Manufacturer code from Magento to Schema.org <a target=""blank"" href=""https://schema.org/manufacturer"" manufacurer snippet</a>.","Enable to match the Manufacturer code from Magento to Schema.org <a target=""blank"" href=""https://schema.org/manufacturer"" manufacurer snippet</a>."
+"Manufacturer Attribute Code","Manufacturer Attribute Code"
+"Select the Manufacturer Attribute Code from Magento.","Select the Manufacturer Attribute Code from Magento."
+"Add Brand","Add Brand"
+"Enable to match the Brand Attribute code from Magento to Schema.org <a target=""_blank"" href=""https://schema.org/brand"">brand snippet</a>.","Enable to match the Brand Attribute code from Magento to Schema.org <a target=""_blank"" href=""https://schema.org/brand"">brand snippet</a>."
+"Brand Attribute Code","Brand Attribute Code"
+"Select the Brand Attribute Code from Magento.","Select the Brand Attribute Code from Magento."
+"Add Model","Add Model"
+"Enable to match the Model Attribute code from Magento to Schema.org <a target=""_blank"" href=""https://schema.org/model"">model snippet</a>.","Enable to match the Model Attribute code from Magento to Schema.org <a target=""_blank"" href=""https://schema.org/model"">model snippet</a>."
+"Model Attribute Code","Model Attribute Code"
+"Select the Model Attribute Code from Magento.","Select the Model Attribute Code from Magento."
+"Add Gtin","Add Gtin"
+"The GTIN is a globally unique 14-digit number used to identify trade items, products, or services. Please use digits only when you add the GTIN for your products otherwise it will not be shown in the microdata.","The GTIN is a globally unique 14-digit number used to identify trade items, products, or services. Please use digits only when you add the GTIN for your products otherwise it will not be shown in the microdata."
+"Gtin Attribute Code","Gtin Attribute Code"
+"Select the GTIN Attribute Code from Magento.","Select the GTIN Attribute Code from Magento."
+"Add Weight","Add Weight"
+"Enable to match the product weight to Schema.org <a target=""_blank"" href=""https://schema.org/weight"">weight snippet</a>.","Enable to match the product weight to Schema.org <a target=""_blank"" href=""https://schema.org/weight"">weight snippet</a>."
+"Use Special Price functionality for Price Valid Until","Use Special Price functionality for Price Valid Until"
+"Price Valid Until Default Value","Price Valid Until Default Value"
+"Product ID Attribute Code","Product ID Attribute Code"
+"This value will be used as productID in the Rich Snippets and as retailer_item_id in the Open Graph tags.<br/>
+                                Recommended attributes are: sku, gtin, isbn, etc.","This value will be used as productID in the Rich Snippets and as retailer_item_id in the Open Graph tags.<br/>
+                                Recommended attributes are: sku, gtin, isbn, etc."
+"Add Condition","Add Condition"
+"Map any existing product attribute to the Schema.org condition snippet. Assign the current product attribute options to the Schema.org condition options such as New, Used, Refurbished or Damaged.","Map any existing product attribute to the Schema.org condition snippet. Assign the current product attribute options to the Schema.org condition options such as New, Used, Refurbished or Damaged."
+"Condition Attribute Code","Condition Attribute Code"
+"Condition Value For New","Condition Value For New"
+"Condition Value For Used","Condition Value For Used"
+"Condition Value For Damaged","Condition Value For Damaged"
+"Default Option For Condition","Default Option For Condition"
+"Specify the default condition option for the product if it doesn't have the condition attribute assigned.","Specify the default condition option for the product if it doesn't have the condition attribute assigned."
+"Add Custom Properties","Add Custom Properties"
+"Custom Properties","Custom Properties"
+"A comma-delimited list of <a href=""http://schema.org/Product"">schema.org</a> property name and attribute codes.<br /><b>Example:</b><br />
+                                mpn,mpn_code <br />
+                                For JSON-LD will be converted to: <br> { ... ""mpn"":""12343"" ... }<br />","A comma-delimited list of <a href=""http://schema.org/Product"">schema.org</a> property name and attribute codes.<br /><b>Example:</b><br />
+                                mpn,mpn_code <br />
+                                For JSON-LD will be converted to: <br> { ... ""mpn"":""12343"" ... }<br />"
+"Category (Product List)","Category (Product List)"
+"These settings are for the snippet configuration on the category pages.","These settings are for the snippet configuration on the category pages."
+"Adds the snippets that will be shown on the search engine results page. The store owner can preview the snippet data on the <a target=""_blank"" href=""https://search.google.com/structured-data/testing-tool"">special page</a>.","Adds the snippets that will be shown on the search engine results page. The store owner can preview the snippet data on the <a target=""_blank"" href=""https://search.google.com/structured-data/testing-tool"">special page</a>."
+"Adding <a target=""_blank"" href=""http://ogp.me/"">these tags</a> helps the Facebook Crawler pick up the correct title, description and the suitable preview image for the shared page.","Adding <a target=""_blank"" href=""http://ogp.me/"">these tags</a> helps the Facebook Crawler pick up the correct title, description and the suitable preview image for the shared page."
+"Show Product Offers","Show Product Offers"
+"Informs search engines about the special <a target=""_blank"" href=""https://support.mageworx.com/images/manuals/richsnippets/image08.png"">product offers</a>","Informs search engines about the special <a target=""_blank"" href=""https://support.mageworx.com/images/manuals/richsnippets/image08.png"">product offers</a>"
+"Adds the beta support for the recently added <a target=""_blank"" href=""https://developers.google.com/search/docs/data-types/speakable"">speakable markup</a>.","Adds the beta support for the recently added <a target=""_blank"" href=""https://developers.google.com/search/docs/data-types/speakable"">speakable markup</a>."
+"Add any CSS Selectors that the store owner wishes to be spoken aloud by Google Assistant/Google Home. You can specify a few values separated by commas.","Add any CSS Selectors that the store owner wishes to be spoken aloud by Google Assistant/Google Home. You can specify a few values separated by commas."
+"Disable for NOINDEX Robots","Disable for NOINDEX Robots"
+"If set to Yes, hides the snippets on the categories that are not indexed.","If set to Yes, hides the snippets on the categories that are not indexed."
+"Landing Page","Landing Page"
+Page,Page
+"These settings are for the snippet configuration on the CMS pages.","These settings are for the snippet configuration on the CMS pages."
+"Visit <a target=""_blank"" href=""https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started"">this page</a> to learn more about Twitter Cards. To enable the feature, make sure you enter Twitter Username in the <a target=""_blank"" href=""https://support.mageworx.com/manuals/richsnippets/#common"">Common</a> section.","Visit <a target=""_blank"" href=""https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started"">this page</a> to learn more about Twitter Cards. To enable the feature, make sure you enter Twitter Username in the <a target=""_blank"" href=""https://support.mageworx.com/manuals/richsnippets/#common"">Common</a> section."
+Website,Website
+"Facebook Logo","Facebook Logo"
+"Upload your website logo for the correct sharing on Facebook. Allowed file types: PNG, GIF, JPG, JPEG","Upload your website logo for the correct sharing on Facebook. Allowed file types: PNG, GIF, JPG, JPEG"
+"Facebook App Id","Facebook App Id"
+"Can be taken from the <a target=""_blank"" href=""https://developers.facebook.com/apps/"">facebook for developers</a> website.","Can be taken from the <a target=""_blank"" href=""https://developers.facebook.com/apps/"">facebook for developers</a> website."
+"Website Name","Website Name"
+"Website About","Website About"
+Seller,Seller
+"These settings are for the snippet configuration of the entire store (your organization).","These settings are for the snippet configuration of the entire store (your organization)."
+"Type (by Schema.org)","Type (by Schema.org)"
+"Select your business <a target=""_blank"" href=""https://schema.org/Store"">type</a>","Select your business <a target=""_blank"" href=""https://schema.org/Store"">type</a>"
+Name,Name
+Image,Image
+"If the seller rich snippet is enabled, this field is <b>required</b>.<br/>Allowed file types: PNG, GIF, JPG, JPEG.","If the seller rich snippet is enabled, this field is <b>required</b>.<br/>Allowed file types: PNG, GIF, JPG, JPEG."
+Description,Description
+"Populate the description property for the Schema.org <a target=""_blank"" href=""https://schema.org/WebSite"">store snippet</a>.","Populate the description property for the Schema.org <a target=""_blank"" href=""https://schema.org/WebSite"">store snippet</a>."
+"Social Links","Social Links"
+"The list of social media links <br /><b>Example:</b><br />https://twitter.com/mageworxteam<br />https://www.facebook.com/mageworx","The list of social media links <br /><b>Example:</b><br />https://twitter.com/mageworxteam<br />https://www.facebook.com/mageworx"
+Phone,Phone
+"This field is <b>recommended</b>.","This field is <b>recommended</b>."
+Fax,Fax
+Email,Email
+Location,Location
+"This field is <b>recommended</b>.<br/>Example:</b> Seattle","This field is <b>recommended</b>.<br/>Example:</b> Seattle"
+Region,Region
+"This field is <b>recommended</b>.<br/><b>Example:</b> WA","This field is <b>recommended</b>.<br/><b>Example:</b> WA"
+Street,Street
+"This field is <b>recommended</b>.<br/><b>Example:</b><br>20341 Whitworth Institute<br>405 N. Whitworth","This field is <b>recommended</b>.<br/><b>Example:</b><br>20341 Whitworth Institute<br>405 N. Whitworth"
+"ZIP Code","ZIP Code"
+"Price Range","Price Range"
+"This field is <b>recommended</b>.<br/>Example:</b><br />$$$<br />$31-60","This field is <b>recommended</b>.<br/>Example:</b><br />$$$<br />$31-60"
+Breadcrumbs,Breadcrumbs
+"The breadcrumbs settings add the <a target=""_blank"" href=""https://developers.google.com/search/docs/data-types/breadcrumb"">breadcrumb snippet support</a>.","The breadcrumbs settings add the <a target=""_blank"" href=""https://developers.google.com/search/docs/data-types/breadcrumb"">breadcrumb snippet support</a>."
+Enable,Enable
+"The breadcrumbs will be visible on the <a target=""_blank"" href=""https://support.mageworx.com/images/manuals/richsnippets/image14.png"">search results page</a>","The breadcrumbs will be visible on the <a target=""_blank"" href=""https://support.mageworx.com/images/manuals/richsnippets/image14.png"">search results page</a>"
+Common,Common
+"Twitter Username","Twitter Username"

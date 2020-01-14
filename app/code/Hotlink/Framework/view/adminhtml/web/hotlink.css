@@ -1,0 +1,3 @@
+.admin__menu .item-hotlink.parent.level-0 > a:before {
+    content: '\e621';
+}

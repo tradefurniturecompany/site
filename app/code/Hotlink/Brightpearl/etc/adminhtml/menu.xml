@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/menu.xsd">
+    <menu>
+
+        <update id="Hotlink_Framework::hotlink" title="Brightpearl" />
+        <update id="Hotlink_Framework::framework" title="Hotlink Framework" />
+
+        <add id="Hotlink_Brightpearl::brightpearl" module="Hotlink_Brightpearl" parent="Hotlink_Framework::hotlink" sortOrder="50"
+             title="Brightpearl Integration"
+             resource="Hotlink_Brightpearl::platform" />
+        <add id="Hotlink_Brightpearl::interactions" module="Hotlink_Brightpearl" parent="Hotlink_Brightpearl::brightpearl" sortOrder="10"
+             title="Interactions"
+             action="hotlink_brightpearl/interactions"
+             resource="Hotlink_Brightpearl::interactions" />
+        <add id="Hotlink_Brightpearl::configuration" module="Hotlink_Brightpearl" parent="Hotlink_Brightpearl::brightpearl" sortOrder="20"
+             title="Configuration"
+             action="adminhtml/system_config/edit/section/hotlink_brightpearl"
+             resource="Hotlink_Brightpearl::config" />
+        <add id="Hotlink_Brightpearl::authorisation" module="Hotlink_Brightpearl" parent="Hotlink_Brightpearl::brightpearl" sortOrder="30"
+             title="Authorisation"
+             action="hotlink_brightpearl/authorisation/form"
+             resource="Hotlink_Brightpearl::authorisation" />
+    </menu>
+</config>

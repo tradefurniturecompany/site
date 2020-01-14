@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageWorx_SeoExtended::seosuite"   title="MageWorx SEO Extended" module="MageWorx_SeoExtended" sortOrder="50" parent="Magento_Backend::marketing"  resource="MageWorx_SeoExtended::seosuite" />
+        <add id="MageWorx_SeoExtended::categoryfilters" title="SEO Category Filters" module="MageWorx_SeoExtended" sortOrder="65" parent="MageWorx_SeoExtended::seosuite" action="mageworx_seoextended/categoryfilter/" resource="MageWorx_SeoExtended::categoryfilters" />
+    </menu>
+</config>

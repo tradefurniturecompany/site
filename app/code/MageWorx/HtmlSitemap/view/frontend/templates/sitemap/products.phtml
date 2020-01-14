@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+
+<?php $items = $block->getProductCollection(); ?>
+<?php if (!empty($items)): ?>
+<ul class="products">
+<?php foreach ($items as $item): ?>
+<li class="product">
+    <a href="<?php echo $block->escapeUrl($item->getUrl()) ?>"><?php echo $block->escapeHtml($item->getName()) ?></a>
+</li>
+<?php endforeach; ?>
+</ul>
+<?php endif ?>

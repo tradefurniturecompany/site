@@ -1,0 +1,22 @@
+"If enabled, the system will use the %link to choose the breadcrumbs","If enabled, the system will use the %link to choose the breadcrumbs"
+"Breadcrumbs Priority for Categories","Breadcrumbs Priority for Categories"
+"Please correct the sent data.","Please correct the sent data."
+"Something went wrong while saving the category.","Something went wrong while saving the category."
+Default,Default
+"Use Shortest","Use Shortest"
+"Use Longest","Use Longest"
+SEO,SEO
+"SEO Breadcrumbs","SEO Breadcrumbs"
+"Adds and manages the <a target=""_blank"" href=""https://support.mageworx.com/manuals/seosuite/#seo-breadcrumbs"">SEO Breadcrumbs</a> on the website.","Adds and manages the <a target=""_blank"" href=""https://support.mageworx.com/manuals/seosuite/#seo-breadcrumbs"">SEO Breadcrumbs</a> on the website."
+"Enable SEO Breadcrumbs ▾","Enable SEO Breadcrumbs ▾"
+"Enables the advanced breadcrumbs populated by means of our extension and disables the default ones.","Enables the advanced breadcrumbs populated by means of our extension and disables the default ones."
+Type,Type
+"Handles the situation when some product is assigned to several categories. Select <i>Default</i> to use the default Magento breadcrumbs, <i>Use Shortest</i> to utilize the <b>short</b> version of breadcrumbs (like Store > Category > Product), <i>Use Longest</i> to utilize the <b>full path</b> of breadcrumbs (like Store > Category > Subcategory 1 > Product).","Handles the situation when some product is assigned to several categories. Select <i>Default</i> to use the default Magento breadcrumbs, <i>Use Shortest</i> to utilize the <b>short</b> version of breadcrumbs (like Store > Category > Product), <i>Use Longest</i> to utilize the <b>full path</b> of breadcrumbs (like Store > Category > Subcategory 1 > Product)."
+"Use Category Priority","Use Category Priority"
+"Breadcrumbs Priority","Breadcrumbs Priority"
+Edit,Edit
+ID,ID
+Path,Path
+Level,Level
+"Category Name","Category Name"
+Status,Status

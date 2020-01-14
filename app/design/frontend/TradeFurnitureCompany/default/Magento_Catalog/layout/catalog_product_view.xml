@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="reviews.tab" remove="true"/>
+        <referenceBlock name="product.info.review" remove="true"/>
+        <referenceBlock name="product.info.mailto" remove="true"/>
+
+        <referenceContainer name="product.info.main">
+            <container name="desktop-sticky-bar" htmlTag="div" htmlClass="desktop-sticky-bar"
+                       htmlId="desktop-sticky-bar" before="-">
+                <block class="Magento\Catalog\Block\Product\View" name="sticky-add-to-basket"
+                       template="Magento_Catalog::sticky_add_to_basket.phtml"/>
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="product.attributes">
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Product Dimensions</argument>
+            </arguments>
+        </referenceBlock>
+
+        <move element="page.main.title" destination="desktop-sticky-bar" after="-"/>
+        <move element="product.info.stock.sku" destination="desktop-sticky-bar" after="page.main.title"/>
+        <move element="product.info.price" destination="desktop-sticky-bar" after="product.info.stock.sku"/>
+        <move element="product.info" destination="content" after="also_available"/>
+    </body>
+</page>

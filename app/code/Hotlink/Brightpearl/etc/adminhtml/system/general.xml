@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="shared_general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Shared : General settings</label>
+        <field id="channel" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Brightpearl channel</label>
+            <source_model>Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Channel</source_model>
+            <comment><![CDATA[Select the Brightpearl channel to be sent to Brightpearl API for Magento orders.]]></comment>
+        </field>
+    </group>
+
+</include>

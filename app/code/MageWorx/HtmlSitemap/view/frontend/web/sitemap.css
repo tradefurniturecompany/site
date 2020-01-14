@@ -1,0 +1,20 @@
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+.xsitemap h3 { font-size: 1.7em; font-weight: normal; }
+.xsitemap-stores { margin-bottom: 10px; }
+.xsitemap ul.stores { height: 20px;  list-style-type:none }
+.xsitemap ul.stores li { float: left; margin-right: 20px; font-size: 1.2em; font-weight: bold; }
+.xsitemap-categories { float: left; width: 58%; }
+.xsitemap-pages { float: left; width: 38%; }
+.xsitemap li li { padding-left: 15px; }
+.xsitemap ul.categories { }
+.xsitemap ul.products { margin-bottom: 5px; }
+.xsitemap li.category { font-size: 1em; }
+.xsitemap li.product { font-size: 0.8em; }
+.xsitemap li.level-0 { font-weight: bold; font-size: 1.1em; }
+.xsitemap li.level-1 { font-weight: normal; font-size: 1em; }
+.xsitemap li.page-url, .xsitemap li.link { font-size: 1em; font-weight: bold; }
+.xsitemap .products { margin: 5px 0; }

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageWorx_SeoBreadcrumbs::seosuite" title="MageWorx SEO Breadcrumbs" module="MageWorx_SeoBreadcrumbs" sortOrder="50" parent="Magento_Backend::marketing"  resource="MageWorx_SeoBreadcrumbs::seosuite" />
+        <add id="MageWorx_SeoBreadcrumbs::category" title="Breadcrumbs Priority for Category" module="MageWorx_SeoBreadcrumbs" sortOrder="65" parent="MageWorx_SeoBreadcrumbs::seosuite" action="mageworx_seobreadcrumbs/category/" resource="MageWorx_SeoBreadcrumbs::category" />
+    </menu>
+</config>

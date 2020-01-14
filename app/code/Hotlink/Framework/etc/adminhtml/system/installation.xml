@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="installation" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Installation</label>
+        <field id="interaction_report_log_path" translate="label" type="text" sortOrder="120" showInDefault="1">
+            <label>Interaction Report's log path</label>
+            <comment><![CDATA[- the path will be appended to the Magento's base path<br/>-<strong>make sure the path exists and is readable and writeable</strong>]]></comment>
+        </field>
+        <field id="interaction_report_email_level_include" translate="label" type="multiselect" sortOrder="130" showInDefault="1">
+            <label>Interaction Report's email levels</label>
+            <source_model>\Hotlink\Framework\Model\Config\Field\Report\Level</source_model>
+            <can_be_empty>0</can_be_empty>
+            <comment><![CDATA[Choose what level to include in emailed report]]></comment>
+        </field>
+        <field id="write_streaming_gzip_header" translate="label" type="select" sortOrder="140" showInDefault="1" >
+            <label>Write report gzip header</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Forces the gzip header to be written when rendering realtime reporting. Depending on server configuration and Apache  version you may need to modify this to correctly render reports.]]></comment>
+        </field>
+        <field id="enable_logging" translate="label" type="select" sortOrder="210" showInDefault="1" >
+            <label>Cron logging</label>
+            <source_model>\Magento\Config\Model\Config\Source\Enabledisable</source_model>
+            <comment><![CDATA[Log cron activity. Enable this to diagnose cron related issues, otherwise disable.]]></comment>
+        </field>
+    </group>
+
+</include>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="MageWorx\SeoBase\Model\CanonicalFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="catalog_product_view" xsi:type="string">MageWorx\SeoBase\Model\Canonical\Product</item>
+                <item name="catalog_category_view" xsi:type="string">MageWorx\SeoBase\Model\Canonical\Category</item>
+                <item name="cms_index_index" xsi:type="string">MageWorx\SeoBase\Model\Canonical\Page</item>
+                <item name="cms_page_view" xsi:type="string">MageWorx\SeoBase\Model\Canonical\Page</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoBase\Model\HreflangsFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="catalog_product_view" xsi:type="string">MageWorx\SeoBase\Model\Hreflangs\Product</item>
+                <item name="catalog_category_view" xsi:type="string">MageWorx\SeoBase\Model\Hreflangs\Category</item>
+                <item name="cms_index_index" xsi:type="string">MageWorx\SeoBase\Model\Hreflangs\HomePage</item>
+                <item name="cms_index_defaultIndex" xsi:type="string">MageWorx\SeoBase\Model\Hreflangs\HomePage</item>
+                <item name="cms_page_view" xsi:type="string">MageWorx\SeoBase\Model\Hreflangs\Page</item>
+                <item name="mageworx_landingpagespro_landingpage_view" xsi:type="string">MageWorx\SeoBase\Model\Hreflangs\LandingPage</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoBase\Model\RobotsFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="catalog_product_view" xsi:type="string">MageWorx\SeoBase\Model\Robots\Product</item>
+                <item name="catalog_category_view" xsi:type="string">MageWorx\SeoBase\Model\Robots\Category</item>
+                <item name="cms_index_index" xsi:type="string">MageWorx\SeoBase\Model\Robots\Page</item>
+                <item name="cms_page_view" xsi:type="string">MageWorx\SeoBase\Model\Robots\Page</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoBase\Model\NextPrevFactory">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="catalog_category_view" xsi:type="string">MageWorx\SeoBase\Model\NextPrev\Category</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\App\Response\Http">
+        <plugin name="MageWorx_SeoBase::responseHttpBefore" type="MageWorx\SeoBase\Plugin\NextPrev\ResponseHttpBefore" sortOrder="1" disabled="false"/>
+    </type>
+</config>

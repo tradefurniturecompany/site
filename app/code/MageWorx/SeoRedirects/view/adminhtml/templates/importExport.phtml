@@ -1,0 +1,146 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+
+<?php /**@var $block \MageWorx\SeoRedirects\Block\Adminhtml\Redirect\Custom\ImportExport */ ?>
+
+<div class="import-seoredirects-custom-simple-wrapper">
+    <h3>Simple Format</h3>
+    <?php if (!$block->getIsReadonly()): ?>
+        <div class="import-seoredirects-custom-simple">
+            <?php if ($block->getUseContainer()): ?>
+            <form id="simple-import-form" class="admin__fieldset"
+                  action="<?= $block->getUrl('mageworx_seoredirects/customRedirect/importSimpleFormatPost') ?>"
+                  method="post"
+                  enctype="multipart/form-data">
+                <?php endif; ?>
+                <?= $block->getBlockHtml('formkey') ?>
+                <div class="fieldset admin__field">
+                    <label for="import_seoredirects_custom_simple_file" class="admin__field-label"><span><?= __(
+                                'Import SEO Redirects'
+                            ) ?></span></label>
+                    <div class="admin__field-control">
+                        <input type="file" id="import_seoredirects_custom_simple_file"
+                               name="import_seoredirects_custom_simple_file"
+                               class="input-file required-entry"/>
+                        <?= $block->getButtonHtml(__('Import SEO Redirects (Simple Format)'), '', 'import-submit') ?>
+                    </div>
+                </div>
+                <?php if ($block->getUseContainer()): ?>
+            </form>
+        <?php endif; ?>
+            <script>
+                require(['jquery', "mage/mage", "loadingPopup"], function (jQuery) {
+                    jQuery('#import-form').mage('form').mage('validation');
+                    (function ($) {
+                        $('.import-submit').click(function () {
+                            if ($(':input[name="import_seoredirects_custom_simple_file"]').val()) {
+                                $('body').loadingPopup({
+                                    timeout: false
+                                });
+
+                                $(this.form).submit();
+                            }
+                        });
+                    })(jQuery);
+                });
+            </script>
+        </div>
+    <?php endif; ?>
+    <div class="example-export">
+        <div id="example_export_form" class="admin__fieldset">
+            <div class="fieldset admin__field">
+                <span class="admin__field-label">
+                    <span><?php echo __('Download example CSV file'); ?></span>
+                </span>
+                <div class="admin__field-control" style="line-height: 32px;">
+                    <a href="<?php echo $block->getUrl(
+                        'mageworx_seoredirects/customRedirect/getSimpleImportExample'
+                    ) ?>"><?php echo __('Download'); ?></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="import-export-seoredirects-custom">
+    <h3>Full Format</h3>
+    <?php if (!$block->getIsReadonly()): ?>
+        <div class="import-seoredirects-custom">
+            <?php if ($block->getUseContainer()): ?>
+            <form id="import-form" class="admin__fieldset"
+                  action="<?= $block->getUrl('mageworx_seoredirects/customRedirect/importPost') ?>" method="post"
+                  enctype="multipart/form-data">
+                <?php endif; ?>
+                <?= $block->getBlockHtml('formkey') ?>
+                <div class="fieldset admin__field">
+                    <label for="import_seoredirects_custom_file" class="admin__field-label"><span><?= __(
+                                'Import SEO Redirects'
+                            ) ?></span></label>
+                    <div class="admin__field-control">
+                        <input type="file" id="import_seoredirects_custom_file" name="import_seoredirects_custom_file"
+                               class="input-file required-entry"/>
+                        <?= $block->getButtonHtml(__('Import SEO Redirects (Full Format)'), '', 'import-submit') ?>
+                    </div>
+                </div>
+                <?php if ($block->getUseContainer()): ?>
+            </form>
+        <?php endif; ?>
+            <script>
+                require(['jquery', "mage/mage", "loadingPopup"], function (jQuery) {
+
+                    jQuery('#import-form').mage('form').mage('validation');
+                    (function ($) {
+                        $('.import-submit').click(function () {
+                            if ($(':input[name="import_seoredirects_custom_file"]').val()) {
+                                $('body').loadingPopup({
+                                    timeout: false
+                                });
+
+                                $(this.form).submit();
+                            }
+                        });
+                    })(jQuery);
+
+                });
+            </script>
+        </div>
+    <?php endif; ?>
+
+    <div class="export-seoredirects-custom">
+        <?php if ($block->getUseContainer()): ?>
+        <form id="export_form" class="admin__fieldset"
+              action="<?= $block->getUrl('mageworx_seoredirects/customRedirect/exportCsv') ?>" method="post"
+              enctype="multipart/form-data">
+            <?php endif; ?>
+            <?= $block->getBlockHtml('formkey') ?>
+            <div class="fieldset admin__field">
+                <span class="admin__field-label"><span><?= __('Export SEO Redirects') ?></span></span>
+                <div class="admin__field-control">
+                    <?= $block->getButtonHtml(__('Export SEO Redirects (Full Format)'), "this.form.submit()") ?>
+                </div>
+            </div>
+            <?php if ($block->getUseContainer()): ?>
+        </form>
+    <?php endif; ?>
+    </div>
+
+    <div class="example-export">
+        <div id="example_export_form" class="admin__fieldset">
+            <div class="fieldset admin__field">
+                <span class="admin__field-label">
+                    <span><?php echo __('Download example CSV file'); ?></span>
+                </span>
+                <div class="admin__field-control" style="line-height: 32px;">
+                    <a href="<?php echo $block->getUrl(
+                        'mageworx_seoredirects/customRedirect/getImportExample'
+                    ) ?>"><?php echo __('Download'); ?></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

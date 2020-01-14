@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Reports::report">
+                    <resource id="MageWorx_SeoReports::seoreports" title="MageWorx SEO Reports" sortOrder="50">
+                        <resource id="MageWorx_SeoReports::products" title="Products" sortOrder="10"/>
+                        <resource id="MageWorx_SeoReports::categories" title="Categories" sortOrder="20"/>
+                        <resource id="MageWorx_SeoReports::pages" title="Pages" sortOrder="30"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

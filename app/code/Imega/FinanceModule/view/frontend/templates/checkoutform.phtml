@@ -1,0 +1,105 @@
+<?php
+/**
+* Copyright © 2018 imegamedia. All rights reserved.
+*/
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$apiKey = $this->helper('Imega\FinanceModule\Helper\Data')->getApiKey();
+$encKey = $this->helper('Imega\FinanceModule\Helper\Data')->getEncryptionKey();
+$orderId = $block->escapeHtml($block->getOrderId());
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$order = $objectManager->get('Magento\Sales\Model\Order')->loadByIncrementId($orderId);
+$total = $order->getGrandTotal();
+$orderPaymentMethod = $order->getPayment()->getMethod();
+$financePaymentMethod = $this->helper('Imega\FinanceModule\Helper\CheckoutData')->getPaymentMethod();
+$element = $this->helper('Imega\FinanceModule\Helper\CheckoutData')->getPositionSelector();
+$customerData = $order->getBillingAddress();
+$firstName = $customerData->getData("firstname");
+$lastName = $customerData->getData("lastname");
+$address = $customerData->getData("street");
+$street = preg_replace( "/\r|\n/", "", $address);
+$houseNum = substr($street, 0, strpos($street, ' '));
+$city = $customerData->getData("city");
+$region = $customerData->getData("region");
+$postcode = $customerData->getData("postcode");
+$email = $customerData->getData("email");
+$telephone = $customerData->getData("telephone");
+
+$items = $order->getAllVisibleItems();
+
+$orderDesc = '';
+$productsArr = [];
+$financeKeywords = [];
+$i = 0;
+foreach($items as $item){
+  if (in_array($item->getProductType(), ['bundle'])){
+    foreach($item->getChildrenItems() as $childItem){
+      $orderDesc.= htmlspecialchars($childItem->getName(), ENT_QUOTES).'|||';
+      $productsArr[$i]['productId'] = $childItem->getSku();
+      $productsArr[$i]['description'] = htmlspecialchars($childItem->getName(), ENT_QUOTES);
+      $productsArr[$i]['price'] = $childItem->getPrice();
+      $productsArr[$i]['quantity'] = $childItem->getQtyToInvoice();
+      array_push($financeKeywords, $childItem->getProduct()->getImegamediaFinanceFilter());
+      $i++;
+    }
+  } else {
+    $orderDesc.= htmlspecialchars($item->getName(), ENT_QUOTES).'|||';
+    $productsArr[$i]['productId'] = $item->getSku();
+    $productsArr[$i]['description'] = htmlspecialchars($item->getName(), ENT_QUOTES);
+    $productsArr[$i]['price'] = $item->getPrice();
+    $productsArr[$i]['quantity'] = $item->getQtyToInvoice();
+    array_push($financeKeywords, $item->getProduct()->getImegamediaFinanceFilter());
+    $i++;
+  }
+}
+$products = json_encode($productsArr);
+
+$keywords = array_unique($financeKeywords);
+if(count($keywords) === 1 && !empty($keywords[0])){
+  $financeFilter = $keywords[0];
+} else {
+  $financeFilter = 'ALL';
+}
+
+$veriString = $total.$orderId;
+$vKey = hash_hmac('sha256',$veriString, $encKey);
+?>
+
+<?php if (!strcmp($orderPaymentMethod, $financePaymentMethod)) : ?>
+  <!--<div id="example" style="position:relative;width:100%;min-height:600px;">
+    <div style="position:absolute; width:100%; text-align:center;">
+      <svg width="200px"  height="200px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;"><circle cx="50" cy="50" fill="none" stroke="#e6e6e6" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
+    </div>
+  </div>-->
+  <script>
+  require([
+    'imegacheckout'
+  ], function(imm){
+    imm.init({
+      amount:"<?php echo $total ?>",
+      apiKey:"<?php echo $apiKey ?>",
+      vKey:"<?php echo $vKey ?>",
+      orderRef:"<?php echo $orderId ?>",
+      insertion:"replace",
+      element:"<?php echo $element ?>",
+      description:"<?php echo $orderDesc ?>",
+      products:'<?php echo $products ?>',
+      firstName:"<?php echo $firstName ?>",
+      lastName:"<?php echo $lastName ?>",
+      telephone:"<?php echo $telephone ?>",
+      email:"<?php echo $email ?>",
+      houseNumber:"<?php echo $houseNum ?>",
+      street:"<?php echo $street ?>",
+      town:"<?php echo $city ?>",
+      postcode:"<?php echo $postcode ?>",
+      region:"<?php echo $region ?>",
+      financeFilter:"<?php echo $financeFilter ?>"
+    });
+  });
+
+  </script>
+
+<?php endif ?>

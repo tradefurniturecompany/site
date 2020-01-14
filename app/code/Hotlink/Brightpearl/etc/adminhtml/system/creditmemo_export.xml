@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="Hotlink_Brightpearl_Model_Interaction_Creditmemo_Export" sortOrder="1700" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+        <label>Interaction : Export Creditmemo</label>
+        <attribute type="hotlink" interaction="true" />
+        <field id="sales_credit_order_status" translate="label" type="select" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Sales Credit Order Status</label>
+            <source_model>Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Creditmemo\Status</source_model>
+            <comment><![CDATA[The statusId (with orderTypeCode = "SC") to use when creating Sales Credits in Brightpearl.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="refunds_enabled" translate="label" type="select" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable Refunds</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Determines whether refunds are created in Brightpearl for Credit Memos (does not apply historically).]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="refunds_shipping_nominal_code" type="select" translate="label" sortOrder="315" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Shipping Nominal Code</label>
+            <source_model>Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Payment\Method</source_model>
+            <comment><![CDATA[This is used to identify shipping line item on Brightpearl order (Magento does not use shipping line items). This value is automatically updated for default scope whenever the "Import Brightpearl Settings" interaction is executed, so unless you utilse per store settings it should not need to be edited manually. This value is retrieved from the Brightpearl UI setting located at "Settings / Company / Accounting : Nominal Codes / Shipping on sales".]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+                <field id="refunds_enabled">1</field>
+            </depends>
+        </field>
+
+        <field id="quarantine_enabled" translate="label" type="select" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable Quarantine</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Determines whether to quanrantine returned goods (a quarantine goods note) in Breightpearl.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="quarantine_warehouse" type="select" translate="label" sortOrder="330" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Quarantine Warehouse</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Warehouse</source_model>
+            <comment><![CDATA[The warehouseId asssigned to new Sales Credits Goods In Notes.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+                <field id="quarantine_enabled">1</field>
+            </depends>
+        </field>
+        <field id="quarantine_warehouse_location" type="select" translate="label" sortOrder="340" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Quarantine Location</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Warehouse\Location</source_model>
+            <comment><![CDATA[The warehouse location to use for returned stock.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+                <field id="quarantine_enabled">1</field>
+            </depends>
+        </field>
+
+        <field id="quarantine_pricelist" translate="label" type="select" sortOrder="350" showInDefault="1" showInWebsite="1">
+            <label>Quarantine Pricelist</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Price\Lists\Sell</source_model>
+            <comment><![CDATA[The price list used to determine the value of products returned by customers.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+                <field id="quarantine_enabled">1</field>
+            </depends>
+        </field>
+
+    </group>
+
+</include>

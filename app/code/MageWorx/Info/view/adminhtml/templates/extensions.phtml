@@ -1,0 +1,281 @@
+<?php
+/** @var \MageWorx\Info\Block\Adminhtml\Extensions $block */
+$recommendedExts = $block->getRecommendedExtensionsData();
+$installedExts   = $block->getInstalledExtensionsData();
+?>
+
+<div class="entry-edit-head-mageworx">
+    <span class="entry-edit-head-link"></span>
+    <a><?php echo __('My extensions') ?></a>
+</div>
+<?php if (count($recommendedExts)) : ?>
+<div id="mageworx-installed-extenstions">
+    <div class="mw-ext-container">
+        <h3 class="mw-ext__heading mw-ext__heading--recommended"><?php echo __(
+                'Extensions Recommended for Your Store'
+            ) ?></h3>
+        <p class="mw-ext__desc">
+            <?php echo __(
+                'These are the extensions that will help you enhance your customers shopping experience and improve your store sales performance.'
+            ) ?></p>
+        <div class="mw-ext__grid">
+            <?php foreach ($recommendedExts as $code => $extension) :
+                if (key_exists($code, $installedExts)) {
+                    continue;
+                } ?>
+                <div class="mw-ext__grid__item">
+                    <div class="mw-ext__grid__item__image">
+                        <a href="<?php echo $block->escapeUrl($extension->getUrl()) ?>" target="_blank">
+                            <img src="<?php echo $block->escapeUrl($extension->getImage()) ?>" alt="<?php echo $block->escapeHtml($extension->getTitle()) ?>">
+                        </a>
+                        <div class="mw-ext__grid__item__price">
+                            <?php if ($extension->getSpecialPrice()): ?>
+                                <span class="mw-ext__grid__item__price_line-through">$<?php echo $block->escapeHtml($extension->getPrice(
+                                    )) ?></span>
+                                <span class="mw-ext__grid__item__special_price"> $<?php echo $block->escapeHtml($extension->getSpecialPrice(
+                                    )) ?></span>
+                            <?php else: ?>
+                                <span>$<?php echo $block->escapeHtml($extension->getPrice()) ?></span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="mw-ext__grid__item__content">
+                        <h4 class="mw-ext__grid__item__name">
+                            <a href="<?php echo $block->escapeUrl($extension->getUrl()) ?>" target="_blank">
+                                <?php echo $block->escapeHtml($extension->getTitle()) ?>
+                            </a>
+                        </h4>
+                        <?php if ($extension->getReviewCount()): ?>
+                            <p class="mw-ext__grid__item__reviews">
+                                <span><?php echo $block->escapeHtml($extension->getReviewCount()) ?></span> <?php echo __('Review(s)') ?>
+                            </p>
+                            <div class="mw-ext__grid__item__rating">
+                                <div class="mw-ext__grid__item__rating__progress" style="width: <?php
+                                echo $block->escapeHtml($extension->getRating()) ?>%"></div>
+                            </div>
+
+                        <?php endif; ?>
+                        <a href="<?php echo $block->escapeUrl($extension->getUrl()) ?>" class="mw-ext__grid__item__button" target="_blank"><?php echo __('Get it') ?></a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<div id="mageworx-installed-extenstions">
+    <div class="mw-ext-container">
+        <h3 class="mw-ext__heading mw-ext__heading--purchased"><?php echo __('My Purchased Extensions') ?>
+        </h3>
+        <p class="mw-ext__desc"><?php echo __(
+                "These are the MageWorx extensions you've purchased on our website or Magento Marketplace. If you enjoy using our products, would you mind taking a moment to rate them? It won't take you more than a minute."
+            ) ?></p>
+        <strong>
+            <a href="<?php echo $block->escapeUrl($block->getUrl("mageworx_info/extensionInfo/update", [])); ?>"
+               class="mw-ext__refresh"><?php echo __('Update Info') ?></a>
+        </strong>
+        <?php if (count($installedExts)) : ?>
+        <div class="mw-ext__grid mw-ext__grid__installed">
+            <?php foreach ($installedExts as $code => $extension) : ?>
+                <div class="mw-ext__grid__item">
+                    <div class="mw-ext__grid__item__image">
+                        <a href="<?php echo $block->escapeUrl($extension->getUrl()) ?>" target="_blank">
+                            <img src="<?php echo $block->escapeUrl($extension->getImage()) ?>" alt="<?php echo $block->escapeHtml($extension->getTitle()) ?>">
+                        </a>
+                    </div>
+                    <div class="mw-ext__grid__item__content">
+                        <h4 class="mw-ext__grid__item__name">
+                            <a href="<?php echo $block->escapeUrl($extension->getUrl()) ?>" target="_blank">
+                                <?php echo $block->escapeHtml($extension->getTitle()) . ' ' . $block->escapeHtml($block->getExtensionVersion($code)) ?>
+                            </a>
+                        </h4>
+                        <?php if ($extension->getUserGuide()): ?>
+                            <span class="mw-user-guide">
+                            <a href="<?php echo $block->escapeHtml($extension->getUserGuide()) ?>"
+                               target="_blank"><?php echo __('User Guide') ?></a>
+                        </span>
+                        <?php endif; ?>
+                        <span class="mw-new-version">
+                            <?php if (version_compare(
+                                $extension->getVersion(),
+                                $block->getExtensionVersion($code),
+                                '>'
+                            )) :
+                                echo __(' Version %1 available!', $extension->getVersion());
+                                ?>
+                                <a href="<?php echo $block->escapeUrl($extension->getUrl()) ?>#changelog"
+                                   target="_blank"><?php echo __('See Change Log') ?></a>
+                            <?php endif; ?>
+                        </span>
+                        <p class="mw-ext__grid__item__reviews mw-ext_get_review">
+                            <?php echo('Rate it') ?>:
+                                <div class="mw-ext__rate" id="<?php echo $block->escapeHtml($code) ?>" data-mage-init='{"mw-review-modal": {"target": "#mwReviewPopup", "dataUrl": "<?php echo $block->getUrl(
+                                    "mageworx_info/review/send",
+                                    []
+                                ); ?>"}}'>
+                                    <input
+                                            class="mw-ext__rate__input"
+                                            id="mw-ext__rate__input-5__<?php echo $block->escapeHtml($code)?>"
+                                            type="radio"
+                                            name="rating"
+                                            value="5"
+                                    />
+                                    <label
+                                            class="mw-ext__rate__star"
+                                            for="mw-ext__rate__input-5__<?php echo $block->escapeHtml($code) ?>"
+                                    >
+                                        <svg width="30px" height="28px" viewBox="0 0 30 28" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+                                               stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon id="Star" stroke="#ED8A19" fill-rule="nonzero"
+                                                         points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549"></polygon>
+                                            </g>
+                                        </svg>
+                                    </label>
+                                    <input
+                                            class="mw-ext__rate__input"
+                                            id="mw-ext__rate__input-4__<?php echo $block->escapeHtml($code) ?>"
+                                            type="radio"
+                                            name="rating"
+                                            value="4"
+                                    />
+                                    <label
+                                            class="mw-ext__rate__star"
+                                            for="mw-ext__rate__input-4__<?php echo $block->escapeHtml($code) ?>"
+                                    >
+                                        <svg width="30px" height="28px" viewBox="0 0 30 28" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+                                               stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon id="Star" stroke="#ED8A19" fill-rule="nonzero"
+                                                         points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549"></polygon>
+                                            </g>
+                                        </svg>
+                                    </label>
+                                    <input
+                                            class="mw-ext__rate__input"
+                                            id="mw-ext__rate__input-3__<?php echo $block->escapeHtml($code) ?>"
+                                            type="radio"
+                                            name="rating"
+                                            value="3"
+                                    />
+                                    <label
+                                            class="mw-ext__rate__star"
+                                            for="mw-ext__rate__input-3__<?php echo $block->escapeHtml($code) ?>"
+                                    >
+                                        <svg width="30px" height="28px" viewBox="0 0 30 28" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+                                               stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon id="Star" stroke="#ED8A19" fill-rule="nonzero"
+                                                         points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549"></polygon>
+                                            </g>
+                                        </svg>
+                                    </label>
+                                    <input
+                                            class="mw-ext__rate__input"
+                                            id="mw-ext__rate__input-2__<?php echo $block->escapeHtml($code) ?>"
+                                            type="radio"
+                                            name="rating"
+                                            value="2"
+                                    />
+                                    <label
+                                            class="mw-ext__rate__star"
+                                            for="mw-ext__rate__input-2__<?php echo $block->escapeHtml($code) ?>"
+                                    >
+                                        <svg width="30px" height="28px" viewBox="0 0 30 28" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+                                               stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon id="Star" stroke="#ED8A19" fill-rule="nonzero"
+                                                         points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549"></polygon>
+                                            </g>
+                                        </svg>
+                                    </label>
+                                    <input
+                                            class="mw-ext__rate__input"
+                                            id="mw-ext__rate__input-1__<?php echo $block->escapeHtml($code) ?>"
+                                            type="radio"
+                                            name="rating"
+                                            value="1"
+                                    />
+                                    <label
+                                            class="mw-ext__rate__star"
+                                            for="mw-ext__rate__input-1__<?php echo $block->escapeHtml($code) ?>"
+                                    >
+                                        <svg width="30px" height="28px" viewBox="0 0 30 28" version="1.1"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+                                               stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon id="Star" stroke="#ED8A19" fill-rule="nonzero"
+                                                         points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549"></polygon>
+                                            </g>
+                                        </svg>
+                                    </label>
+                                </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<div id="mageworx-staylime-entry">
+    <div class="mw-sl__container">
+        <div class="mw-sl__logo">
+            <img src="<?php echo $block->escapeUrl($block->getViewFileUrl('MageWorx_Info::images/staylime-logo.svg'));?>" alt="Staylime" />
+        </div>
+        <div class="mw-sl__content">
+            <div class="mw-sl__content__text">
+                <p>
+                    <strong><?php echo __('Need Magento services?')?></strong><br />
+                    <?php echo __('Visit Staylime &mdash; our trusted development partner.')?>
+                </p>
+            </div>
+            <a href="https://staylime.com/?utm_source=mageworx.com&utm_medium=referral&utm_campaign=Mageworx&utm_content=Product%20configuration%20page%20banner"
+               target="_blank" class="mw-sl__content__button"><?php echo __("Visit Staylime's website")?></a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require([
+        "jquery"
+    ], function($){
+
+        var reviewLinks = JSON.parse('<?php echo json_encode($block->prepareMarketplaceReviewUrls($installedExts))?>');
+        $('.mw-ext__rate').click(function(event) {
+            var val = $(event.target).val();
+            var id = $(event.target).closest('div').attr('id');
+
+            if (val) {
+                if (val < 4) {
+                    $('#mwReviewPopup .modal-content').show();
+                    $('#mwReviewPopup .modal-content-2').hide();
+                    $('.mw-ext__submit__button').show();
+                } else {
+                    $('#mwReviewPopup .modal-content').hide();
+                    $('.mw-ext__submit__button').hide();
+                    if (reviewLinks[id]) {
+                        $('#mw-marketplace-link').attr("href", reviewLinks[id]);
+                        $('#mwReviewPopup .modal-content-2').show();
+                    } else {
+                        $('#mwReviewPopup .modal-content-2').hide();
+                    }
+                }
+
+                $('#mwReviewPopup').find("textarea[name='detail']").val("");
+                $('#mwReviewPopup').find("input[name='email']").val("");
+                $('#mwReviewPopup').find("input[name='rating']").val(val);
+                $('#mwReviewPopup').find("input[name='ext_code']").val(id);
+            }
+        });
+    })
+</script>

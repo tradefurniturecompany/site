@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Apptrian
+ * @package   Apptrian_ImageOptimizer
+ * @author    Apptrian
+ * @copyright Copyright (c) Apptrian (http://www.apptrian.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <apptrian_imageoptimizer>
+            <general>
+                <enabled>1</enabled>
+                <batch_size>50</batch_size>
+                <paths>pub</paths>
+            </general>
+            <cron>
+                <enabled_scan>1</enabled_scan>
+                <expression_scan>15 4 * * *</expression_scan>
+                <enabled_optimize>1</enabled_optimize>
+                <expression_optimize>0 * * * *</expression_optimize>
+            </cron>
+            <utility>
+                <use64bit>0</use64bit>
+                <log_output>0</log_output>
+                <permissions></permissions>
+                <path>bin</path>
+                <gif>gifsicle</gif>
+                <gif_path></gif_path>
+                <gif_options>-b -O3 %filepath%</gif_options>
+                <jpg>jpegtran</jpg>
+                <jpg_path></jpg_path>
+                <jpg_options>-copy none -optimize -progressive -outfile %filepath% %filepath%</jpg_options>
+                <png>optipng</png>
+                <png_path></png_path>
+                <png_options>-o7 -quiet -strip all %filepath%</png_options>
+            </utility>
+        </apptrian_imageoptimizer>
+    </default>
+</config>

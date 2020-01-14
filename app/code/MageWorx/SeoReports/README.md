@@ -1,0 +1,2 @@
+# MageWorx_SeoReports
+

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="layout_generate_blocks_after_one">
+        <observer
+                name="mw_seoextended_replace_meta_by_category_filter"
+                instance="MageWorx\SeoExtended\Observer\ModifyCategoryByFilterMetaObserver"
+        />
+        <observer
+                name="mw_seoextended_replace_category_description"
+                instance="MageWorx\SeoExtended\Observer\ReplaceCategoryDescriptionObserver"
+        />
+
+        <observer
+                name="mw_seoextended_replace_category_seo_name"
+                instance="MageWorx\SeoExtended\Observer\ReplaceTitleForCategoryPageObserver"
+        />
+    </event>
+    <event name="layout_generate_blocks_after_three">
+        <observer
+                name="mw_seoextended_replace_meta_by_settings"
+                instance="MageWorx\SeoExtended\Observer\ModifyMetaObserver"
+        />
+    </event>
+</config>

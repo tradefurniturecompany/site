@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="Hotlink_Brightpearl_Model_Interaction_Order_Reconciliation" sortOrder="750" showInDefault="1" translate="label">
+        <label>Interaction : Reconcile orders</label>
+        <attribute type="hotlink" interaction="true" />
+        <field id="batch" translate="label" sortOrder="200" showInDefault="1">
+            <label>Batch</label>
+            <comment><![CDATA[Number of queue items in a batch.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="sleep" translate="label" sortOrder="300" showInDefault="1">
+            <label>Sleep</label>
+            <comment>Pause between database saves (in millionths of a second).</comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="ignore_past_minutes" translate="label" sortOrder="400" showInDefault="1">
+            <label>Delay</label>
+            <comment><![CDATA[Do not process queue items sent in the past X minutes.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="requeue_with_errors" translate="label" type="select" sortOrder="500" showInDefault="1" >
+            <label>Requeue errors</label>
+            <comment><![CDATA[Select Yes to requeue orders with Brightpearl errors. Select No otherwise.]]></comment>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="fallback_start_date" translate="label" sortOrder="400" showInDefault="1">
+            <label>Fallback start date</label>
+            <comment><![CDATA[Rewrite processing start date. Formats accepted: <br> Y-m-d (i.e. 2017-01-11) or Y-m-d H:i:s (i.e. 2017-01-11 10:10:00). TimeZone is set to UTC.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+    </group>
+
+</include>

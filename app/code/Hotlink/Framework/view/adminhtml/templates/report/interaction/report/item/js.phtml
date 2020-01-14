@@ -1,0 +1,12 @@
+<script type="text/javascript">
+    <?php if ($block->getSection()):?>
+        if (window.report) {
+            window.report.addNewSection('<?php echo $block->getSection(); ?>');
+        }
+    <?php endif;?>
+    <?php if ($block->getFinished()):?>
+        if (window.report) {
+            window.report.finish();
+        }
+    <?php endif;?>
+</script>

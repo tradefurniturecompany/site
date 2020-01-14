@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="template">
+
+            <group id="Hotlink_Brightpearl_Model_Monitor_Order_Queue">
+                <field id="monitor_order_queue_heading" type="text" sortOrder="3100" showInDefault="1">
+                    <label>Monitor Order Queue</label>
+                    <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_queue_cron_expr" type="text" sortOrder="3110" showInDefault="1">
+                    <label>Cron Expression</label>
+                    <comment><![CDATA[Cron schedule expression (see <a href="http://wiki.pentaho.com/display/ServerDoc1x/05.+CRON+Expressions+in+Detail" target="_blank">Cron expressions</a>)<br/>
+                    <small>
+                    Eg: <code style="color:red">11 */2 * * *</code> = &quot;at minute 11 of every 2 hours&quot;
+                    </small><br/>
+                    <small style="color:grey">[mins] [hrs] [days_of_month] [months] [days_of_week]</small><br />
+                    ]]>
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_queue_sort_field" type="select" sortOrder="3120" showInDefault="1">
+                    <label>Sort field</label>
+                    <comment><![CDATA[Determines the sort field for processing queue items]]></comment>
+                    <source_model>Hotlink\Brightpearl\Model\Config\Field\Order\Queue\Sort\Source</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_queue_sort_order" type="select" sortOrder="3130" showInDefault="1">
+                    <label>Sort</label>
+                    <comment><![CDATA[Determines the sort for processing queued items]]></comment>
+                    <source_model>Hotlink\Framework\Model\Config\Field\Order\Status\Sort\Order\Source</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_queue_batch" type="text" sortOrder="3140" showInDefault="1">
+                    <label>Batch size</label>
+                    <comment><![CDATA[Number of orders to process in a batch]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_queued">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="Hotlink_Brightpearl_Model_Monitor_Order_Payment_Queue">
+                <field id="monitor_order_payment_queue_heading" type="text" sortOrder="3100" showInDefault="1">
+                    <label>Monitor Order Payment Queue</label>
+                    <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_payment_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_payment_queue_cron_expr" type="text" sortOrder="3110" showInDefault="1">
+                    <label>Cron Expression</label>
+                    <comment><![CDATA[Cron schedule expression (see <a href="http://wiki.pentaho.com/display/ServerDoc1x/05.+CRON+Expressions+in+Detail" target="_blank">Cron expressions</a>)<br/>
+                    <small>
+                    Eg: <code style="color:red">11 */2 * * *</code> = &quot;at minute 11 of every 2 hours&quot;
+                    </small><br/>
+                    <small style="color:grey">[mins] [hrs] [days_of_month] [months] [days_of_week]</small><br />
+                    ]]>
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_payment_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_payment_queue_sort_field" type="select" sortOrder="3120" showInDefault="1">
+                    <label>Sort field</label>
+                    <comment><![CDATA[Determines the sort field for processing queue items]]></comment>
+                    <source_model>Hotlink\Brightpearl\Model\Config\Field\Order\Queue\Sort\Source</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_payment_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_payment_queue_sort_order" type="select" sortOrder="3130" showInDefault="1">
+                    <label>Sort</label>
+                    <comment><![CDATA[Determines the sort for processing queued items]]></comment>
+                    <source_model>Hotlink\Framework\Model\Config\Field\Order\Status\Sort\Order\Source</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_payment_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_payment_queue_batch" type="text" sortOrder="3140" showInDefault="1">
+                    <label>Batch size</label>
+                    <comment><![CDATA[Number of orders to process in a batch]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_payment_queued">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="Hotlink_Brightpearl_Model_Monitor_Order_Status_Queue">
+                <field id="monitor_order_status_queue_heading" type="text" sortOrder="3100" showInDefault="1">
+                    <label>Monitor Order Status Queue</label>
+                    <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_status_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_status_queue_cron_expr" type="text" sortOrder="3110" showInDefault="1">
+                    <label>Cron Expression</label>
+                    <comment><![CDATA[Cron schedule expression (see <a href="http://wiki.pentaho.com/display/ServerDoc1x/05.+CRON+Expressions+in+Detail" target="_blank">Cron expressions</a>)<br/>
+                    <small>
+                    Eg: <code style="color:red">11 */2 * * *</code> = &quot;at minute 11 of every 2 hours&quot;
+                    </small><br/>
+                    <small style="color:grey">[mins] [hrs] [days_of_month] [months] [days_of_week]</small><br />
+                    ]]>
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_status_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_status_queue_sort_field" type="select" sortOrder="3120" showInDefault="1">
+                    <label>Sort field</label>
+                    <comment><![CDATA[Determines the sort field for processing queue items]]></comment>
+                    <source_model>Hotlink\Brightpearl\Model\Config\Field\Order\Queue\Sort\Source</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_status_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_status_queue_sort_order" type="select" sortOrder="3130" showInDefault="1">
+                    <label>Sort</label>
+                    <comment><![CDATA[Determines the sort for processing queued items]]></comment>
+                    <source_model>Hotlink\Framework\Model\Config\Field\Order\Status\Sort\Order\Source</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_status_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_order_status_queue_batch" type="text" sortOrder="3140" showInDefault="1">
+                    <label>Batch size</label>
+                    <comment><![CDATA[Number of orders to process in a batch]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_order_status_queued">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="Hotlink_Brightpearl_Model_Monitor_Creditmemo_Queue">
+                <field id="monitor_creditmemo_queue_heading" type="text" sortOrder="3100" showInDefault="1">
+                    <label>Monitor Creditmemo Queue</label>
+                    <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_creditmemo_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_creditmemo_queue_cron_expr" type="text" sortOrder="3110" showInDefault="1">
+                    <label>Cron Expression</label>
+                    <comment><![CDATA[Cron schedule expression (see <a href="http://wiki.pentaho.com/display/ServerDoc1x/05.+CRON+Expressions+in+Detail" target="_blank">Cron expressions</a>)<br/>
+                    <small>
+                    Eg: <code style="color:red">11 */2 * * *</code> = &quot;at minute 11 of every 2 hours&quot;
+                    </small><br/>
+                    <small style="color:grey">[mins] [hrs] [days_of_month] [months] [days_of_week]</small><br />
+                    ]]>
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_creditmemo_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_creditmemo_queue_sort_order" type="select" sortOrder="3130" showInDefault="1">
+                    <label>Sort</label>
+                    <comment><![CDATA[Determines the sort for processing queued items]]></comment>
+                    <source_model>Hotlink\Framework\Model\Config\Field\Order\Status\Sort\Order\Source</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_creditmemo_queued">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_creditmemo_queue_batch" type="text" sortOrder="3140" showInDefault="1">
+                    <label>Batch size</label>
+                    <comment><![CDATA[Number of creditmemos to process in a batch]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_creditmemo_queued">1</field>
+                    </depends>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

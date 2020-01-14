@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © 2018 imegamedia. All rights reserved.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+if ($this->helper('Imega\FinanceModule\Helper\CategoryData')->widgetIsEnabled()){
+  $apiKey = $this->helper('Imega\FinanceModule\Helper\Data')->getApiKey();
+  $outerElement = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getElement();
+  $priceElement = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getPriceElement();
+  $positionElement = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getPositionSelector();
+  $insertion = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getPosition();
+  $prefix = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getPrefix();
+  $suffix = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getSuffix();
+  $customCss = json_encode($this->helper('Imega\FinanceModule\Helper\CategoryData')->getCss());
+?>
+<script>
+require([
+  'imegacategory'
+], function(imm){
+  imm.init({
+    insertion: '<?php echo $insertion ?>',
+    apiKey: '<?php echo $apiKey ?>',
+    outerElement: '<?php echo $outerElement ?>',
+    priceSelector: '<?php echo $priceElement ?>',
+    positionElement: '<?php echo $positionElement ?>',
+    prefix: '<?php echo $prefix ?>',
+    suffix: '<?php echo $suffix ?>',
+    customCss: <?php echo $customCss ?>
+  });
+});
+</script>
+<?php } ?>

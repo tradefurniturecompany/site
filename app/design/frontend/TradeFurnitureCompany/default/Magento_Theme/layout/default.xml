@@ -1,0 +1,130 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <container name="header.finance.bar" htmlClass="header-finance-bar" htmlTag="div" before="-">
+                <block class="Magento\Framework\View\Element\Template" name="finance-bar"
+                       template="Magento_Theme::finance.phtml"/>
+            </container>
+            <container name="header.banner.sticky" htmlClass="header-banner-sticky" htmlTag="div" after="header.finance.bar">
+                <block class="Interactivated\TF\Block\Frontend\Banner" name="header-banner"
+                       template="Magento_Theme::banner-sticky.phtml"/>
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_img_width" xsi:type="number">236</argument>
+                <argument name="logo_img_height" xsi:type="number">117</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="header-wrapper">
+            <container name="header-info-wrapper" htmlTag="div" htmlClass="header-info-wrapper" before="logo">
+                <container name="header-sub-wrapper-phone" htmlTag="div" htmlClass="header-sub-wrapper-phone"
+                           before="logo"/>
+                <container name="header-sub-wrapper-tagline" htmlTag="div" htmlClass="header-sub-wrapper-tagline"
+                           after="header-sub-wrapper-phone"/>
+            </container>
+            <container name="header-actions-wrapper" htmlTag="div" htmlClass="header-actions-wrapper"
+                       after="logo">
+            <block class="Magento\Framework\View\Element\Template" name="mobile-phone-icon"
+                   template="Magento_Theme::mobile_phone_icon.phtml"/>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="header-sub-wrapper-phone">
+            <block class="Magento\Framework\View\Element\Template" name="phone-number"
+                   template="Magento_Theme::phone.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="header-sub-wrapper-tagline">
+            <block class="Magento\Framework\View\Element\Template" name="tagline"
+                   template="Magento_Theme::tagline.phtml"/>
+        </referenceContainer>
+
+        <!-- create a second copy of header links for desktop only -->
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Framework\View\Element\Html\Links" name="header.links.desktop" after="minicart">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">header links desktop</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!--<referenceContainer name="page.top">-->
+        <!--<container name="navigation.sections.wrapper" htmlClass="nav-sections-wrapper" htmlTag="div" before="-"/>-->
+        <!--</referenceContainer>-->
+        <!--<move element="navigation.sections" destination="navigation.sections.wrapper" before="-"/>-->
+
+        <move element="top.search" destination="header-actions-wrapper" before="-"/>
+        <move element="header.links.desktop" destination="header-actions-wrapper" after="top.search"/>
+        <move element="minicart" destination="header-actions-wrapper" after="header.links.desktop"/>
+        <move element="compare-link-wrapper" destination="header-actions-wrapper" after="minicart"/>
+
+        <referenceBlock name="header.links.desktop">
+            <block class="Magento\Framework\View\Element\Html\Link\Current"
+                   name="customer-account-navigation-wishlist-link-action-wrapper" after="-">
+                <arguments>
+                    <argument name="path" xsi:type="string">wishlist/index/index</argument>
+                    <argument name="label" xsi:type="string" translate="true"></argument>
+                    <argument name="attributes" xsi:type="array">
+                        <item name="class" xsi:type="string">wishlist-link-icon</item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceBlock name="authorization-link" remove="true"/>
+
+        <referenceBlock name="form.subscribe" remove="true"/>
+        <referenceBlock name="footer_links" remove="true"/>
+
+
+        <referenceContainer name="footer-container">
+            <container name="footer-wrap" htmlTag="div" htmlClass="footer content">
+                <block class="Magento\Cms\Block\Block" name="footer_col_1_inner">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-col-1</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Cms\Block\Block" name="footer_col_2_inner">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-col-2</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Cms\Block\Block" name="footer_col_3_inner">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-col-3</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Cms\Block\Block" name="footer_col_4_inner">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-col-4</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Cms\Block\Block" name="footer_seo_links">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-seo-links</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Cms\Block\Block" name="shop_by_type_links">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">shop-by-type-links</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Cms\Block\Block" name="footer_social_links">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_social_links</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

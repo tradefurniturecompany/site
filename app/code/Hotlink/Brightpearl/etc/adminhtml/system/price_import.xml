@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="shared_price" sortOrder="2000" showInDefault="1" showInWebsite="1" translate="label">
+        <label>Shared : Price settings</label>
+        <field id="product_type" translate="label" type="multiselect" sortOrder="100" showInDefault="1" showInWebsite="1">
+            <label>Magento product type</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Magento\Product\Type</source_model>
+            <comment><![CDATA[Select product types to import prices for.]]></comment>
+        </field>
+        <field id="base_price_list" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1">
+            <label>Bundle base price list</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Price\Lists</source_model>
+            <comment><![CDATA[Select the price list to be used as base price for calculating special, group and tier price 'Percent Discount' for a bundle product.]]></comment>
+        </field>
+
+        <field id="attribute_map" translate="label" sortOrder="300" showInDefault="1" showInWebsite="1">
+            <label>Price list attribute mapping</label>
+            <frontend_model>\Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Price\Attibute\Map</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model>
+            <comment>Magento attribute to Brightpearl price list mapping.</comment>
+        </field>
+
+        <!-- <field id="customer_group_price_list_map" translate="label" sortOrder="400" showInDefault="1"> -->
+        <!--     <label>Customer group prices</label> -->
+        <!--     <frontend_model>\Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Price\Group\Map</frontend_model> -->
+        <!--     <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model> -->
+        <!--     <comment><![CDATA[When price scope is global this map is applied to all websites]]></comment> -->
+        <!-- </field> -->
+
+        <field id="tier_price_list_map" translate="label" sortOrder="500" showInDefault="1">
+            <label>Tier price mapping</label>
+            <frontend_model>\Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Price\Tier\Map</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model>
+            <comment><![CDATA[When price scope is global this map is applied to all websites.]]></comment>
+        </field>
+    </group>
+
+    <group id="Hotlink_Brightpearl_Model_Interaction_Prices_Import" sortOrder="2100" showInDefault="1" showInWebsite="1" translate="label">
+        <label>Interaction : Import prices</label>
+        <attribute type="hotlink" interaction="true" />
+
+        <field id="check_tax_compatibility" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1">
+            <label>Perform tax configuration check</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Magento will receive net prices from Brightpearl and should be configured to match. Selecting No will allow prices to import where tax configuration is not compatible and may result in unexpected prices in Magento stores.]]></comment>
+            <depends><field id="enabled">1</field></depends>
+        </field>
+        
+        <field id="skip_attributes" translate="label" type="select" sortOrder="210" showInDefault="1" showInWebsite="1">
+            <label>Skip apply attribute prices</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Select yes to skip integrating product price attributes.]]></comment>
+            <depends><field id="enabled">1</field></depends>
+        </field>
+
+        <!-- <field id="skip_groups" translate="label" type="select" sortOrder="300" showInDefault="1" showInWebsite="1"> -->
+        <!--     <label>Skip apply customer group prices</label> -->
+        <!--     <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model> -->
+        <!--     <comment><![CDATA[Set to yes if you are not integrating customer group prices]]></comment> -->
+        <!--     <depends><field id="enabled">1</field></depends> -->
+        <!-- </field> -->
+
+        <field id="skip_tier" translate="label" type="select" sortOrder="400" showInDefault="1" showInWebsite="1">
+            <label>Skip apply tier prices</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Select yes to skip integrating tier prices.]]></comment>
+            <depends><field id="enabled">1</field></depends>
+        </field>
+        <field id="batch" translate="label" sortOrder="600" showInDefault="1">
+            <label>Batch</label>
+            <comment>Number of products in a batch</comment>
+            <depends><field id="enabled">1</field></depends>
+        </field>
+        <field id="sleep" translate="label" sortOrder="500" showInDefault="1">
+            <label>Sleep</label>
+            <comment>Pause between database saves (in millionths of a second).</comment>
+            <depends><field id="enabled">1</field></depends>
+        </field>
+    </group>
+
+</include>

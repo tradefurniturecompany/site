@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<hotlink xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Hotlink_Framework:etc/hotlink.xsd">
+    <platform class="\Hotlink\Framework\Model\Platform">
+        <interaction class="\Hotlink\Framework\Model\Interaction\Log\Cleaning">
+            <trigger class="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\Cron" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+            <!--
+            <implementation class="\Hotlink\Framework\Model\Interaction\Log\Cleaning\Implementation1" />
+            <implementation class="\Hotlink\Framework\Model\Interaction\Log\Cleaning\Implementation2" />
+            -->
+        </interaction>
+    </platform>
+</hotlink>

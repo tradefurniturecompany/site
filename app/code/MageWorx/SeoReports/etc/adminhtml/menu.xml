@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageWorx_SeoReports::seoreports"   title="MageWorx SEO Reports" module="MageWorx_SeoReports" sortOrder="20" parent="Magento_Reports::report"  resource="MageWorx_SeoReports::seoreports" />
+        <add id="MageWorx_SeoReports::products"  title="Products" module="MageWorx_SeoReports" sortOrder="5" parent="MageWorx_SeoReports::seoreports" action="mageworx_seoreports/product/index" resource="MageWorx_SeoReports::products" />
+        <add id="MageWorx_SeoReports::categories"  title="Categories" module="MageWorx_SeoReports" sortOrder="10" parent="MageWorx_SeoReports::seoreports" action="mageworx_seoreports/category/index" resource="MageWorx_SeoReports::categories" />
+        <add id="MageWorx_SeoReports::pages"  title="CMS Pages" module="MageWorx_SeoReports" sortOrder="15" parent="MageWorx_SeoReports::seoreports" action="mageworx_seoreports/page/index" resource="MageWorx_SeoReports::pages" />
+    </menu>
+</config>

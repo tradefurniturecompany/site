@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="oauth2" translate="label" type="text" sortOrder="5" showInDefault="1">
+        <label>Brightpearl OAuth2</label>
+
+        <field id="account" type="text" translate="label" sortOrder="100" showInDefault="1">
+            <label>Account code</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+        </field>
+        <field id="access_token" type="text" translate="label" sortOrder="200" showInDefault="1">
+            <label>Token</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+            <!--backend_model>Hotlink\Brightpearl\Model\Config\Backend\Encrypted</backend_model-->
+        </field>
+        <field id="expires_in" translate="label" sortOrder="300" showInDefault="1">
+            <label>Expires In</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+        </field>
+        <field id="refresh_token" type="text" translate="label" sortOrder="400" showInDefault="1">
+            <label>Refresh Token</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+            <!--backend_model>Hotlink\Brightpearl\Model\Config\Backend\Encrypted</backend_model-->
+        </field>
+        <field id="installation_instance_id" type="text" translate="label" sortOrder="500" showInDefault="1">
+            <label>Installation Instance ID</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+        </field>
+        <field id="api_domain" type="text" translate="label" sortOrder="600" showInDefault="1">
+            <label>Api domain</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+        </field>
+
+        <field id="oauth2_start" translate="label button_label" sortOrder="10" showInDefault="1">
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\Action</frontend_model>
+            <button_label>Authenticate Now</button_label>
+            <button_url>hotlink_brightpearl/oauth2/start</button_url>
+        </field>
+
+    </group>
+
+</include>

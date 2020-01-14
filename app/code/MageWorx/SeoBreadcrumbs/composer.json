@@ -1,0 +1,21 @@
+{
+    "name": "mageworx/module-seobreadcrumbs",
+    "description": "SEO Breadcrumbs module for Magento 2",
+    "require": {
+        "mageworx/module-seoall": ">=2.4.2",
+        "magento/framework" : ">=100.0.0 <103"
+
+    },
+    "type": "magento2-module",
+    "version": "2.1.3",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "MageWorx\\SeoBreadcrumbs\\": ""
+        }
+    }
+}

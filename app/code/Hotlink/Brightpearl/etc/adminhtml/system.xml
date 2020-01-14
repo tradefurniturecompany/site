@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="hotlink_brightpearl" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Brightpearl</label>
+            <tab>hotlink</tab>
+            <resource>Hotlink_Brightpearl::config</resource>
+
+            <include path="Hotlink_Brightpearl::system/version.xml" />                <!-- 1  -->
+            <include path="Hotlink_Brightpearl::system/oauth2.xml" />                 <!-- 5  -->
+            <include path="Hotlink_Brightpearl::system/authorisation.xml" />          <!-- 10 -->
+            <include path="Hotlink_Brightpearl::system/general.xml" />                <!-- 20 -->
+
+            <include path="Hotlink_Brightpearl::system/lookups_import.xml" />         <!-- 100 -->
+            <include path="Hotlink_Brightpearl::system/stock_import.xml" />           <!-- 200 | 300 -->
+            <include path="Hotlink_Brightpearl::system/shared_order_payment.xml" />   <!-- 500 -->
+            <include path="Hotlink_Brightpearl::system/order_export.xml" />           <!-- 600 -->
+            <include path="Hotlink_Brightpearl::system/order_status_export.xml" />    <!-- 650 -->
+            <include path="Hotlink_Brightpearl::system/payment_export.xml" />         <!-- 700 -->
+            <include path="Hotlink_Brightpearl::system/order_reconciliation.xml" />   <!-- 750 -->
+
+            <include path="Hotlink_Brightpearl::system/shipment_import.xml" />        <!-- 800 | 900 | 1000 -->
+            <include path="Hotlink_Brightpearl::system/order_status_import.xml" />    <!-- 1500 | 1510 -->
+
+            <include path="Hotlink_Brightpearl::system/creditmemo_export.xml" />           <!-- 1700 -->
+
+            <include path="Hotlink_Brightpearl::system/price_import.xml" />           <!-- 2000 | 2100 -->
+            <include path="Hotlink_Brightpearl::system/skus_export.xml" />            <!-- 8000 -->
+            <include path="Hotlink_Brightpearl::system/webhooks.xml" />               <!-- 9000 -->
+
+            <include path="Hotlink_Brightpearl::system/api.xml" />                    <!-- 10000 -->
+        </section>
+    </system>
+</config>

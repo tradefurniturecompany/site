@@ -1,0 +1,33 @@
+<?php
+/**
+ * Copyright © 2018 imegamedia. All rights reserved.
+ */
+
+/** @var $block Imega/Block/CartCalc */
+?>
+
+<?php
+if ($block->widgetIsEnabled) : ?>
+
+<script>
+
+require([
+  'imegawidget'
+], function(imm){
+    imm.init({
+      apiKey: '<?= $block->apiKey ?>',
+      amount: '<?= $block->getTotal() ?>',
+      description: '<?= $block->getDescription() ?>',
+      insertion: '<?= $block->anchorPosition ?>',
+      element: '<?= $block->element ?>',
+      priceElement: '<?= $block->priceElement ?>',
+      priceElementInner: '<?= $block->priceElementInner ?>',
+      margin: '<?= $block->anchorMargin ?>',
+      width: '<?= $block->anchorWidth ?>',
+      financeFilter: '<?= $block->getFinanceFilter() ?>',
+      page: 'cart'
+  });
+});
+
+</script>
+<?php endif ?>

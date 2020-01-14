@@ -1,0 +1,8 @@
+<script>
+    require(['jquery'],function ($) {
+        if($('body').hasClass('page-layout-1column')){
+            var $layared = $('#layered-filter-block').detach();
+            $layared.prependTo($('.column.main'));
+        }
+    });
+</script>

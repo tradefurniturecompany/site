@@ -1,0 +1,17 @@
+<div style="font-size: 10px;">
+<?php $exception = $block->getReportData()->getValue(); ?>
+<?php $trace = $exception->getSafeTrace(); ?>
+<pre>
+<?php echo $exception->getMessage(); ?>
+<?php echo "\n"; ?>
+<?php foreach ( $trace as $index => $frame ): ?>
+<?php $file     = ( isset( $frame[ 'file' ]     ) ) ? $frame[ 'file' ] : '(file info missing)'; ?>
+<?php $line     = ( isset( $frame[ 'line' ]     ) ) ? $frame[ 'line' ] : '(??)'; ?>
+<?php $class    = ( isset( $frame[ 'class' ]    ) ) ? $frame[ 'class' ] : '(no class)'; ?>
+<?php $type     = ( isset( $frame[ 'type' ]     ) ) ? $frame[ 'type' ] : '??'; ?>
+<?php $function = ( isset( $frame[ 'function' ] ) ) ? $frame[ 'function' ] : '(no function)'; ?>
+<?php $args = ( array_key_exists( 'args', $frame ) ) ? $exception->argsToString( $frame['args'] ) : ''; ?>
+<?php echo sprintf( "#%d %s(%d): %s%s%s(%s)\n", $index, $file, $line, $class, $type, $function, $args ); ?>
+<?php endforeach; ?>
+</pre>
+</div>

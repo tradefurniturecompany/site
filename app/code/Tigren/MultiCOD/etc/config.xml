@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--
+  ~ Copyright (c) 2017 www.tigren.com
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <cashondelivery1>
+                <active>1</active>
+                <model>Tigren\MultiCOD\Model\Cashondelivery1</model>
+                <order_status>pending</order_status>
+                <title>Cash On Delivery 1</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </cashondelivery1>
+        </payment>
+    </default>
+</config>

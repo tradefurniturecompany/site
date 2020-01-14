@@ -1,0 +1,20 @@
+<?php
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+
+<?php
+$links = $block->getLinks();
+?>
+<?php if (!empty($links)): ?>
+<h3><?php echo __('Links') ?></h3>
+<ul class="pages">
+<?php foreach ($links as $link): ?>
+<li class="page-url">
+    <a href="<?php echo $block->escapeUrl($link['url']) ?>"><?php echo $this->escapeHtml($link['title']) ?></a>
+</li>
+<?php endforeach; ?>
+</ul>
+<?php endif;

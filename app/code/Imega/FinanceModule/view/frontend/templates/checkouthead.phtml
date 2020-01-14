@@ -1,0 +1,74 @@
+<?php
+/**
+* Copyright © 2018 imegamedia. All rights reserved.
+*/
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+  $financeProvider = $this->helper('Imega\FinanceModule\Helper\Data')->getFinanceProvider();
+  $paymentMethod = $this->helper('Imega\FinanceModule\Helper\CheckoutData')->getPaymentMethod();
+
+  switch($financeProvider){
+    case 'afforditnow' :
+      $logo = 'afforditnow.png';
+      $width = '150px';
+      break;
+    case 'cbrf' :
+      $logo = 'cbrf.png';
+      $width = '190px';
+      break;
+    case 'deko' :
+      $logo = 'deko_light.png';
+      $width = '170px';
+      break;
+    case 'divido' :
+      $logo = 'divido.png';
+      $width = '160px';
+      break;
+    case 'duologi' :
+      $logo = 'duologi.png';
+      $width = '80px';
+      break;
+    case 'hitachi' :
+      $logo = 'hitachicapital.png';
+      $width = '240px';
+      break;
+    case 'klarna' :
+      $logo = 'klarna.png';
+      $width = '107px';
+      break;
+    case 'omnicapital' :
+      $logo = 'omnicapital.png';
+      $width = '170px';
+      break;
+    case 'snap' :
+    case 'snapuk' :
+      $logo = 'snap_light.png';
+      $width = '100px';
+      break;
+    case 'v12' :
+      $logo = 'v12.png';
+      $width = '100px';
+      break;
+    default :
+      $logo = 'imegamedia.png';
+      $width = '190px';
+  }
+
+?>
+<style>
+label[for="<?php echo $paymentMethod ?>"]:before {
+  background-image: url("https://angus.finance-calculator.co.uk/images/logos/<?php echo $logo ?>");
+  background-size: 90% auto;
+  background-repeat: no-repeat;
+  width: <?php echo $width ?>;
+  height: 35px;
+  content: "";
+  display: inline-block;
+  margin-left:10px;
+  vertical-align: middle;
+  <?php echo $this->helper('Imega\FinanceModule\Helper\CheckoutData')->getLogoCss(); ?>
+}
+</style>

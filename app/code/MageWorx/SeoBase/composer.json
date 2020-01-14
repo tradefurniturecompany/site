@@ -1,0 +1,27 @@
+{
+    "name": "mageworx/module-seobase",
+    "description": "SEO module for Magento 2",
+    "require": {
+        "mageworx/module-seoall"            : ">=2.1.0",
+        "magento/module-catalog"            : ">=100.0.0 <104",
+        "magento/module-cms"                : ">=100.0.0 <104",
+        "magento/module-eav"                : ">=100.0.0 <103",
+        "magento/framework"                 : ">=100.0.0 <103",
+        "magento/module-layered-navigation" : ">=100.0.0 <101",
+        "magento/module-store"              : ">=100.0.0 <102",
+        "magento/module-ui"                 : ">=100.0.0 <102",
+        "magento/module-theme"              : ">=100.0.0 <102"
+    },
+    "type": "magento2-module",
+    "version": "2.8.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "MageWorx\\SeoBase\\": ""
+        }
+    }
+}

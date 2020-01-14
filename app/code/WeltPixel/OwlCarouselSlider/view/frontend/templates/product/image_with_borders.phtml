@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Catalog\Block\Product\Image */ ?>
+
+<span class="product-image-container"
+      style="width:<?php /* @escapeNotVerified */ echo $block->getWidth()?>px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: <?php /* @escapeNotVerified */ echo ($block->getRatio() * 100); ?>%;">
+        <img class="product-image-photo <?php if ($block->getLazyLoad()): echo 'owl-lazy'; endif; ?>"
+            <?php /* @escapeNotVerified */ echo $block->getCustomAttributes(); ?>
+            <?php if (!$block->getLazyLoad()): ?>
+                src="<?php /* @escapeNotVerified */ echo $block->getImageUrl(); ?>"
+            <?php endif ;?>
+             width="<?php /* @escapeNotVerified */ echo $block->getResizedImageWidth(); ?>"
+             height="<?php /* @escapeNotVerified */ echo $block->getResizedImageHeight(); ?>"
+             alt="<?php /* @escapeNotVerified */ echo $block->stripTags($block->getLabel(), null, true); ?>"
+            <?php if ($block->getLazyLoad()): ?>
+                data-src="<?php /* @escapeNotVerified */ echo $block->getImageUrl(); ?>"
+                data-src-retina="<?php /* @escapeNotVerified */ echo $block->getImageUrl(); ?>"
+            <?php endif; ?>
+        /></span>
+</span>

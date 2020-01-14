@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Apptrian
+ * @package   Apptrian_ImageOptimizer
+ * @author    Apptrian
+ * @copyright Copyright (c) Apptrian (http://www.apptrian.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="apptrian_imageoptimizer">
+        <job name="apptrian_imageoptimizer_scan" instance="Apptrian\ImageOptimizer\Cron\Scan" method="execute">
+            <config_path>apptrian_imageoptimizer/cron/expression_scan</config_path>
+        </job>
+        <job name="apptrian_imageoptimizer_optimize" instance="Apptrian\ImageOptimizer\Cron\Optimize" method="execute">
+            <config_path>apptrian_imageoptimizer/cron/expression_optimize</config_path>
+        </job>
+    </group>
+</config>

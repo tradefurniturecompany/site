@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_catalog_product_edit_prepare_form">
+        <observer
+            name="mw_sb_observer_prepare_form_meta_robots"
+            instance="MageWorx\SeoBase\Model\Observer\PrepareForm\Catalog\MetaRobots"
+        />
+        <observer
+            name="mw_sb_observer_prepare_form_cross_domain_store"
+            instance="MageWorx\SeoBase\Model\Observer\PrepareForm\Catalog\CrossDomainStore"
+        />
+    </event>
+    <event name="adminhtml_catalog_category_edit_prepare_form">
+        <observer
+            name="mw_sb_observer_prepare_form_meta_robots"
+            instance="MageWorx\SeoBase\Model\Observer\PrepareForm\Catalog\MetaRobots"
+        />
+    </event>
+    <event name="adminhtml_catalog_product_attribute_edit_frontend_prepare_form">
+        <observer
+            name="mw_sb_observer_attribute_prepare_form_layered_navigation_canonical"
+            instance="MageWorx\SeoBase\Model\Observer\PrepareForm\Attribute\LayeredNavigationCanonical"
+        />
+    </event>
+    <event name="adminhtml_cms_page_edit_tab_meta_prepare_form">
+        <observer
+            name="mw_sb_observer_prepare_form_meta_robots"
+            instance="MageWorx\SeoBase\Model\Observer\PrepareForm\CmsPage\MetaRobots"
+        />
+        <observer
+            name="mw_sb_observer_prepare_form_hreflang_identifier"
+            instance="MageWorx\SeoBase\Model\Observer\PrepareForm\CmsPage\HreflangIdentifier"
+        />
+    </event>
+    <event name="catalog_product_save_commit_after">
+        <observer
+            name="mageworx_seobase_product_canonical_to_save"
+            instance="MageWorx\SeoBase\Model\Observer\CanonicalTo\SaveProductCustomCanonical"
+        />
+    </event>
+    <event name="catalog_product_delete_after_done">
+        <observer
+            name="mageworx_seobase_custom_canonical_on_product_delete"
+            instance="MageWorx\SeoBase\Model\Observer\CustomCanonical\ProcessProductAfterDeleteEventObserver"
+        />
+    </event>
+    <event name="catalog_category_delete_after_done">
+        <observer
+            name="mageworx_seobase_custom_canonical_on_category_delete"
+            instance="MageWorx\SeoBase\Model\Observer\CustomCanonical\ProcessCategoryAfterDeleteEventObserver"
+        />
+    </event>
+    <event name="cms_page_delete_commit_after">
+        <observer
+            name="mageworx_seobase_custom_canonical_on_cms_page_delete"
+            instance="MageWorx\SeoBase\Model\Observer\CustomCanonical\ProcessPageAfterDeleteEventObserver"
+        />
+    </event>
+
+    <event name="mageworx_xmlsitemap_product_generation_before">
+        <observer
+                name="mageworx_seobase_apply_flexible_canonical_strategy"
+                instance="MageWorx\SeoBase\Model\Observer\XmlSitemap\ProductUrlGenerationObserver"
+        />
+    </event>
+
+</config>

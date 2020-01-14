@@ -1,0 +1,53 @@
+"You can exclude any specific CMS, Category, and Product pages from HTML sitemap on the corresponding grids, or on their Edit pages (%linkProduct, %linkCategory, %linkPage).","You can exclude any specific CMS, Category, and Product pages from HTML sitemap on the corresponding grids, or on their Edit pages (%linkProduct, %linkCategory, %linkPage)."
+"In HTML Sitemap","In HTML Sitemap"
+No,No
+Yes,Yes
+"This setting was added by MageWorx HTML Sitemap","This setting was added by MageWorx HTML Sitemap"
+Add,Add
+Crop,Crop
+Position,Position
+Name,Name
+"Use Categories Path","Use Categories Path"
+Root,Root
+Catalog,Catalog
+Pages,Pages
+Links,Links
+Stores,Stores
+SEO,SEO
+"HTML Sitemap","HTML Sitemap"
+"Show Stores","Show Stores"
+"Show Categories ▾","Show Categories ▾"
+"Maximum category depth level","Maximum category depth level"
+"Manages the maximum depth of the categories to show. Leave empty for default (all categories).","Manages the maximum depth of the categories to show. Leave empty for default (all categories)."
+"Show Products ▾","Show Products ▾"
+"If <i>Enabled</i>, HTML Sitemap includes products so that every product is being displayed under the appropriate category. Any Product can be <a target=""_blank"" href=""https://support.mageworx.com/images/manuals/sitemap/image12.png"">excluded manually</a>. Keep it disabled if you have a big number of products.","If <i>Enabled</i>, HTML Sitemap includes products so that every product is being displayed under the appropriate category. Any Product can be <a target=""_blank"" href=""https://support.mageworx.com/images/manuals/sitemap/image12.png"">excluded manually</a>. Keep it disabled if you have a big number of products."
+"According to the category display mode","According to the category display mode"
+"Product URLs","Product URLs"
+"Categories/Products Sort Order","Categories/Products Sort Order"
+"Show CMS Pages","Show CMS Pages"
+"Show Additional Links ▾","Show Additional Links ▾"
+"Additional Links","Additional Links"
+"
+                        A comma-delimited list of links and link labels to append to the sitemap. <b>Example:</b><br/>http://www.mageworx.com,MageWorx.<br/>Link without 'http[s]://' will be treated as relative to this domain.<br/><b>NOTE!</b> http[s]:// is required in case the page is on some other website
+                    ","
+                        A comma-delimited list of links and link labels to append to the sitemap. <b>Example:</b><br/>http://www.mageworx.com,MageWorx.<br/>Link without 'http[s]://' will be treated as relative to this domain.<br/><b>NOTE!</b> http[s]:// is required in case the page is on some other website
+                    "
+"Exclude Pages from Sitemap","Exclude Pages from Sitemap"
+"
+                        You can exclude any specific CMS, Category, and Product pages from HTML sitemap on the corresponding grids, or on their Edit pages (Product, Category, CMS).
+                    ","
+                        You can exclude any specific CMS, Category, and Product pages from HTML sitemap on the corresponding grids, or on their Edit pages (Product, Category, CMS).
+                    "
+"Allow Third-party Links ▾","Allow Third-party Links ▾"
+Title,Title
+"Meta Description","Meta Description"
+"Meta Keywords","Meta Keywords"
+"Common Settings For Sitemaps","Common Settings For Sitemaps"
+"Trailing Slash For Home Page","Trailing Slash For Home Page"
+"<b>NOTE!</b> The trailing slash can be added to pages without suffix .html or .htm","<b>NOTE!</b> The trailing slash can be added to pages without suffix .html or .htm"
+"Trailing Slash For URLs","Trailing Slash For URLs"
+"<b>NOTE!<b> The trailing slash can be added to pages without suffix .html or .htm","<b>NOTE!<b> The trailing slash can be added to pages without suffix .html or .htm"
+"Include in HTML Sitemap","Include in HTML Sitemap"
+"Use in HTML Sitemap","Use in HTML Sitemap"
+"Use in Html Sitemap","Use in Html Sitemap"
+Sitemap,Sitemap

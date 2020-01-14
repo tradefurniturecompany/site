@@ -1,0 +1,6 @@
+"Request Entity Type","Request Entity Identifier","Target Entity Type","Target Entity Identifier","Redirect Type","Store ID"
+"product_id","1","category_id","5","301","0"
+"category_id","2","category_id","6","301","1"
+"product_id","3","page_id","6","301","1"
+"custom_url",'test.html',"product_id","7","302","2"
+"page_id","3","custom_url","http://blog.site.com","301","0"

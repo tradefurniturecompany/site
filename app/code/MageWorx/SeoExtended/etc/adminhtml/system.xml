@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SEO</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_SeoExtended::config_seoextended</resource>
+            <group id="extended" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SEO Extended</label>
+                <group id="meta" translate="label comment" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Information Express Settings:</label>
+                    <comment><![CDATA[The express default settings for <a target="blank" href="https://support.mageworx.com/manuals/seosuite/#glossary_1"> meta robots</a>. For the fine-tuning, use the <a target="blank" href="https://support.mageworx.com/manuals/seosuite/#variables-and-randomizers"> dynamic variables</a> in the category filters. For the mass action generation of the meta information, use the <a target="_blank" href="https://support.mageworx.com/manuals/templates/#extension-configuration">SEO Templates</a>.]]></comment>
+                    <field id="pager_in_title" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Pager Number to Meta Title]]></label>
+                        <source_model>MageWorx\SeoExtended\Model\Source\AddPageNum</source_model>
+                        <comment><![CDATA[Manages the position of the page number for the Meta Title like "Apparel <b>| Page 3</b>" or "<b>Page 3 |</b> Apparel". Use <i>No</i> to hide the page number.]]></comment>
+                    </field>
+                    <field id="pager_in_description" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Pager Number to Meta Description]]></label>
+                        <source_model>MageWorx\SeoExtended\Model\Source\AddPageNum</source_model>
+                        <comment><![CDATA[Manages the position of the page number for the Meta Description like "Apparel <b>| Page 3</b>" or  "<b>Page 3 |</b> Apparel". Use <i>No</i> to hide the page number.]]></comment>
+                    </field>
+                    <field id="pager_in_keywords" translate="label comment" type="select" sortOrder="24" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Pager Number to Meta Keywords]]></label>
+                        <source_model>MageWorx\SeoExtended\Model\Source\AddPageNum</source_model>
+                        <comment><![CDATA[E.g. "Apparel, clother<b>, Page 2</b>"]]></comment>
+                    </field>
+                    <field id="cut_title_prefix_suffix" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Remove Default Title Prefix/Suffix]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Change to <i>Yes</i> to show the Pages block where you can specify the list of the pages where the default Magento 2 suffix/prefix should be omitted.]]></comment>
+                    </field>
+                    
+                    <field id="cut_prefix_suffix_pages" translate="label comment" type="textarea" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Pages]]></label>
+                        <comment><![CDATA[Action names allowed: use catalog_category_view for all categories, catalog_product_view for all products.]]></comment>
+                        <depends>
+                            <field id="cut_title_prefix_suffix">1</field>
+                        </depends>
+                    </field>
+
+                    <field id="layered_filters_in_title" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable Extended Meta Title On Category LN Pages]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[If set to <i>Yes</i>, generates meta title dynamically for category pages when product attributes (filters) are selected. Meta title may include a variety of different product attributes such as price, color, brand etc. like Phones <b>| Price:$300.00 and above; Color:Silver</b>]]></comment>
+                    </field>
+                    <field id="layered_filters_in_description" translate="label comment" type="select" sortOrder="41" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable Extended Meta Description On Category Layered Navigation Pages]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[E.g. 'Phones | <b>Price:$300.00 and above; Color:Silver</b>'</i>]]></comment>
+                    </field>
+                    <field id="layered_filters_in_keywords" translate="label comment" type="select" sortOrder="42" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable Extended Meta Keywords On Category Layered Navigation Pages]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[E.g. 'Phones | <b>Price:$300.00 and above; Color:Silver</b>'</i>]]></comment>
+                    </field>
+
+                    <field id="page_num_string" translate="label text" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                        <label><![CDATA[Page Number Format For Landing Pages]]></label>
+                        <comment><![CDATA[Use %p as page number variable]]></comment>
+                    </field>
+                    <field id="pager_in_lp_title" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                        <label><![CDATA[Add Pager Number to Landing Page Meta Title]]></label>
+                        <source_model>MageWorx\SeoExtended\Model\Source\AddPageNum</source_model>
+                        <comment><![CDATA[E.g. 'Apparel <b>| Page 3</b>']]></comment>
+                    </field>
+
+                    <field id="pager_in_lp_description" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                        <label><![CDATA[Add Pager Number to Landing Page Meta Description]]></label>
+                        <source_model>MageWorx\SeoExtended\Model\Source\AddPageNum</source_model>
+                        <comment><![CDATA[E.g. 'Description of apparel<b> | Page 2</b>']]></comment>
+                    </field>
+
+                    <field id="pager_in_lp_keywords" translate="label comment" type="select" sortOrder="72" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                        <label><![CDATA[Add Pager Number to Landing Page Meta Keywords]]></label>
+                        <source_model>MageWorx\SeoExtended\Model\Source\AddPageNum</source_model>
+                        <comment><![CDATA[E.g. 'Description of apparel<b> | Page 2</b>']]></comment>
+                    </field>
+                    <field id="layered_filters_lp_in_title" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                        <label><![CDATA[Enable Extended Meta Title On Landing Pages Layered Navigation Pages]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[E.g. 'Phones | <b>Price:$300.00 and above, Color:Silver</b>'</i>]]></comment>
+                    </field>
+                    <field id="layered_filters_lp_in_description" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                        <label><![CDATA[Enable Extended Meta Description On Landing Pages Layered Navigation Pages]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="layered_filters_lp_in_keywords" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                        <label><![CDATA[Enable Extended Meta Keywords On Landing Pages Layered Navigation Pages]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                </group>
+                <group id="seo_filters" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Filters:</label>
+                    <comment><![CDATA[This feature provides the possibility to populate the particular SEO information for the specific filter+category combination. For the mass generation of such information on several (or all) categories, use the <a target="_blank" href="https://support.mageworx.com/manuals/templates/#category-filter-templates">SEO Category Filter Templates</a>.]]></comment>
+                    <field id="use_seo_for_category_filters" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable Category Filter Functionality ▾]]></label>
+                        <frontend_model>MageWorx\SeoExtended\Block\Adminhtml\Config\Field\EnableCategoryFilterFunctionality</frontend_model>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="use_on_single_filter" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;SEO Filters for Multiple Filter Selection]]></label>
+                        <source_model>MageWorx\SeoExtended\Model\Source\SingleFilter</source_model>
+                        <comment><![CDATA[Handles the situation when several category filters are applied by the customer at the same time. Set Do Not Use to hide the SEO information in this case. Select Use By Attribute Position to show the SEO information for the filter with the highest <a target="_blank" href="https://support.mageworx.com/images/manuals/seosuite/image181.png">attribute position</a>]]></comment>
+                        <depends>
+                            <field id="seo_filters">1</field>
+                        </depends>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

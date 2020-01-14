@@ -1,0 +1,8 @@
+<div class="sticky-banner-block"
+     data-stickybanner-js="sticky-banner"
+     data-mage-init='{"stickyBanner":{"stickyStatus": <?php echo ($this->getIsSticky()) ? 1 : 0; ?> }}'>
+    <?php echo $this->getLayout()
+        ->createBlock('Magento\Cms\Block\Block')
+        ->setBlockId('homepage_top_banner')
+        ->toHtml(); ?>
+</div>

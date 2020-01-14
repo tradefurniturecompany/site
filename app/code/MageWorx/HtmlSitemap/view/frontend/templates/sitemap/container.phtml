@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+
+<div class="xsitemap">
+    <?php if ($block->isShowStores()): ?>
+    <div class="xsitemap-stores">
+        <?php echo $block->getChildHtml('store_switcher') ?>
+    </div>
+    <div class="clear"></div>
+    <?php endif ?>
+    <?php if ($block->isShowCategories()): ?>
+    <div class="xsitemap-categories">
+        <?php echo $block->getChildHtml('category_tree') ?>
+    </div>
+    <?php endif ?>
+    <div class="xsitemap-pages">
+        <?php if ($block->isShowCmsPages()): ?>
+        <?php echo $block->getChildHtml('cms_pages') ?>
+        <?php endif ?>
+        <?php if ($block->isShowLinks()): ?>
+        <?php echo $block->getChildHtml('links') ?>
+        <?php endif ?>
+    </div>
+    <?php if ($block->isShowCustomLinks()): ?>
+    <?php echo $block->getChildHtml('custom_links') ?>
+    <?php endif ?>
+</div>

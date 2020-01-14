@@ -1,0 +1,26 @@
+<?php $account = $block->getAccount(); ?>
+<?php $code = $block->getCode(); ?>
+<h2>Authentication Confirmation</h2>
+<?php if ( !$code || !$account ): ?>
+   <h3>Errors</h3>
+   <p>Brightpearl OAuth2 has returned with errors</p>
+   <?php if ( !$code ): ?>
+      <div class="message message-error">The authentication code is missing.</div>
+   <?php endif; ?>
+   <?php if ( !$account ): ?>
+      <div class="message message-error">The account is missing.</div>
+   <?php endif; ?>
+<?php else: ?>
+   <h3>Approval Required</h3>
+   <p>Brightpearl OAuth2 has returned succesfully.</p>
+   <p>To complete the OAuth2 process and grant access, select the Approve Authentication button.</p>
+   <p>&nbsp;</p>
+   <form action="<?= $block->getUrl( '*/*/finish', [] ) ?>" method="post" id="oauth2_approve_authentication_form" class="form">
+       <?= $block->getBlockHtml( 'formkey' ); ?>
+       <input type="hidden" name="account" value="<?= $account ?>">
+       <input type="hidden" name="code" value="<?= $code ?>">
+       <button type="submit" name="oauth2_approve_authentication" value="approved" title="<?= $block->escapeHtml(__( 'Approve Authentication to complete the OAuth2 process' )) ?>" class="action">
+          <span><?= __( 'Approve Authentication' ) ?></span>
+       </button>
+   </form>
+<?php endif; ?>

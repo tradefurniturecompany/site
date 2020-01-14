@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <hotlink_framework>
+            <installation>
+                <interaction_report_log_path>var/log/hotlink_framework/report</interaction_report_log_path>
+                <interaction_report_email_level_include>1,2,3,4</interaction_report_email_level_include>
+                <write_streaming_gzip_header>1</write_streaming_gzip_header>
+                <enable_logging>0</enable_logging>
+            </installation>
+            <Hotlink_Framework_Model_Interaction_Log_Cleaning>
+                <enabled>1</enabled>
+                <count>100000</count>
+                <sleep>400</sleep>
+                <monitor_schedule_cron_expr>* */6 * * *</monitor_schedule_cron_expr>
+            </Hotlink_Framework_Model_Interaction_Log_Cleaning>
+        </hotlink_framework>
+    </default>
+</config>

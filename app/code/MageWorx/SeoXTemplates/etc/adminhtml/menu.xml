@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageWorx_SeoXTemplates::seoxtemplates"   title="MageWorx SEO Templates" module="MageWorx_SeoXTemplates" sortOrder="50" parent="Magento_Backend::marketing"  resource="MageWorx_SeoXTemplates::seoxtemplates" />
+        <add id="MageWorx_SeoXTemplates::templateproduct"  title="Product Templates" module="MageWorx_SeoXTemplates" sortOrder="65" parent="MageWorx_SeoXTemplates::seoxtemplates" action="mageworx_seoxtemplates/templateproduct/index" dependsOnModule="Magento_Catalog" resource="MageWorx_SeoXTemplates::templateproduct" />
+        <add id="MageWorx_SeoXTemplates::templatecategory" title="Category Templates" module="MageWorx_SeoXTemplates" sortOrder="70" parent="MageWorx_SeoXTemplates::seoxtemplates" action="mageworx_seoxtemplates/templatecategory/index" dependsOnModule="Magento_Catalog" resource="MageWorx_SeoXTemplates::templatecategory" />
+        <add id="MageWorx_SeoXTemplates::templatelandingpage" title="Landing Page Templates" module="MageWorx_SeoXTemplates" sortOrder="72" parent="MageWorx_SeoXTemplates::seoxtemplates" action="mageworx_seoxtemplates/templatelandingpage/index" dependsOnModule="MageWorx_LandingPagesPro" resource="MageWorx_SeoXTemplates::templatelandingpage" />
+        <add id="MageWorx_SeoXTemplates::templatecategoryfilter" title="Category Filter Templates" module="MageWorx_SeoXTemplates" sortOrder="75" parent="MageWorx_SeoXTemplates::seoxtemplates" action="mageworx_seoxtemplates/templatecategoryfilter/index" dependsOnModule="MageWorx_SeoExtended" resource="MageWorx_SeoXTemplates::templatecategoryfilter" />
+    </menu>
+</config>

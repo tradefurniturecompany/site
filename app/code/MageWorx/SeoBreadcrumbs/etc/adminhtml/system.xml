@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SEO</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_SeoBreadcrumbs::config_seobreadcrumbs</resource>
+            <group id="breadcrumbs" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SEO Breadcrumbs</label>
+                <comment><![CDATA[Adds and manages the <a target="_blank" href="https://support.mageworx.com/manuals/seosuite/#seo-breadcrumbs">SEO Breadcrumbs</a> on the website.]]></comment>
+                <field id="enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Enable SEO Breadcrumbs ▾]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enables the advanced breadcrumbs populated by means of our extension and disables the default ones.]]></comment>
+                </field>
+                <field id="type" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Type]]></label>
+                    <source_model>MageWorx\SeoBreadcrumbs\Model\Source\Type</source_model>
+                    <comment><![CDATA[Handles the situation when some product is assigned to several categories. Select <i>Default</i> to use the default Magento breadcrumbs, <i>Use Shortest</i> to utilize the <b>short</b> version of breadcrumbs (like Store > Category > Product), <i>Use Longest</i> to utilize the <b>full path</b> of breadcrumbs (like Store > Category > Subcategory 1 > Product).]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="by_category_priority" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Use Category Priority]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>MageWorx\SeoBreadcrumbs\Block\Adminhtml\Config\Field\UseCategoryPriority</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,41 @@
+<?php $proxyUrl = $this->getProxyUrl(); ?>
+<table>
+    <tr>
+        <td colspan="2">
+           <div style="margin: 20px 0 10px 0px; padding: 3px 0 0 3px;">
+                <b>Step 1</b>
+           </div>
+        </td>
+    </tr>
+    <tr class="border">
+        <td>
+           <div style="margin: 10px 0 10px 10px; padding: 3px 0 0 3px;">
+                Copy this url (you need it for step 2)
+           </div>
+        </td>
+        <td>
+           <div style="margin: 10px 0 10px 20px; padding: 3px 0 0 3px;">
+                <?php echo $this->getCallbackUrl(); ?>
+           </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+           <div style="margin: 20px 0 10px 0px; padding: 3px 0 0 3px;">
+                <b>Step 2</b>
+           </div>
+         </td>
+    </tr>
+    <tr>
+        <td>
+          <div style="margin: 10px 0 10px 10px; padding: 3px 0 0 3px;">
+                Visit Brightpearls OAuth UI and paste in the above url
+           </div>
+        </td>
+        <td>
+           <div style="margin: 10px 0 10px 20px; padding: 3px 0 0 3px;">
+                <a href="<?php echo $this->getProxyUrl(); ?>" target="_blank">Open Brightpearl OAuth UI in a new window</a>
+           </div>
+        </td>
+    </tr>
+</table>

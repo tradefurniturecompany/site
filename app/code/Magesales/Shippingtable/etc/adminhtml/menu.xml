@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magento_Sales::shipping_table" module="Magesales_Shippingtable" resource="Magento_Sales::shipping_table" sortOrder="100" title="Shipping Table Rates" parent="Magento_Sales::sales_operation" action="shippingtable/method/index"/>
+	</menu>
+</config>

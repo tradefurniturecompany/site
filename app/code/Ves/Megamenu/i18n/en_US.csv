@@ -1,0 +1,240 @@
+"Save Menu","Save Menu"
+"Save and Duplicate","Save and Duplicate"
+"Save and Continue Edit","Save and Continue Edit"
+"Delete Menu","Delete Menu"
+"Edit Menu '%1'","Edit Menu '%1'"
+"New Menu","New Menu"
+"Menu Top","Menu Top"
+Name,Name
+Alias,Alias
+Event,Event
+"Scroll to Fixed","Scroll to Fixed"
+"Additional Class","Additional Class"
+"Disable Dimensions","Disable Dimensions"
+"Enter the width(pixel) want to disable this menu. Empty to disable this feature.<br/><br/><strong>Bootstrap 3 Media Query Breakpoints</strong><br/>Large Devices, Wide Screens: 1200px<br/>Medium Devices, Desktops: 992px<br/>Small Devices, Tablets: 768px<br/>Extra Small Devices, Phones: 480px<br/>iPhone Retina: 320px","Enter the width(pixel) want to disable this menu. Empty to disable this feature.<br/><br/><strong>Bootstrap 3 Media Query Breakpoints</strong><br/>Large Devices, Wide Screens: 1200px<br/>Medium Devices, Desktops: 992px<br/>Small Devices, Tablets: 768px<br/>Extra Small Devices, Phones: 480px<br/>iPhone Retina: 320px"
+"Desktop Template","Desktop Template"
+"Apply when width >= 768px","Apply when width >= 768px"
+"Mobile Template","Mobile Template"
+"Apply when width < 768px","Apply when width < 768px"
+"Disable Item Blocks on mobile","Disable Item Blocks on mobile"
+"Item Blocks: Header Block, Left Block, Right Block, Footer Block","Item Blocks: Header Block, Left Block, Right Block, Footer Block"
+"Customer Groups","Customer Groups"
+"Store View","Store View"
+Status,Status
+Yes,Yes
+No,No
+"Media Storage","Media Storage"
+"Create Folder...","Create Folder..."
+"Delete Folder","Delete Folder"
+"Delete File","Delete File"
+"Insert File","Insert File"
+"New Folder Name:","New Folder Name:"
+"Are you sure you want to delete this folder?","Are you sure you want to delete this folder?"
+"Are you sure you want to delete this file?","Are you sure you want to delete this file?"
+"The menu has been deleted.","The menu has been deleted."
+"We can't find a menu to delete.","We can't find a menu to delete."
+Menu,Menu
+"Manage Menus","Manage Menus"
+"This menu no longer exists.","This menu no longer exists."
+"Edit Menu","Edit Menu"
+Menus,Menus
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"A total of %1 record(s) have been disabled.","A total of %1 record(s) have been disabled."
+"A total of %1 record(s) have been enabled.","A total of %1 record(s) have been enabled."
+"You saved this menu.","You saved this menu."
+"Something went wrong while saving the menu.","Something went wrong while saving the menu."
+"You duplicated this menu.","You duplicated this menu."
+"Something went wrong while duplicating the menu.","Something went wrong while duplicating the menu."
+"General Information","General Information"
+Classes,Classes
+"Link Type","Link Type"
+"Custom Link","Custom Link"
+"Enter hash (#) to make this item not clickable in the top main menu. ","Enter hash (#) to make this item not clickable in the top main menu. "
+Category,Category
+"Link Target","Link Target"
+"Show Icon","Show Icon"
+Icon,Icon
+"Hover Icon","Hover Icon"
+"Icon Position","Icon Position"
+"Icon Classes","Icon Classes"
+"Is Group","Is Group"
+"Set Group to allow All Submenu Items showing in same level of parent menu without hovering on parent to show them","Set Group to allow All Submenu Items showing in same level of parent menu without hovering on parent to show them"
+"Disable Dimesion","Disable Dimesion"
+"Enter the width(pixel) want to disable this item. Empty to disable this feature.<br/><strong>Bootstrap 3 Media Query Breakpoints</strong><br/>Large Devices, Wide Screens: 1200px<br/>Medium Devices, Desktops: 992px<br/>Small Devices, Tablets: 768px<br/>Extra Small Devices, Phones: 480px<br/>iPhone Retina: 320px","Enter the width(pixel) want to disable this item. Empty to disable this feature.<br/><strong>Bootstrap 3 Media Query Breakpoints</strong><br/>Large Devices, Wide Screens: 1200px<br/>Medium Devices, Desktops: 992px<br/>Small Devices, Tablets: 768px<br/>Extra Small Devices, Phones: 480px<br/>iPhone Retina: 320px"
+Dropdown,Dropdown
+Width,Width
+Alignment,Alignment
+"Background Color","Background Color"
+"Background Image","Background Image"
+"Background Repeat","Background Repeat"
+"Background Position X","Background Position X"
+"Background Position Y","Background Position Y"
+"Inline CSS","Inline CSS"
+"Semi-colon separated.","Semi-colon separated."
+Header,Header
+Enabled,Enabled
+"Top HTML","Top HTML"
+"Left Block","Left Block"
+HTML,HTML
+"Main Content","Main Content"
+"Main Content Type","Main Content Type"
+"Parent Category","Parent Category"
+"Get sub-categories","Get sub-categories"
+"Child Menu Column","Child Menu Column"
+"Content HTML","Content HTML"
+"Right Block","Right Block"
+"Bottom Block","Bottom Block"
+"Menu ID","Menu ID"
+"Item ID","Item ID"
+Design,Design
+"Text Color","Text Color"
+"Hover Text Color","Hover Text Color"
+"Background Hover Color","Background Hover Color"
+"Insert Image","Insert Image"
+"Upload Image","Upload Image"
+"WYSIWYG Editor","WYSIWYG Editor"
+"From left menu","From left menu"
+"From right menu","From right menu"
+"From left item","From left item"
+"From right item","From right item"
+Hover,Hover
+Click,Click
+Left,Left
+Right,Right
+"Load in a new window","Load in a new window"
+"Load in the same frame as it was clicked","Load in the same frame as it was clicked"
+"Load in the parent frameset","Load in the parent frameset"
+"Load in the full body of the window","Load in the full body of the window"
+"Category Link","Category Link"
+"Vertical Menu","Vertical Menu"
+"Horizontal Menu","Horizontal Menu"
+"Child Menu Item","Child Menu Item"
+Content,Content
+"Dynamic Content Tab","Dynamic Content Tab"
+Sub-Categories,Sub-Categories
+"Off Canvas","Off Canvas"
+"Tree Menu","Tree Menu"
+"No Repeat","No Repeat"
+"Repeat X","Repeat X"
+"Repeat Y","Repeat Y"
+Round,Round
+Space,Space
+Disabled,Disabled
+"Off Canvas Left","Off Canvas Left"
+"Accordion Menu","Accordion Menu"
+"Vertical Menu Left","Vertical Menu Left"
+"Vertical Menu Right","Vertical Menu Right"
+"A menu alias with the same properties already exists in the selected store and selected customer group.","A menu alias with the same properties already exists in the selected store and selected customer group."
+Edit,Edit
+"Add Menu Item","Add Menu Item"
+"Expand All","Expand All"
+"Collapse All","Collapse All"
+Update,Update
+Delete,Delete
+Cancel,Cancel
+"Structure Preview","Structure Preview"
+"<strong style=""color: red;"">Important:</strong> Save data of current item before selecting other item or saving menu data. If not, the data will lost.","<strong style=""color: red;"">Important:</strong> Save data of current item before selecting other item or saving menu data. If not, the data will lost."
+"General Settings","General Settings"
+"Menu Editor","Menu Editor"
+Sale,Sale
+New,New
+"Learn More","Learn More"
+"Add to Cart","Add to Cart"
+"In stock","In stock"
+"Out of stock","Out of stock"
+"Add to Wish List","Add to Wish List"
+"Add to Compare","Add to Compare"
+"Toggle Nav","Toggle Nav"
+Submit,Submit
+"Ves Megamenu","Ves Megamenu"
+"Select a Menu","Select a Menu"
+Title,Title
+"Ves Megamenu: Products","Ves Megamenu: Products"
+Titlte,Titlte
+"Product Source","Product Source"
+"Latest Products","Latest Products"
+"New products","New products"
+Special,Special
+"Most Popular","Most Popular"
+"Best Seller","Best Seller"
+"Top Rated","Top Rated"
+Random,Random
+Categories,Categories
+"Number Item","Number Item"
+Type,Type
+"Bootstrap Carousel Settings","Bootstrap Carousel Settings"
+"Number item per page","Number item per page"
+"Number Column on Large Desktop","Number Column on Large Desktop"
+"Large devices Desktops (≥1200px)","Large devices Desktops (≥1200px)"
+"Number Column on Desktop","Number Column on Desktop"
+"Medium devices Desktops (≥992px)","Medium devices Desktops (≥992px)"
+"Number Column on Tablets","Number Column on Tablets"
+"Small devices Tablets (≥768px)","Small devices Tablets (≥768px)"
+"Number Column on Phones","Number Column on Phones"
+"Extra small devices Phones (<768px)","Extra small devices Phones (<768px)"
+"Show next/prev buttons.","Show next/prev buttons."
+"Show Dots navigations","Show Dots navigations"
+Interval,Interval
+"The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.","The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle."
+Wrap,Wrap
+"Whether the carousel should cycle continuously or have hard stops.","Whether the carousel should cycle continuously or have hard stops."
+Keyboard,Keyboard
+"Whether the carousel should react to keyboard events.","Whether the carousel should react to keyboard events."
+"OWL Carousel Settings","OWL Carousel Settings"
+"Number Columns On Page (Large display)","Number Columns On Page (Large display)"
+"Show number items when screen size 1200px and up","Show number items when screen size 1200px and up"
+"Number Columns On Page","Number Columns On Page"
+"Show number items when screen size between 1199px and 980px","Show number items when screen size between 1199px and 980px"
+"Number Columns On Page (Portrait tablets)","Number Columns On Page (Portrait tablets)"
+"Show number items when screen size between 979px and 769px","Show number items when screen size between 979px and 769px"
+"Number Columns On Page (Phones to tablets)","Number Columns On Page (Phones to tablets)"
+"Show number items when screen size between 768px and 641px","Show number items when screen size between 768px and 641px"
+"Number Columns On Page (Phones to Small tablets)","Number Columns On Page (Phones to Small tablets)"
+"Show number items when screen size between 640px and 480px","Show number items when screen size between 640px and 480px"
+"Number Columns On Page (Phones)","Number Columns On Page (Phones)"
+"Show number items when screen size bellow 480px","Show number items when screen size bellow 480px"
+"Block Width","Block Width"
+"Item Height","Item Height"
+"Unit: pixel. Empty to set auto height","Unit: pixel. Empty to set auto height"
+"Number of Item per Column","Number of Item per Column"
+"Multiple Row","Multiple Row"
+Margin,Margin
+"Margin-right(px) on item.","Margin-right(px) on item."
+"Mouse Drag","Mouse Drag"
+"Pull Drag","Pull Drag"
+"Free Drag","Free Drag"
+"Stage Padding","Stage Padding"
+"Auto Width","Auto Width"
+Autoplay,Autoplay
+"Autoplay Timeout","Autoplay Timeout"
+"Autoplay HoverPause","Autoplay HoverPause"
+"Show dots navigations","Show dots navigations"
+"Lazy Load","Lazy Load"
+"Infinity loop. Duplicate last and first items to get loop illusion.","Infinity loop. Duplicate last and first items to get loop illusion."
+Loop,Loop
+RTL,RTL
+"Owl will change direction from Right to left.","Owl will change direction from Right to left."
+"Item Settings","Item Settings"
+"Show Name","Show Name"
+"Show Short Description","Show Short Description"
+"Description Character Limit","Description Character Limit"
+"Empty to show all short description","Empty to show all short description"
+"Show More Link","Show More Link"
+"Show Price","Show Price"
+"Show Review","Show Review"
+"Show New Label","Show New Label"
+"Show Sale Label","Show Sale Label"
+"Show Image","Show Image"
+"Image Width","Image Width"
+"Image Height","Image Height"
+"Show Compare Link","Show Compare Link"
+"Show Wishlist Link","Show Wishlist Link"
+"Show Add To Cart Button","Show Add To Cart Button"
+"Add New Menu","Add New Menu"
+"Delete items","Delete items"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+Disable,Disable
+Enable,Enable
+ID,ID
+Created,Created
+Modified,Modified

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    	<referenceContainer name="admin.scope.col.wrap" htmlClass="admin__old" /> <!-- TODO: Remove when magento fix this. -->
+    	
+        <referenceContainer name="content">
+            <block class="Customweb\RealexCw\Block\Adminhtml\Transaction\View" name="realexcw_transaction_view">
+                <block class="Customweb\RealexCw\Block\Adminhtml\Transaction\View\Form" name="form" template="transaction/view/form.phtml">
+                	<block class="Magento\Sales\Block\Adminhtml\Order\View\Info" name="order_info" template="order/view/info.phtml"/>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

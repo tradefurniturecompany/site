@@ -1,0 +1,37 @@
+<?php
+/** @var $block \MageWorx\StoreLocator\Block\Popup */
+?>
+
+<div id="mwReviewPopup" class="modal">
+    <div class="modal-content">
+        <div class="text">
+            <?php echo __('We are sorry you had a disappointing experience with MageWorx. Please, take a few minutes to share what went wrong & help us improve your experience.')?>
+        </div>
+        <div>
+            <form id="review_data">
+                <textarea name="detail" class="input-textarea admin__control-textarea" placeholder="<?php echo __('Message')?>"></textarea>
+                <div class="text">
+                    <?php echo __('Enter your email address so that we could get back to you ASAP.')?>
+                </div>
+                <input type="text" name="email" class="input-text admin__control-text" placeholder="<?php echo __('Email')?>"/>
+                <input name="ext_code" type="hidden">
+                <input name="rating" type="hidden">
+            </form>
+            <div class="text">
+                <?php echo __('By clicking the send button, you agree to MageWorx')?> <a href="https://www.mageworx.com/privacy-cookie-gdpr-policy" target="_blank"> <?php echo __('Privacy Policy')?></a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-content-2">
+        <div class="text">
+            <?php echo __('Please, take a quick minute to leave us a review:')?>
+        </div>
+        <a id="mw-marketplace-link" target="_blank"><button class="action-default scalable save primary ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+            <img src="<?php echo $block->getViewFileUrl('MageWorx_Info::images/magento-icon.svg');?>" style="display: inline-block; vertical-align: middle; margin-right: 10px;"/>
+            <span class="ui-button-text"><?php echo __('Review us on Magento Marketplace')?></span>
+        </button></a>
+        <div class="text">
+            <strong><?php echo __('Click on the button to be taken directly to the review page.')?></strong>
+        </div>
+    </div>
+</div>

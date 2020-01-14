@@ -1,0 +1,13 @@
+/*
+CSS to add logo to the payment method
+*/
+label[for="banktransfer"] {
+background-image: url("https://www.finance-calculator.co.uk/images/v12_cc.gif");
+background-position: right center;
+background-repeat: no-repeat;
+background-size: 35%;
+padding-bottom: 10px;
+padding-right: 70px;
+padding-top: 0px;
+}
+

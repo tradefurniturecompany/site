@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="seoxtemplates">
+        <job name="mageworx_seoxtemplates_product_meta_title_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateProductTemplate" method="generateMetaTitle">
+            <schedule>0 1 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_product_meta_description_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateProductTemplate" method="generateMetaDescription">
+            <schedule>20 1 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_product_meta_keyword_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateProductTemplate" method="generateMetaKeywords">
+            <schedule>40 1 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_product_seo_name_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateProductTemplate" method="generateSeoName">
+            <schedule>0 2 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_product_url_key_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateProductTemplate" method="generateUrl">
+            <schedule>20 2 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_product_description_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateProductTemplate" method="generateDescription">
+            <schedule>40 2 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_product_short_description_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateProductTemplate" method="generateShortDescription">
+            <schedule>0 3 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_product_gallery_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateProductTemplate" method="generateGallery">
+            <schedule>10 3 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_category_meta_title_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateCategoryTemplate" method="generateMetaTitle">
+            <schedule>20 3 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_category_meta_description_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateCategoryTemplate" method="generateMetaDescription">
+            <schedule>40 3 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_category_meta_keywords_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateCategoryTemplate" method="generateMetaKeywords">
+            <schedule>0 4 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_category_description_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateCategoryTemplate" method="generateDescription">
+            <schedule>20 4 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_landingpage_meta_title_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateLandingPageTemplate" method="generateMetaTitle">
+            <schedule>40 4 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_clandingpage_meta_description_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateLandingPageTemplate" method="generateMetaDescription">
+            <schedule>0 5 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_landingpage_meta_keywords_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateLandingPageTemplate" method="generateMetaKeywords">
+            <schedule>20 5 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_landingpage_text_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateLandingPageTemplate" method="generateText">
+            <schedule>40 5 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_landingpage_header_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateLandingPageTemplate" method="generateHeader">
+            <schedule>0 6 * * *</schedule>
+        </job>
+        <job name="mageworx_seoxtemplates_landingpage_url_generate" instance="MageWorx\SeoXTemplates\Cron\GenerateLandingPageTemplate" method="generateUrlKey">
+            <schedule>20 6 * * *</schedule>
+        </job>
+    </group>
+</config>

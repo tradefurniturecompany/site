@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <seocrosslinks>
+                <enabled>1</enabled>
+                <replacement_count_product>2</replacement_count_product>
+                <replacement_count_category>2</replacement_count_category>
+                <replacement_count_cms_page>2</replacement_count_cms_page>
+                <replacement_count_landingpage>2</replacement_count_landingpage>
+                <use_name_for_title>2</use_name_for_title>
+                <product_attributes>short_description,description</product_attributes>
+                <show_edit_default>0</show_edit_default>
+                <default_target>1</default_target>
+                <default_reference>ref_static_url</default_reference>
+                <default_replacement_count>1</default_replacement_count>
+                <default_priority>50</default_priority>
+                <default_status>1</default_status>
+                <default_destination>product_page,category_page,cms_page_content,landingpage</default_destination>
+            </seocrosslinks>
+        </mageworx_seo>
+    </default>
+</config>

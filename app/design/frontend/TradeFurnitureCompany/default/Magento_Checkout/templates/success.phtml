@@ -1,0 +1,56 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+<div class="checkout-success">
+    <?php if ($block->getOrderId()): ?>
+        <?php if ($block->getCanViewOrder()) : ?>
+        <p><?= __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
+        <?php else : ?>
+        <p><?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+        <?php endif; ?>
+      <p><?= /* @escapeNotVerified */
+          __('We\'ll email you an order confirmation with details and tracking info.') ?></p>
+    <?php endif; ?>
+
+    <?= $block->getAdditionalInfoHtml() ?>
+
+  <div class="actions-toolbar">
+    <div class="primary">
+      <a class="action primary continue"
+         href="<?= /* @escapeNotVerified */
+         $block->getContinueUrl() ?>"><span><?= /* @escapeNotVerified */
+              __('Continue Shopping') ?></span></a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  /* <![CDATA[ */
+  var page_type = "purchase";
+  var google_tag_params = {
+    ecomm_pagetype: page_type
+  };
+  var google_conversion_id = 1052983057;
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+  /* ]]> */
+</script>
+<script type="text/javascript"
+        src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+  <div style="display:inline;">
+    <img height="1"
+         width="1"
+         style="border-style:none;"
+         alt=""
+         src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1052983057/?guid=ON&amp;script=0"/>
+  </div>
+</noscript>

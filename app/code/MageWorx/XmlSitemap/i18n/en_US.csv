@@ -1,0 +1,85 @@
+Save,Save
+"Save & Generate","Save & Generate"
+"Edit Sitemap '%1'","Edit Sitemap '%1'"
+"New Sitemap","New Sitemap"
+Sitemap,Sitemap
+Filename,Filename
+Path,Path
+"Path Card Code","Path Card Code"
+"Store View","Store View"
+"Split Sitemap","Split Sitemap"
+"Separate sitemaps will be created for selected entity types.","Separate sitemaps will be created for selected entity types."
+"Sitemap file names will contain corresponding suffix.","Sitemap file names will contain corresponding suffix."
+"E.g.: sitemap_products.xml","E.g.: sitemap_products.xml"
+"Entity Type","Entity Type"
+"The sitemap no longer exists.","The sitemap no longer exists."
+"The ""%1"" sitemap has been deleted.","The ""%1"" sitemap has been deleted."
+"We can't find a sitemap to delete.","We can't find a sitemap to delete."
+"The sitemap ""%1"" has been generated.","The sitemap ""%1"" has been generated."
+"We can't generate the sitemap right now.","We can't generate the sitemap right now."
+"We can't find a sitemap to generate.","We can't find a sitemap to generate."
+"Sitemap by MageWorx","Sitemap by MageWorx"
+"Sitmap by MageWorx","Sitmap by MageWorx"
+"Sitemap %1 was successfully saved","Sitemap %1 was successfully saved"
+"Something went wrong while saving the sitemap.","Something went wrong while saving the sitemap."
+Add,Add
+Crop,Crop
+"Additional links","Additional links"
+Categories,Categories
+"CMS Pages","CMS Pages"
+Products,Products
+Images,Images
+"Unfortunately, the process of generating sitemap(s) went wrong.","Unfortunately, the process of generating sitemap(s) went wrong."
+Module,Module
+Date,Date
+"Sitemap(s) with id(s)  %1 were not updated.","Sitemap(s) with id(s)  %1 were not updated."
+"In XML Sitemap","In XML Sitemap"
+No,No
+Yes,Yes
+"This setting was added by MageWorx XML Sitemap","This setting was added by MageWorx XML Sitemap"
+"Please choose store view","Please choose store view"
+"Please define correct path","Please define correct path"
+"Please create the specified folder ""%1"" before saving the sitemap.","Please create the specified folder ""%1"" before saving the sitemap."
+"Please make sure that ""%1"" is writable by web-server.","Please make sure that ""%1"" is writable by web-server."
+"Please use only letters (a-z or A-Z), numbers (0-9) or underscore (_) in the filename. No spaces or other characters are allowed.","Please use only letters (a-z or A-Z), numbers (0-9) or underscore (_) in the filename. No spaces or other characters are allowed."
+"The sitemap index file can't be created without storeBaseUrl . Process is canceled.","The sitemap index file can't be created without storeBaseUrl . Process is canceled."
+"Sitemap Writer class wasn't initialized.","Sitemap Writer class wasn't initialized."
+"Location value '%1' is not valid.","Location value '%1' is not valid."
+"Changefreq value '%1' is not valid. Item url: '%2'.","Changefreq value '%1' is not valid. Item url: '%2'."
+"Lastmod value '%1' is not valid. Item url: '%2'.","Lastmod value '%1' is not valid. Item url: '%2'."
+"Priority value '%1' is not valid. Item url: '%2'.","Priority value '%1' is not valid. Item url: '%2'."
+"The following file renaming from: file %1 into %2 is impossible.","The following file renaming from: file %1 into %2 is impossible."
+"Relocation of the file %1 to %2 is impossible.","Relocation of the file %1 to %2 is impossible."
+Generate,Generate
+Edit,Edit
+Delete,Delete
+"Delete ""${ $.$data.sitemap_filename}""","Delete ""${ $.$data.sitemap_filename}"""
+"Are you sure you want to delete sitemap?","Are you sure you want to delete sitemap?"
+"For each store","For each store"
+SEO,SEO
+"XML Sitemap","XML Sitemap"
+"XML Sitemap helps the search bot index the pages including those that might have been ignored otherwise. An XML sitemap is written for the search bots (as opposed to the HTML Sitemap that is created for the real clients).","XML Sitemap helps the search bot index the pages including those that might have been ignored otherwise. An XML sitemap is written for the search bots (as opposed to the HTML Sitemap that is created for the real clients)."
+"Homepage Optimization","Homepage Optimization"
+"Сrops the identifier (like /home/) from the homepage URL and sends its priority to the highest (1.0).","Сrops the identifier (like /home/) from the homepage URL and sends its priority to the highest (1.0)."
+"Enable Additional Links","Enable Additional Links"
+"List of links to append to the XML Sitemap. Link without 'http[s]://' will be treated as relative to this domain.<br/> <b>NOTE!</b> http:// is required in case the page is on some other website.","List of links to append to the XML Sitemap. Link without 'http[s]://' will be treated as relative to this domain.<br/> <b>NOTE!</b> http:// is required in case the page is on some other website."
+"Additional Links","Additional Links"
+Frequency,Frequency
+Priority,Priority
+"Sort the pages <b>on your store only</b> according to their importance. Won't affect your site rankings among other websites. Valid values range from 0.0 to 1.0.","Sort the pages <b>on your store only</b> according to their importance. Won't affect your site rankings among other websites. Valid values range from 0.0 to 1.0."
+"Exclude ""Out of Stock"" Products","Exclude ""Out of Stock"" Products"
+"Enable Validate URLs","Enable Validate URLs"
+"Select <i>No</i> if you are using the <a target=""_blank"" href=""https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters"">specific literal characters</a> in the URLs.","Select <i>No</i> if you are using the <a target=""_blank"" href=""https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters"">specific literal characters</a> in the URLs."
+"Common Settings For Sitemaps","Common Settings For Sitemaps"
+"Trailing Slash For URLs","Trailing Slash For URLs"
+"Note: the trailing slash can be added to pages without suffix .html or .htm","Note: the trailing slash can be added to pages without suffix .html or .htm"
+"Include in XML sitemap","Include in XML sitemap"
+"Use in XML Sitemap","Use in XML Sitemap"
+"Include in XML Sitemap","Include in XML Sitemap"
+"Add Sitemap","Add Sitemap"
+"Delete sitemaps","Delete sitemaps"
+"Are you sure you want to delete selected sitemaps?","Are you sure you want to delete selected sitemaps?"
+ID,ID
+"Last Generated","Last Generated"
+"Link for Google","Link for Google"
+"Entity breakdown","Entity breakdown"

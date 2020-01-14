@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Core/etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <xml_sitemap>
+                <homepage_optimize>1</homepage_optimize>
+                <enable_additional_links>0</enable_additional_links>
+                <additional_links_priority>0.2</additional_links_priority>
+                <exclude_out_of_stock_products>0</exclude_out_of_stock_products>
+                <add_hreflangs>0</add_hreflangs>
+                <enable_validate_urls>1</enable_validate_urls>
+                <exclude_noindex>0</exclude_noindex>
+            </xml_sitemap>
+            <common_sitemap>
+                <trailing_slash_home_page>0</trailing_slash_home_page>
+                <trailing_slash>1</trailing_slash>
+            </common_sitemap>
+        </mageworx_seo>
+    </default>
+</config>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\Response\Http">
+        <plugin name="MageWorx_SeoMarkup::responseHttpBefore" type="MageWorx\SeoMarkup\Plugin\ProductList\ResponseHttpBefore" sortOrder="1" disabled="false"/>
+    </type>
+    <type name="Magento\Review\Block\Product\ReviewRenderer">
+        <plugin name="mageworx_seomarkup_disable_review_markup"
+                type="MageWorx\SeoMarkup\Plugin\DisableDefaultReviewMarkupPlugin" sortOrder="1"/>
+    </type>
+    <type name="Smartwave\Porto\Block\RickSnippet">
+        <plugin name="mageworx_seomarkup_disable_porto_review_markup"
+                type="MageWorx\SeoMarkup\Plugin\DisableDefaultReviewMarkupPlugin" sortOrder="1"/>
+    </type>
+</config>

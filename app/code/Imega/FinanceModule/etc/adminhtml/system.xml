@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="imegamedia" translate="label" sortOrder="999">
+            <label>imegamedia Retail Finance</label>
+        </tab>
+        <section id="retailfinance" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Module Configuration</label>
+            <tab>imegamedia</tab>
+            <resource>Imega_FinanceModule::financemodule_config_config</resource>
+            <group id="module_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Module Settings</label>
+                <field id="finance_provider" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Finance Provider*</label>
+                    <source_model>Imega\FinanceModule\Model\Config\Source\FinanceProviders</source_model>
+                </field>
+                <field id="api_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key*</label>
+                </field>
+                <field id="enc_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Encryption Key*</label>
+                </field>
+            </group>
+            <group id="productpage" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Page Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Widget</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="position_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Positioning Selector*</label>
+                    <comment>jQuery selector used to position the widget</comment>
+                </field>
+                <field id="position" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position*</label>
+                    <source_model>Imega\FinanceModule\Model\Config\Source\PositionList</source_model>
+                </field>
+                <field id="price_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price Text Selector</label>
+                    <comment>jQuery selector to watch for dynamic price text</comment>
+                </field>
+                <field id="inner_price_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Inner Price Text Selector</label>
+                    <comment>jQuery selector for element containing price text, only set if element not selected by "Price Text Selector"</comment>
+                </field>
+                <field id="anchor_margin" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Anchor Margin</label>
+                    <comment>Should be a valid CSS margin value</comment>
+                </field>
+                <field id="anchor_width" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Anchor Width</label>
+                    <comment>Should be a valid CSS width value</comment>
+                </field>
+                <field id="show_inline" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Inline</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="inline_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Inline Selector</label>                    
+                </field>
+            </group>
+            <group id="cartpage" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cart Page Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Widget</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="position_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Positioning Selector*</label>
+                    <comment>jQuery selector used to position the widget</comment>
+                </field>
+                <field id="position" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position*</label>
+                    <source_model>Imega\FinanceModule\Model\Config\Source\PositionList</source_model>
+                </field>
+                <field id="price_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price Text Selector</label>
+                    <comment>jQuery selector to watch for dynamic price text</comment>
+                </field>
+                <field id="inner_price_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Inner Price Text Selector</label>
+                    <comment>jQuery selector for element containing price text, only set if element not selected by "Price Text Selector"</comment>
+                </field>
+                <field id="anchor_margin" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Anchor Margin</label>
+                    <comment>Should be a valid CSS margin value</comment>
+                </field>
+                <field id="anchor_width" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Anchor Width</label>
+                    <comment>Should be a valid CSS width value</comment>
+                </field>
+            </group>
+            <group id="categorypage" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category Page Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Monthly Amount Display</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="outer_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Outer Selector*</label>
+                </field>
+                <field id="price_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price Text Selector*</label>
+                </field>
+                <field id="position_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Positioning Selector</label>
+                </field>
+                <field id="position" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position*</label>
+                    <source_model>Imega\FinanceModule\Model\Config\Source\PositionList</source_model>
+                </field>
+                <field id="prefix" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Prefix</label>
+                </field>
+                <field id="suffix" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Suffix</label>
+                </field>
+                <field id="custom_css" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom CSS</label>
+                </field>
+            </group>
+            <group id="checkout_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Checkout Settings</label>
+                <field id="position_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Positioning Selector*</label>
+                    <comment>jQuery selector used to position the checkout form</comment>
+                </field>
+                <field id="logo_css" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Logo CSS</label>
+                    <comment>Additional logo CSS styles</comment>
+                </field>
+                <field id="payment_method" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Method Used*</label>
+                    <comment>The payment method used for finance (Enter Magento payment method code)</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

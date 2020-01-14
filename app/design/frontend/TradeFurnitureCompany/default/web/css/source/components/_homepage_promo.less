@@ -1,0 +1,75 @@
+& when (@media-common = true) {
+  .categorypath-mango-furniture {
+    .page-main .block {
+      margin-bottom: 30px;
+    }
+  }
+  .homepage-promo {
+    .lib-css(text-align, center);
+    .wrapper {
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+        .lib-css(display, flex);
+        .lib-css(align-items, center);
+      }
+    }
+    p {
+      color: @color-white;
+    }
+    .big-text {
+      .lib-font-size(22);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .small-text {
+      .lib-font-size(16);
+    }
+  }
+  .category-mango-furniture .category-page-subcategories {
+    display: none;
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .homepage-promo {
+    .wrapper {
+      .row {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .homepage-promo {
+    .wrapper {
+      .row {
+        margin-bottom: 15px;
+        margin-top: 30px;
+        a {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .homepage-promo {
+    .wrapper {
+      .row {
+        .lib-css(flex-direction, column);
+        .lib-css(justify-content, flex-end);
+        margin-bottom: 15px;
+        margin-top: 10px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

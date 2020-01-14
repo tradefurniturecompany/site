@@ -1,0 +1,12 @@
+<?php
+/**
+ * @see Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\Action
+ */
+?>
+
+<div class="actions">
+    <?php $action = $block->getActionUrl(); ?>
+    <button onclick="location.href='<?php echo $action; ?>';" type="button" id="<?php echo $block->getHtmlId() ?>">
+        <span><?php echo $block->escapeHtml( $block->getButtonLabel() ) ?></span>
+    </button>
+</div>

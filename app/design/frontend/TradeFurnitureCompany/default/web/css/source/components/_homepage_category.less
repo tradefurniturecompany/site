@@ -1,0 +1,42 @@
+& when (@media-common = true) {
+  .homepage-category {
+    .image-wrapper {
+      margin-bottom: 15px;
+    }
+
+    .image-block {
+      text-align: center;
+      border: 1px solid #ccc;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+    .caption {
+      text-align: center;
+      background-color: #2c4e6a;
+      color: #fff;
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .homepage-category {
+    .image-block {
+      padding: 50px 20px;
+      height: 250px;
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .homepage-category {
+    .image-block {
+      padding: 20px 5px;
+      height: 120px;
+    }
+  }
+}

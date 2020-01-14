@@ -1,0 +1,228 @@
+<?php  /* @var \WeltPixel\OwlCarouselSlider\Block\Slider\Custom $this */ ?>
+
+<?php $sliderConfig  = $this->getSliderConfiguration(); ?>
+<?php $sliderGeneral = $sliderConfig['slider_config']; ?>
+<?php $enabled       = (array_key_exists('status', $sliderGeneral) && $sliderGeneral['status'] !=0) ? true : false; ?>
+
+<?php if ($enabled) : ?>
+
+    <?php
+    $sliderId     = $this->getData('slider_id');
+    $breakpoint   = $this->getBreakpointConfiguration();
+    $bannerConfig = $sliderConfig['banner_config'];
+    $sliderConfig = json_encode($sliderGeneral);
+    $mediaUrl     = $this->getMediaUrl();
+    $isGatEnabled = $this->isGatEnabled();
+    ?>
+    
+    <?php if ($sliderGeneral['show_title'] && trim($sliderGeneral['title'])) : ?>
+        <div class="content-heading">
+            <h2 class="title"><?php echo $sliderGeneral['title']; ?></h2>
+        </div>
+    <?php endif; ?>
+
+    <div class="custom-slider">
+        <div class="owl-carousel-custom-<?php echo $sliderId;?>">
+            <?php foreach($bannerConfig as $banner) : ?>
+                <?php
+                    $title = (array_key_exists('title', $banner) && $banner['title'] !='') ? $banner['title'] : false;
+                    $showTitle = array_key_exists('show_title', $banner) ? $banner['show_title'] : false;
+                    $description = (array_key_exists('description', $banner) && $banner['description'] !='')
+                        ? $banner['description'] : false;
+                    $showDescription = array_key_exists('show_description', $banner)
+                        ? $banner['show_description'] : false;
+                    $url = array_key_exists('url', $banner) ? $banner['url'] : null;
+                    $target = array_key_exists('target', $banner) ? $banner['target'] : '_blank';
+                    $bannerType = array_key_exists('banner_type', $banner) ? $banner['banner_type'] : '';
+                    $image = array_key_exists('image', $banner) ? $banner['image'] : '';
+                    $altText = array_key_exists('alt_text', $banner) ? $banner['alt_text'] : '';
+                    $video = array_key_exists('video', $banner) ? $banner['video'] : '';
+                    $custom = array_key_exists('custom', $banner) ? $banner['custom'] : '';
+                    $buttonText = array_key_exists('button_text', $banner) ? $banner['button_text'] : null;
+                    $customContent = array_key_exists('custom_content', $banner) ? $banner['custom_content'] : '';
+                    $customCss = array_key_exists('custom_css', $banner) ? $banner['custom_css'] : '';
+
+                    $gaPromoId = array_key_exists('ga_promo_id', $banner) ? $banner['ga_promo_id'] : '';
+                    $gaPromoName = array_key_exists('ga_promo_name', $banner) ? $banner['ga_promo_name'] : '';
+                    $gaPromoCreative = array_key_exists('ga_promo_creative', $banner) ? $banner['ga_promo_creative'] : '';
+                    $gaPromoPosition = array_key_exists('ga_promo_position', $banner) ? $banner['ga_promo_position'] : '';
+                ?>
+
+                    <div class="banner-item banner-<?php echo $banner['id']; ?>">
+                        <?php if ($bannerType == 1) : ?>
+                            <?php if (!$buttonText): ?>
+                                <?php if (isset($url)): ?>
+                                    <a
+                                        href="<?php echo $url; ?>"
+                                        target="<?php echo $target; ?>"
+                                        <?php if($isGatEnabled):?>
+                                            data-track-promo-id="<?php echo $gaPromoId; ?>"
+                                            data-track-promo-name="<?php echo $gaPromoName; ?>"
+                                            data-track-promo-creative="<?php echo $gaPromoCreative; ?>"
+                                            data-track-promo-position="<?php echo $gaPromoPosition; ?>"
+                                        <?php endif;?>
+                                    >
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            <span class="banner-image">
+                                <img
+                                    <?php if (!$sliderGeneral['lazyLoad']) : ?>
+                                    src="<?php echo $mediaUrl . $image; ?>"
+                                    <?php endif; ?>
+                                     alt="<?php echo $altText; ?>" title="<?php echo $altText; ?>"
+                                    <?php echo $sliderGeneral['lazyLoad'] ? 'data-src="' . $mediaUrl
+                                        . $image . '" data-src-retina="' . $mediaUrl . $image
+                                        . '" class="owl-lazy"' : '' ?>
+                                />
+                            </span>
+                            <?php if (!$buttonText): ?>
+                                <?php if (isset($url)): ?>
+                                    </a>
+                                <?php endif; ?>
+                            <?php endif; ?>
+
+                        <?php elseif ($bannerType == 3) : ?>
+                            <?php if (!$buttonText): ?>
+                                <?php if ($url): ?>
+                                    <a href="<?php echo $url; ?>" target="<?php echo $target; ?>" >
+                                <?php endif; ?>
+                            <?php endif; ?>
+                                <span class="banner-custom">
+                                    <?php echo $custom; ?>
+                                </span>
+                            <?php if (!$buttonText): ?>
+                                <?php if ($url): ?>
+                                    </a>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <?php elseif ($bannerType == 2) : ?>
+                            <span class="banner-video">
+                                <?php echo $this->getVideoHtml($video);  ?>
+                            </span>
+                        <?php endif; ?>
+                        <div class="content_slider">
+                            <?php if ($showTitle && $title) : ?>
+                                <span class="banner-title"><?php echo $title; ?></span>
+                            <?php endif; ?>
+
+                            <?php if ($showDescription && $description) : ?>
+                                <span class="banner-description"><?php echo $description; ?></span>
+                            <?php endif; ?>
+
+                            <div class="buttons">
+                                <?php if ($customCss): ?>
+                                    <style scoped>
+                                        <?php echo $customCss; ?>
+                                    </style>
+                                <?php endif; ?>
+                                <?php if ($buttonText && $url): ?>
+                                    <a class="action primary" href="<?php echo $url; ?>" target="<?php echo $target; ?>"
+                                        <?php if($isGatEnabled):?>
+                                            data-track-promo-id="<?php echo $gaPromoId; ?>"
+                                            data-track-promo-name="<?php echo $gaPromoName; ?>"
+                                            data-track-promo-creative="<?php echo $gaPromoCreative; ?>"
+                                            data-track-promo-position="<?php echo $gaPromoPosition; ?>"
+                                        <?php endif;?>
+                                    >
+                                        <?php echo $buttonText; ?>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if ($customContent): ?>
+                                    <div class="clearfix"></div>
+                                    <div class="custom_content">
+                                        <?php echo $customContent; ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+
+            <?php endforeach; ?>
+        </div>
+        <div id="pre-div">
+            <div class="cssload-loader">
+                <div class="cssload-inner cssload-one"></div>
+                <div class="cssload-inner cssload-two"></div>
+                <div class="cssload-inner cssload-three"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        require(['jquery', 'owl_carousel', 'owl_config' ],
+            function ($) {
+                $(document).ready(function() {
+
+                    var slider_id = <?php echo $sliderId; ?>;
+                    var slider_config = <?php echo $sliderConfig; ?>;
+
+                    var items = ((slider_config.items >= 0 && slider_config.items != null) ? slider_config.items : 1);
+                    if(slider_config.transition != 'slide') {
+                        items = 1;
+                    }
+
+                    var stagePadding = slider_config.stagePadding != '' ? parseInt(slider_config.stagePadding) : 0;
+                    var animate_Out = slider_config.transition != 'fadeOut' ? true : false;
+
+                    /** Lazyload bug when fewer items exist in the carousel then the ones displayed */
+                    $('.owl-carousel-custom-'+slider_id).on('initialized.owl.carousel', function(event){
+                        var scopeSize = event.page.size;
+                        for (var i = 0; i < scopeSize; i++){
+                            var imgsrc = $(event.target).find('.owl-item').eq(i).find('img').attr('data-src');
+                            $(event.target).find('.owl-item').eq(i).find('img').attr('src', imgsrc);
+                            $(event.target).find('.owl-item').eq(i).find('img').attr('style', 'opacity: 1;');
+                        }
+                    });
+
+                    $('.owl-carousel-custom-'+slider_id).owlCarousel({
+                        nav               :parseInt(slider_config.nav) == 1 ? true : false,
+                        dots              :parseInt(slider_config.dots) == 1 ? true : false,
+                        center            :(slider_config.center == 1 && animate_Out) ? true : false,
+                        items             :items,
+                        loop              :parseInt(slider_config.loop) == 1 ? true : false,
+                        margin            :(slider_config.margin != '' && animate_Out) ? parseInt(slider_config.margin) : 0,
+                        stagePadding      :parseInt(slider_config.center) == 1 ? 0 : stagePadding,
+                        lazyLoad          :parseInt(slider_config.lazyLoad) == 1 ? true : false,
+                        autoplay          :parseInt(slider_config.autoplay) == 1 ? true : false,
+                        autoplayTimeout   :(parseInt(slider_config.autoplayTimeout) > 0 && slider_config.autoplayTimeout != null) ? parseInt(slider_config.autoplayTimeout) : 3000,
+                        autoplayHoverPause:parseInt(slider_config.autoplayHoverPause) == 1 ? true : false,
+                        autoHeight        :parseInt(slider_config.autoHeight) == 1 ? true : false,
+                        animateOut        :slider_config.transition == 'slide' ? false : slider_config.transition,
+
+
+                        responsive:{
+                            <?php echo $breakpoint['breakpoint_1']; ?>:{
+                                nav     :parseInt(slider_config.nav_brk1) == 1 ? true : false,
+                                items   :parseInt(slider_config.items_brk1  >= 0 ? slider_config.items_brk1 : 0),
+                            },
+                            <?php echo $breakpoint['breakpoint_2']; ?>:{
+                                nav     :parseInt(slider_config.nav_brk2) == 1 ? true : false,
+                                items   :parseInt(slider_config.items_brk2  >= 0 ? slider_config.items_brk2 : 0),
+                            },
+                            <?php echo $breakpoint['breakpoint_3']; ?>:{
+                                nav     :parseInt(slider_config.nav_brk3) == 1 ? true : false,
+                                items   :parseInt(slider_config.items_brk3  >= 0 ? slider_config.items_brk3 : 0),
+                            },
+                            <?php echo $breakpoint['breakpoint_4']; ?>:{
+                                nav     :parseInt(slider_config.nav_brk4) == 1 ? true : false,
+                                items   :parseInt(slider_config.items_brk4  >= 0 ? slider_config.items_brk4 : 0),
+                            }
+                        }
+                    });
+
+                    $('.owl-carousel-custom-'+slider_id).on('resized.owl.carousel', function (event) {
+                        var $that = $(this);
+                        setTimeout(function(){
+                            $that.find('.owl-height').css('height', $that.find('.owl-item.active').height());
+                        }, 100);
+                    });
+
+                    setTimeout(function(){
+                        var $that = $('.owl-carousel-custom-'+slider_id);
+                        $that.find('.owl-height').css('height', $that.find('.owl-item.active').height());
+                    }, 100);
+
+                });
+            });
+    </script>
+<?php endif; ?>

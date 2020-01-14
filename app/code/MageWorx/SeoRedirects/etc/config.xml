@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mageworx_seo>
+            <seoredirects>
+                <deleted_product>
+                    <enabled>0</enabled>
+                    <redirect_type>301</redirect_type>
+                    <redirect_target>0</redirect_target>
+                    <count_stable_day>30</count_stable_day>
+                </deleted_product>
+                <custom>
+                    <enabled>0</enabled>
+                    <keep_for_deleted_entities>0</keep_for_deleted_entities>
+                </custom>
+            </seoredirects>
+        </mageworx_seo>
+    </default>
+</config>

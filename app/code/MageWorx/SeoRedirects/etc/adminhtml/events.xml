@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_delete_after_done">
+        <observer name="mageworx_custom_redirect_on_product_delete" instance="MageWorx\SeoRedirects\Observer\CustomRedirect\ProcessProductAfterDeleteEventObserver" />
+    </event>
+    <event name="catalog_category_delete_after_done">
+        <observer name="mageworx_custom_redirect_on_category_delete" instance="MageWorx\SeoRedirects\Observer\CustomRedirect\ProcessCategoryAfterDeleteEventObserver" />
+    </event>
+    <event name="cms_page_delete_commit_after">
+        <observer name="mageworx_custom_redirect_on_cms_page_delete" instance="MageWorx\SeoRedirects\Observer\CustomRedirect\ProcessPageAfterDeleteEventObserver" />
+    </event>
+</config>

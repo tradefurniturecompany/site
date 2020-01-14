@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="authorisation" translate="label" type="text" sortOrder="10" showInDefault="1">
+        <label>Security</label>
+
+        <field id="legacy_heading" type="text" sortOrder="90" showInDefault="1">
+            <label>Legacy Authentication</label>
+            <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+        </field>
+        <field id="accountCode" type="text" translate="label" sortOrder="100" showInDefault="1">
+            <label>Account code</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+        </field>
+        <field id="token" type="text" translate="label" sortOrder="200" showInDefault="1">
+            <label>Token</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Backend\Encrypted</backend_model>
+        </field>
+        <field id="tokenTimestamp" translate="label" sortOrder="300" showInDefault="1">
+            <label>Token Timestamp</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+        </field>
+        <field id="locationUrl" type="text" translate="label" sortOrder="400" showInDefault="1">
+            <label>Account location url</label>
+            <comment></comment>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+        </field>
+        <field id="apiDomain" type="text" translate="label" sortOrder="500" showInDefault="1">
+            <label>Api domain</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\StaticElement</frontend_model>
+        </field>
+        <field id="otp"></field>
+        <!--
+        <field id="action" translate="label button_label" sortOrder="600" showInDefault="1">
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element\Action</frontend_model>
+            <button_label>Authorise now</button_label>
+            <button_url>hotlink_brightpearl/authorisation/form</button_url>
+        </field>
+        -->
+
+        <field id="curl_validation_heading" type="text" sortOrder="900" showInDefault="1">
+            <label>Curl Validation (prevent MITM attacks)</label>
+            <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+        </field>
+        <field id="curl_validate_host" type="select" sortOrder="910" showInDefault="1">
+            <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+            <label>Validate host</label>
+            <comment><![CDATA[
+            aka <b>CURLOPT_SSL_VERIFYHOST</b>
+            <br/>
+            <b>Enable</b>&nbsp;&nbsp;Only permit communication if the Brightpearl host has been verified. Always enable in production.
+            <br/>
+            <b>Disable</b>&nbsp;&nbsp;Permit unvalidated hosts (which also permits man in the middle attacks), but may be necessary during testing.]]></comment>
+        </field>
+        <field id="curl_validate_certificate" type="select" sortOrder="920" showInDefault="1">
+            <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+            <label>Validate certificate</label>
+            <comment><![CDATA[
+            aka <b>CURLOPT_SSL_VERIFYPEER</b>
+            <br/>
+            <b>Enable</b>&nbsp;&nbsp;Only permit communication if the Brightpearl certificate has been verified. Always enable in production.
+            <br/>
+            <b>Disable</b>&nbsp;&nbsp;Permit unvalidated certificates (which also permits man in the middle attacks), but may be necessary during testing.]]></comment>
+        </field>
+
+        
+        <field id="http_auth_heading" type="text" sortOrder="1000" showInDefault="1">
+            <label>Http Auth</label>
+            <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+        </field>
+        <field id="http_auth_enabled" type="select" sortOrder="1010" showInDefault="1">
+            <label>Http auth for callbacks</label>
+            <comment><![CDATA[In production this should be disabled. If your test environment uses http auth (a browser popup login prompt), you can provide the credentials here so that Brightpearl authentication and webhook callbacks can reach your site. You need to re-run the webhook registration interaction after changing this setting.]]></comment>
+            <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+        </field>
+        <field id="http_auth_username" type="text" translate="label" sortOrder="1020" showInDefault="1">
+            <label>Username</label>
+            <comment><![CDATA[Http auth username required to reach your domain]]></comment>
+            <depends>
+                <field id="http_auth_enabled">1</field>
+            </depends>
+        </field>
+        <field id="http_auth_password" type="text" translate="label" sortOrder="1030" showInDefault="1">
+            <label>Password</label>
+            <comment><![CDATA[Http auth password required to reach your domain]]></comment>
+            <depends>
+                <field id="http_auth_enabled">1</field>
+            </depends>
+        </field>
+
+    </group>
+
+</include>

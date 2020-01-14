@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MageWorx\SeoBase\Api\Data\CustomCanonicalInterface" type="MageWorx\SeoBase\Model\CustomCanonical" />
+    <preference for="MageWorx\SeoBase\Api\CustomCanonicalRepositoryInterface" type="MageWorx\SeoBase\Model\CustomCanonicalRepository" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageworx_seobase_customcanonical_listing_data_source" xsi:type="string">MageWorx\SeoBase\Model\ResourceModel\CustomCanonical\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MageWorx\SeoBase\Model\ResourceModel\CustomCanonical\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seobase_custom_canonical</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\SeoBase\Model\ResourceModel\CustomCanonical</argument>
+        </arguments>
+    </virtualType>
+    <!-- Fix for attribute scope for custom category attribute. @see https://github.com/magento/magento2/issues/13440 -->
+    <type name="MageWorx\SeoAll\Plugin\AddCategoryCustomAttributesPlugin">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="search_engine_optimization" xsi:type="array">
+                    <item name="meta_robots" xsi:type="string">meta_robots</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="MageWorx\XmlSitemap\Model\ResourceModel\Catalog\Product">
+        <arguments>
+            <argument name="flexibleCanonicalFlag" xsi:type="boolean">true</argument>
+        </arguments>
+    </type>
+</config>

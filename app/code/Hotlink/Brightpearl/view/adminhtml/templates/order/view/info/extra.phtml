@@ -1,0 +1,14 @@
+<?php $items = $this->getBundleItems(); ?>
+<?php if ( count ( $items ) ): ?>
+<tr class="border">
+    <td colspan="0">
+    <div style="margin: 0 0 10px 10px; padding: 3px 0 0 3px;">
+        <?php foreach ( $items as $item ): ?>
+            <p>
+                <?php echo $item[ 'qty_shipped' ]; ?> * <?php echo $item[ 'name' ]; ?> <b><?php echo $item[ 'sku' ]; ?></b>
+            </p>
+         <?php endforeach; ?>
+         </div>
+    </td>
+</tr>
+<?php endif; ?>

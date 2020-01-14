@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<hotlink xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Hotlink_Framework:etc/hotlink.xsd">
+    <platform class="\Hotlink\Brightpearl\Model\Platform">
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Lookups\Import" />
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Stock\Bulk\Import">
+            <trigger class="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\Cron" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Index" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Stock\Realtime\Import">
+            <trigger class="\Hotlink\Framework\Model\Trigger\Stock\Update\Realtime" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Order\Export">
+            <trigger class="\Hotlink\Framework\Model\Trigger\Order\Placed" />
+            <monitor class="\Hotlink\Brightpearl\Model\Monitor\Order\Queue" />
+            <trigger class="\Hotlink\Brightpearl\Model\Trigger\Monitor\Order\Queue" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Order\Status\Export">
+            <trigger class="\Hotlink\Brightpearl\Model\Trigger\Order\Status\Changed" />
+            <trigger class="\Hotlink\Brightpearl\Model\Trigger\Monitor\Order\Status\Queue" />
+            <monitor class="\Hotlink\Brightpearl\Model\Monitor\Order\Status\Queue" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Order\Payment\Export">
+            <trigger class="\Hotlink\Brightpearl\Model\Trigger\Order\Payment\Export" />
+            <trigger class="\Hotlink\Brightpearl\Model\Trigger\Monitor\Order\Payment\Queue" />
+            <monitor class="\Hotlink\Brightpearl\Model\Monitor\Order\Payment\Queue" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Order\Reconciliation">
+            <trigger class="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\Cron" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Shipment\Specific\Import">
+            <trigger class="\Hotlink\Brightpearl\Model\Trigger\Brightpearl\Shipment\Notification" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Shipment\Bulk\Import">
+            <trigger class="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\Cron" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Order\Status\Realtime\Import" >
+            <trigger class="\Hotlink\Brightpearl\Model\Trigger\Brightpearl\Order\Status\Notification" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Order\Status\Bulk\Import" >
+            <trigger class="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\Cron" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Creditmemo\Export">
+            <trigger class="\Hotlink\Brightpearl\Model\Trigger\Creditmemo\Created" />
+            <trigger class="\Hotlink\Brightpearl\Model\Trigger\Monitor\Creditmemo\Queue" />
+            <monitor class="\Hotlink\Brightpearl\Model\Monitor\Creditmemo\Queue" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Prices\Import" >
+            <trigger class="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\Cron" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Index" />
+        </interaction>
+
+        <interaction class="\Hotlink\Brightpearl\Model\Interaction\Webhooks\Set" />
+
+        <interaction class="Hotlink\Brightpearl\Model\Interaction\Skus\Export" >
+            <trigger class="\Hotlink\Framework\Model\Trigger\Monitor\Cron" />
+            <monitor class="\Hotlink\Framework\Model\Monitor\Cron" />
+            <action class="\Hotlink\Framework\Model\Interaction\Action\Email" />
+        </interaction>
+
+    </platform>
+</hotlink>

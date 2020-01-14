@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="MageWorx\SeoCrossLinks\Block\Adminhtml\Crosslink\Edit" name="mageworx_seocrosslinks_crosslink_edit"/>
+            <block class="Magento\Catalog\Block\Adminhtml\Product\Edit\NewCategory" name="new-category" template="Magento_Catalog::catalog/product/edit/category/new/form.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="MageWorx\SeoCrossLinks\Block\Adminhtml\Crosslink\Edit\Tabs" name="mageworx_seocrosslinks_crosslink_tabs">
+                <block class="MageWorx\SeoCrossLinks\Block\Adminhtml\Crosslink\Edit\Tab\Main" name="mageworx_seocrosslinks_crosslink_edit_tab_main"/>
+                <block class="MageWorx\SeoCrossLinks\Block\Adminhtml\Crosslink\Edit\Tab\Destination" name="mageworx_seocrosslinks_crosslink_edit_tab_destination"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">crosslink</argument>
+                    <argument name="block" xsi:type="string">mageworx_seocrosslinks_crosslink_edit_tab_main</argument>
+                </action>                
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">destination</argument>
+                    <argument name="block" xsi:type="string">mageworx_seocrosslinks_crosslink_edit_tab_destination</argument>
+                </action>    
+            </block>
+        </referenceContainer>
+    </body>
+</page>

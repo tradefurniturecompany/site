@@ -1,0 +1,4 @@
+<?php $linkObject = $block->getLinkObject() ?>
+<?php if($linkObject): ?>
+<p style="text-align:center;"><a href="<?php echo $linkObject->url?>"><?php echo $linkObject->text?></a></p>
+<?php endif; ?>

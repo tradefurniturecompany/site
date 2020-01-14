@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright ©  MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_predispatch">
+        <observer name="mageworx_update_notification" instance="MageWorx\Info\Observer\GetMageWorxUpdates" />
+        <observer name="mageworx_offers_notification" instance="MageWorx\Info\Observer\GetMageWorxOffers" />
+        <observer name="mageworx_get_extension_list" instance="MageWorx\Info\Observer\GetMageWorxExtensionList" />
+    </event>
+</config>

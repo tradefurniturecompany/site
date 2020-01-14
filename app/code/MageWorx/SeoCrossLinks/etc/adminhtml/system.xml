@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SEO</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_SeoCrossLinks::config_seocrosslinks</resource>
+            <group id="seocrosslinks" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SEO Cross Links</label>
+                <comment>SEO crosslinks connect related site pages or pages with similar content by some keyword</comment>
+                <field id="enabled" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Enable ▾]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If <i>Enabled</i>, <a target="_blank" href="https://support.mageworx.com/manuals/crosslinks/#manage-cross-links">the created crosslinks</a> will be inserted on the fly on all the relevant pages. These crosslinks can be <a target="_blank" href="https://support.mageworx.com/manuals/crosslinks/#individual-settings">individually disabled</a> for any Product/Category page.]]></comment>
+                </field>
+                
+                <field id="replacement_count_product" translate="label comment" type="text" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Total Max Replacement Count<br>for Product Page]]></label>
+                    <validate>required-entry validate-percents</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Cross Links are displayed in the description fields.]]></comment>
+                </field>
+                
+                <field id="replacement_count_category" translate="label comment" type="text" sortOrder="26" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Total Max Replacement Count<br>for Category Page]]></label>
+                    <validate>required-entry validate-percents</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Cross Links are displayed in the description fields.]]></comment>
+                </field>
+                
+                <field id="replacement_count_cms_page" translate="label comment" type="text" sortOrder="28" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Total Max Replacement Count<br>for CMS Page]]></label>
+                    <validate>required-entry validate-percents</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Cross Links can be displayed in the content field (with the exception of the widget contents).<br>NOTE: Cross Links cannot be created on the homepage.]]></comment>
+                </field>
+
+                <field id="replacement_count_landingpage" translate="label comment" type="text" sortOrder="29" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                    <label><![CDATA[Total Max Replacement Count<br>for Landing Page]]></label>
+                    <validate>required-entry validate-percents</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Cross Links can be displayed in the top/bottom blocks]]></comment>
+                </field>
+
+                <field id="use_name_for_title" translate="label" type="select" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Use Product/Category Name<br>in the Cross Link's Alt Tag]]></label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[The crosslinks HTML code can include the <a target="_blank" href="https://en.wikipedia.org/wiki/Alt_attribute">alt section</a> with the Product/Category name. Select <i>Don't Use</i> to disable this feature. <i>For Blank</i> limits this to the URLs with the _blank value (URLs opened in the new window or tab). Use <i>For All</i> for any link.]]></comment>
+                    <source_model>MageWorx\SeoCrossLinks\Model\Crosslink\Source\LinkTitle</source_model>
+                    <can_be_empty>1</can_be_empty>                
+                </field>    
+                            
+                <field id="product_attributes" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Replace on Product Page In]]></label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <source_model>MageWorx\SeoCrossLinks\Model\Config\Source\ProductAttributes</source_model>
+                    <can_be_empty>0</can_be_empty>
+                </field>
+                
+                <field id="default_target" translate="label" type="select" sortOrder="46" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Default Link Target]]></label>
+                    <validate>required-entry validate-percents</validate>
+                    <source_model>MageWorx\SeoCrossLinks\Model\Crosslink\Source\Target</source_model>
+                    <comment><![CDATA[Default target link for the created crosslinks. <i>_self</i> links opened in the same window, <i>_blank</i> links opened in a new window/tab.]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                
+                <field id="default_reference" translate="label" type="select" sortOrder="52" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Default Link Reference]]></label>
+                    <validate>required-entry validate-percents</validate>
+                    <comment><![CDATA[Default <a target="_blank" href="https://support.mageworx.com/manuals/crosslinks/#cross-link-tab">link reference</a> for the created crosslinks]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <source_model>MageWorx\SeoCrossLinks\Model\Crosslink\Source\LinkTo</source_model>
+                </field>
+                
+                <field id="default_replacement_count" translate="label comment" type="text" sortOrder="54" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Default Replacement Count]]></label>
+                    <validate>required-entry validate-percents</validate>
+                    <comment><![CDATA[Default maximum # of time one created keyword is equipped with a crosslink per one page.]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                
+                <field id="default_priority" translate="label comment" type="text" sortOrder="56" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Default Priority]]></label>
+                    <validate>required-entry validate-percents</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[100 is the highest priority.]]></comment>
+                </field>
+                
+                <field id="default_status" translate="label comment" type="select" sortOrder="58" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Enable by Default]]></label>
+                    <source_model>MageWorx\SeoCrossLinks\Model\Crosslink\Source\IsActive</source_model>
+                    <comment><![CDATA[If set to <i>Yes</i>, the created crosslinks will be enabled automatically.]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                
+                <field id="default_destination" translate="label" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Default Values for<br>&nbsp;&nbsp;&nbsp;&nbsp;'Destination' Tab]]></label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <source_model>MageWorx\SeoCrossLinks\Model\Config\Source\DefaultDestination</source_model>
+                    <comment><![CDATA[Handles the default values for <a target="_blank" href="https://support.mageworx.com/manuals/crosslinks/#destination-tab">these settings</a>.]]></comment>
+                    <can_be_empty>0</can_be_empty>
+                </field>                
+            </group>            
+        </section>
+    </system>
+</config>

@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SEO</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_SeoXTemplates::config_seoxtemplates</resource>
+            <group id="seoxtemplates" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SEO Extended Templates</label>
+                <comment>Provides templates for any product/category meta information and other important SEO elements, such as product name, product URL key, etc. Optimizes the meta information and description for any filtered page on any store view.</comment>
+                <field id="use_product_seo_name" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Use Product SEO Name for Product Pages]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>MageWorx\SeoXTemplates\Block\Adminhtml\Config\Field\UseProductSeoName</frontend_model>
+                    <comment><![CDATA[We add the special <b>SEO Name</b> attribute that can be used instead of the real Product name (populates the H1 tag). Choose the desired Product on the Products Grid and click the Search Engine Optimization tab. SEO Name allows you keeping the product names short and relevant but optimize the H1 tag on the product pages at the same time.]]></comment>
+                </field>
+                
+                <field id="use_category_seo_name" translate="label comment" type="select" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Use Category SEO Name for Category Pages]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[We add the special <b>SEO Name</b> attribute that can be used instead of the real Category name (populates the H1 tag). Choose the desired category on the Categories tree and click the Search Engine Optimization tab.]]></comment>
+                </field>
+
+                <field id="crop_root_category" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Crop Root Category from Category Template Variable [categories]]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If <i>enabled</i>, eliminates the possible problem with the incorrect output from the [categories] variable.]]></comment>
+                </field>
+                
+                <field id="crop_meta_title" translate="label comment" type="select" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Crop Meta Title ▾]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If <i>enabled</i>, allows specifying the length of the meta title. The words that exceed the max length will be cropped.]]></comment>
+                </field>
+                
+                <field id="max_title_length" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Max Length for Meta&nbsp;Title]]></label>
+                    <validate>required-entry validate-digits validate-greater-than-zero</validate>
+                    <comment><![CDATA[Recommended length is up to 70 characters.]]></comment>
+                    <depends><field id="crop_meta_title">1</field></depends>
+                </field>
+                
+                <field id="crop_meta_description" translate="label comment" type="select" sortOrder="44" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Crop Meta Description ▾]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If <i>enabled</i>, allows specifying the length of the meta description. The words that exceed the max length will be cropped.]]></comment>
+                </field>
+                
+                <field id="max_description_length" translate="label comment" type="text" sortOrder="48" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Max Length for Meta&nbsp;Description]]></label>
+                    <validate>required-entry validate-digits validate-greater-than-zero</validate>
+                    <comment><![CDATA[Recommended length is up to 150 characters.]]></comment>
+                    <depends><field id="crop_meta_description">1</field></depends>
+                </field>
+                
+                <field id="enabled_cron_notify" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Enable E-mail <br> Error Notification ▾]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If <i>enabled</i>, sends the error reports regarding the problems with the templates to the store owner]]></comment>
+                </field>
+                
+                <field id="error_email" translate="label comment" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Error Email Recipient]]></label>
+                    <comment><![CDATA[Put the valid e-mail here]]></comment>
+                    <depends><field id="enabled_cron_notify">1</field></depends>
+                </field>
+                
+                <field id="error_email_identity" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;Error Email Sender]]></label>
+                    <frontend_model>MageWorx\SeoXTemplates\Block\Adminhtml\Config\Field\ErrorEmailIdentity</frontend_model>
+                    <depends><field id="enabled_cron_notify">1</field></depends>
+                </field>
+            </group>            
+        </section>
+    </system>
+</config>

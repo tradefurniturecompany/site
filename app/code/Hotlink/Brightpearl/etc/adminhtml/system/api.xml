@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="api" sortOrder="10000" showInDefault="1" translate="label">
+        <label>API</label>
+        <field id="query_limit" translate="label" sortOrder="100" showInDefault="1">
+            <label>Query string limit</label>
+            <comment>Number of characters allowed by Brightpearl API in a GET request query string</comment>
+        </field>
+    </group>
+
+</include>

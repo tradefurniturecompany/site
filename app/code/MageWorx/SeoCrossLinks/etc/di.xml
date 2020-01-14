@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="MageWorxSeoCrossLinksCrosslinkGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">MageWorx\SeoCrossLinks\Model\ResourceModel\Crosslink\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">MageWorxSeoCrossLinksGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MageWorxSeoCrossLinksGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="MageWorx\SeoCrossLinks\Model\ResourceModel\Crosslink\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageworx_seocrosslinks_crosslink</argument>
+            <argument name="eventPrefix" xsi:type="string">mageworx_seocrosslinks_crosslink_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">crosslink_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MageWorx\SeoCrossLinks\Model\ResourceModel\Crosslink</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageworx_seocrosslinks_crosslink_listing_data_source" xsi:type="string">MageWorx\SeoCrossLinks\Model\ResourceModel\Crosslink\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoAll\Ui\Component\Listing\Column\Category">
+        <arguments>
+            <argument name="showTitleForUnknownCategory" xsi:type="boolean">0</argument>
+            <argument name="targetField" xsi:type="string">ref_category_id</argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\SeoAll\Ui\Component\Listing\Column\Product">
+        <arguments>
+            <argument name="showTitleForUnknownCategory" xsi:type="boolean">0</argument>
+            <argument name="targetField" xsi:type="string">ref_product_sku</argument>
+        </arguments>
+    </type>
+
+    <!-- Fix for attribute scope for custom category attribute. @see https://github.com/magento/magento2/issues/13440 -->
+    <type name="MageWorx\SeoAll\Plugin\AddCategoryCustomAttributesPlugin">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="search_engine_optimization" xsi:type="array">
+                    <item name="use_in_crosslinking" xsi:type="string">use_in_crosslinking</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

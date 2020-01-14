@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\Search\Adapter\Mysql\Query\Builder\Match">
+        <arguments>
+            <argument name="fulltextSearchMode" xsi:type="string">IN NATURAL LANGUAGE MODE WITH QUERY EXPANSION</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Model\Layer\Search\CollectionFilter">
+        <plugin name="searchQuery" type="Interactivated\TF\Model\Layer\Search\Plugin\CollectionFilter" />
+    </type>
+</config>

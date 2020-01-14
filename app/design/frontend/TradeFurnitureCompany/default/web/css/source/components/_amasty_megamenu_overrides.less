@@ -1,0 +1,73 @@
+.ammenu-menu-wrapper.-mobile .ammenu-categories-container .ammenu-link.-level1,
+.ammenu-menu-wrapper.-desktop .ammenu-categories-container .ammenu-link.-level1,
+.ammenu-menu-wrapper.-mobile .ammenu-categories-container .ammenu-link.-level1:visited,
+.ammenu-menu-wrapper.-desktop .ammenu-categories-container .ammenu-link.-level1:visited {
+  color: #575757;
+}
+
+.ammenu-content .ammenu-menu-wrapper.-mobile .ammenu-link.-main::before,
+.ammenu-content .ammenu-menu-wrapper.-desktop .ammenu-link.-level1::before,
+.ammenu-menu-wrapper.-desktop .ammenu-categories-container .ammenu-link.-level1::before {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .ammenu-menu-wrapper.-mobile .ammenu-link.-level1 {
+    font-weight: normal;
+    text-transform: capitalize;
+  }
+
+
+  .ammenu-nav-sections .ammenu-content > .links > .authorization-link {
+    display: block !important;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .ammenu-menu-wrapper.-desktop .ammenu-item.-main:hover {
+    background-color: #2c4e6a;
+    color: #fff !important;
+  }
+
+  .ammenu-menu-wrapper.-desktop .ammenu-item.-main:hover {
+    background-color: #2c4e6a;
+    color: #fff !important;
+  }
+
+  .ammenu-menu-wrapper.-desktop .ammenu-item.-main:hover .ammenu-link.-main,
+  .ammenu-menu-wrapper.-desktop .ammenu-link.-main:hover {
+    color: #fff !important;
+  }
+
+  .ammenu-menu-wrapper.-desktop .ammenu-categories-container > .ammenu-item.-child > .ammenu-wrapper:not(:last-of-type) {
+    margin-bottom: 10px;
+  }
+
+  .ammenu-menu-wrapper.-desktop .ammenu-categories-container > .ammenu-item.-child > .ammenu-wrapper {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .ammenu-menu-wrapper.-desktop .ammenu-categories-container [class*="-col-"]:not(.-col-1) {
+    max-width: 350px;
+  }
+
+  .ammenu-menu-wrapper.-desktop .ammenu-item.-main {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .ammenu-menu-wrapper.-desktop .ammenu-categories-container .ammenu-link.-level1 {
+    font-weight: normal;
+    text-transform: capitalize;
+  }
+}
+
+@media (min-width: 991px) {
+  .ammenu-menu-wrapper.-desktop .ammenu-item.-main {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}

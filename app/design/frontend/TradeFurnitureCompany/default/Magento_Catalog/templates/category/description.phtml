@@ -1,0 +1,37 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php if ($_description = $block->getCurrentCategory()->getDescription()): ?>
+    <div class="category-description">
+        <?= /* @escapeNotVerified */ $this->helper('Magento\Catalog\Helper\Output')->categoryAttribute($block->getCurrentCategory(), $_description, 'description') ?>
+    </div>
+    <script type="text/javascript">
+        require(["jquery"],function($){
+            $(document).ready(function() {
+                $("#toggle").click(function() {
+                    var elem = $("#toggle").text();
+                    if (elem == "Read more...") {
+                        $("#toggle").text("Read less...");
+                        $(".text-wrapper").css("height","auto")
+                    } else {
+                        $("#toggle").text("Read more...");
+                        $(".text-wrapper").css("height","54px")
+                    }
+                });
+            });
+        });
+    </script>
+<?php endif; ?>

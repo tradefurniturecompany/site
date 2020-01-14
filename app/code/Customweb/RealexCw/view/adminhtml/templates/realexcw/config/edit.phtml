@@ -1,0 +1,11 @@
+<?php echo $block->getChildHtml('form') ?>
+
+<script type="text/javascript">
+require(['jquery'], function($){
+	window.submitBackendForm = function(formId, buttonMachineName, executeValidation){
+		$('#' + formId + '-button').val(buttonMachineName);
+		window[formId + '-validation'] = executeValidation;
+		$('#' + formId).submit();
+	}
+});
+</script>

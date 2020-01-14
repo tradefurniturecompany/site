@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+
+    <group id="shared_order" sortOrder="500" showInDefault="1" translate="label" showInWebsite="1" showInStore="1">
+        <label>Shared : Order, Payment and Creditmemo settings</label>
+
+        <field id="heading_order" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Order Settings</label>
+            <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+        </field>
+        <field id="use_currency" translate="label" type="select" sortOrder="110" showInDefault="1" >
+            <label>Send amounts in</label>
+            <source_model>Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Currency</source_model>
+            <comment><![CDATA[Select Base Currency to send amounts in default store currency, or Order Currency to send amounts in order store currency.]]></comment>
+        </field>
+        <field id="status_map" translate="label" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1" >
+            <label>Order status map</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Order\Status\Map</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model>
+            <comment><![CDATA[Magento order status to Brightpearl order status mapping. ]]></comment>
+        </field>
+        <field id="status_default" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default status</label>
+            <source_model>Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Status</source_model>
+            <comment><![CDATA[Default order status for orders with unmapped (in above mapping) status.]]></comment>
+        </field>
+
+        <field id="heading_payment" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Payment and Creditmemo Settings</label>
+            <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+        </field>
+        <field id="payment_map" translate="label" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Payment and Creditmemo method map</label>
+            <frontend_model>Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Field\Grid\Payment\Method\Map</frontend_model>
+            <backend_model>Hotlink\Brightpearl\Model\Config\Field\Serialize\Backend</backend_model>
+            <comment><![CDATA[Magento payment method to Brightpearl nomial code mapping.]]></comment>
+        </field>
+        <field id="payment_default" translate="label" type="select" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default nominal code</label>
+            <source_model>Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Payment\Method</source_model>
+            <comment><![CDATA[Default nominal code for orders with unmapped (in above mapping) payment method.]]></comment>
+        </field>
+        <field id="payment_default_receipt" translate="label" type="select" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default create sales receipt</label>
+            <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment><![CDATA[Default create sales receipt used in case no payment method mapping is defined (in above mapping).]]></comment>
+        </field>
+
+    </group>
+
+</include>

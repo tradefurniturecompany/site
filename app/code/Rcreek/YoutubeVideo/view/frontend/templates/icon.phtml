@@ -1,0 +1,15 @@
+<?php if ($block->getEmbeddedHtml()): ?>
+<div class="video-frame-wrapper">
+  <a class="action popup-open video-frame-link" href="#">
+    <img src="<?php echo $block->getFirstFrameUrl(); ?>" class="video-first-frame" />
+    <img src="<?php echo $block->getViewFileUrl('Rcreek_YoutubeVideo::images/play_video.png'); ?>" class="video-play"/>
+  </a>
+</div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+{
+   ".popup-open": {
+       "Rcreek_YoutubeVideo/js/popup": {"title": "<?php echo $block->getProduct()->getName() ?>"}
+   }
+}
+</script>

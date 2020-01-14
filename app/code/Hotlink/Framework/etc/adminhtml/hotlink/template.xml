@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="template">
+
+            <group id="interaction">
+                <field id="heading" type="text" sortOrder="100" showInDefault="1" showInWebsite="1">
+                    <label>General</label>
+                    <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="enabled" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select Yes to enable this interaction]]></comment>
+                </field>
+            </group>
+
+            <group id="implementations">
+                <field id="implementation" type="select" sortOrder="200" showInDefault="1" showInWebsite="1">
+                    <label>Implementation</label>
+                    <source_model>\Hotlink\Framework\Model\Config\Field\Interaction\Implementation\Source</source_model>
+                    <frontend_model>\Hotlink\Framework\Block\Adminhtml\System\Config\Form\Field\Interaction\Implementation</frontend_model>
+                    <comment><![CDATA[Select the implementation to use]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="triggers">
+                <field id="trigger_heading" type="text" sortOrder="2000" showInDefault="1" showInWebsite="1">
+                    <label>Trigger</label>
+                    <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="enabled" type="select" sortOrder="2010" showInDefault="1" showInWebsite="1">
+                    <label>On Context</label>
+                    <source_model>\Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="Hotlink_Framework_Model_Monitor_Cron">
+                <field id="monitor_schedule_heading" type="text" sortOrder="3000" showInDefault="1">
+                    <label>Monitor Schedule</label>
+                    <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_clock">1</field>
+                    </depends>
+                </field>
+                <field id="monitor_schedule_cron_expr" type="text" sortOrder="3010" showInDefault="1">
+                    <label>Cron Expression</label>
+                    <comment><![CDATA[Cron schedule expression (see <a href="http://wiki.pentaho.com/display/ServerDoc1x/05.+CRON+Expressions+in+Detail" target="_blank">Cron expressions</a>)<br/>
+                                <small>
+                                    Eg: <code style="color:red">11 */2 * * *</code> = &quot;at minute 11 of every 2 hours&quot;
+                                </small><br/>
+                                <small style="color:grey">[mins] [hrs] [days_of_month] [months] [days_of_week]</small><br />
+                                ]]>
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="on_clock">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="Hotlink_Framework_Model_Interaction_Action_Email">
+                <field id="email_heading" type="text" sortOrder="7000" showInDefault="1">
+                    <label>Email</label>
+                    <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="action_email_on_success" type="text" sortOrder="7010" showInDefault="1">
+                    <label>Email success report</label>
+                    <comment><![CDATA[Separate email addresses with a comma (csv)]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="action_email_on_fail" type="text" sortOrder="7020" showInDefault="1">
+                    <label>Email error report</label>
+                    <comment><![CDATA[Separate email addresses with a comma (csv)]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="Hotlink_Framework_Model_Interaction_Action_Index">
+                <field id="index_heading" type="text" sortOrder="8000" showInDefault="1">
+                    <label>Indexing</label>
+                    <frontend_model>\Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="action_index_before" type="select" sortOrder="8010" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>During interaction</label>
+                    <source_model>\Hotlink\Framework\Model\Config\Field\Indexing\Before\Source</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="action_index_after" type="select" sortOrder="8020" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Reindex after interaction</label>
+                    <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="action_index_after_rebuild" type="multiselect" sortOrder="8030" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Index</label>
+                    <source_model>\Hotlink\Framework\Model\Config\Field\Indexing\After\Source</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="action_index_after">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

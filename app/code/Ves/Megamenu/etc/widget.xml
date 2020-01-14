@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Venustheme
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.venustheme.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Venustheme
+ * @package    Ves_Megamenu
+ * @copyright  Copyright (c) 2016 Venustheme (http://www.venustheme.com/)
+ * @license    http://www.venustheme.com/LICENSE-1.0.html
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget id="ves_megamenu_menu" class="Ves\Megamenu\Block\Widget\Menu">
+		<label translate="true">Ves Megamenu</label>
+		<description translate="true">Select a Menu</description>
+		<parameters>
+			<parameter name="title" xsi:type="text" visible="true">
+				<label translate="true">Title</label>
+			</parameter>
+			<parameter name="alias" xsi:type="select" visible="true" source_model="Ves\Megamenu\Model\Config\Source\Menu">
+				<label translate="true">Menu</label>
+			</parameter>
+		</parameters>
+	</widget>
+	<widget id="ves_megamenu_product_carousel" class="Ves\Megamenu\Block\Widget\Products">
+		<label translate="true">Ves Megamenu: Products</label>
+		<description translate="true"></description>
+		<parameters>
+			<parameter name="widget_title" xsi:type="text" visible="true">
+				<label translate="true">Titlte</label>
+			</parameter>
+			<parameter name="product_source" xsi:type="select" visible="true">
+				<label translate="true">Product Source</label>
+				<options>
+					<option name="default" value="latest" selected="true">
+						<label translate="true">Latest Products</label>
+					</option>
+					<option name="new_arrivals" value="new">
+						<label translate="true">New products</label>
+					</option>
+					<option name="special" value="special">
+						<label translate="true">Special</label>
+					</option>
+					<option name="most_popular" value="popular">
+						<label translate="true">Most Popular</label>
+					</option>
+					<option name="best_seller" value="best_seller">
+						<label translate="true">Best Seller</label>
+					</option>
+					<option name="top_rated" value="top_rated">
+						<label translate="true">Top Rated</label>
+					</option>
+					<option name="random" value="random">
+						<label translate="true">Random</label>
+					</option>
+					<option name="featured" value="featured">
+						<label translate="true">Featured</label>
+					</option>
+				</options>
+			</parameter>
+			<parameter name="categories" xsi:type="multiselect" visible="true" source_model="Ves\Megamenu\Model\Config\Source\CategoryList">
+				<label translate="true">Categories</label>
+			</parameter>
+			<parameter name="number_item" xsi:type="text" visible="true">
+				<label translate="true">Number Item</label>
+				<description><![CDATA[The number of items you want to see on the screen.]]></description>
+				<value>12</value>
+			</parameter>
+			<parameter name="layout_type" xsi:type="select" visible="true" source_model="Ves\Megamenu\Model\Config\Source\LayoutType">
+				<label translate="true">Type</label>
+			</parameter>
+			<parameter name="bootstrapcarousel_heading" xsi:type="conditions" visible="true" class="Ves\Megamenu\Block\Adminhtml\System\Config\Form\Field\Heading">
+				<label translate="true">Bootstrap Carousel Settings</label>
+			</parameter>
+			<parameter name="number_item_perpage" xsi:type="text" visible="true" >
+				<label translate="true">Number item per page</label>
+				<value>8</value>
+			</parameter>
+			<parameter name="lg_column_item" xsi:type="select" visible="true" source_model="Ves\Megamenu\Model\Config\Source\GridColumn">
+				<label translate="true">Number Column on Large Desktop</label>
+				<description translate="true"><![CDATA[Large devices Desktops (≥1200px)]]></description>
+			</parameter>
+			<parameter name="md_column_item" xsi:type="select" visible="true" source_model="Ves\Megamenu\Model\Config\Source\GridColumn">
+				<label translate="true">Number Column on Desktop</label>
+				<description translate="true"><![CDATA[Medium devices Desktops (≥992px)]]></description>
+			</parameter>
+			<parameter name="sm_column_item" xsi:type="select" visible="true" source_model="Ves\Megamenu\Model\Config\Source\GridColumn">
+				<label translate="true">Number Column on Tablets</label>
+				<description translate="true"><![CDATA[Small devices Tablets (≥768px)]]></description>
+			</parameter>
+			<parameter name="xs_column_item" xsi:type="select" visible="true" source_model="Ves\Megamenu\Model\Config\Source\GridColumn">
+				<label translate="true">Number Column on Phones</label>
+				<description translate="true"><![CDATA[Extra small devices Phones (<768px)]]></description>
+			</parameter>
+			<parameter name="bnav" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show next/prev buttons.</label>
+			</parameter>
+			<parameter name="bdots" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Dots navigations</label>
+			</parameter>
+			<parameter name="interval" xsi:type="text" visible="true">
+				<label translate="true">Interval</label>
+				<description translate="true"><![CDATA[The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.]]></description>
+			</parameter>
+			<parameter name="wrap" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Wrap</label>
+				<description translate="true"><![CDATA[Whether the carousel should cycle continuously or have hard stops.]]></description>
+			</parameter>
+			<parameter name="keyboard" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Keyboard</label>
+				<description translate="true"><![CDATA[Whether the carousel should react to keyboard events.]]></description>
+			</parameter>
+			<parameter name="general_careouselsettings_heading" xsi:type="conditions" visible="true" class="Ves\Megamenu\Block\Adminhtml\System\Config\Form\Field\Heading">
+				<label translate="true">OWL Carousel Settings</label>
+			</parameter>
+			<parameter name="large_max_items" xsi:type="text"  visible="true">
+				<label translate="true">Number Columns On Page (Large display)</label>
+				<description translate="true"><![CDATA[Show number items when screen size 1200px and up]]></description>
+				<value>5</value>
+			</parameter>
+			<parameter name="large_items" xsi:type="text"  visible="true">
+				<label translate="true">Number Columns On Page</label>
+				<description translate="true"><![CDATA[Show number items when screen size between 1199px and 980px]]></description>
+				<value>4</value>
+			</parameter>
+			<parameter name="portrait_items" xsi:type="text"  visible="true">
+				<label translate="true">Number Columns On Page (Portrait tablets)</label>
+				<description translate="true"><![CDATA[Show number items when screen size between 979px and 769px]]></description>
+				<value>4</value>
+			</parameter>
+			<parameter name="tablet_items" xsi:type="text"  visible="true">
+				<label translate="true">Number Columns On Page (Phones to tablets)</label>
+				<description translate="true"><![CDATA[Show number items when screen size between 768px and 641px]]></description>
+				<value>3</value>
+			</parameter>
+			<parameter name="tablet_small_items" xsi:type="text"  visible="true">
+				<label translate="true">Number Columns On Page (Phones to Small tablets)</label>
+				<description translate="true"><![CDATA[Show number items when screen size between 640px and 480px]]></description>
+				<value>3</value>
+			</parameter>
+			<parameter name="mobile_items" xsi:type="text"  visible="true">
+				<label translate="true">Number Columns On Page (Phones)</label>
+				<description translate="true"><![CDATA[Show number items when screen size bellow 480px]]></description>
+				<value>1</value>
+			</parameter>
+			<parameter name="block_width" xsi:type="text" visible="true">
+				<label translate="true">Block Width</label>
+			</parameter>
+			<parameter name="item_height" xsi:type="text" visible="true">
+				<label translate="true">Item Height</label>
+				<description translate="true"><![CDATA[Unit: pixel. Empty to set auto height]]></description>
+			</parameter>
+			<parameter name="number_item_percolumn" xsi:type="text" visible="true">
+				<label translate="true">Number of Item per Column</label>
+				<description translate="true"><![CDATA[Multiple Row]]></description>
+				<value>1</value>
+			</parameter>
+			<parameter name="margin" xsi:type="text" visible="true">
+				<label translate="true">Margin</label>
+				<description translate="true"><![CDATA[Margin-right(px) on item.]]></description>
+				<value>1</value>
+			</parameter>
+			<parameter name="mousedrag" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Mouse Drag</label>
+				<description><![CDATA[Mouse drag enabled.]]></description>
+			</parameter>
+			<parameter name="pulldrag" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Pull Drag</label>
+				<description><![CDATA[Stage pull to edge.]]></description>
+			</parameter>
+			<parameter name="freedrag" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Free Drag</label>
+				<description><![CDATA[Item pull to edge.]]></description>
+			</parameter>
+			<parameter name="stagepadding" xsi:type="text" visible="true" >
+				<label translate="true">Stage Padding</label>
+				<description><![CDATA[Stage padding option adds left and right padding style (in pixels) onto stage-wrapper.]]></description>
+			</parameter>
+			<parameter name="autowidth" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Auto Width</label>
+				<description><![CDATA[Set non grid content. Try using width style on divs.]]></description>
+			</parameter>
+			<parameter name="autoplay" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Autoplay</label>
+			</parameter>
+			<parameter name="autoplay_timeout" xsi:type="text" visible="true" >
+				<label translate="true">Autoplay Timeout</label>
+				<depends><parameter name="autoplay" value="1" /></depends>
+				<value>3000</value>
+			</parameter>
+			<parameter name="autoplay_hoverpause" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Autoplay HoverPause</label>
+				<depends><parameter name="autoplay" value="1" /></depends>
+			</parameter>
+			<parameter name="dots" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show dots navigations</label>
+			</parameter>
+			<parameter name="nav" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show next/prev buttons.</label>
+			</parameter>
+			<parameter name="lazyload" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Lazy Load</label>
+				<description translate="true"><![CDATA[Infinity loop. Duplicate last and first items to get loop illusion.]]></description>
+			</parameter>
+			<parameter name="loop" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Loop</label>
+				<description translate="true"><![CDATA[Infinity loop. Duplicate last and first items to get loop illusion.]]></description>
+			</parameter>
+			<parameter name="rtl" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">RTL</label>
+				<description translate="true"><![CDATA[Owl will change direction from Right to left.]]></description>
+			</parameter>
+			<parameter name="general_productsettings_heading" xsi:type="conditions" visible="true" class="Ves\Megamenu\Block\Adminhtml\System\Config\Form\Field\Heading">
+				<label translate="true">Item Settings</label>
+			</parameter>
+			<parameter name="show_name" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Name</label>
+			</parameter>
+			<parameter name="show_short_description" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Short Description</label>
+			</parameter>
+			<parameter name="short_max_char" xsi:type="text" visible="true">
+				<label translate="true">Description Character Limit</label>
+				<description translate="true"><![CDATA[Empty to show all short description]]></description>
+				<depends><parameter name="show_short_description" value="1" /></depends>
+			</parameter>
+			<parameter name="show_learnmore" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show More Link</label>
+				<depends><parameter name="show_short_description" value="1" /></depends>
+			</parameter>
+			<parameter name="show_price" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Price</label>
+			</parameter>
+			<parameter name="show_review" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Review</label>
+			</parameter>
+			<parameter name="show_new_label" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show New Label</label>
+			</parameter>
+			<parameter name="show_sale_label" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Sale Label</label>
+			</parameter>
+			<parameter name="show_image" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Image</label>
+			</parameter>
+			<parameter name="image_width" xsi:type="text" visible="true">
+				<label translate="true">Image Width</label>
+				<depends><parameter name="show_image" value="1" /></depends>
+			</parameter>
+			<parameter name="image_height" xsi:type="text" visible="true">
+				<label translate="true">Image Height</label>
+				<depends><parameter name="show_image" value="1" /></depends>
+			</parameter>
+			<parameter name="show_compare" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Compare Link</label>
+			</parameter>
+			<parameter name="show_wishlist" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Wishlist Link</label>
+			</parameter>
+			<parameter name="show_addtocart" xsi:type="select" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno">
+				<label translate="true">Show Add To Cart Button</label>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>

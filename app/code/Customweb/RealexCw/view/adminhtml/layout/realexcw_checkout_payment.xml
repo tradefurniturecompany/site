@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    	<referenceContainer name="admin.scope.col.wrap" htmlClass="admin__old" /> <!-- TODO: Remove when magento fix this. -->
+    	
+        <referenceContainer name="content">
+            <block class="Customweb\RealexCw\Block\Adminhtml\Checkout\Payment" name="realexcw_checkout_payment">
+                <block class="Customweb\RealexCw\Block\Adminhtml\Checkout\Payment\Form" name="form" template="checkout/payment/form.phtml" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

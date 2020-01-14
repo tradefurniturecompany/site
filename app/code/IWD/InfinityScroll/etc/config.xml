@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <infinity_scroll>
+            <general>
+                <enable>1</enable>
+                <enable_on_catalog>1</enable_on_catalog>
+                <enable_on_search>1</enable_on_search>
+                <enable_on_advanced_search>1</enable_on_advanced_search>
+                <mode>scroll</mode>
+            </general>
+            <design>
+                <block_header>1</block_header>
+                <load_prev_page_label>Load prev page</load_prev_page_label>
+                <load_next_page_label>Load next page</load_next_page_label>
+            </design>
+            <additional>
+                <selector_content>#maincontent .main .products.wrapper</selector_content>
+                <selector_layered>#layered-filter-block</selector_layered>
+                <selector_toolbar>.toolbar.toolbar-products</selector_toolbar>
+                <selector_pagination>.toolbar.toolbar-products .pages</selector_pagination>
+                <selector_limiter>.toolbar.toolbar-products .limiter</selector_limiter>
+                <selector_amount>.toolbar.toolbar-products .toolbar-amount</selector_amount>
+            </additional>
+        </infinity_scroll>
+    </default>
+</config>

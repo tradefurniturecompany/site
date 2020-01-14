@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SEO</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_XmlSitemap::config_xmlsitemap</resource>
+            <group id="xml_sitemap" translate="label comment" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>XML Sitemap</label>
+                <comment>XML Sitemap helps the search bot index the pages including those that might have been ignored otherwise. An XML sitemap is written for the search bots (as opposed to the HTML Sitemap that is created for the real clients).</comment>
+                <field id="homepage_optimize" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Homepage Optimization</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Сrops the identifier (like /home/) from the homepage URL and sends its priority to the highest (1.0).]]></comment>
+                </field>
+                <field id="enable_additional_links" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Additional Links</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[List of links to append to the XML Sitemap. Link without 'http[s]://' will be treated as relative to this domain.<br/> <b>NOTE!</b> http:// is required in case the page is on some other website.]]></comment>
+                </field>
+                <field id="additional_links" translate="label comment" type="textarea" sortOrder="24" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional Links</label>
+                    <depends>
+                        <field id="enable_additional_links">1</field>
+                    </depends>
+                </field>
+                <field id="additional_links_changefreq" translate="label" type="select" sortOrder="26" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Frequency</label>
+                    <source_model>Magento\Sitemap\Model\Config\Source\Frequency</source_model>
+                    <comment><![CDATA[The general information to search bots about the crawling frequency. The <i>Always</i> means that the page will differ each time it's accessed. The <i>Never</i> is used for the archived URLs like some old blog posts. <br/><b>NOTE!</b> It's always up to search bot to decide when these pages should be recrawled.]]></comment>
+                    <depends>
+                        <field id="enable_additional_links">1</field>
+                    </depends>
+                </field>
+                <field id="additional_links_priority" translate="label comment" type="text" sortOrder="28" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Priority</label>
+                    <backend_model>Magento\Sitemap\Model\Config\Backend\Priority</backend_model>
+                    <comment><![CDATA[Sort the pages <b>on your store only</b> according to their importance. Won't affect your site rankings among other websites. Valid values range from 0.0 to 1.0.]]></comment>
+                    <depends>
+                        <field id="enable_additional_links">1</field>
+                    </depends>
+                </field>
+                <field id="exclude_out_of_stock_products" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exclude "Out of Stock" Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_validate_urls" translate="label comment" type="select" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Validate URLs</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select <i>No</i> if you are using the <a target="_blank" href="https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters">specific literal characters</a> in the URLs.]]></comment>
+                </field>
+            </group>
+            <group id="common_sitemap" translate="label comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Common Settings For Sitemaps</label>
+                <field id="trailing_slash_home_page" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trailing Slash For Home Page</label>
+                    <source_model>MageWorx\XmlSitemap\Model\Config\Source\AddCrop</source_model>
+                    <comment><![CDATA[Note: the trailing slash can be added to pages without suffix .html or .htm]]></comment>
+                </field>
+                <field id="trailing_slash" translate="label comment" type="select" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trailing Slash For URLs</label>
+                    <source_model>MageWorx\XmlSitemap\Model\Config\Source\AddCrop</source_model>
+                    <comment><![CDATA[Note: the trailing slash can be added to pages without suffix .html or .htm]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

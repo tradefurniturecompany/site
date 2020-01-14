@@ -1,0 +1,32 @@
+.checkout-index-index {
+  .logo {max-width: 50%;}
+  @media (min-width: 768px) {
+    .logo {
+      max-width: 20%;
+    }
+  }
+
+  .step-title {background-color: @primary__color;}
+  .primary .action.primary.checkout {
+    background-color: #4BB553 !important;
+    color: white;
+    border: none !important;
+  }
+  //hide the selected shipping method title in summary totals
+  .totals.shipping.incl .mark .value {
+    display: none;
+  }
+  //hide the tax row in order summary totals
+  .opc-block-summary tr.totals-tax {display: none;}
+
+  //make the finance logo display vertically inline with text
+  label[for="banktransfer"]:after {
+    background-position: center;
+  }
+
+  @media (max-width: @screen__xs) {
+    .minicart-items .product>.product-image-container {
+      float: none;
+    }
+  }
+}

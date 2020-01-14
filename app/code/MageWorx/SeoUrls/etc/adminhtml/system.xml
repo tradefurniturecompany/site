@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SEO</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_SeoMarkup::config_seomarkup</resource>
+            <group id="urls" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SEO-friendly URLs</label>
+                <comment><![CDATA[SEO-optimize the URLs of any page filtered by the layered navigation and any category page. Click <a target="_blank" href="https://www.mageworx.com/blog/2018/07/magento-2-layered-navigation-seo-the-ultimate-guide/">here</a> to see the practical Use Cases of this functionality.]]></comment>
+                <group id="category" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Pages</label>
+                    <field id="use_in_attribute" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable SEO LN URLs ▾]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Enables SEO-friendly URLs for layered navigation filters. Example: <i>http://site.com/gear/bags.html/l/size=s</i>]]></comment>
+                    </field>
+                    <field id="seofilters_identifier" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[SEO LN URLs Identifier]]></label>
+                        <validate>validate-alpha</validate>
+                        <depends>
+                            <field id="use_in_attribute">1</field>
+                        </depends>
+                        <comment><![CDATA[Separates the category and the applied filters. Example: <i>http://site.com/gear/bags.html/l/size=s</i>, where the "l" is this identifier. By default and in case the field is left blank, <b>l</b> is set.]]></comment>
+                    </field>
+                    <field id="use_in_pager" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable for Pager URLs ▾]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Changes the default pager added by <a target="_blank" href="https://en.wikipedia.org/wiki/Query_string">Get-parameter</a> to the more SEO-friendly way.]]></comment>
+                    </field>
+                    <field id="pager_url_format" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Pager Format]]></label>
+                        <source_model>MageWorx\SeoUrls\Model\Source\PagerMask</source_model>
+                        <depends>
+                            <field id="use_in_pager">1</field>
+                        </depends>
+                        <comment><![CDATA[The first option transforms such URL to <i>www.site.com/category-p2.html</i>, the second one - to <i>www.site.com/category/p/2.html</i>]]></comment>
+                    </field>
+                    <field id="pager_var_name" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA["Pager Var" Parameter]]></label>
+                        <validate>validate-alpha</validate>
+                        <depends>
+                            <field id="use_in_pager">1</field>
+                        </depends>
+                        <comment><![CDATA[Changes the default "p" variable for the pager parameter. By default and in case the field is left blank, <i>p</i> is set.]]></comment>
+                    </field>
+                    <field id="use_invert_redirect" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable Redirects from SEO LN URLs to Default URLs]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Enables the 301 redirects from our SEO-friendly LN URLs to Magento default ones. Can be useful if you decide to disable the SEO friendly LN URLs for any reason.]]></comment>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

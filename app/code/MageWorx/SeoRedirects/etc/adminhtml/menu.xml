@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageWorx_SeoRedirects::seosuite" title="MageWorx SEO Redirects" module="MageWorx_SeoRedirects" sortOrder="50" parent="Magento_Backend::marketing" resource="MageWorx_SeoRedirects::seosuite"/>
+        <add id="MageWorx_SeoRedirects::dpredirects" title="Redirects for Deleted Products" module="MageWorx_SeoRedirects" sortOrder="65" parent="MageWorx_SeoRedirects::seosuite" action="mageworx_seoredirects/dpredirect/" resource="MageWorx_SeoRedirects::dpredirects"/>
+        <add id="MageWorx_SeoRedirects::customredirects" title="Custom Redirects" module="MageWorx_SeoRedirects" sortOrder="50" parent="MageWorx_SeoRedirects::seosuite" action="mageworx_seoredirects/customredirect/" resource="MageWorx_SeoRedirects::customredirects"/>
+        <add id="MageWorx_SeoRedirects::system_convert_seoredirects" title="Import/Export SEO Redirects" module="MageWorx_SeoRedirects" sortOrder="40" parent="Magento_Backend::system_convert" action="mageworx_seoredirects/customredirect/importExport" resource="MageWorx_SeoRedirects::customredirects"/>
+    </menu>
+</config>

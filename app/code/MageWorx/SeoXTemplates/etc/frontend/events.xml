@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_load_after">
+        <observer name="mw_seoxtemplates_seo_product_name" instance="MageWorx\SeoXTemplates\Model\Observer\ProductNameToSeoName" />
+        <observer name="mw_seoxtemplates_crop_product_meta" instance="MageWorx\SeoXTemplates\Model\Observer\CropProductMeta" />
+    </event>
+    <event name="catalog_category_load_after">
+        <observer name="mw_seoxtemplates_seo_category_name" instance="MageWorx\SeoXTemplates\Model\Observer\CategoryNameToSeoName" />
+    </event>
+    <event name="layout_generate_blocks_after_two">
+        <observer name="mw_seoxtemplates_seo_category_name" instance="MageWorx\SeoXTemplates\Model\Observer\CategoryNameModifier" />
+        <observer name="mw_seoxtemplates_category_data_modifier" instance="MageWorx\SeoXTemplates\Model\Observer\CategoryDataModifier" />
+        <observer name="mw_seoxtemplates_landingpage_data_modifier" instance="MageWorx\SeoXTemplates\Model\Observer\LandingPageDataModifier" />
+    </event>
+    <event name="catalog_controller_product_init_after">
+        <observer name="mw_seoxtemplates_convert_categories_for_product" instance="MageWorx\SeoXTemplates\Model\Observer\ConvertProductCategories" />
+    </event>
+</config>

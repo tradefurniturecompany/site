@@ -1,0 +1,6 @@
+@media only screen and (max-width: 767px){
+    .ves-menu.offcanvas-menu {
+        left: inherit!important;
+        top: inherit!important;
+    }
+}

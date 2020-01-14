@@ -1,0 +1,26 @@
+# 2020-01-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# http://stackoverflow.com/questions/987142
+# http://stackoverflow.com/questions/9162919
+# http://stackoverflow.com/questions/8024924#comment15884195_8025106
+*
+!*/
+!/.gitignore
+!/composer.json
+!app/code/**/*
+!app/design/frontend/TradeFurnitureCompany/default/**/*
+!app/etc/config.php
+!lib/internal/Crypt/**/*
+!lib/internal/Customweb/**/*
+!lib/internal/Mageplaza/**/*
+!lib/internal/Math/**/*
+!lib/internal/Net/**/*
+!lib/internal/System/**/*
+!lib/internal/loader.php
+!lib/internal/openssl.php
+!lib/web/fotorama/fotorama.js
+!lib/web/i18n/en_GB.csv
+!pub/errors/default/503.phtml
+/update/
+/vendor/
+!vendor/magento/framework/View/Element/Template/File/Validator.php
+!vendor/magento/module-media-storage/Service/ImageResize.php

@@ -1,0 +1,37 @@
+<?php if ($block->errorMessage): ?>
+  <p style="color:red;"><?php echo $block->errorMessage ?></p>
+<?php else: ?>
+  <p>Product skus</p>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Sku</th>
+      <th>height_in_cm</th>
+      <th>width_in_cm</th>
+      <th>length_in_cm</th>
+      <th>materials</th>
+      <th>finishes</th>
+      <th>height range</th>
+      <th>height_range_id</th>
+      <th>width_range</th>
+      <th>width_range_id</th>
+      <th>length_range</th>
+      <th>length_range_id</th>
+      <th>material_id</th>
+      <th>finish_id</th>
+      <th>status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($block->skus as $sku): ?>
+      <tr>
+          <?php for ($i = 0; $i <= 16; $i++): ?>
+            <th><?php if(isset($sku[$i])) { echo $sku[$i]; } ?></th>
+          <?php endfor; ?>
+      </tr>
+    <?php endforeach ?>
+    </tbody>
+
+  </table>
+<?php endif; ?>

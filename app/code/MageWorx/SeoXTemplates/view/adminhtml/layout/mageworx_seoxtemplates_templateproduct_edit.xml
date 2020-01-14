@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Product\Edit" name="mageworx_seoxtemplates_template_product_edit"/>
+            <block class="Magento\Catalog\Block\Adminhtml\Product\Edit\NewCategory" name="new-category" template="Magento_Catalog::catalog/product/edit/category/new/form.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Product\Edit\Tabs" name="mageworx_seoxtemplates_template_product_tabs">
+                <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Product\Edit\Tab\Main" name="mageworx_seoxtemplates_template_product_edit_tab_main"/>
+                <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Product\Edit\Tab\Attributesets" name="mageworx_seoxtemplates_template_product_edit_tab_attributesets"/>
+                <block class="MageWorx\SeoXTemplates\Block\Adminhtml\Template\Product\Edit\Tab\Products" name="mageworx_seoxtemplates_template_product_edit_tab_products"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">template_product</argument>
+                    <argument name="block" xsi:type="string">mageworx_seoxtemplates_template_product_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">attributeset</argument>
+                    <argument name="block" xsi:type="string">mageworx_seoxtemplates_template_product_edit_tab_attributesets</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">products</argument>
+                    <argument name="block" xsi:type="string">mageworx_seoxtemplates_template_product_edit_tab_products</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

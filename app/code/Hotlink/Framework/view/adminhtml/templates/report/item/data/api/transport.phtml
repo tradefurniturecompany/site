@@ -1,0 +1,39 @@
+<?php
+$data = $block->getReportData();
+$transport = $data->getValue();
+
+echo "<pre>";
+echo "<b>Request</b>";
+
+if ( $transport->getLastRequestHeaders() ) {
+    echo "\n";
+    echo "\n";
+    echo htmlspecialchars( $transport->getLastRequestHeaders() );
+}
+
+if ( $transport->getLastRequest() ) {
+    echo "\n";
+    echo "\n";
+    echo htmlspecialchars( $transport->getLastRequest() );
+}
+
+echo "\n";
+echo "\n";
+echo "\n";
+
+echo "<b>Response</b>";
+
+if ( $transport->getLastResponseHeaders() ) {
+    echo "\n";
+    echo "\n";
+    echo htmlspecialchars( $transport->getLastResponseHeaders() );
+}
+
+if ( $transport->getLastResponse() ) {
+    echo "\n";
+    echo "\n";
+    echo htmlspecialchars( $transport->getLastResponse() );
+}
+
+echo "\n";
+echo "</pre>";

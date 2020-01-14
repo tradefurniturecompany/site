@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <!-- order export -->
+    <event name="sales_order_save_after">
+        <observer name="bp_queue_order_in_commit" instance="Hotlink\Brightpearl\Model\Queue\Order\Observer" />
+    </event>
+
+    <event name="hotlink_brightpearl_order_exported">
+        <observer name="bp_export_payment" instance="Hotlink\Brightpearl\Model\Trigger\Order\Payment\Export" />
+    </event>
+
+    <event name="sales_order_payment_save_commit_after">
+        <observer name="bp_export_payment" instance="Hotlink\Brightpearl\Model\Trigger\Order\Payment\Export" />
+    </event>
+
+    <event name="hotlink_framework_monitor_order_queue">
+        <observer name="brightpearl_model_trigger_monitor_order_queue" instance="\Hotlink\Brightpearl\Model\Trigger\Monitor\Order\Queue" />
+    </event>
+    <!-- / order export -->
+
+    <!-- order status export -->
+    <event name="sales_order_save_commit_after">
+        <observer name="brightpearl_trigger_order_status_changed" instance="\Hotlink\Brightpearl\Model\Trigger\Order\Status\Changed" />
+    </event>
+    <event name="hotlink_framework_monitor_order_status_queue">
+        <observer name="brightpearl_model_trigger_monitor_order_status_queue" instance="\Hotlink\Brightpearl\Model\Trigger\Monitor\Order\Status\Queue" />
+    </event>
+    <!-- / order status export -->
+
+
+    <!-- shipment import (webhook) -->
+    <event name="hotlink_brightpearl_shipping_goods_out_callback_received">
+        <observer name="brightpearl_model_trigger_brightpearl_shipment_notification" instance="\Hotlink\Brightpearl\Model\Trigger\Brightpearl\Shipment\Notification" />
+    </event>
+    <event name="hotlink_brightpearl_shipping_drop_ship_callback_received">
+        <observer name="brightpearl_model_trigger_brightpearl_shipment_notification" instance="\Hotlink\Brightpearl\Model\Trigger\Brightpearl\Shipment\Notification" />
+    </event>
+    <!-- / shipment import (webhook) -->
+
+    <!-- status import (webhook) -->
+    <event name="hotlink_brightpearl_order_status_modified_callback_received">
+        <observer name="brightpearl_model_trigger_brightpearl_order_status_notification" instance="Hotlink\Brightpearl\Model\Trigger\Brightpearl\Order\Status\Notification" />
+    </event>
+    <!-- / status import (webhook) -->
+
+    <!-- creditmemo monitor -->
+    <event name="hotlink_framework_monitor_creditmemo_queue">
+        <observer name="brightpearl_model_trigger_monitor_creditmemo_queue" instance="Hotlink\Brightpearl\Model\Trigger\Monitor\Creditmemo\Queue" />
+    </event>
+    <!-- / creditmemo monitor -->
+
+</config>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SEO</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_SeoRedirects::config_seoredirects</resource>
+            <group id="seoredirects" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SEO Redirects</label>
+                <comment><![CDATA[Adds 301 and 302 <a target="_blank" href="https://support.mageworx.com/manuals/seosuite/#glossary_3">redirects</a>.]]></comment>
+                <group id="custom" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Redirects</label>
+                    <comment><![CDATA[Manual redirects from any page of your store to any other one (including the URL on other websites).]]></comment>
+                    <field id="enabled" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable ▾]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="keep_for_deleted_entities" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label><![CDATA[Keep URLs For Removed Entities]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                </group>
+                <group id="deleted_product" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>For Deleted Products</label>
+                    <field id="enabled" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable ▾]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="redirect_type" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Redirect Type]]></label>
+                        <source_model>MageWorx\SeoRedirects\Model\Redirect\Source\RedirectType</source_model>
+                    </field>
+                    <field id="redirect_target" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Default Redirect To]]></label>
+                        <source_model>MageWorx\SeoRedirects\Model\Redirect\Source\RedirectTarget</source_model>
+                        <comment><![CDATA[<a target="_blank" href="https://support.mageworx.com/manuals/seosuite/#redirects-for-deleted-pages">Check here</a> to distinguish these options.]]></comment>
+                    </field>
+                    <field id="count_stable_day" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label><![CDATA[Days to Keep Redirects on the Website]]></label>
+                        <validate>required-entry validate-number validate-greater-than-zero</validate>
+                        <comment><![CDATA[A number of days to keep the redirects active. Can be set between 30 and 365 days.]]></comment>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

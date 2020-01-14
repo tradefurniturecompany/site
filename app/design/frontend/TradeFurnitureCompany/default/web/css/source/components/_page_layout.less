@@ -1,0 +1,35 @@
+//
+// CUSTOM PAGE LAYOUT 1column-full-width
+// _____________________________________________
+
+.page-layout-1column-full-width {
+    .page-main {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .fixed-width-content {
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+}
+
+@media only screen and (min-width: @screen__m) {
+    .page-layout-1column-full-width {
+        .page-main {
+            margin-top: 0;
+            width: 100%;
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .fixed-width-content {
+            max-width: 1240px;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+    }
+}

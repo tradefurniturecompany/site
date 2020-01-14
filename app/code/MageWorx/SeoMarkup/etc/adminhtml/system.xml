@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SEO</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_SeoMarkup::config_seomarkup</resource>
+            <group id="markup" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SEO Markup</label>
+                <comment><![CDATA[Adds <a target="_blank" href="https://support.mageworx.com/manuals/richsnippets/#glossary">rich snippets</a> to your existing website HTML. <br/><b>Note:</b> adding snippets to your site in the search results may take some time as the search bots do not include this information immediately.]]></comment>
+                <group id="product" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product</label>
+                    <comment><![CDATA[These settings are for the snippet configuration on the products pages.]]></comment>
+                    <field id="rs_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Rich Snippets]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adds the snippets that will be shown on the search engine results page. The store owner can preview the snippet data on the <a target="_blank" href="https://search.google.com/structured-data/testing-tool">special page</a>. By default and without any configurations, the product entity will include the following attributes: product name, preview image, rating, price, availability and website language.]]></comment>
+                    </field>
+                    <field id="og_enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Open Graph]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="tw_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Twitter Cards]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[To enable the feature, make sure you enter Twitter Username in the Common section.]]></comment>
+                    </field>
+                    <field id="ga_enabled" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable for Google Assistant]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="ga_css_selector" translate="label comment" type="text" sortOrder="41" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[CSS Selectors]]></label>
+                        <depends>
+                            <field id="ga_enabled">1</field>
+                        </depends>
+                        <comment><![CDATA[You can specify a few values separated by commas.]]></comment>
+                    </field>
+                    <field id="best_rating" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Best Rating]]></label>
+                        <validate>validate-number validate-greater-than-zero</validate>
+                        <comment>The biggest value for the rating can be 5, 10 or 100. By default and in case the field is left blank, <i>5</i> is set.</comment>
+                    </field>
+                    <field id="disable_default_review" translate="label comment" type="select" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Disable Default Review Markup]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Disabled review markup added by theme.]]></comment>
+                    </field>
+                    <field id="description_code" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Description Attribute Code]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Attributes</source_model>
+                        <comment><![CDATA[Select the Description Attribute Code from Magento match it to Schema.org <a target="_blank" href="https://schema.org/description">description snippet</a>.]]></comment>
+                    </field>
+                    <field id="sku_enabled" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add SKU]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Enable to match the SKU Attribute code from Magento to Schema.org <a target="_blank" href="https://schema.org/sku">SKU snippet</a>.]]></comment>
+                    </field>
+                    <field id="sku_code" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[SKU Attribute Code]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Attributes</source_model>
+                        <comment>Select the SKU Attribute Code from Magento.</comment>
+                        <depends>
+                            <field id="sku_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="category_enabled" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Category]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Enable to match the product category to Schema.org <a target="_blank" href="https://pending.schema.org/category">category snippet</a>.]]></comment>
+                    </field>
+                    <field id="category_deepest" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Use Deepest Category]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Handles the situation if some product is assigned to different categories.]]></comment>
+                        <depends>
+                            <field id="category_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="color_enabled" translate="label comment" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Color]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Enable to match the Color Attribute code from Magento to Schema.org <a target="_blank" href="https://schema.org/color" color snippet</a>.]]></comment>
+                    </field>
+                    <field id="color_code" translate="label comment" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Color Attribute Code]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Attributes</source_model>
+                        <comment><![CDATA[Select the Color Attribute Code from Magento.]]></comment>
+                        <depends>
+                            <field id="color_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="manufacturer_enabled" translate="label comment" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Manufacturer]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Enable to match the Manufacturer code from Magento to Schema.org <a target="blank" href="https://schema.org/manufacturer" manufacurer snippet</a>.]]></comment>
+                    </field>
+                    <field id="manufacturer_code" translate="label comment" type="select" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Manufacturer Attribute Code]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Attributes</source_model>
+                        <comment>Select the Manufacturer Attribute Code from Magento.</comment>
+                        <depends>
+                            <field id="manufacturer_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="brand_enabled" translate="label comment" type="select" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Brand]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Enable to match the Brand Attribute code from Magento to Schema.org <a target="_blank" href="https://schema.org/brand">brand snippet</a>.]]></comment>
+                    </field>
+                    <field id="brand_code" translate="label comment" type="select" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Brand Attribute Code]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Attributes</source_model>
+                        <comment>Select the Brand Attribute Code from Magento.</comment>
+                        <depends>
+                            <field id="brand_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="model_enabled" translate="label comment" type="select" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Model]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Enable to match the Model Attribute code from Magento to Schema.org <a target="_blank" href="https://schema.org/model">model snippet</a>.]]></comment>
+                    </field>
+                    <field id="model_code" translate="label comment" type="select" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Model Attribute Code]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Attributes</source_model>
+                        <comment><![CDATA[Select the Model Attribute Code from Magento.]]></comment>
+                        <depends>
+                            <field id="model_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="gtin_enabled" translate="label comment" type="select" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Gtin]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[The GTIN is a globally unique 14-digit number used to identify trade items, products, or services. Please use digits only when you add the GTIN for your products otherwise it will not be shown in the microdata.]]></comment>
+                    </field>
+                    <field id="gtin_code" translate="label comment" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Gtin Attribute Code]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Attributes</source_model>
+                        <depends>
+                            <field id="gtin_enabled">1</field>
+                        </depends>
+                        <comment><![CDATA[Select the GTIN Attribute Code from Magento.]]></comment>
+                    </field>
+                    <field id="weight_enabled" translate="label comment" type="select" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Weight]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Enable to match the product weight to Schema.org <a target="_blank" href="https://schema.org/weight">weight snippet</a>.]]></comment>
+                    </field>
+                    <field id="special_price_functionality" translate="label" type="select" sortOrder="215" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Use Special Price functionality for Price Valid Until]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <frontend_model>MageWorx\SeoAll\Block\Adminhtml\System\Config\HideForMagentoEE</frontend_model>
+                    </field>
+                    <field id="price_valid_until_default_value" translate="label" type="date" sortOrder="216" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Price Valid Until Default Value]]></label>
+                        <frontend_model>MageWorx\SeoAll\Block\Adminhtml\System\Config\Date</frontend_model>
+                        <validate>validate-date</validate>
+                    </field>
+                    <field id="product_id_code" translate="label comment" type="select" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Product ID Attribute Code]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Attributes</source_model>
+                        <comment>
+                            <![CDATA[
+                                This value will be used as productID in the Rich Snippets and as retailer_item_id in the Open Graph tags.<br/>
+                                Recommended attributes are: sku, gtin, isbn, etc.
+                            ]]>
+                        </comment>
+                    </field>
+                    <field id="condition_enabled" translate="label comment" type="select" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Condition]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <frontend_model>MageWorx\SeoMarkup\Block\Adminhtml\Config\Field\ConditionEnabled</frontend_model>
+                        <comment><![CDATA[Map any existing product attribute to the Schema.org condition snippet. Assign the current product attribute options to the Schema.org condition options such as New, Used, Refurbished or Damaged.]]></comment>
+                    </field>
+                    <field id="condition_code" translate="label comment" type="select" sortOrder="240" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Condition Attribute Code]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Attributes</source_model>
+                        <depends>
+                            <field id="condition_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="condition_value_new" translate="label" type="text" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Condition Value For New]]></label>
+                        <depends>
+                            <field id="condition_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="condition_value_used" translate="label" type="text" sortOrder="260" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Condition Value For Used]]></label>
+                        <depends>
+                            <field id="condition_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="condition_value_damaged" translate="label" type="text" sortOrder="270" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Condition Value For Damaged]]></label>
+                        <depends>
+                            <field id="condition_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="condition_value_default" translate="label comment" type="select" sortOrder="280" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Default Option For Condition]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\Conditions</source_model>
+                        <comment> Specify the default condition option for the product if it doesn't have the condition attribute assigned.</comment>
+                        <depends>
+                            <field id="condition_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="custom_prorerty_enabled" translate="label comment" type="select" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Custom Properties]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="custom_prorerties" translate="label comment" type="textarea" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Custom Properties]]></label>
+                        <comment><![CDATA[A comma-delimited list of <a href="http://schema.org/Product">schema.org</a> property name and attribute codes.<br /><b>Example:</b><br />
+                                mpn,mpn_code <br />
+                                For JSON-LD will be converted to: <br> { ... "mpn":"12343" ... }<br />
+                        ]]>
+                        </comment>
+                        <depends>
+                            <field id="custom_prorerty_enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
+                <group id="category" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category (Product List)</label>
+                    <comment>These settings are for the snippet configuration on the category pages.</comment>
+                    <field id="rs_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Rich Snippets]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adds the snippets that will be shown on the search engine results page. The store owner can preview the snippet data on the <a target="_blank" href="https://search.google.com/structured-data/testing-tool">special page</a>.]]></comment>
+                    </field>
+                    <field id="og_enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Open Graph]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adding <a target="_blank" href="http://ogp.me/">these tags</a> helps the Facebook Crawler pick up the correct title, description and the suitable preview image for the shared page.]]></comment>
+                    </field>
+                    <field id="add_product_offers" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Show Product Offers]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Informs search engines about the special <a target="_blank" href="https://support.mageworx.com/images/manuals/richsnippets/image08.png">product offers</a>]]></comment>
+                    </field>
+                    <field id="ga_enabled" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable for Google Assistant]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adds the beta support for the recently added <a target="_blank" href="https://developers.google.com/search/docs/data-types/speakable">speakable markup</a>.]]></comment>
+                    </field>
+                    <field id="ga_css_selector" translate="label comment" type="text" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[CSS Selectors]]></label>
+                        <depends>
+                            <field id="ga_enabled">1</field>
+                        </depends>
+                        <comment><![CDATA[Add any CSS Selectors that the store owner wishes to be spoken aloud by Google Assistant/Google Home. You can specify a few values separated by commas.]]></comment>
+                    </field>
+                    <field id="robots_restriction" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Disable for NOINDEX Robots]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>If set to Yes, hides the snippets on the categories that are not indexed.</comment>
+                    </field>
+                </group>
+                <group id="landingpage" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Landing Page</label>
+                    <field id="rs_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Rich Snippets]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adds the snippets that will be shown on the search engine results page. The store owner can preview the snippet data on the <a target="_blank" href="https://search.google.com/structured-data/testing-tool">special page</a>.]]></comment>
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                    </field>
+                    <field id="og_enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Open Graph]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adding <a target="_blank" href="http://ogp.me/">these tags</a> helps the Facebook Crawler pick up the correct title, description and the suitable preview image for the shared page.]]></comment>
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                    </field>
+                    <field id="add_product_offers" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Show Product Offers]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                    </field>
+                    <field id="robots_restriction" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Disable for NOINDEX Robots]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <if_module_enabled>MageWorx_LandingPagesPro</if_module_enabled>
+                    </field>
+                </group>
+                <group id="page" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Page]]></label>
+                    <comment><![CDATA[These settings are for the snippet configuration on the CMS pages.]]></comment>
+                    <field id="og_enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Open Graph]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adding <a target="_blank" href="http://ogp.me/">these tags</a> helps the Facebook Crawler pick up the correct title, description and the suitable preview image for the shared page.]]></comment>
+                    </field>
+                    <field id="tw_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Twitter Cards]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Visit <a target="_blank" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started">this page</a> to learn more about Twitter Cards. To enable the feature, make sure you enter Twitter Username in the <a target="_blank" href="https://support.mageworx.com/manuals/richsnippets/#common">Common</a> section.]]></comment>
+                    </field>
+                    <field id="ga_enabled" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable for Google Assistant]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adds the beta support for the recently added <a target="_blank" href="https://developers.google.com/search/docs/data-types/speakable">speakable markup</a>.]]></comment>
+                    </field>
+                    <field id="ga_css_selector" translate="label comment" type="text" sortOrder="41" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[CSS Selectors]]></label>
+                        <depends>
+                            <field id="ga_enabled">1</field>
+                        </depends>
+                        <comment><![CDATA[Add any CSS Selectors that the store owner wishes to be spoken aloud by Google Assistant/Google Home. You can specify a few values separated by commas.]]></comment>
+                    </field>
+                </group>
+                <group id="website" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Website]]></label>
+                    <field id="rs_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Rich Snippets ▾]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adds the snippets that will be shown on the search engine results page. The store owner can preview the snippet data on the <a target="_blank" href="https://search.google.com/structured-data/testing-tool">special page</a>.]]></comment>
+                    </field>
+                    <field id="website_use_search" translate="label" type="select" sortOrder="49" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Add Search Action]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <depends>
+                            <field id="rs_enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="og_enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Open Graph]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adding <a target="_blank" href="http://ogp.me/">these tags</a> helps the Facebook Crawler pick up the correct title, description and the suitable preview image for the shared page.]]></comment>
+                    </field>
+                    <field id="og_image" translate="label comment" type="image" sortOrder="33" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Facebook Logo]]></label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">og_image</upload_dir>
+                        <base_url type="media" scope_info="1">og_image</base_url>
+                        <comment><![CDATA[Upload your website logo for the correct sharing on Facebook. Allowed file types: PNG, GIF, JPG, JPEG]]></comment>
+                    </field>
+                    <field id="fb_app_id" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Facebook App Id]]></label>
+                        <comment><![CDATA[Can be taken from the <a target="_blank" href="https://developers.facebook.com/apps/">facebook for developers</a> website.]]></comment>
+                    </field>
+                    <field id="tw_enabled" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Twitter Cards]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Visit <a target="_blank" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started">this page</a> to learn more about Twitter Cards. To enable the feature, make sure you enter Twitter Username in the <a target="_blank" href="https://support.mageworx.com/manuals/richsnippets/#common">Common</a> section.]]></comment>
+                    </field>
+                    <field id="name" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Website Name]]></label>
+                    </field>
+                    <field id="description" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Website About]]></label>
+                    </field>
+                </group>
+                <group id="seller" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Seller]]></label>
+                    <comment>These settings are for the snippet configuration of the entire store (your organization).</comment>
+                    <field id="rs_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable In Rich Snippets]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Adds the snippets that will be shown on the search engine results page. The store owner can preview the snippet data on the <a target="_blank" href="https://search.google.com/structured-data/testing-tool">special page</a>.]]></comment>
+                    </field>
+                    <field id="type" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Type (by Schema.org)]]></label>
+                        <source_model>MageWorx\SeoMarkup\Model\Source\SellerTypes</source_model>
+                        <comment><![CDATA[Select your business <a target="_blank" href="https://schema.org/Store">type</a>]]></comment>
+                    </field>
+                    <field id="name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Name]]></label>
+                        <comment><![CDATA[If the seller rich snippet is enabled, this field is <b>required</b>.]]></comment>
+                    </field>
+                    <field id="image" translate="label comment" type="image" sortOrder="33" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Image]]></label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                        <upload_dir config="system/filesystem/media" scope_info="1">seller_image</upload_dir>
+                        <base_url type="media" scope_info="1">seller_image</base_url>
+                        <comment><![CDATA[If the seller rich snippet is enabled, this field is <b>required</b>.<br/>Allowed file types: PNG, GIF, JPG, JPEG.]]></comment>
+                    </field>
+                    <field id="description" translate="label comment" type="textarea" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Description]]></label>
+                        <comment><![CDATA[Populate the description property for the Schema.org <a target="_blank" href="https://schema.org/WebSite">store snippet</a>.]]></comment>
+                    </field>
+                    <field id="same_as_links" translate="label comment" type="textarea" sortOrder="37" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Social Links]]></label>
+                        <comment><![CDATA[The list of social media links <br /><b>Example:</b><br />https://twitter.com/mageworxteam<br />https://www.facebook.com/mageworx]]></comment>
+                    </field>
+                    <field id="phone" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Phone]]></label>
+                        <comment><![CDATA[This field is <b>recommended</b>.]]></comment>
+                    </field>
+                    <field id="fax" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Fax]]></label>
+                    </field>
+                    <field id="email" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Email]]></label>
+                    </field>
+                    <field id="location" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Location]]></label>
+                        <comment><![CDATA[This field is <b>recommended</b>.<br/>Example:</b> Seattle]]></comment>
+                    </field>
+                    <field id="region" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Region]]></label>
+                        <comment><![CDATA[This field is <b>recommended</b>.<br/><b>Example:</b> WA]]></comment>
+                    </field>
+                    <field id="street" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Street]]></label>
+                        <comment><![CDATA[This field is <b>recommended</b>.<br/><b>Example:</b><br>20341 Whitworth Institute<br>405 N. Whitworth]]></comment>
+                    </field>
+                    <field id="post_code" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[ZIP Code]]></label>
+                    </field>
+                    <field id="price_range" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Price Range]]></label>
+                        <comment><![CDATA[This field is <b>recommended</b>.<br/>Example:</b><br />$$$<br />$31-60]]></comment>
+                    </field>
+                </group>
+                <group id="breadcrumbs" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Breadcrumbs]]></label>
+                    <comment><![CDATA[The breadcrumbs settings add the <a target="_blank" href="https://developers.google.com/search/docs/data-types/breadcrumb">breadcrumb snippet support</a>.]]></comment>
+                    <field id="rs_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Enable]]></label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[The breadcrumbs will be visible on the <a target="_blank" href="https://support.mageworx.com/images/manuals/richsnippets/image14.png">search results page</a>]]></comment>
+                    </field>
+                </group>
+                <group id="common" translate="label comment" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Common]]></label>
+                    <field id="tw_username" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label><![CDATA[Twitter Username]]></label>
+                        <comment><![CDATA[This is the <b>required option</b> for the correct functionality of the <b>Twitter Cards</b> feature.]]></comment>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

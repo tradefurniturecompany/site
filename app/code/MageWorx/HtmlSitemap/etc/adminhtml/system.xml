@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageworx" sortOrder="2001">
+            <label>MageWorx</label>
+        </tab>
+        <section id="mageworx_seo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>SEO</label>
+            <tab>mageworx</tab>
+            <resource>MageWorx_HtmlSitemap::config_htmlsitemap</resource>
+            <group id="html_sitemap" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>HTML Sitemap</label>
+                <comment>HTML Sitemap provides the full list of the website's pages in the logical order and is created for the real clients (as opposed to the XML Sitemap that is created for the search bots).</comment>
+                <field id="show_stores" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Stores</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If <i>Enabled</i>, HTML Sitemap includes <a target="_blank" href="https://support.mageworx.com/images/manuals/sitemap/image03.png">Store Views links</a>.]]></comment>
+                </field>
+                <field id="show_categories" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Categories ▾</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If <i>Enabled</i>, HTML Sitemap includes catalog categories. Any category can be <a target="_blank" href="https://support.mageworx.com/images/manuals/seosuite/image28.png">excluded manually</a>.]]></comment>
+                </field>
+                <field id="category_max_depth" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum category depth level</label>
+                    <validate>integer validate-greater-than-zero</validate>
+                    <depends>
+                        <field id="show_categories">1</field>
+                    </depends>
+                    <comment><![CDATA[Manages the maximum depth of the categories to show. Leave empty for default (all categories).]]></comment>
+                </field>
+                <field id="show_products" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Products ▾</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="show_categories">1</field>
+                    </depends>
+                    <comment><![CDATA[If <i>Enabled</i>, HTML Sitemap includes products so that every product is being displayed under the appropriate category. Any Product can be <a target="_blank" href="https://support.mageworx.com/images/manuals/sitemap/image12.png">excluded manually</a>. Keep it disabled if you have a big number of products.]]></comment>
+                </field>
+                <field id="use_cat_display_mode" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>According to the category display mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If some category has the <a target="_blank" href="https://support.mageworx.com/images/manuals/sitemap/image04.png">display mode</a> <i>Static Block Only</i>, the products assigned to this category won't be shown on the HTML Sitemap]]></comment>
+                    <depends>
+                        <field id="show_categories">1</field>
+                        <field id="show_products">1</field>
+                    </depends>
+                </field>
+                <field id="product_url_length" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product URLs</label>
+                    <source_model>MageWorx\HtmlSitemap\Model\Source\UrlLength</source_model>
+                    <comment><![CDATA[Handles the URL structure of the product pages. If <i>Use Categories</i> Path is selected, the URL will be formed like https://www.site.com/category1/subcategoryA1/product.html. Otherwise, -  https://www.site.com/product.html.]]></comment>
+                    <depends>
+                        <field id="show_categories">1</field>
+                        <field id="show_products">1</field>
+                    </depends>
+                </field>
+                <field id="cat_prod_sort_order" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Categories/Products Sort Order</label>
+                    <source_model>MageWorx\HtmlSitemap\Model\Source\SortOrder</source_model>
+                    <comment><![CDATA[Handles how the products are sorted in the HTML Sitemap. It can be either by <i>Name</i> (alphabetically) or by <i>Position</i> (taken from the Product Position on the <a target="_blank" href="https://support.mageworx.com/images/manuals/sitemap/image06.png">Category page</a>).]]></comment>
+                    <depends>
+                        <field id="show_categories">1</field>
+                    </depends>
+                </field>
+                <field id="show_cms_pages" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show CMS Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[If <i>Enabled</i>, HTML Sitemap includes <a target="_blank" href="https://support.mageworx.com/images/manuals/sitemap/image07.png">CMS Pages</a>. Any Page can be <a target="_blank" href="https://support.mageworx.com/images/manuals/seosuite/image11.png">excluded manually</a>.]]>
+                    </comment>
+                </field>
+                <field id="show_links" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Additional Links ▾</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If <i>Enabled</i>, any additional links (including those <a target="_blank" href="https://support.mageworx.com/images/manuals/sitemap/image08.png">from other websites</a>) can be added to HTML Sitemap.]]></comment>
+                </field>
+                <field id="additional_links" translate="label comment" type="textarea" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional Links</label>
+                    <depends>
+                        <field id="show_links">1</field>
+                    </depends>
+                    <comment>
+                        <![CDATA[A comma-delimited list of links and link labels to append to the sitemap. <b>Example:</b><br/>http://www.mageworx.com,MageWorx.<br/>Link without 'http[s]://' will be treated as relative to this domain.<br/><b>NOTE!</b> http[s]:// is required in case the page is on some other website]]>
+                    </comment>
+                </field>
+                <field id="exclude" translate="label comment" type="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exclude Pages from Sitemap</label>
+                    <frontend_model>MageWorx\HtmlSitemap\Block\Adminhtml\Config\Field\Exclude</frontend_model>
+                    <comment>
+                        <![CDATA[You can exclude any specific CMS, Category, and Product pages from HTML sitemap on the corresponding grids, or on their Edit pages (Product, Category, CMS).]]>
+                    </comment>
+                </field>
+                <field id="show_custom_links" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow Third-party Links ▾</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If <i>Enabled</i>, the third-party extensions that are <b>compatible</b> with our extension will be able to add their pages (like blogs etc.) to the HTML Sitemap.]]></comment>
+                </field>
+                <field id="title" type="text"  translate="label" sortOrder="120" showInDefault="120" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <comment>Useful in case of separate store views as the setting allows providing meta information per store.</comment>
+                </field>
+                <field id="meta_description"  translate="label" type="textarea" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Description</label>
+                    <comment>Useful in case of separate store views as the setting allows providing meta information per store.</comment>
+                </field>
+                <field id="meta_keywords" translate="label" type="textarea" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords</label>
+                    <comment>Useful in case of separate store views as the setting allows providing meta information per store.</comment>
+                </field>
+            </group>
+            <group id="common_sitemap" translate="label comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Common Settings For Sitemaps</label>
+                <comment></comment>
+                <field id="trailing_slash_home_page" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trailing Slash For Home Page</label>
+                    <source_model>MageWorx\HtmlSitemap\Model\Source\AddCrop</source_model>
+                    <comment><![CDATA[<b>NOTE!</b> The trailing slash can be added to pages without suffix .html or .htm]]></comment>
+                </field>
+                <field id="trailing_slash" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trailing Slash For URLs</label>
+                    <source_model>MageWorx\HtmlSitemap\Model\Source\AddCrop</source_model>
+                    <comment><![CDATA[<b>NOTE!<b> The trailing slash can be added to pages without suffix .html or .htm]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="Hotlink_Framework_Model_Interaction_Log_Cleaning" translate="label" type="text" sortOrder="20" showInDefault="1">
+        <attribute type="hotlink" interaction="true" />
+        <label>Log Cleaning</label>
+        <field id="enabled" type="select" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0" />
+        <field id="count" translate="label" type="text" sortOrder="500" showInDefault="1">
+            <label>Count</label>
+            <comment><![CDATA[A positive integer specifies the number of records to retain each run (deleting all others).<br/> A negative integer specifies a number of records to delete each run.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+        <field id="sleep" translate="label" type="text" sortOrder="500" showInDefault="1">
+            <label>Sleep</label>
+            <comment><![CDATA[Pause between database deletes (in millionths of a second) to avoid mysql locking bugs and related problems.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
+    </group>
+</include>
