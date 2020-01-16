@@ -15,7 +15,6 @@
         "magento/product-community-edition": "2.3.2",
         "mageplaza/magento-2-seo-extension": "^2.1",
         "mageplaza/module-core": "^1.3",
-        "owebia/magento2-module-advanced-shipping": "^2.6.3",
         "tradefurniturecompany/core": "*",
         "tradefurniturecompany/report": "*"
     },
