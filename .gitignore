@@ -23,7 +23,9 @@
 /update/
 !vendor/magento/framework/View/Element/Template/File/Validator.php
 !vendor/magento/module-media-storage/Service/ImageResize.php
+dev
 vendor/codeception
 vendor/magento/framework/Test
+vendor/magento/magento2-base
 vendor/magento/magento2-functional-testing-framework
 vendor/tubalmartin
