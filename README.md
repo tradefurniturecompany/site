@@ -1,8 +1,10 @@
 [tradefurniturecompany.co.uk](https://www.tradefurniturecompany.co.uk) (Magento 2).
 
 ## How to update all `tradefurniturecompany/*` packages 
-```                                 
+```                 
 sudo service crond stop
+sudo service nginx stop                
+service php-fpm stop
 bin/magento maintenance:enable      
 composer remove tradefurniturecompany/core
 composer remove tradefurniturecompany/report  
@@ -24,5 +26,7 @@ bin/magento setup:static-content:deploy \
 	--theme TradeFurnitureCompany/default \
 	-f en_GB
 bin/magento maintenance:disable 
+service php-fpm start
+sudo service nginx start
 sudo service crond start
 ```
