@@ -16,7 +16,8 @@
         "mageplaza/magento-2-seo-extension": "^2.1",
         "mageplaza/module-core": "^1.3",
         "tradefurniturecompany/core": "*",
-        "tradefurniturecompany/report": "*"
+        "tradefurniturecompany/report": "*",
+        "yireo/magento2-disablelog2": "*"
     },
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.2.0",
