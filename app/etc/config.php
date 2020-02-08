@@ -290,7 +290,6 @@ return [
         'MageWorx_XmlSitemap' => 1,
         'Mageplaza_Core' => 1,
         'Mageplaza_DeliveryTime' => 1,
-        'Mageplaza_GeoIP' => 1,
         'Mageplaza_Osc' => 1,
         'Mageplaza_Seo' => 1,
         'Mageplaza_SocialLogin' => 1,
@@ -312,6 +311,7 @@ return [
         'Ves_ImageSlider' => 1,
         'Ves_Setup' => 1,
         'WeltPixel_Backend' => 1,
-        'WeltPixel_OwlCarouselSlider' => 1
+        'WeltPixel_OwlCarouselSlider' => 1,
+        'Yireo_DisableLog2' => 1
     ]
 ];
