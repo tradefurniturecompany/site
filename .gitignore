@@ -4,8 +4,10 @@
 # http://stackoverflow.com/questions/8024924#comment15884195_8025106
 *
 !*/
+!/.editorconfig
 !/.gitignore
 !/composer.json
+!/README.md
 !app/code/**/*
 !app/design/frontend/TradeFurnitureCompany/default/**/*
 !app/etc/config.php
