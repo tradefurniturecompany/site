@@ -224,6 +224,7 @@ return [
         'Df_Cms' => 1,
         'Df_Config' => 1,
         'Df_API' => 1,
+        'Df_Cron' => 1,
         'Df_Customer' => 1,
         'Df_Directory' => 1,
         'Df_Eav' => 1,
