@@ -27,7 +27,7 @@
 # "[Ebizmarts_MailChimp]: «Resource Not Found for Api Call» /
 # «https://us6.api.mailchimp.com/3.0/lists//members/... - Invalid path»":
 # https://github.com/tradefurniturecompany/site/issues/22
-!vendor/ebizmarts/mailchimp-lib/**/*
+!vendor/ebizmarts/mailchimp-lib/src/Mailchimp.php
 !vendor/magento/framework/View/Element/Template/File/Validator.php
 !vendor/magento/module-media-storage/Service/ImageResize.php
 dev
