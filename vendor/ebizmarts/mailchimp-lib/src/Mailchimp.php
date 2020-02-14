@@ -170,7 +170,7 @@ class Mailchimp
         $this->_apiKey   = $apiKey;
         $dc             = 'us1';
         if (strstr($this->_apiKey, "-")){
-            list($key, $dc) = explode("-", $this->_apiKey, 2);
+            [$key, $dc] = explode("-", $this->_apiKey, 2);
             if (!$dc) {
                 $dc = "us1";
             }
@@ -200,6 +200,14 @@ class Mailchimp
     }
     public function call($url,$params,$method=Mailchimp::GET)
     {
+    	/**
+		 * 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * [Ebizmarts_MailChimp]:
+		 * «Resource Not Found for Api Call» / «https://us6.api.mailchimp.com/3.0/lists//members/... - Invalid path»
+		 */
+		if (df_contains($url, '//')) {
+    		df_log_l('Ebizmarts_MailChimp', ['method' => $method, 'params' => $params, 'url' => $url], null, true);
+		}
         $hasParams = true;
         if(is_array($params)&&count($params)==0||$params == null)
         {
