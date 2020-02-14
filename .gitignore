@@ -23,6 +23,11 @@
 !lib/web/i18n/en_GB.csv
 !pub/errors/default/503.phtml
 /update/
+# 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# "[Ebizmarts_MailChimp]: «Resource Not Found for Api Call» /
+# «https://us6.api.mailchimp.com/3.0/lists//members/... - Invalid path»":
+# https://github.com/tradefurniturecompany/site/issues/22
+!vendor/ebizmarts/mailchimp-lib/**/*
 !vendor/magento/framework/View/Element/Template/File/Validator.php
 !vendor/magento/module-media-storage/Service/ImageResize.php
 dev
