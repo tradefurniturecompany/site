@@ -25,7 +25,7 @@ class Stats extends \Magento\Config\Block\System\Config\Form\Field
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Apptrian\ImageOptimizer\Helper\Data $helper
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Apptrian\ImageOptimizer\Helper\Data $helper
     ) {
@@ -40,7 +40,7 @@ class Stats extends \Magento\Config\Block\System\Config\Form\Field
      * @return string
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function _getElementHtml(AbstractElement $element)
+    function _getElementHtml(AbstractElement $element)
     {
         $element = null;
         

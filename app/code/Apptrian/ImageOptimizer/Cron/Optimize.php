@@ -27,7 +27,7 @@ class Optimize
      * @param \Apptrian\ImageOptimizer\Helper\Data $helper
      * @param \Psr\Log\LoggerInterface $logger
      */
-    public function __construct(
+    function __construct(
         \Apptrian\ImageOptimizer\Helper\Data $helper,
         \Psr\Log\LoggerInterface $logger
     ) {
@@ -38,7 +38,7 @@ class Optimize
     /**
      * Cron method for executing optmization process.
      */
-    public function execute()
+    function execute()
     {
         $extensionEnabled = (int) $this->helper->getConfig(
             'apptrian_imageoptimizer/general/enabled'

@@ -24,7 +24,7 @@ class About extends \Magento\Backend\Block\AbstractBlock implements
      *
      * @param \Apptrian\ImageOptimizer\Helper\Data $helper
      */
-    public function __construct(\Apptrian\ImageOptimizer\Helper\Data $helper)
+    function __construct(\Apptrian\ImageOptimizer\Helper\Data $helper)
     {
         $this->helper = $helper;
     }
@@ -35,7 +35,7 @@ class About extends \Magento\Backend\Block\AbstractBlock implements
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return string
      */
-    public function render(AbstractElement $element)
+    function render(AbstractElement $element)
     {
         $element  = null;
         $version  = $this->helper->getExtensionVersion();
