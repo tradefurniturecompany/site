@@ -5,6 +5,8 @@
 sudo service crond stop
 sudo service nginx stop                
 sudo service php-fpm stop
+sudo service elasticsearch stop  
+sudo service rabbitmq-server stop
 bin/magento maintenance:enable      
 composer remove tradefurniturecompany/core
 composer remove tradefurniturecompany/report  
@@ -26,6 +28,8 @@ bin/magento setup:static-content:deploy \
 	--theme TradeFurnitureCompany/default \
 	-f en_GB
 bin/magento maintenance:disable 
+sudo service rabbitmq-server start
+sudo service elasticsearch start
 sudo service php-fpm start
 sudo service nginx start
 sudo service crond start
