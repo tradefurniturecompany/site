@@ -20,7 +20,7 @@ class Clear extends \Magento\Config\Block\System\Config\Form\Field
      * @return string
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function _getElementHtml(AbstractElement $element)
+    function _getElementHtml(AbstractElement $element)
     {
         $element = null;
         

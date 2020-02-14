@@ -22,7 +22,7 @@ class Optimize extends \Magento\Backend\App\Action
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Apptrian\ImageOptimizer\Helper\Data $dataHelper
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Apptrian\ImageOptimizer\Helper\Data $dataHelper
     ) {
@@ -36,7 +36,7 @@ class Optimize extends \Magento\Backend\App\Action
      *
      * @return \Magento\Backend\Model\View\Result\Redirect
      */
-    public function execute()
+    function execute()
     {
         set_time_limit(18000);
         

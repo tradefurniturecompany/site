@@ -17,7 +17,7 @@ class Permissions extends \Magento\Framework\App\Config\Value
      * @return $this
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function beforeSave()
+    function beforeSave()
     {
         $value     = $this->getValue();
         $validator = \Zend_Validate::is(
