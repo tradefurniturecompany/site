@@ -583,12 +583,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 		 * 2) "«sh: <filename>.jpg: command not found» / «Empty input file» in `var/log/magento.cron.log`":
 		 * https://github.com/tradefurniturecompany/site/issues/24
 		 */
-		$r = str_replace('%filepath%', strtr($filePath, ['(' => '\(', ')' => '\)']), $cmd);
-		/**
-		 * 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-		 * The issue is still not fixed:
-		 * https://github.com/tradefurniturecompany/site/issues/24#issuecomment-586301107
-		 */
+		$r = str_replace('%filepath%', escapeshellcmd($filePath), $cmd);
 		df_report('mage2.pro/' . df_report_prefix($this) . '.sh', $r, true);
 		return $r;
 	}
