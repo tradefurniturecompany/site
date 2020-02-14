@@ -258,7 +258,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 	/**
 	 * Based on config returns array of all paths that will be scaned
 	 * for images.
-	 *
+	 * @used-by \Apptrian\ImageOptimizer\Helper\Data::scanAndReindex()
 	 * @return array
 	 */
 	function getPaths()
@@ -452,7 +452,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
 	/**
 	 * Scans provided path for images and adds them to index.
-	 *
+	 * @used-by \Apptrian\ImageOptimizer\Helper\Data::scanAndReindex()
 	 * @param string $path
 	 */
 	function scanAndReindexPath($path)
@@ -461,7 +461,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 		$encodedPath = '';
 		$filePath    = '';
 		$file        = null;
-
+		/**
+		 * 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * "Apptrian_ImageOptimizer should not process files of the staging website":
+		 * https://github.com/tradefurniturecompany/site/issues/32
+		 */
+		df_report('mage2.pro/' . df_report_prefix($this) . '-paths.txt', $this->getBaseDir() . $path, true);
 		$iterator = new \RecursiveIteratorIterator(
 			new \RecursiveDirectoryIterator(
 				$this->getBaseDir() . $path,
