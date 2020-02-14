@@ -29,7 +29,11 @@
 # https://github.com/tradefurniturecompany/site/issues/22
 !vendor/ebizmarts/mailchimp-lib/src/Mailchimp.php
 !vendor/magento/framework/View/Element/Template/File/Validator.php
-!vendor/magento/module-media-storage/Service/ImageResize.php
+# 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# «In StreamHandler.php line 108:
+# The stream or file "/var/www/vhosts/tradefurniturecompany.co.uk/htdocs/" could not be opened:
+# failed to open stream: Is a directory»: https://github.com/tradefurniturecompany/site/issues/33
+!vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php
 dev
 vendor/codeception
 vendor/magento/framework/Test
