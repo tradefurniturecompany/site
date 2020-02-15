@@ -11,7 +11,6 @@
         "sort-packages": true
     },
     "require": {
-        "ebizmarts/mailchimp-lib": "^3.0",
         "magento/product-community-edition": "2.3.2",
         "mageplaza/magento-2-seo-extension": "^2.1",
         "mageplaza/module-core": "^1.3",
