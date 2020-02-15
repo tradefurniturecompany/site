@@ -680,6 +680,13 @@ class Report
         return $this;
     }
 
+	/**
+	 * @used-by \Hotlink\Framework\Controller\Adminhtml\Report\Render::execute()
+	 * @used-by \Hotlink\Framework\Model\Interaction\Action\Email::_getContent()
+	 * @used-by \Hotlink\Framework\Model\Report::add()
+	 * @param Report\Item $item
+	 * @return $this|void
+	 */
     public function write( \Hotlink\Framework\Model\Report\Item $item )
     {
         $this->_items[] = $item;
@@ -810,7 +817,12 @@ class Report
 
     public function info( $message, $data = false, $dataRenderer = false )
     {
-        return $this->add( 'info', $message, $data, $dataRenderer );
+    	/**
+		 * 2020-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * "Prevent `Hotlink_Framework` from logging `Hotlink\Framework\Model\Report\Item`":
+		 * https://github.com/tradefurniturecompany/site/issues/40
+		 */
+        //return $this->add( 'info', $message, $data, $dataRenderer );
     }
 
     public function debug( $message, $data = false, $dataRenderer = false )

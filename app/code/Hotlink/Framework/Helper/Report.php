@@ -75,6 +75,16 @@ class Report
         return $this->reportLogWriterFactory->create();
     }
 
+	/**
+	 * @used-by \Hotlink\Framework\Helper\Report::delete()
+	 * @used-by \Hotlink\Framework\Helper\Report::getFilePathItem()
+	 * @used-by \Hotlink\Framework\Model\Report\Item\Writer::_open()
+	 * @used-by \Hotlink\Framework\Model\Report\Reader::_openItemFile()
+	 * @param $id
+	 * @param bool $autoCreatePath
+	 * @param null $storeId
+	 * @return bool|string|string[]
+	 */
     public function getFilePath( $id, $autoCreatePath = true, $storeId = null )
     {
         $file = false;
@@ -94,6 +104,15 @@ class Report
         return $file;
     }
 
+	/**
+	 * @used-by \Hotlink\Framework\Model\Report\Data\Writer::_write()
+	 * @used-by \Hotlink\Framework\Model\Report\Reader::_readItemData()
+	 * @param $reportId
+	 * @param $itemId
+	 * @param bool $autoCreatePath
+	 * @param null $storeId
+	 * @return bool|string|string[]
+	 */
     public function getFilePathItem( $reportId, $itemId, $autoCreatePath = true, $storeId = null )
     {
         $file = $this->getFilePath( $reportId, $autoCreatePath, $storeId );
