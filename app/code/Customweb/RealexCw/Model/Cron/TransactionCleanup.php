@@ -62,7 +62,14 @@ class TransactionCleanup
 
 		// Remove all failed transactions after 2 months.
 		try {
-			$this->_logger->info('RealexCw: Cleaned up ' . $this->delete($this->getFailedTransactions(), $maxEndtime) . ' failed transactions.');
+			/**
+			 * 2020-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			 * "Prevent Customweb_RealexCw from logging «RealexCw: Cleaned up 0 failed transactions»":
+			 * https://github.com/tradefurniturecompany/site/issues/37
+			 */
+			if ($c = $this->delete($this->getFailedTransactions(), $maxEndtime)) {/** @var int $c */
+				$this->_logger->info("RealexCw: Cleaned up $c failed transactions.");
+			}
 		} catch (\Exception $e) {
 			$this->_logger->error('Error in RealexCw transaction cleanup cron: ' . $e->getMessage());
 		}
