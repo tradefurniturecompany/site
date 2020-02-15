@@ -258,7 +258,6 @@ return [
         'Df_Xml' => 1,
         'Df_Zf' => 1,
         'Dotdigitalgroup_Email' => 1,
-        'Ebizmarts_MailChimp' => 1,
         'FishPig_WordPress' => 1,
         'Hotlink_Framework' => 1,
         'Hotlink_Brightpearl' => 1,
