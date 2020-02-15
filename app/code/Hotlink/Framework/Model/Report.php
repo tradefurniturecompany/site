@@ -823,6 +823,13 @@ class Report
 		 * https://github.com/tradefurniturecompany/site/issues/40
 		 */
         //return $this->add( 'info', $message, $data, $dataRenderer );
+    	/**
+		 * 2020-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * «Call to a member function incSuccess() on null
+		 * in app/code/Hotlink/Framework/Model/Schedule/Cron/Inject.php:99»:
+		 * https://github.com/tradefurniturecompany/site/issues/41
+		 */
+		return $this;
     }
 
     public function debug( $message, $data = false, $dataRenderer = false )
