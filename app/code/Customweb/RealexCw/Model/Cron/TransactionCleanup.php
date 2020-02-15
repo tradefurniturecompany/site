@@ -59,7 +59,7 @@ class TransactionCleanup
 	public function execute()
 	{
 		$maxEndtime = \Customweb_Core_Util_System::getScriptExecutionEndTime() - 4;
-
+		/** @var int $c */
 		// Remove all failed transactions after 2 months.
 		try {
 			/**
@@ -67,7 +67,7 @@ class TransactionCleanup
 			 * "Prevent Customweb_RealexCw from logging «RealexCw: Cleaned up 0 failed transactions»":
 			 * https://github.com/tradefurniturecompany/site/issues/37
 			 */
-			if ($c = $this->delete($this->getFailedTransactions(), $maxEndtime)) {/** @var int $c */
+			if ($c = $this->delete($this->getFailedTransactions(), $maxEndtime)) {
 				$this->_logger->info("RealexCw: Cleaned up $c failed transactions.");
 			}
 		} catch (\Exception $e) {
@@ -76,7 +76,14 @@ class TransactionCleanup
 
 		//Remove all pending transaction 6 month after last update
 		try {
-			$this->_logger->info('RealexCw: Cleaned up ' . $this->delete($this->getPendingTransactions(), $maxEndtime) . ' pending transactions.');
+			/**
+			 * 2020-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			 * "Prevent Customweb_RealexCw from logging «RealexCw: Cleaned up 0 pending transactions»":
+			 * https://github.com/tradefurniturecompany/site/issues/38
+			 */
+			if ($c = $this->delete($this->getPendingTransactions(), $maxEndtime)) {
+				$this->_logger->info("RealexCw: Cleaned up $c pending transactions.");
+			}
 		} catch (\Exception $e) {
 			$this->_logger->error('Error in RealexCw transaction cleanup cron: ' . $e->getMessage());
 		}
