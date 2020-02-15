@@ -204,7 +204,9 @@ class Mailchimp
 		 * 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 		 * [Ebizmarts_MailChimp]:
 		 * «Resource Not Found for Api Call» / «https://us6.api.mailchimp.com/3.0/lists//members/... - Invalid path»
+		 * https://github.com/tradefurniturecompany/site/issues/22
 		 */
+    	df_report('mage2.pro/' . df_report_prefix('Ebizmarts_MailChimp') . '-urls.txt', $url, true);
 		if (df_contains($url, '//')) {
     		df_log_l('Ebizmarts_MailChimp', ['method' => $method, 'params' => $params, 'url' => $url], null, true);
 		}
