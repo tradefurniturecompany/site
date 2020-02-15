@@ -834,7 +834,13 @@ class Report
 
     public function debug( $message, $data = false, $dataRenderer = false )
     {
-        return $this->add( 'debug', $message, $data, $dataRenderer );
+		/**
+		 * 2020-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * "Prevent `Hotlink_Framework` from logging `Hotlink\Framework\Model\Report\Item`":
+		 * https://github.com/tradefurniturecompany/site/issues/40
+		 */
+		return $this;
+        //return $this->add( 'debug', $message, $data, $dataRenderer );
     }
 
     public function trace( $message, $data = false, $dataRenderer = false )
