@@ -38,10 +38,20 @@ class Customweb_Core_Logger_DefaultLogger implements Customweb_Core_ILogger {
 		}
 	}
 	public function logDebug($message, $object= null) {
-		$this->log ( self::LEVEL_DEBUG, $message, null, $object);
+		/**
+		 * 2020-02-17 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * "Prevent Customweb_RealexCw from logging successful transations to `var/log/realexcw.log`"
+		 * https://github.com/tradefurniturecompany/site/issues/23
+		 */
+		//$this->log ( self::LEVEL_DEBUG, $message, null, $object);
 	}
 	public function logInfo($message, $object= null) {
-		$this->log ( self::LEVEL_INFO, $message, null, $object);
+		/**
+		 * 2020-02-17 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * "Prevent Customweb_RealexCw from logging successful transations to `var/log/realexcw.log`"
+		 * https://github.com/tradefurniturecompany/site/issues/23
+		 */
+		//$this->log ( self::LEVEL_INFO, $message, null, $object);
 	}
 	public function logError($message, $object= null) {
 		$this->log ( self::LEVEL_ERROR, $message, null, $object);
