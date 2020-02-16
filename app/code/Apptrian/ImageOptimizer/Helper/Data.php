@@ -496,31 +496,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 
 		return $r;
 	}
-
-	/**
-	 * Saves batch of data to a file.
-	 *
-	 * @param array $data
-	 * @param int $b
-	 */
-	function saveToFile($data, $b)
-	{
-		$r = true;
-
-		if (!empty($data)) {
-			$fh = fopen($this->getIndexPath(), 'a');
-
-			if ($b != 0) {
-				fwrite($fh, "\n");
-			}
-
-			$r = fwrite($fh, implode("\n", $data));
-
-			fclose($fh);
-		}
-
-		return $r;
-	}
 	
 	/**
 	 * @var \Magento\Framework\App\Config\ScopeConfigInterface
@@ -697,12 +672,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 		$this->clearIndex();
 		foreach ($this->index as $id => $f) {
 			// str_replace() removes | from filename because | is delimiter
-			$data[] = sprintf(
-				'%s|%s|%d',
-				$id,
-				str_replace('|', '', $f['f']),
-				$f['t']
-			);
+			$data[] = sprintf('%s|%s|%d', $id, str_replace('|', '', $f['f']), $f['t']);
 			// Free memory
 			unset($this->index[$id]);
 			if ($c == 100000) {
@@ -734,6 +704,25 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	}
 
 	/**
+	 * Saves batch of data to a file.
+	 * @used-by saveIndex()
+	 * @param array $data
+	 * @param int $b
+	 */
+	private function saveToFile($data, $b) {
+		$r = true;
+		if (!empty($data)) {
+			$fh = fopen($this->getIndexPath(), 'a');
+			if ($b != 0) {
+				fwrite($fh, "\n");
+			}
+			$r = fwrite($fh, implode("\n", $data));
+			fclose($fh);
+		}
+		return $r;
+	}
+
+	/**
 	 * Scans provided path for images and adds them to index.
 	 * @used-by scanAndReindex()
 	 * @param string $path
@@ -752,32 +741,22 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 				\RecursiveDirectoryIterator::FOLLOW_SYMLINKS
 			)
 		);
-
 		foreach ($iterator as $file) {
-			if ($file->isFile()
-				&& preg_match(
-					'/^.+\.(jpe?g|gif|png)$/i',
-					$file->getFilename()
-				)
-			) {
+			if ($file->isFile() && preg_match('/^.+\.(jpe?g|gif|png)$/i', $file->getFilename())) {
 				$filePath = $file->getRealPath();
 				if (!is_writable($filePath)) {
 					continue;
 				}
-
 				$encodedPath = utf8_encode($filePath);
-				$id          = hash('md5', $encodedPath);
-
+				$id = hash('md5', $encodedPath);
 				// Add only if file is not already in the index
 				if (!isset($this->index[$id])) {
 					$this->index[$id] = ['f' => $encodedPath, 't' => 0];
 				}
 			}
-
 			// Free Memory
 			$file = null;
 		}
-
 		// Free Memory
 		$iterator = null;
 	}
