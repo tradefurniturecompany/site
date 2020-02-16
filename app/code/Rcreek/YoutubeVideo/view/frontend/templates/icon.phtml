@@ -1,15 +1,24 @@
-<?php if ($block->getEmbeddedHtml()): ?>
-<div class="video-frame-wrapper">
-  <a class="action popup-open video-frame-link" href="#">
-    <img src="<?php echo $block->getFirstFrameUrl(); ?>" class="video-first-frame" />
-    <img src="<?php echo $block->getViewFileUrl('Rcreek_YoutubeVideo::images/play_video.png'); ?>" class="video-play"/>
-  </a>
-</div>
+<?php 
+use Rcreek\YoutubeVideo\Block\YoutubeVideo as B;
+/** @var B $block */ $b = $block; /** @var B $b */ 
+?>
+<?php if ($b->getEmbeddedHtml()): ?>
+	<div class='video-frame-wrapper'>
+		<a class='action popup-open video-frame-link' href='#'>
+			<?php
+				/**
+				 * 2020-02-17 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+				 * «Undefined offset: 1 in app/code/Rcreek/YoutubeVideo/Block/YoutubeVideo.php on line 82»:
+				 * https://github.com/tradefurniturecompany/site/issues/47
+				 */
+				if ($u = $b->getFirstFrameUrl()) {
+					echo df_tag('img', ['class' => 'video-first-frame', 'src' => $u]);
+				}
+			?>
+			<img src='<?= $b->getViewFileUrl('Rcreek_YoutubeVideo::images/play_video.png'); ?>' class='video-play'/>
+		</a>
+	</div>
 <?php endif; ?>
-<script type="text/x-magento-init">
-{
-   ".popup-open": {
-       "Rcreek_YoutubeVideo/js/popup": {"title": "<?php echo $block->getProduct()->getName() ?>"}
-   }
-}
+<script type='text/x-magento-init'>
+	{".popup-open": {"Rcreek_YoutubeVideo/js/popup": {"title": "<?= $b->getProduct()->getName() ?>"}}}
 </script>
