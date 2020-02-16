@@ -463,19 +463,18 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 
 	/**
 	 * Clear index (Empty index file).
-	 *
+	 * @used-by saveIndex()
+	 * @used-by \Apptrian\ImageOptimizer\Controller\Adminhtml\Optimizer\Clear::execute()
 	 * @return boolean
 	 */
-	function clearIndex()
-	{
+	function clearIndex() {
 		$r = file_put_contents($this->getIndexPath(), '', LOCK_EX);
-
 		if ($r === false) {
 			$this->logger->debug('Clear index operation failed.');
-		} else {
+		}
+		else {
 			$r = true;
 		}
-
 		return $r;
 	}
 	
