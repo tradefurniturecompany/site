@@ -10,12 +10,12 @@ class InstallData implements InstallDataInterface
 {
 	private $eavSetupFactory;
 
-	public function __construct(EavSetupFactory $eavSetupFactory)
+	function __construct(EavSetupFactory $eavSetupFactory)
 	{
 		$this->eavSetupFactory = $eavSetupFactory;
 	}
 
-	public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+	function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
 	{
 		$eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
 		$eavSetup->addAttribute(
