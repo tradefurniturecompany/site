@@ -234,7 +234,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 
 	/**
 	 * Optimization process.
-	 *
+	 * @used-by \Apptrian\ImageOptimizer\Controller\Adminhtml\Optimizer\Optimize::execute()
+	 * @used-by \Apptrian\ImageOptimizer\Cron\Optimize::execute()
 	 * @return boolean
 	 */
 	function optimize() {
@@ -549,18 +550,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	 *
 	 * @return boolean
 	 */
-	function saveIndex()
-	{
-		$id   = '';
-		$f    = '';
+	function saveIndex() {
 		$data = [];
 		$c    = 0;
 		$b    = 0;
-		$r    = false;
-
 		// Truncate existing index file
 		$this->clearIndex();
-
 		foreach ($this->index as $id => $f) {
 			// str_replace() removes | from filename because | is delimiter
 			$data[] = sprintf(
@@ -569,40 +564,33 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 				str_replace('|', '', $f['f']),
 				$f['t']
 			);
-
 			// Free memory
 			unset($this->index[$id]);
-
 			if ($c == 100000) {
 				// Save part of the file
-				$r = $this->saveToFile($data, $b);
-
+				$this->saveToFile($data, $b);
 				// Free memory
 				$data = [];
-
 				// Increment batch
 				$b++;
-
 				// Reset count
 				$c = 0;
-			} else {
+			}
+			else {
 				// Increment count
 				$c++;
 			}
 		}
-
 		// Save last part of the file
 		$r = $this->saveToFile($data, $b);
-
 		// Free memory
 		$this->index = null;
-
 		if ($r === false) {
 			$this->logger->debug('Writting index to a file failed.');
-		} else {
+		}
+		else {
 			$r = true;
 		}
-
 		return $r;
 	}
 
@@ -747,6 +735,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 
 	/**
 	 * Load index from a file.
+	 * @used-by getFileCount()
+	 * @used-by optimize()
+	 * @used-by scanAndReindex()
 	 */
 	private function loadIndex() {
 		$filePath = $this->getIndexPath();
