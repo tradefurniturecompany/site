@@ -448,24 +448,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	}
 
 	/**
-	 * Returns index path.
-	 *
-	 * @return string
-	 */
-	function getIndexPath()
-	{
-		if ($this->indexPath === null) {
-			$dir = $this->fileSystem->getDirectoryRead(
-				\Magento\Framework\App\Filesystem\DirectoryList::VAR_DIR
-			);
-
-			$this->indexPath = $dir->getAbsolutePath() . $this->indexFilename;
-		}
-
-		return $this->indexPath;
-	}
-
-	/**
 	 * Returns count of indexed and optmized files.
 	 * @used-by \Apptrian\ImageOptimizer\Block\Adminhtml\Stats::_getElementHtml()
 	 * @return array
@@ -609,6 +591,21 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 			}
 		}
 		return $files;
+	}
+
+	/**
+	 * Returns index path.
+	 * @used-by clearIndex()
+	 * @used-by loadIndex()
+	 * @used-by saveToFile()
+	 * @return string
+	 */
+	private function getIndexPath() {
+		if ($this->indexPath === null) {
+			$dir = $this->fileSystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::VAR_DIR);
+			$this->indexPath = $dir->getAbsolutePath() . $this->indexFilename;
+		}
+		return $this->indexPath;
 	}
 
 	/**
