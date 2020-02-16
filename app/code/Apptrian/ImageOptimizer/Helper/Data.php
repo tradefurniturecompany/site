@@ -1,116 +1,6 @@
 <?php
-/**
- * @category  Apptrian
- * @package   Apptrian_ImageOptimizer
- * @author    Apptrian
- * @copyright Copyright (c) Apptrian (http://www.apptrian.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License
- */
- 
 namespace Apptrian\ImageOptimizer\Helper;
-
-class Data extends \Magento\Framework\App\Helper\AbstractHelper
-{
-	/**
-	 * @var \Magento\Framework\App\Config\ScopeConfigInterface
-	 */
-	public $scopeConfig;
-
-	/**
-	 * @var \Magento\Framework\Module\ModuleListInterface
-	 */
-	public $moduleList;
-
-	/**
-	 * @var \Magento\Framework\Filesystem
-	 */
-	public $fileSystem;
-
-	/**
-	 * @var \Magento\Framework\Component\ComponentRegistrarInterface
-	 */
-	public $componentRegistrar;
-
-	/**
-	 * @var \Magento\Framework\Shell
-	 */
-	public $shell;
-
-	/**
-	 * @var \Psr\Log\LoggerInterface
-	 */
-	public $logger;
-
-	/**
-	 * Magento Root full path.
-	 *
-	 * @var null|string
-	 */
-	public $baseDir = null;
-
-	/**
-	 * Module Root full path.
-	 *
-	 * @var null|string
-	 */
-	public $moduleDir = null;
-
-	/**
-	 * Logging flag.
-	 *
-	 * @var null|int
-	 */
-	public $logging = null;
-
-	/**
-	 * Path to utilities.
-	 *
-	 * @var null|string
-	 */
-	public $utilPath = null;
-
-	/**
-	 * Extension (for win binaries)
-	 *
-	 * @var null|string
-	 */
-	public $utilExt  = null;
-
-	/**
-	 * Index filename.
-	 *
-	 * @var string $indexFilename
-	 */
-	public $indexFilename = 'apptrian_imageoptimizer_index.data';
-
-	/**
-	 * Index path.
-	 *
-	 * @var null|string $indexPath
-	 */
-	public $indexPath = null;
-
-	/**
-	 * Index array.
-	 *
-	 * @var array $index
-	 */
-	public $index = [];
-
-	/**
-	 * Total count of files in index.
-	 *
-	 * @var integer $indexTotalCount
-	 */
-	public $indexTotalCount = 0;
-
-	/**
-	 * Count of files that are optimized.
-	 *
-	 * @var integer $indexOptimizedCount
-	 */
-	public $indexOptimizedCount = 0;
-
+class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	/**
 	 * Constructor
 	 *
@@ -285,7 +175,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
 	/**
 	 * Optimizes single file.
-	 *
+	 * @used-by optimize()
 	 * @param string $filePath
 	 * @return boolean
 	 */
@@ -349,61 +239,42 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 	 *
 	 * @return boolean
 	 */
-	function optimize()
-	{
+	function optimize() {
 		$this->loadIndex();
-
 		// Get Batch Size
-		$batchSize = (int) $this->getConfig(
-			'apptrian_imageoptimizer/general/batch_size'
-		);
-
+		$batchSize = (int) $this->getConfig('apptrian_imageoptimizer/general/batch_size');
 		// Get array of files for optimization limited by batch size
 		$files = $this->getFiles($batchSize);
-
-		$id          = '';
-		$item        = [];
 		$toUpdate    = [];
-		$encodedPath = '';
-		$decodedPath = '';
-		$filePath    = '';
-
 		// Optimize batch of files
 		foreach ($files as $id => $item) {
 			$encodedPath = $item['f'];
 			$decodedPath = utf8_decode($encodedPath);
-			$filePath    = realpath($decodedPath);
-
+			$filePath = realpath($decodedPath);
 			// If image exists, optimize else remove it from database
 			if (file_exists($filePath)) {
 				if ($this->optimizeFile($filePath)) {
 					$toUpdate[$id]['f'] = $encodedPath;
 				}
-			} else {
+			} 
+			else {
 				// Remove files that do not exist anymore from the index
 				unset($this->index[$id]);
 			}
 		}
-
-		$i = '';
-		$f = [];
-
 		// Itereate over $toUpdate array and set modified time
 		// (mtime) takes a split second to update
 		foreach ($toUpdate as $i => $f) {
 			$encodedPath = $f['f'];
 			$decodedPath = utf8_decode($encodedPath);
 			$filePath    = realpath($decodedPath);
-
 			if (file_exists($filePath)) {
 				// Update optimized file information in index
 				$this->index[$i]['t'] = filemtime($filePath);
 			}
-
 			// Free Memory
 			unset($toUpdate[$i]);
 		}
-
 		return $this->saveIndex();
 	}
 
@@ -412,22 +283,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 	 *
 	 * @return boolean
 	 */
-	function scanAndReindex()
-	{
+	function scanAndReindex() {
 		$this->loadIndex();
-
-		$id          = '';
-		$item        = [];
-		$encodedPath = '';
-		$decodedPath = '';
-		$filePath    = '';
-
 		// Check index for files that need to be updated and/or removed
 		foreach ($this->index as $id => $item) {
 			$encodedPath = $item['f'];
 			$decodedPath = utf8_decode($encodedPath);
-			$filePath    = realpath($decodedPath);
-
+			$filePath = realpath($decodedPath);
 			if (file_exists($filePath)) {
 				if ($item['t'] != 0 && filemtime($filePath) != $item['t']) {
 					// Update time to 0 in index so it can be optimized again
@@ -438,28 +300,20 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 				unset($this->index[$id]);
 			}
 		}
-
-		$paths    = $this->getPaths();
-		$path     = '';
-
+		$paths = $this->getPaths();
 		// Scan for new files and add them to the index
 		foreach ($paths as $path) {
 			$this->scanAndReindexPath($path);
 		}
-
 		return $this->saveIndex();
 	}
 
 	/**
 	 * Scans provided path for images and adds them to index.
-	 * @used-by \Apptrian\ImageOptimizer\Helper\Data::scanAndReindex()
+	 * @used-by scanAndReindex()
 	 * @param string $path
 	 */
-	function scanAndReindexPath($path)
-	{
-		$id          = '';
-		$encodedPath = '';
-		$filePath    = '';
+	function scanAndReindexPath($path) {
 		$file        = null;
 		/**
 		 * 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
@@ -551,8 +405,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 	}
 
 	/**
-	 * Formats and returns the shell command string for an image optimization
-	 * utility. 	
+	 * Formats and returns the shell command string for an image optimization utility.
 	 * @used-by \Apptrian\ImageOptimizer\Helper\Data::getGifUtil()
 	 * @used-by \Apptrian\ImageOptimizer\Helper\Data::getJpgUtil()
 	 * @used-by \Apptrian\ImageOptimizer\Helper\Data::getPngUtil()
@@ -663,11 +516,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
 	/**
 	 * Returns array of files for optimization limited by $batchSize.
-	 *
+	 * @used-by optimize()
 	 * @param int $batchSize
 	 */
-	function getFiles($batchSize)
-	{
+	private function getFiles($batchSize) {
 		$files   = [];
 		$counter = 0;
 
@@ -687,19 +539,15 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
 	/**
 	 * Returns count of indexed and optmized files.
-	 *
+	 * @used-by \Apptrian\ImageOptimizer\Block\Adminhtml\Stats::_getElementHtml()
 	 * @return array
 	 */
-	function getFileCount()
-	{
+	function getFileCount() {
 		$this->loadIndex();
-
 		$r['indexed']   = $this->indexTotalCount;
 		$r['optimized'] = $this->indexOptimizedCount;
-
 		// Free memory
 		$this->index = null;
-
 		return $r;
 	}
 
@@ -875,4 +723,110 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
 		return $r;
 	}
+	
+	/**
+	 * @var \Magento\Framework\App\Config\ScopeConfigInterface
+	 */
+	public $scopeConfig;
+
+	/**
+	 * @var \Magento\Framework\Module\ModuleListInterface
+	 */
+	public $moduleList;
+
+	/**
+	 * @var \Magento\Framework\Filesystem
+	 */
+	public $fileSystem;
+
+	/**
+	 * @var \Magento\Framework\Component\ComponentRegistrarInterface
+	 */
+	public $componentRegistrar;
+
+	/**
+	 * @var \Magento\Framework\Shell
+	 */
+	public $shell;
+
+	/**
+	 * @var \Psr\Log\LoggerInterface
+	 */
+	public $logger;
+
+	/**
+	 * Magento Root full path.
+	 *
+	 * @var null|string
+	 */
+	public $baseDir = null;
+
+	/**
+	 * Module Root full path.
+	 *
+	 * @var null|string
+	 */
+	public $moduleDir = null;
+
+	/**
+	 * Logging flag.
+	 *
+	 * @var null|int
+	 */
+	public $logging = null;
+
+	/**
+	 * Path to utilities.
+	 *
+	 * @var null|string
+	 */
+	public $utilPath = null;
+
+	/**
+	 * Extension (for win binaries)
+	 *
+	 * @var null|string
+	 */
+	public $utilExt  = null;
+
+	/**
+	 * Index filename.
+	 *
+	 * @var string $indexFilename
+	 */
+	public $indexFilename = 'apptrian_imageoptimizer_index.data';
+
+	/**
+	 * Index path.
+	 *
+	 * @var null|string $indexPath
+	 */
+	public $indexPath = null;
+
+	/**
+	 * Total count of files in index.
+	 *
+	 * @var integer $indexTotalCount
+	 */
+	public $indexTotalCount = 0;
+
+	/**
+	 * Count of files that are optimized.
+	 *
+	 * @var integer $indexOptimizedCount
+	 */
+	public $indexOptimizedCount = 0;
+	
+	/**
+	 * Index array.        
+	 * @used-by getFileCount() 
+	 * @used-by getFiles()  
+	 * @used-by loadIndex()
+	 * @used-by optimize()     
+	 * @used-by saveIndex()
+	 * @used-by scanAndReindex() 
+	 * @used-by scanAndReindexPath()
+	 * @var array $index
+	 */
+	private $index = [];	
 }
