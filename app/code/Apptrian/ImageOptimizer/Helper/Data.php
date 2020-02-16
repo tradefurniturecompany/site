@@ -545,74 +545,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	}
 
 	/**
-	 * Load index from a file.
-	 */
-	function loadIndex()
-	{
-		$filePath = $this->getIndexPath();
-
-		if (file_exists($filePath)) {
-			$line = '';
-			$l    = [];
-			$id   = '';
-			$file = [];
-
-			$str = file_get_contents($filePath);
-
-			if ($str != '') {
-				$data = explode("\n", $str);
-
-				// Free Memory
-				unset($str);
-
-				$this->indexTotalCount = count($data);
-
-				$i = 0;
-
-				for ($i = 0; $i < $this->indexTotalCount; $i++) {
-					$line      = $data[$i];
-					$l         = explode('|', $line);
-
-					if (!array_key_exists(0, $l)
-						|| !array_key_exists(1, $l)
-						|| !array_key_exists(2, $l)
-					) {
-						$i++;
-						$message = sprintf(
-							__('Your image index is corrupted at line %s.'),
-							$i
-						);
-
-						$this->logger->critical($message);
-
-						throw new \Exception($message);
-					}
-
-					$id        = (string) $l[0];
-					$file['f'] = (string) $l[1];
-					$file['t'] = (int) $l[2];
-
-					$this->index[$id] = $file;
-
-					if ($file['t'] > 0) {
-						$this->indexOptimizedCount++;
-					}
-
-					// Free Memory
-					unset($data[$i]);
-				}
-
-				// Free Memory
-				$data = null;
-			}
-
-			if (!$this->index) {
-				$this->index = [];
-			}
-		}
-	}
-
-	/**
 	 * Save index to a file.
 	 *
 	 * @return boolean
@@ -811,6 +743,50 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 			}
 		}
 		return $files;
+	}
+
+	/**
+	 * Load index from a file.
+	 */
+	private function loadIndex() {
+		$filePath = $this->getIndexPath();
+		if (file_exists($filePath)) {
+			$file = [];
+			$str = file_get_contents($filePath);
+			if ($str != '') {
+				$data = explode("\n", $str);
+				// Free Memory
+				unset($str);
+				$this->indexTotalCount = count($data);
+				for ($i = 0; $i < $this->indexTotalCount; $i++) {
+					$line = $data[$i];
+					$l = explode('|', $line);
+					if (!array_key_exists(0, $l)
+						|| !array_key_exists(1, $l)
+						|| !array_key_exists(2, $l)
+					) {
+						$i++;
+						$message = sprintf(__('Your image index is corrupted at line %s.'), $i);
+						$this->logger->critical($message);
+						throw new \Exception($message);
+					}
+					$id = (string) $l[0];
+					$file['f'] = (string) $l[1];
+					$file['t'] = (int) $l[2];
+					$this->index[$id] = $file;
+					if ($file['t'] > 0) {
+						$this->indexOptimizedCount++;
+					}
+					// Free Memory
+					unset($data[$i]);
+				}
+				// Free Memory
+				$data = null;
+			}
+			if (!$this->index) {
+				$this->index = [];
+			}
+		}
 	}
 	
 	/**
