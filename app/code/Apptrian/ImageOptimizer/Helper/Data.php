@@ -279,7 +279,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 
 	/**
 	 * Scan and reindex process.
-	 *
+	 * @used-by \Apptrian\ImageOptimizer\Controller\Adminhtml\Optimizer\Scan::execute()
+	 * @used-by \Apptrian\ImageOptimizer\Cron\Scan::execute()
 	 * @return boolean
 	 */
 	function scanAndReindex() {
@@ -305,55 +306,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 			$this->scanAndReindexPath($path);
 		}
 		return $this->saveIndex();
-	}
-
-	/**
-	 * Scans provided path for images and adds them to index.
-	 * @used-by scanAndReindex()
-	 * @param string $path
-	 */
-	function scanAndReindexPath($path) {
-		$file        = null;
-		/**
-		 * 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-		 * "Apptrian_ImageOptimizer should not process files of the staging website":
-		 * https://github.com/tradefurniturecompany/site/issues/32
-		 */
-		df_report('mage2.pro/' . df_report_prefix($this) . '-paths.txt', $this->getBaseDir() . $path, true);
-		$iterator = new \RecursiveIteratorIterator(
-			new \RecursiveDirectoryIterator(
-				$this->getBaseDir() . $path,
-				\RecursiveDirectoryIterator::FOLLOW_SYMLINKS
-			)
-		);
-
-		foreach ($iterator as $file) {
-			if ($file->isFile()
-				&& preg_match(
-					'/^.+\.(jpe?g|gif|png)$/i',
-					$file->getFilename()
-				)
-			) {
-				$filePath = $file->getRealPath();
-				if (!is_writable($filePath)) {
-					continue;
-				}
-
-				$encodedPath = utf8_encode($filePath);
-				$id          = hash('md5', $encodedPath);
-
-				// Add only if file is not already in the index
-				if (!isset($this->index[$id])) {
-					$this->index[$id] = ['f' => $encodedPath, 't' => 0];
-				}
-			}
-
-			// Free Memory
-			$file = null;
-		}
-
-		// Free Memory
-		$iterator = null;
 	}
 
 	/**
@@ -546,55 +498,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	}
 
 	/**
-	 * Save index to a file.
-	 *
-	 * @return boolean
-	 */
-	function saveIndex() {
-		$data = [];
-		$c    = 0;
-		$b    = 0;
-		// Truncate existing index file
-		$this->clearIndex();
-		foreach ($this->index as $id => $f) {
-			// str_replace() removes | from filename because | is delimiter
-			$data[] = sprintf(
-				'%s|%s|%d',
-				$id,
-				str_replace('|', '', $f['f']),
-				$f['t']
-			);
-			// Free memory
-			unset($this->index[$id]);
-			if ($c == 100000) {
-				// Save part of the file
-				$this->saveToFile($data, $b);
-				// Free memory
-				$data = [];
-				// Increment batch
-				$b++;
-				// Reset count
-				$c = 0;
-			}
-			else {
-				// Increment count
-				$c++;
-			}
-		}
-		// Save last part of the file
-		$r = $this->saveToFile($data, $b);
-		// Free memory
-		$this->index = null;
-		if ($r === false) {
-			$this->logger->debug('Writting index to a file failed.');
-		}
-		else {
-			$r = true;
-		}
-		return $r;
-	}
-
-	/**
 	 * Saves batch of data to a file.
 	 *
 	 * @param array $data
@@ -778,6 +681,105 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 				$this->index = [];
 			}
 		}
+	}
+
+	/**
+	 * Save index to a file.
+	 * @used-by optimize()
+	 * @used-by scanAndReindex()
+	 * @return boolean
+	 */
+	private function saveIndex() {
+		$data = [];
+		$c    = 0;
+		$b    = 0;
+		// Truncate existing index file
+		$this->clearIndex();
+		foreach ($this->index as $id => $f) {
+			// str_replace() removes | from filename because | is delimiter
+			$data[] = sprintf(
+				'%s|%s|%d',
+				$id,
+				str_replace('|', '', $f['f']),
+				$f['t']
+			);
+			// Free memory
+			unset($this->index[$id]);
+			if ($c == 100000) {
+				// Save part of the file
+				$this->saveToFile($data, $b);
+				// Free memory
+				$data = [];
+				// Increment batch
+				$b++;
+				// Reset count
+				$c = 0;
+			}
+			else {
+				// Increment count
+				$c++;
+			}
+		}
+		// Save last part of the file
+		$r = $this->saveToFile($data, $b);
+		// Free memory
+		$this->index = null;
+		if ($r === false) {
+			$this->logger->debug('Writting index to a file failed.');
+		}
+		else {
+			$r = true;
+		}
+		return $r;
+	}
+
+	/**
+	 * Scans provided path for images and adds them to index.
+	 * @used-by scanAndReindex()
+	 * @param string $path
+	 */
+	private function scanAndReindexPath($path) {
+		$file = null;
+		/**
+		 * 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * "Apptrian_ImageOptimizer should not process files of the staging website":
+		 * https://github.com/tradefurniturecompany/site/issues/32
+		 */
+		df_report('mage2.pro/' . df_report_prefix($this) . '-paths.txt', $this->getBaseDir() . $path, true);
+		$iterator = new \RecursiveIteratorIterator(
+			new \RecursiveDirectoryIterator(
+				$this->getBaseDir() . $path,
+				\RecursiveDirectoryIterator::FOLLOW_SYMLINKS
+			)
+		);
+
+		foreach ($iterator as $file) {
+			if ($file->isFile()
+				&& preg_match(
+					'/^.+\.(jpe?g|gif|png)$/i',
+					$file->getFilename()
+				)
+			) {
+				$filePath = $file->getRealPath();
+				if (!is_writable($filePath)) {
+					continue;
+				}
+
+				$encodedPath = utf8_encode($filePath);
+				$id          = hash('md5', $encodedPath);
+
+				// Add only if file is not already in the index
+				if (!isset($this->index[$id])) {
+					$this->index[$id] = ['f' => $encodedPath, 't' => 0];
+				}
+			}
+
+			// Free Memory
+			$file = null;
+		}
+
+		// Free Memory
+		$iterator = null;
 	}
 	
 	/**
