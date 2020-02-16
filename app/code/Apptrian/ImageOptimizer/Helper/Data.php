@@ -545,13 +545,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	public $utilExt  = null;
 
 	/**
-	 * Index filename.
-	 *
-	 * @var string $indexFilename
-	 */
-	public $indexFilename = 'apptrian_imageoptimizer_index.data';
-
-	/**
 	 * Index path.
 	 *
 	 * @var null|string $indexPath
@@ -603,7 +596,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	private function getIndexPath() {
 		if ($this->indexPath === null) {
 			$dir = $this->fileSystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::VAR_DIR);
-			$this->indexPath = $dir->getAbsolutePath() . $this->indexFilename;
+			$this->indexPath = $dir->getAbsolutePath() . 'apptrian_imageoptimizer_index.data';
 		}
 		return $this->indexPath;
 	}
