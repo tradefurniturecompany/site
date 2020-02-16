@@ -3,7 +3,6 @@ namespace Apptrian\ImageOptimizer\Helper;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	/**
 	 * Constructor
-	 *
 	 * @param \Magento\Framework\App\Helper\Context $context
 	 * @param \Magento\Framework\Module\ModuleListInterface $moduleList
 	 * @param \Magento\Framework\Filesystem $fileSystem
@@ -23,7 +22,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 		$this->fileSystem         = $fileSystem;
 		$this->componentRegistrar = $compReg;
 		$this->shell              = $shell;
-
 		parent::__construct($context);
 	}
 
@@ -515,29 +513,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	}
 
 	/**
-	 * Returns array of files for optimization limited by $batchSize.
-	 * @used-by optimize()
-	 * @param int $batchSize
-	 */
-	private function getFiles($batchSize) {
-		$files   = [];
-		$counter = 0;
-
-		foreach ($this->index as $id => $f) {
-			if ($counter == $batchSize) {
-				break;
-			}
-
-			if ($f['t'] == 0) {
-				$files[$id] = $f;
-				$counter++;
-			}
-		}
-
-		return $files;
-	}
-
-	/**
 	 * Returns count of indexed and optmized files.
 	 * @used-by \Apptrian\ImageOptimizer\Block\Adminhtml\Stats::_getElementHtml()
 	 * @return array
@@ -816,6 +791,27 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	 * @var integer $indexOptimizedCount
 	 */
 	public $indexOptimizedCount = 0;
+
+	/**
+	 * Returns array of files for optimization limited by $batchSize.
+	 * @used-by optimize()
+	 * @param int $batchSize
+	 * @return array
+	 */
+	private function getFiles($batchSize) {
+		$files   = [];
+		$counter = 0;
+		foreach ($this->index as $id => $f) {
+			if ($counter == $batchSize) {
+				break;
+			}
+			if ($f['t'] == 0) {
+				$files[$id] = $f;
+				$counter++;
+			}
+		}
+		return $files;
+	}
 	
 	/**
 	 * Index array.        
