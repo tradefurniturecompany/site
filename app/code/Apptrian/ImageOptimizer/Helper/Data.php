@@ -718,12 +718,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	 */
 	private function scanAndReindexPath($path) {
 		$file = null;
-		/**
-		 * 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-		 * "Apptrian_ImageOptimizer should not process files of the staging website":
-		 * https://github.com/tradefurniturecompany/site/issues/32
-		 */
-		df_report('mage2.pro/' . df_report_prefix($this) . '-paths.txt', $this->getBaseDir() . $path, true);
 		$iterator = new \RecursiveIteratorIterator(
 			new \RecursiveDirectoryIterator(
 				$this->getBaseDir() . $path,
