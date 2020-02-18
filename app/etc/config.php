@@ -257,7 +257,7 @@ return [
         'Df_Wishlist' => 1,
         'Df_Xml' => 1,
         'Df_Zf' => 1,
-        'Dotdigitalgroup_Email' => 1,
+        'Dotdigitalgroup_Email' => 0,
         'FishPig_WordPress' => 1,
         'Hotlink_Framework' => 1,
         'Hotlink_Brightpearl' => 1,
