@@ -272,7 +272,7 @@ return [
         'Klarna_Ordermanagement' => 1,
         'Klarna_Kp' => 1,
         'Magento_PaypalReCaptcha' => 1,
-        'MSP_TwoFactorAuth' => 1,
+        'MSP_TwoFactorAuth' => 0,
         'MageKey_AdcPopup' => 1,
         'MageWorx_SeoAll' => 1,
         'MageWorx_Info' => 1,
