@@ -27,6 +27,6 @@ bin/magento setup:static-content:deploy \
 	-f en_GB
 sudo service php-fpm start
 sudo service nginx start
+bin/magento maintenance:disable
 sudo service crond start
-bin/magento maintenance:disable 
 ```
