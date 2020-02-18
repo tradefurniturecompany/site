@@ -303,7 +303,7 @@ return [
         'SpringImport_CatalogDropdownSort' => 1,
         'TFC_Core' => 1,
         'TFC_Report' => 1,
-        'Temando_Shipping' => 1,
+        'Temando_Shipping' => 0,
         'Tigren_MultiCOD' => 1,
         'Trustedshops_Trustedshops' => 1,
         'Vertex_Tax' => 1,
