@@ -306,7 +306,7 @@ return [
         'Temando_Shipping' => 0,
         'Tigren_MultiCOD' => 1,
         'Trustedshops_Trustedshops' => 1,
-        'Vertex_Tax' => 1,
+        'Vertex_Tax' => 0,
         'Ves_All' => 1,
         'Ves_ImageSlider' => 1,
         'Ves_Setup' => 1,
