@@ -92,7 +92,7 @@ class YoutubeVideo extends \Magento\Framework\View\Element\Template
 		 * https://github.com/tradefurniturecompany/site/issues/47
 		 */
 		if (!($r = !($m = dfa($matches, 1)) ? null : "https://img.youtube.com/vi/$m/0.jpg")) {
-			df_log_l($this, $html, null, true);
+			df_log_l($this, $html);
 		}
 		return $r;
 	}
