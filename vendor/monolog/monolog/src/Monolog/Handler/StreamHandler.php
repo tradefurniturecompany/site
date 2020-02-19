@@ -105,14 +105,6 @@ class StreamHandler extends AbstractProcessingHandler
             restore_error_handler();
             if (!is_resource($this->stream)) {
                 $this->stream = null;
-				/**
-				 * 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-				 * «In StreamHandler.php line 108:
-				 * The stream or file "/var/www/vhosts/tradefurniturecompany.co.uk/htdocs/" could not be opened:
-				 * failed to open stream: Is a directory»:
-				 * https://github.com/tradefurniturecompany/site/issues/33
-				 */
-				df_log_l($this, ['errorMessage' => $this->errorMessage, 'url' => $this->url]);
 				throw new \UnexpectedValueException(sprintf('The stream or file "%s" could not be opened: '.$this->errorMessage, $this->url));
             }
         }
