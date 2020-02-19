@@ -126,21 +126,7 @@ class LastOrderedItems implements SectionSourceInterface
         if ($order) {
             $website = $this->_storeManager->getStore()->getWebsiteId();
             /** @var \Magento\Sales\Model\Order\Item $item */
-            foreach ($c = $order->getParentItemsRandomCollection($limit) as $item) {
-				/**
-				 * 2020-02-18 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-				 * "«The product that was requested doesn't exist. Verify the product and try again.»
-				 * at vendor/magento/module-catalog/Model/ProductRepository.php:310":
-				 * https://github.com/tradefurniturecompany/site/issues/20
-				 */
-            	if (!$item->getProductId()) {
-					df_log_l($this, [
-						'item' => $item->getData()
-						,'items' => dfa_ids($c)
-						,'order' => $order->getId()
-						,'store' => $this->_storeManager->getStore()->getId()
-					], 'LastOrderedItems');
-				}
+            foreach ($order->getParentItemsRandomCollection($limit) as $item) {
                 /** @var \Magento\Catalog\Model\Product $product */
                 try {
                     $product = $this->productRepository->getById(
