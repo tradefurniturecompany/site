@@ -139,7 +139,7 @@ class LastOrderedItems implements SectionSourceInterface
 						,'items' => dfa_ids($c)
 						,'order' => $order->getId()
 						,'store' => $this->_storeManager->getStore()->getId()
-					], 'LastOrderedItems', true);
+					], 'LastOrderedItems');
 				}
                 /** @var \Magento\Catalog\Model\Product $product */
                 try {

@@ -313,7 +313,7 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
 				 * at vendor/magento/module-catalog/Model/ProductRepository.php:310":
 				 * https://github.com/tradefurniturecompany/site/issues/20
 				 */
-            	df_log_l($this, ['productId' => $productId, 'storeId' => $storeId], 'repository', true);
+            	df_log_l($this, ['productId' => $productId, 'storeId' => $storeId], 'repository');
                 throw new NoSuchEntityException(
                     __("The product that was requested doesn't exist. Verify the product and try again.")
                 );

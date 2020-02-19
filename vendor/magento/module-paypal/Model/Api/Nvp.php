@@ -1246,9 +1246,7 @@ class Nvp extends \Magento\Paypal\Model\Api\AbstractApi
 		 */
         $errors = $this->_extractErrorsFromResponse($response);
         if ($errors) {
-			df_log_l($this, [
-				'errors' => $errors, 'request' => $request, 'response' => $response
-			], $methodName, true);
+			df_log_l($this, ['errors' => $errors, 'request' => $request, 'response' => $response], $methodName);
         }
         return $response;
     }

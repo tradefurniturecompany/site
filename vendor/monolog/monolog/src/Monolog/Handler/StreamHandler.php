@@ -112,7 +112,7 @@ class StreamHandler extends AbstractProcessingHandler
 				 * failed to open stream: Is a directory»:
 				 * https://github.com/tradefurniturecompany/site/issues/33
 				 */
-				df_log_l($this, ['errorMessage' => $this->errorMessage, 'url' => $this->url], null, true);
+				df_log_l($this, ['errorMessage' => $this->errorMessage, 'url' => $this->url]);
 				throw new \UnexpectedValueException(sprintf('The stream or file "%s" could not be opened: '.$this->errorMessage, $this->url));
             }
         }
