@@ -1237,7 +1237,6 @@ class Nvp extends \Magento\Paypal\Model\Api\AbstractApi
             }
             return $response;
         }
-        $this->_handleCallErrors($response);
 		/**
 		 * 2020-02-18 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 		 * "«PayPal gateway has rejected request.
@@ -1248,6 +1247,7 @@ class Nvp extends \Magento\Paypal\Model\Api\AbstractApi
         if ($errors) {
 			df_log_l($this, ['errors' => $errors, 'request' => $request, 'response' => $response], $methodName);
         }
+        $this->_handleCallErrors($response);
         return $response;
     }
 
