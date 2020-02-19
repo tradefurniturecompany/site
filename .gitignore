@@ -37,11 +37,6 @@
 # You do not have permissions to make this API call» / «#10002: Authentication/Authorization Failed»":
 # https://github.com/tradefurniturecompany/site/issues/18
 !vendor/magento/module-paypal/Model/Api/Nvp.php
-# 2020-02-18 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-# "«The product that was requested doesn't exist. Verify the product and try again.»
-# at vendor/magento/module-catalog/Model/ProductRepository.php:310":
-# https://github.com/tradefurniturecompany/site/issues/20
-!vendor/magento/module-sales/CustomerData/LastOrderedItems.php
 dev
 vendor/codeception
 vendor/magento/framework/Test
