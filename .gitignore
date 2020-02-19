@@ -42,11 +42,6 @@
 # at vendor/magento/module-catalog/Model/ProductRepository.php:310":
 # https://github.com/tradefurniturecompany/site/issues/20
 !vendor/magento/module-sales/CustomerData/LastOrderedItems.php
-# 2020-02-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-# «In StreamHandler.php line 108:
-# The stream or file "/var/www/vhosts/tradefurniturecompany.co.uk/htdocs/" could not be opened:
-# failed to open stream: Is a directory»: https://github.com/tradefurniturecompany/site/issues/33
-!vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php
 dev
 vendor/codeception
 vendor/magento/framework/Test
