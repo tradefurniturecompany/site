@@ -69,7 +69,8 @@ class NoSuchEntityException extends LocalizedException
 		 *		$customerQuote = $this->quoteFactory->create();
 		 *	}
 		 */
-		df_log_l(df_caller_c(), $r, df_caller_f());
+		$f = df_caller_f(); /** @var string $f */
+		df_log_l(df_caller_c(), ['df_caller_f' => $f, 'fieldName' => $fieldName, 'fieldValue' => $fieldValue], $f);
         return $r;
     }
 
