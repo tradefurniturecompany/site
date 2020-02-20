@@ -47,7 +47,7 @@ class NoSuchEntityException extends LocalizedException
      */
     public static function singleField($fieldName, $fieldValue)
     {
-        $r = new self(
+        return new self(
             new Phrase(
                 'No such entity with %fieldName = %fieldValue',
                 [
@@ -56,22 +56,6 @@ class NoSuchEntityException extends LocalizedException
                 ]
             )
         );
-		/**
-		 * 2020-02-19 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-		 * 1) «No such entity with customerId = ...»: https://github.com/tradefurniturecompany/site/issues/17
-		 * 2) My initial attempt was to log the exception here: `df_log_e($r, __CLASS__);`.
-		 * But it is wrong because some exceptions are not errors and handled by the core, e.g.:
-		 * @see \Magento\Checkout\Model\Session::loadCustomerQuote():
-		 *	try {
-		 *		$customerQuote = $this->quoteRepository->getForCustomer($this->_customerSession->getCustomerId());
-		 *	}
-		 * 	catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
-		 *		$customerQuote = $this->quoteFactory->create();
-		 *	}
-		 */
-		$f = df_caller_f(); /** @var string $f */
-		df_log_l(df_caller_c(), ['df_caller_f' => $f, 'fieldName' => $fieldName, 'fieldValue' => $fieldValue], $f);
-        return $r;
     }
 
     /**
