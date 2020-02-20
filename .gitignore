@@ -19,6 +19,9 @@
 !lib/internal/System/**/*
 !lib/internal/loader.php
 !lib/internal/openssl.php
+# 2019-09-19 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# «Provide a way to enlarge product images on frontend product pages»:
+# https://github.com/tradefurniturecompany/core/issues/2
 !lib/web/fotorama/fotorama.js
 !lib/web/i18n/en_GB.csv
 !pub/errors/default/503.phtml
