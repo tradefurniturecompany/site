@@ -307,13 +307,6 @@ class ProductRepository implements \Magento\Catalog\Api\ProductRepositoryInterfa
             }
             $product->load($productId);
             if (!$product->getId()) {
-				/**
-				 * 2020-02-17 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-				 * "«The product that was requested doesn't exist. Verify the product and try again.»
-				 * at vendor/magento/module-catalog/Model/ProductRepository.php:310":
-				 * https://github.com/tradefurniturecompany/site/issues/20
-				 */
-            	df_log_l($this, ['productId' => $productId, 'storeId' => $storeId], 'repository');
                 throw new NoSuchEntityException(
                     __("The product that was requested doesn't exist. Verify the product and try again.")
                 );
