@@ -7,7 +7,7 @@ class Environment extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
     protected $storeManager;
     protected $factoryFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $interactionHtmlFieldsetHelper,
         \Hotlink\Framework\Helper\Html $htmlHelper,
@@ -22,7 +22,7 @@ class Environment extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
                              $htmlHelper );
     }
 
-    public function getHtmlKey()
+    function getHtmlKey()
     {
         return 'environment';
     }
@@ -43,7 +43,7 @@ class Environment extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
             }
     }
 
-    public function getObject( $form, $interaction )
+    function getObject( $form, $interaction )
     {
         $storeId = false;
         $parameters = [];

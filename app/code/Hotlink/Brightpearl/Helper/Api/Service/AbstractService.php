@@ -8,7 +8,7 @@ abstract class AbstractService extends \Hotlink\Brightpearl\Helper\Api\AbstractA
     protected $brightpearlConfigOAuth2;
     protected $brightpearlApiServiceTransportFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,

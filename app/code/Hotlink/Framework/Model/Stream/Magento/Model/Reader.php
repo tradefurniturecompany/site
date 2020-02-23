@@ -20,7 +20,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
     protected $identifierFactory;
     protected $readerCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -63,7 +63,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
         return $this;
     }
 
-    public function setFilter( $filter )
+    function setFilter( $filter )
     {
         if ( $this->_filterInitialised )
             {
@@ -73,7 +73,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
         return $this;
     }
 
-    public function getFilter()
+    function getFilter()
     {
         return $this->_filter;
     }
@@ -89,7 +89,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
         return call_user_func_array( array( $this->_reader, 'read' ), array() );
     }
 
-    public function getReader()
+    function getReader()
     {
         return $this->_reader;
     }
@@ -99,7 +99,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
     //    IteratorAggregate
     //
     //  -----------------------------------------------------
-    public function getIterator()
+    function getIterator()
     {
         return $this->_reader->getIterator();
     }

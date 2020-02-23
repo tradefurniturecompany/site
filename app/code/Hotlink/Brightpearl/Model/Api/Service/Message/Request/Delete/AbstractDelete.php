@@ -3,17 +3,17 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Message\Request\Delete;
 
 abstract class AbstractDelete extends \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractRequest
 {
-    public function getMethod()
+    function getMethod()
     {
         return 'DELETE';
     }
 
-    public function getContentEncoding()
+    function getContentEncoding()
     {
         return null;
     }
 
-    public function getBody()
+    function getBody()
     {
         return null;
     }

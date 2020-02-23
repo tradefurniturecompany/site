@@ -3,9 +3,9 @@ namespace Hotlink\Brightpearl\Model\Api\Message\Request;
 
 interface IRequest
 {
-    public function getAction();
-    public function getBody();
-    public function getContentEncoding();
-    public function getMethod();
-    public function validate();
+    function getAction();
+    function getBody();
+    function getContentEncoding();
+    function getMethod();
+    function validate();
 }

@@ -10,7 +10,7 @@ class Status implements \Magento\Framework\Option\ArrayInterface
      */
     protected $brightpearlResourceOrderStatusCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Model\ResourceModel\Lookup\Order\Status\CollectionFactory $brightpearlResourceOrderStatusCollectionFactory
     ) {
         $this->brightpearlResourceOrderStatusCollectionFactory = $brightpearlResourceOrderStatusCollectionFactory;
@@ -35,13 +35,13 @@ class Status implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         $this->_init();
         return $this->_data;
     }
 
-    public function toArray()
+    function toArray()
     {
         $ret = array();
         foreach ( $this->toOptionArray() as $item )

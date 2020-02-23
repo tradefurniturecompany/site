@@ -14,7 +14,7 @@ abstract class Reader extends \Hotlink\Framework\Model\Stream\Base
     // abstract protected function _read();
     //
 
-    public function read()
+    function read()
     {
         $this->confirmOpened();
         $args = func_get_args();
@@ -23,7 +23,7 @@ abstract class Reader extends \Hotlink\Framework\Model\Stream\Base
 
     protected $_filter;
 
-    public function getFilter()
+    function getFilter()
     {
         return $this->_filter;
     }

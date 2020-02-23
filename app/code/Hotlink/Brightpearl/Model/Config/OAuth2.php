@@ -9,12 +9,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
         return 'oauth2';
     }
 
-    public function getProxyUrl( $storeId = null )
+    function getProxyUrl( $storeId = null )
     {
         return $this->getConfigData( 'proxy_url', $storeId, null);
     }
 
-    public function isActive()
+    function isActive()
     {
         return $this->getAccount()
             && $this->getAccessToken()
@@ -27,12 +27,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  otp
     //
-    public function getOtp( $storeId = null )
+    function getOtp( $storeId = null )
     {
         return $this->getConfigData( 'otp', $storeId, null);
     }
 
-    public function saveOtp( $value, $storeId = null )
+    function saveOtp( $value, $storeId = null )
     {
         $this->saveValue( $value, 'otp', $storeId );
         return $this->setConfigData( 'otp', $storeId, $value );
@@ -41,12 +41,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  otp_success_url
     //
-    public function getOtpSuccessUrl( $storeId = null )
+    function getOtpSuccessUrl( $storeId = null )
     {
         return $this->getConfigData( 'otp_success_url', $storeId, null);
     }
 
-    public function saveOtpSuccessUrl( $value, $storeId = null )
+    function saveOtpSuccessUrl( $value, $storeId = null )
     {
         $this->saveValue( $value, 'otp_success_url', $storeId );
         return $this->setConfigData( 'otp_success_url', $storeId, $value );
@@ -55,12 +55,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  otp_callback_url
     //
-    public function getOtpCallbackUrl( $storeId = null )
+    function getOtpCallbackUrl( $storeId = null )
     {
         return $this->getConfigData( 'otp_callback_url', $storeId, null);
     }
 
-    public function saveOtpCallbackUrl( $value, $storeId = null )
+    function saveOtpCallbackUrl( $value, $storeId = null )
     {
         $this->saveValue( $value, 'otp_callback_url', $storeId );
         return $this->setConfigData( 'otp_callback_url', $storeId, $value );
@@ -69,12 +69,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  otp_timestamp
     //
-    public function getOtpTimestamp( $storeId = null )
+    function getOtpTimestamp( $storeId = null )
     {
         return $this->getConfigData( 'otp_timestamp', $storeId, null);
     }
 
-    public function saveOtpTimestamp( $value, $storeId = null )
+    function saveOtpTimestamp( $value, $storeId = null )
     {
         $this->saveValue( $value, 'otp_timestamp', $storeId );
         return $this->setConfigData( 'otp_timestamp', $storeId, $value );
@@ -83,12 +83,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  account
     //
-    public function getAccount( $storeId = null )
+    function getAccount( $storeId = null )
     {
         return $this->getConfigData( 'account', $storeId, null);
     }
 
-    public function saveAccount( $value, $storeId = null )
+    function saveAccount( $value, $storeId = null )
     {
         $this->saveValue( $value, 'account', $storeId );
         return $this->setConfigData( 'account', $storeId, $value );
@@ -97,12 +97,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  access_token
     //
-    public function getAccessToken( $storeId = null )
+    function getAccessToken( $storeId = null )
     {
         return $this->getConfigData( 'access_token', $storeId, null);
     }
 
-    public function saveAccessToken( $value, $storeId = null )
+    function saveAccessToken( $value, $storeId = null )
     {
         $this->saveValue( $value, 'access_token', $storeId );
         return $this->setConfigData( 'access_token', $storeId, $value );
@@ -111,12 +111,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  expires_in
     //
-    public function getExpiresIn( $storeId = null )
+    function getExpiresIn( $storeId = null )
     {
         return $this->getConfigData( 'expires_in', $storeId, null);
     }
 
-    public function saveExpiresIn( $value, $storeId = null )
+    function saveExpiresIn( $value, $storeId = null )
     {
         $this->saveValue( $value, 'expires_in', $storeId );
         return $this->setConfigData( 'expires_in', $storeId, $value );
@@ -125,12 +125,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  refresh_token
     //
-    public function getRefreshToken( $storeId = null )
+    function getRefreshToken( $storeId = null )
     {
         return $this->getConfigData( 'refresh_token', $storeId, null);
     }
 
-    public function saveRefreshToken( $value, $storeId = null )
+    function saveRefreshToken( $value, $storeId = null )
     {
         $this->saveValue( $value, 'refresh_token', $storeId );
         return $this->setConfigData( 'refresh_token', $storeId, $value );
@@ -139,12 +139,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  installation_instance_id
     //
-    public function getInstallationInstanceId( $storeId = null )
+    function getInstallationInstanceId( $storeId = null )
     {
         return $this->getConfigData( 'installation_instance_id', $storeId, null);
     }
 
-    public function saveInstallationInstanceId( $value, $storeId = null )
+    function saveInstallationInstanceId( $value, $storeId = null )
     {
         $this->saveValue( $value, 'installation_instance_id', $storeId );
         return $this->setConfigData( 'installation_instance_id', $storeId, $value );
@@ -153,12 +153,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     //
     //  api_domain
     //
-    public function getApiDomain( $storeId = null )
+    function getApiDomain( $storeId = null )
     {
         return $this->getConfigData( 'api_domain', $storeId, null);
     }
 
-    public function saveApiDomain( $value, $storeId = null )
+    function saveApiDomain( $value, $storeId = null )
     {
         $this->saveValue( $value, 'api_domain', $storeId );
         return $this->setConfigData( 'api_domain', $storeId, $value );

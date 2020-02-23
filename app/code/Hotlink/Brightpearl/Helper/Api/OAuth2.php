@@ -11,7 +11,7 @@ class OAuth2 extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
     protected $apiTransportFactory;
     protected $oauth2config;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -29,12 +29,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
         $this->oauth2config = $oauth2config;
     }
 
-    public function getName()
+    function getName()
     {
         return 'OAuth2 API';
     }
 
-    public function requestAccessToken( $storeId, $account, $code, $redirectUri, $clientId, $timeout = 5000 )
+    function requestAccessToken( $storeId, $account, $code, $redirectUri, $clientId, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty( 'storeId', $storeId )
@@ -55,7 +55,7 @@ class OAuth2 extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
         return $response;
     }
 
-    public function refreshAccessToken( $storeId, $account, $refreshToken, $timeout = 5000 )
+    function refreshAccessToken( $storeId, $account, $refreshToken, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty( 'account', $account )

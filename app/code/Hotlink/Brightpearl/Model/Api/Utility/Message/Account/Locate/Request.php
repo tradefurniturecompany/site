@@ -4,34 +4,34 @@ namespace Hotlink\Brightpearl\Model\Api\Utility\Message\Account\Locate;
 class Request extends \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractRequest
 {
 
-    public function getFunction()
+    function getFunction()
     {
         return "account-location";
     }
 
-    public function getAction()
+    function getAction()
     {
         return sprintf('/developer-tools/%s/account-location/%s',
                        $this->getTransaction()->getDevRef(),
                        $this->getTransaction()->getAccountCode());
     }
 
-    public function getMethod()
+    function getMethod()
     {
         return \Zend_Http_Client::GET;
     }
 
-    public function getBody()
+    function getBody()
     {
         return null;
     }
 
-    public function getContentEncoding()
+    function getContentEncoding()
     {
         return null;
     }
 
-    public function validate()
+    function validate()
     {
         return $this
             ->_assertNotEmpty($this->getTransaction()->getDevRef(), 'devRef')

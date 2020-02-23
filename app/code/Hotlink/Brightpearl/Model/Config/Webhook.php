@@ -8,12 +8,12 @@ class Webhook extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
         return 'webhook';
     }
 
-    public function saveCallbackKey( $key, $storeId = null )
+    function saveCallbackKey( $key, $storeId = null )
     {
         return $this->saveValue( $key, 'key', $storeId );
     }
 
-    public function getCallBackKey( $storeId = null )
+    function getCallBackKey( $storeId = null )
     {
         return $this->getConfigData( 'key', $storeId, null );
     }

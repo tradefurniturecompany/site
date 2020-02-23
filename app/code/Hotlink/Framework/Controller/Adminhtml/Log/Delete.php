@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Controller\Adminhtml\Log;
 class Delete extends \Hotlink\Framework\Controller\Adminhtml\Log\AbstractLog
 {
 
-    public function execute()
+    function execute()
     {
         $id = $this->getRequest()->getParam('id');
         if ( $id )

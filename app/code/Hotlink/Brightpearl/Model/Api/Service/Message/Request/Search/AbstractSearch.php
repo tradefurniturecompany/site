@@ -9,7 +9,7 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Mes
 
     abstract protected function _getAction();
 
-    public function getAction()
+    function getAction()
     {
         $action = $this->_getAction();
         $query  = $this->_buildQuery();
@@ -43,7 +43,7 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Mes
         return http_build_query($params);
     }
 
-    public function validate()
+    function validate()
     {
         $transaction = $this->getTransaction();
 

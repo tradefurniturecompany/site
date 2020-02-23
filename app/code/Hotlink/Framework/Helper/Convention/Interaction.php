@@ -15,7 +15,7 @@ class Interaction extends \Hotlink\Framework\Helper\Convention\AbstractConventio
     //  \Hotlink\Framework\Interaction\Log\Cleaning
     //  \Hotlink\Framework\Block\Adminhtml\Interaction\Admin\Tab\Log\Cleaning
     //
-    public function getTabBlock( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
+    function getTabBlock( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
     {
         $parts = array_reverse( explode( "\\", get_class( $interaction ) ) );
         $index = 0;
@@ -56,22 +56,22 @@ class Interaction extends \Hotlink\Framework\Helper\Convention\AbstractConventio
         return FALSE;
     }
 
-    public function getConfigClass( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
+    function getConfigClass( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
     {
         return $this->_getValidClass( $interaction, [ 'Config' ], '\Hotlink\Framework\Model\Interaction\Config\DefaultConfig' );
     }
 
-    public function getEnvironmentClass( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
+    function getEnvironmentClass( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
     {
         return $this->_getValidClass( $interaction, [ 'Environment' ], '\Hotlink\Framework\Model\Interaction\Environment\DefaultEnvironment' );
     }
 
-    public function getImplementationClass( $interaction )
+    function getImplementationClass( $interaction )
     {
         return $this->_getValidClass( $interaction, [ 'Implementation' ], false );
     }
 
-    // public function getModel( \Hotlink\Framework\Model\Interaction\Environment\AbstractEnvironment $environment )
+    // function getModel( \Hotlink\Framework\Model\Interaction\Environment\AbstractEnvironment $environment )
     // { throw new Execption ( "obsolete" );
     //     $name = $this->interactionReflectionHelper->getModelName( $environment );
     //     $parts = explode( "_", $name );
@@ -80,7 +80,7 @@ class Interaction extends \Hotlink\Framework\Helper\Convention\AbstractConventio
     //     return $name;
     // }
 
-    // public function getTabBlock( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interction )
+    // function getTabBlock( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interction )
     // {
     //     $parts = explode( '/', $interction->getModel() );
     //     $module = $parts[ 0 ];

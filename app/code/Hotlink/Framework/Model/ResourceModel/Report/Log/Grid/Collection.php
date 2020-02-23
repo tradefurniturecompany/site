@@ -5,7 +5,7 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
 {
     protected $_initialised;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Data\Collection\EntityFactoryInterface $entityFactory,
         \Psr\Log\LoggerInterface $logger,
         \Magento\Framework\Data\Collection\Db\FetchStrategyInterface $fetchStrategy,

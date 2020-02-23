@@ -6,7 +6,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
     protected $collection;
     protected $loadedData;
 
-    public function __construct(
+    function __construct(
         $name,
         $primaryFieldName,
         $requestFieldName,
@@ -20,7 +20,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
-    public function getData()
+    function getData()
     {
         if (isset($this->loadedData)) {
             return $this->loadedData;

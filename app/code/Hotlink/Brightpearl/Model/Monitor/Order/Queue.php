@@ -11,7 +11,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
     protected $resourceOrderCollectionFactory;
     protected $hotlinkResourceOrderFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Model\ReportFactory $reportFactory,
         \Hotlink\Framework\Helper\Convention\Monitor $conventionMonitorHelper,
         \Hotlink\Framework\Helper\Factory $factoryHelper,
@@ -35,7 +35,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
         );
     }
 
-    public function getCronFieldName()
+    function getCronFieldName()
     {
         return 'monitor_order_queue_cron_expr';
     }
@@ -45,7 +45,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
         return 'Order Queue Monitor';
     }
 
-    public function execute()
+    function execute()
     {
         $this->_process( 'hotlink_framework_monitor_order_queue' );
     }
@@ -53,7 +53,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
     //
     //  select orders with an associated queue item and marked to be sent, which have not already been processed
     //
-    public function getList()
+    function getList()
     {
         $collection = $this->resourceOrderCollectionFactory->create();
         $hotlinkResourceOrder = $this->hotlinkResourceOrderFactory->create();

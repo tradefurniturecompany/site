@@ -9,7 +9,7 @@ class Behaviour extends \Magento\Framework\View\Element\Html\Select
      */
     protected $brightpearlConfigSourceBrightpearlPriceMissingBehaviour;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Price\Missing\Behaviour $brightpearlConfigSourceBrightpearlPriceMissingBehaviour,
         array $data = []
@@ -21,12 +21,12 @@ class Behaviour extends \Magento\Framework\View\Element\Html\Select
         );
     }
 
-    public function setInputName( $value )
+    function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    public function _toHtml()
+    function _toHtml()
     {
         if ( !$this->getOptions() )
             {

@@ -8,7 +8,7 @@ abstract class AbstractConfig extends \Hotlink\Framework\Model\Config\AbstractCo
     protected $magentoConfigFactory;
     protected $brightpearlConfigBackendHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Config\Field $configFieldHelper,

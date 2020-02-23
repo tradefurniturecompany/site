@@ -27,30 +27,30 @@ class Magento extends \Hotlink\Framework\Model\Filter\Base
      */
     protected $interactionConfigFieldIdentifierSource;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Model\Config\Field\Identifier\Source $interactionConfigFieldIdentifierSource
     ) {
         $this->interactionConfigFieldIdentifierSource = $interactionConfigFieldIdentifierSource;
     }
 
-    public function getModel()
+    function getModel()
     {
         return $this->_model;
     }
 
-    public function setModel( $value )
+    function setModel( $value )
     {
         $this->_model = $value;
         return $this;
     }
 
-    public function addFlag( $name )
+    function addFlag( $name )
     {
         $this->_flags[] = $name;
         return $this;
     }
 
-    public function getFlags()
+    function getFlags()
     {
         return $this->_flags;
     }
@@ -58,18 +58,18 @@ class Magento extends \Hotlink\Framework\Model\Filter\Base
     //
     //  Name of field that the identifier values reference
     //
-    public function getField()
+    function getField()
     {
         return $this->_field;
     }
 
-    public function setField( $value )
+    function setField( $value )
     {
         $this->_field = $value;
         return $this;
     }
 
-    public function getFields()
+    function getFields()
     {
         return $this->interactionConfigFieldIdentifierSource->getOptions();
     }
@@ -77,12 +77,12 @@ class Magento extends \Hotlink\Framework\Model\Filter\Base
     //
     //  Array of unique identifiers
     //
-    public function getIdentifiers()
+    function getIdentifiers()
     {
         return $this->_identifiers;
     }
 
-    public function setIdentifiers( $value )
+    function setIdentifiers( $value )
     {
         if ( !is_array( $value ) )
             {
@@ -95,12 +95,12 @@ class Magento extends \Hotlink\Framework\Model\Filter\Base
     //
     //  When true, any object not found will throw an exception. When false, missing objects are permitted.
     //
-    public function getRequired()
+    function getRequired()
     {
         return $this->_required;
     }
 
-    public function setRequired( $value )
+    function setRequired( $value )
     {
         $this->_required = $value;
         return $this;
@@ -109,12 +109,12 @@ class Magento extends \Hotlink\Framework\Model\Filter\Base
     //
     //  an array of attributes to select, default is "*" denoting all
     //
-    public function getAttributes()
+    function getAttributes()
     {
         return $this->_attributes;
     }
 
-    public function setAttributes( array $value )
+    function setAttributes( array $value )
     {
         $this->_attributes = $value;
         return $this;

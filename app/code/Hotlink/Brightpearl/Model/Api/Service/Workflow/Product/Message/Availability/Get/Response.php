@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Workflow\Product\Message\Availab
 
 class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\AbstractResponse
 {
-    public function getAvailability()
+    function getAvailability()
     {
         return $this->_get('response');
     }

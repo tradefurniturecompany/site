@@ -8,7 +8,7 @@ class Helper
     protected $conventionCheckHelper;
     protected $factoryHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Factory $factoryHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Convention\Check $conventionCheckHelper
@@ -19,7 +19,7 @@ class Helper
         $this->conventionCheckHelper = $conventionCheckHelper;
     }
 
-    public function getInstance( \Hotlink\Framework\Model\Api\Data $data )
+    function getInstance( \Hotlink\Framework\Model\Api\Data $data )
     {
         $dataClass = $this->reflectionHelper->getClass( $data );
         $object = false;

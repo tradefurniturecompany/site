@@ -4,27 +4,27 @@ namespace Hotlink\Brightpearl\Model\Api\OAuth2\Message\Refresh;
 class Request extends \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractRequest
 {
 
-    public function getFunction()
+    function getFunction()
     {
         return "refresh token";
     }
 
-    public function getAction()
+    function getAction()
     {
         return sprintf( '/%s/oauth/token', $this->getTransaction()->getAccount() );
     }
 
-    public function getMethod()
+    function getMethod()
     {
         return 'POST';
     }
 
-    public function getContentEncoding()
+    function getContentEncoding()
     {
         return \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractRequest::ENCODING_URLENCODED;
     }
 
-    public function getBody()
+    function getBody()
     {
         return $this->_encodeUrlencoded(
             [ 'grant_type'    => 'refresh_token',
@@ -34,7 +34,7 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractReq
         );
     }
 
-    public function validate()
+    function validate()
     {
         return $this
             ->_assertNotEmpty( $this->getTransaction()->getAccount(), 'account' );

@@ -14,7 +14,7 @@ abstract class AbstractRequest extends \Hotlink\Framework\Model\Api\Request impl
 
     protected $jsonHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Json\Helper\Data $jsonHelper,
         \Hotlink\Brightpearl\Helper\Exception $brightpearlExceptionHelper
     ) {
@@ -22,7 +22,7 @@ abstract class AbstractRequest extends \Hotlink\Framework\Model\Api\Request impl
         $this->brightpearlExceptionHelper = $brightpearlExceptionHelper;
     }
 
-    public function jsonHelper()
+    function jsonHelper()
     {
         return $this->jsonHelper;
     }
@@ -65,7 +65,7 @@ abstract class AbstractRequest extends \Hotlink\Framework\Model\Api\Request impl
         return is_array($array) ? implode(',', $array) : $array;
     }
 
-    public function getExceptionHelper()
+    function getExceptionHelper()
     {
         return $this->brightpearlExceptionHelper;
     }

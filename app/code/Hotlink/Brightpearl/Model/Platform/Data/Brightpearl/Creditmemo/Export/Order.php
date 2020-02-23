@@ -27,7 +27,7 @@ class Order extends \Hotlink\Brightpearl\Model\Platform\Data
         $this[ 'rows' ]            = $this->getObject( $order, 'Rows', true );
     }
 
-    public function toArray( array $arrAttributes = array() )
+    function toArray( array $arrAttributes = array() )
     {
         $ret = parent::toArray( $arrAttributes );
         if ( array_key_exists( 'customFields', $ret ) && empty( $ret[ 'customFields' ] ) )

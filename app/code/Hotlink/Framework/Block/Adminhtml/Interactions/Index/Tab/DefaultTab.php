@@ -9,7 +9,7 @@ class DefaultTab extends \Hotlink\Framework\Block\Adminhtml\Interactions\Index\T
     protected $interactionReflectionHelper;
     protected $factoryHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Widget\Context $context,
         \Hotlink\Framework\Helper\Html\Fieldset $interactionHtmlFieldsetHelper,
         \Hotlink\Framework\Model\Config\Map $interactionConfigMap,
@@ -26,7 +26,7 @@ class DefaultTab extends \Hotlink\Framework\Block\Adminhtml\Interactions\Index\T
         $this->interactionReflectionHelper = $interactionReflectionHelper;
     }
 
-    public function initForm( $form, $interaction )
+    function initForm( $form, $interaction )
     {
         $id = $this->getTabId();
         $fieldset = $form->addFieldset( $id, array( 'legend' => $interaction->getName(),
@@ -46,32 +46,32 @@ class DefaultTab extends \Hotlink\Framework\Block\Adminhtml\Interactions\Index\T
         $collection->addItem( $submit );
     }
 
-    public function getHeaderText()
+    function getHeaderText()
     {
         return __( $this->getInteraction()->getName() );
     }
 
-    public function getTabLabel()
+    function getTabLabel()
     {
         return __(  $this->getInteraction()->getName() );
     }
 
-    public function getTabTitle()
+    function getTabTitle()
     {
         return __( $this->getInteraction()->getName() );
     }
 
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
 
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }
 
-    public function getTabHelper()
+    function getTabHelper()
     {
         if ( !$this->_tabHelper )
             {

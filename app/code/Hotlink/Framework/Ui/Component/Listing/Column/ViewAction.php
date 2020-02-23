@@ -5,7 +5,7 @@ class ViewAction extends \Magento\Ui\Component\Listing\Columns\Column
 {
     protected $urlBuilder;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\UiComponent\ContextInterface $context,
         \Magento\Framework\View\Element\UiComponentFactory $uiComponentFactory,
         \Magento\Framework\UrlInterface $urlBuilder,
@@ -22,7 +22,7 @@ class ViewAction extends \Magento\Ui\Component\Listing\Columns\Column
      * @param array $dataSource
      * @return array
      */
-    public function prepareDataSource(array $dataSource)
+    function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {

@@ -10,7 +10,7 @@ class Field implements \Magento\Framework\Option\ArrayInterface
      */
     protected $brightpearlResourceOrderFieldCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Model\ResourceModel\Lookup\Order\Custom\Field\CollectionFactory $brightpearlResourceOrderFieldCollectionFactory
     ) {
         $this->brightpearlResourceOrderFieldCollectionFactory = $brightpearlResourceOrderFieldCollectionFactory;
@@ -34,13 +34,13 @@ class Field implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         $this->_init();
         return $this->_data;
     }
 
-    public function toArray()
+    function toArray()
     {
         $ret = array();
         foreach ( $this->toOptionArray() as $item )

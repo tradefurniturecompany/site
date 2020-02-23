@@ -7,7 +7,7 @@ class Scopes extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
     protected $universalFactory;
     protected $storeElement;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $fieldsetHelper,
         \Hotlink\Framework\Helper\Html $htmlHelper,
@@ -25,7 +25,7 @@ class Scopes extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
             $htmlHelper );
     }
 
-    public function getHtmlKey()
+    function getHtmlKey()
     {
         return 'scopes';
     }
@@ -59,7 +59,7 @@ class Scopes extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
         $field->setMultiselect( $parameter->getMultiselect() );
     }
 
-    public function getObject( $form, $environment )
+    function getObject( $form, $environment )
     {
         $store = $this->universalFactory->create( $this->_getClass( $form ) );
         if ( $data = $this->_getData( $form ) )

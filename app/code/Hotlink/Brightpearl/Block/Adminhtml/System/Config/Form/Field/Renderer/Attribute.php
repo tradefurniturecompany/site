@@ -9,7 +9,7 @@ class Attribute extends \Magento\Framework\View\Element\Html\Select
      */
     protected $interactionConfigFieldProductAttributes;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Hotlink\Framework\Model\Config\Field\Product\Attributes $interactionConfigFieldProductAttributes,
         array $data = []
@@ -21,12 +21,12 @@ class Attribute extends \Magento\Framework\View\Element\Html\Select
         );
     }
 
-    public function setInputName( $value )
+    function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    public function _toHtml()
+    function _toHtml()
     {
         if ( !$this->getOptions() ) {
             if ( !$this->getOptions()) {

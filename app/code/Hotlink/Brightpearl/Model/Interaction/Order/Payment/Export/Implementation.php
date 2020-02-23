@@ -11,7 +11,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Order\Implem
     protected $salesOrderFactory;
     protected $storeManager;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -44,7 +44,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Order\Implem
      * later on support for Orders was added in order to accomodate a change in requirements.
      */
 
-    public function execute()
+    function execute()
     {
         $report = $this->getReport();
         $environment = $this->getEnvironment();

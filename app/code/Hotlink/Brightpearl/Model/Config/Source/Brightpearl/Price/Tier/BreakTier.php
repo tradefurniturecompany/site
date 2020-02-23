@@ -17,7 +17,7 @@ class BreakTier implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         if (!$this->_options) {
             $this->_initOptions();
@@ -25,7 +25,7 @@ class BreakTier implements \Magento\Framework\Option\ArrayInterface
         return $this->_options;
     }
 
-    public function toArray()
+    function toArray()
     {
         if (!$this->_options) {
             $this->_initOptions();

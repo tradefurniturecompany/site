@@ -30,7 +30,7 @@ class Writer extends \Hotlink\Framework\Model\Stream\Http\Base
         return $this;
     }
 
-    public function output( $string )
+    function output( $string )
     {
         $this->_html .= $string;
     }
@@ -43,7 +43,7 @@ class Writer extends \Hotlink\Framework\Model\Stream\Http\Base
         return $this;
     }
 
-    public function getHtml()
+    function getHtml()
     {
         return $this->_html;
     }

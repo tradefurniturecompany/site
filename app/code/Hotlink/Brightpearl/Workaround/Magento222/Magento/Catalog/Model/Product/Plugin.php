@@ -6,7 +6,7 @@ class Plugin
 
     const KEY = '_hotlink_brightpearl_m222_ScopeOverriddenValue_wrokaround';
 
-    public function beforeAddAttributeUpdate( $subject, $code, $value, $store )
+    function beforeAddAttributeUpdate( $subject, $code, $value, $store )
     {
         if ( $data = $subject->getData( self::KEY ) )
             {

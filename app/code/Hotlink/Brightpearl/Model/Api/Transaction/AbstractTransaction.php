@@ -9,7 +9,7 @@ abstract class AbstractTransaction extends \Hotlink\Framework\Model\Api\Transact
 
     protected $factoryHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Factory $factoryHelper,
         \Hotlink\Framework\Helper\Reflection $interactionReflectionHelper,
         \Hotlink\Framework\Model\Api\RequestFactory $interactionApiRequestFactory,
@@ -25,12 +25,12 @@ abstract class AbstractTransaction extends \Hotlink\Framework\Model\Api\Transact
         $this->factoryHelper = $factoryHelper;
     }
 
-    public function _getRequest()
+    function _getRequest()
     {
         return $this->factoryHelper->create( $this->_getRequestModel() );
     }
 
-    public function _getResponse()
+    function _getResponse()
     {
         return $this->factoryHelper->create( $this->_getResponseModel() );
     }

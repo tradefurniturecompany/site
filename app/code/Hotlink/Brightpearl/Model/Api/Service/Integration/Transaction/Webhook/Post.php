@@ -10,7 +10,7 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
     protected $contentType;
     protected $idSetAccepted;
 
-    public function getName()
+    function getName()
     {
         return 'Create webhook';
     }
@@ -25,67 +25,67 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
         return '\Hotlink\Brightpearl\Model\Api\Service\Integration\Message\Webhook\Post\Response';
     }
 
-    public function setSubscribeTo($subscribeTo)
+    function setSubscribeTo($subscribeTo)
     {
         $this->subscribeTo = $subscribeTo;
         return $this;
     }
 
-    public function setHttpMethod($httpMethod)
+    function setHttpMethod($httpMethod)
     {
         $this->httpMethod = $httpMethod;
         return $this;
     }
-    public function setUriTemplate($uriTemplate)
+    function setUriTemplate($uriTemplate)
     {
         $this->uriTemplate = $uriTemplate;
         return $this;
     }
 
-    public function setBodyTemplate($bodyTemplate)
+    function setBodyTemplate($bodyTemplate)
     {
         $this->bodyTemplate = $bodyTemplate;
         return $this;
     }
 
-    public function setContentType($contentType)
+    function setContentType($contentType)
     {
         $this->contentType = $contentType;
         return $this;
     }
 
-    public function setIdSetAccepted($idSetAccepted)
+    function setIdSetAccepted($idSetAccepted)
     {
         $this->idSetAccepted = $idSetAccepted;
         return $this;
     }
 
-    public function getSubscribeTo()
+    function getSubscribeTo()
     {
         return $this->subscribeTo;
     }
 
-    public function getHttpMethod()
+    function getHttpMethod()
     {
         return $this->httpMethod;
     }
 
-    public function getUriTemplate()
+    function getUriTemplate()
     {
         return $this->uriTemplate;
     }
 
-    public function getBodyTemplate()
+    function getBodyTemplate()
     {
         return $this->bodyTemplate;
     }
 
-    public function getContentType()
+    function getContentType()
     {
         return $this->contentType;
     }
 
-    public function getIdSetAccepted()
+    function getIdSetAccepted()
     {
         return $this->idSetAccepted;
     }

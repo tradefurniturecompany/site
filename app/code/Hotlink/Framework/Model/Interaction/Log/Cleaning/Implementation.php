@@ -8,7 +8,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
 
     protected $logCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -26,7 +26,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         return 'Log cleaning';
     }
 
-    public function execute()
+    function execute()
     {
         $report = $this->getReport();
         $environment = $this->getEnvironment();

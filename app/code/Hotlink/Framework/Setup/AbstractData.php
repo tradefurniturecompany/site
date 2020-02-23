@@ -7,7 +7,7 @@ class AbstractData
     protected $platform;
     protected $resourceConfig;
 
-    public function __construct( \Hotlink\Framework\Model\Platform $platform,
+    function __construct( \Hotlink\Framework\Model\Platform $platform,
                                  \Magento\Framework\App\Config\ConfigResource\ConfigInterface $resourceConfig
     )
     {

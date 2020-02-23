@@ -22,7 +22,7 @@ abstract class Base extends \Hotlink\Framework\Model\AbstractModel
             }
     }
 
-    public function isOpen()
+    function isOpen()
     {
         return $this->_opened;
     }
@@ -35,7 +35,7 @@ abstract class Base extends \Hotlink\Framework\Model\AbstractModel
             }
     }
 
-    public function open()
+    function open()
     {
         $this->confirmClosed();
         $args = func_get_args();
@@ -44,7 +44,7 @@ abstract class Base extends \Hotlink\Framework\Model\AbstractModel
         return $result;
     }
 
-    public function close()
+    function close()
     {
         if ( $this->isOpen() )
             {
@@ -59,7 +59,7 @@ abstract class Base extends \Hotlink\Framework\Model\AbstractModel
     //
     //  IReport
     //
-    public function getReportSection()
+    function getReportSection()
     {
         return 'stream';
     }

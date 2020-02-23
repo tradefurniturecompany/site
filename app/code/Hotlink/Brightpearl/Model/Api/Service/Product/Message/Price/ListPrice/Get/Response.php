@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Product\Message\Price\ListPrice\
 
 class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\AbstractResponse
 {
-    public function getPriceLists()
+    function getPriceLists()
     {
         return $this->_get('response');
     }

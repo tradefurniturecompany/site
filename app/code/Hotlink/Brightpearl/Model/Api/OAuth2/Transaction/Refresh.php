@@ -18,40 +18,40 @@ class Refresh extends \Hotlink\Brightpearl\Model\Api\Transaction\AbstractTransac
         return \Hotlink\Brightpearl\Model\Api\OAuth2\Message\Refresh\Response::class;
     }
 
-    public function getAccount()
+    function getAccount()
     {
         return $this->_account;
     }
 
-    public function setAccount( $value )
+    function setAccount( $value )
     {
         $this->_account = $value;
         return $this;
     }
 
-    public function getRefreshToken()
+    function getRefreshToken()
     {
         return $this->_refreshToken;
     }
 
-    public function setRefreshToken( $value )
+    function setRefreshToken( $value )
     {
         $this->_refreshToken = $value;
         return $this;
     }
 
-    public function getClientId()
+    function getClientId()
     {
         return $this->_clientId;
     }
 
-    public function setClientId( $value )
+    function setClientId( $value )
     {
         $this->_clientId = $value;
         return $this;
     }
 
-    public function getContentType()
+    function getContentType()
     {
         return 'application/x-www-form-urlencoded';
     }

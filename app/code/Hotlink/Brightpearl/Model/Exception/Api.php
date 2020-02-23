@@ -5,13 +5,13 @@ class Api extends \Hotlink\Brightpearl\Model\Exception\AbstractException
 {
     protected $_statusCode = null;
 
-    public function setStatusCode( $code )
+    function setStatusCode( $code )
     {
         $this->_statusCode = $code;
         return $this;
     }
 
-    public function getStatusCode()
+    function getStatusCode()
     {
         return $this->_statusCode;
     }

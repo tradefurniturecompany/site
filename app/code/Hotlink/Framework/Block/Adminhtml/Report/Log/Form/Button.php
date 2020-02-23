@@ -5,7 +5,7 @@ class Button
 {
     protected $reportLogFactory;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Widget\Context $context,
         \Hotlink\Framework\Model\Report\LogFactory $reportLogFactory
     ) {
@@ -24,7 +24,7 @@ class Button
             : null;
     }
 
-    public function getUrl( $route = '', $params = [] )
+    function getUrl( $route = '', $params = [] )
     {
         return $this->context->getUrlBuilder()->getUrl($route, $params);
     }

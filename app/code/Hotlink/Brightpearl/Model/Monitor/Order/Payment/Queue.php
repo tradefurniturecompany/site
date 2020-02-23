@@ -11,7 +11,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
     protected $hotlinkResourcePaymentFactory;
     protected $resourcePaymentCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Model\ReportFactory $reportFactory,
         \Hotlink\Framework\Helper\Convention\Monitor $conventionMonitorHelper,
         \Hotlink\Framework\Helper\Factory $factoryHelper,
@@ -35,7 +35,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
         );
     }
 
-    public function getCronFieldName()
+    function getCronFieldName()
     {
         return 'monitor_order_payment_queue_cron_expr';
     }
@@ -45,7 +45,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
         return 'Payment Queue Monitor';
     }
 
-    public function execute()
+    function execute()
     {
         $this->_process( 'hotlink_framework_monitor_order_payment_queue' );
     }
@@ -53,7 +53,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
     //
     //  select payments with an associated queue item and marked to be sent, which have not already been processed
     //
-    public function getList()
+    function getList()
     {
         $hotlinkResourcePayment = $this->hotlinkResourcePaymentFactory->create();
         $hotlinkPaymentTable = $hotlinkResourcePayment->getMainTable();

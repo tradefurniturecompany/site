@@ -3,22 +3,22 @@ namespace Hotlink\Brightpearl\Model\Interaction\Order\Reconciliation\Environment
 
 class Ignore extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter
 {
-    public function getName()
+    function getName()
     {
         return 'Delay';
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'ignore_past_minutes';
     }
 
-    public function getNote()
+    function getNote()
     {
         return 'Do not process queue items sent in the past X minutes.';
     }
 
-    public function getDefault()
+    function getDefault()
     {
         return 10;
     }

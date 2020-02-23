@@ -6,7 +6,7 @@ class Version extends \Magento\Config\Block\System\Config\Form\Field
     protected $moduleHelper;
     protected $reflectionHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Hotlink\Framework\Helper\Module $moduleHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,

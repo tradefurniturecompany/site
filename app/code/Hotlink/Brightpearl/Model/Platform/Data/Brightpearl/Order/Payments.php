@@ -16,7 +16,7 @@ class Payments extends \Hotlink\Brightpearl\Model\Platform\Data
         return $this;
     }
 
-    public function getChildClassDefault( $key )
+    function getChildClassDefault( $key )
     {
         $this->getReport()->debug( $this->annotate( "No specific mapper for Payment code $key available, using default" ) );
         return '\Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Order\Payments\DefaultPayments';

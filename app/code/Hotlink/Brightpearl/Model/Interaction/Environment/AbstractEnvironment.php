@@ -7,7 +7,7 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\Interaction\
     protected $brightpearlConfigAuthorisation;
     protected $brightpearlConfigOAuth2;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -34,7 +34,7 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\Interaction\
         $this->brightpearlConfigOAuth2 = $brightpearlConfigOAuth2;
     }
 
-    public function isOAuth2Active()
+    function isOAuth2Active()
     {
         return $this->brightpearlConfigOAuth2->isActive();
     }
@@ -42,12 +42,12 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\Interaction\
     //
     //  General
     //
-    public function getApiTimeout( $storeId = null )
+    function getApiTimeout( $storeId = null )
     {
         return $this->getConfig()->getApiTimeout( $storeId );
     }
 
-    public function getApiQueryLimit( $storeId = null )
+    function getApiQueryLimit( $storeId = null )
     {
         return $this->_getApiConfig()->getQueryLimit( $storeId );
     }
@@ -60,14 +60,14 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\Interaction\
     //
     //  Automatic OAuth or Legacy
     //
-    public function getAccountCode()
+    function getAccountCode()
     {
         return $this->isOAuth2Active()
             ? $this->getOAuth2AccountCode()
             : $this->getLegacyAccountCode();
     }
 
-    public function getAuthToken()
+    function getAuthToken()
     {
         return $this->isOAuth2Active()
             ? $this->getOAuth2Token()
@@ -77,17 +77,17 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\Interaction\
     //
     //  OAuth2
     //
-    public function getOAuth2AccountCode()
+    function getOAuth2AccountCode()
     {
         return $this->brightpearlConfigOAuth2->getAccount( $this->getStoreId() );
     }
 
-    public function getOAuth2Token()
+    function getOAuth2Token()
     {
         return $this->brightpearlConfigOAuth2->getAccessToken( $this->getStoreId() );
     }
 
-    public function getOAuth2InstanceId()
+    function getOAuth2InstanceId()
     {
         return $this->brightpearlConfigOAuth2->getInstallationInstanceId( $this->getStoreId() );
     }
@@ -95,12 +95,12 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\Interaction\
     //
     //  Legacy
     //
-    public function getLegacyAccountCode()
+    function getLegacyAccountCode()
     {
         return $this->brightpearlConfigAuthorisation->getAccountCode( $this->getStoreId() );
     }
 
-    public function getLegacyToken()
+    function getLegacyToken()
     {
         return $this->brightpearlConfigAuthorisation->getToken( $this->getStoreId() );
     }

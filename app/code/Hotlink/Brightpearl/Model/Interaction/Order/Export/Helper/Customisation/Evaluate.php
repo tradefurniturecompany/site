@@ -4,12 +4,12 @@ namespace Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisatio
 class Evaluate extends \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisation\CustomisationAbstract
 {
 
-    public function isLiteral( $expression )
+    function isLiteral( $expression )
     {
         return $this->isEnclosedSquare( $this->clean( $expression ) );
     }
 
-    public function getLiteral( $expression )
+    function getLiteral( $expression )
     {
         $expression = $this->clean( $expression );
         if ( $this->isLiteral( $expression ) )
@@ -19,7 +19,7 @@ class Evaluate extends \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helpe
         return '';
     }
 
-    public function apply( $csv, $object )
+    function apply( $csv, $object )
     {
         $expressions = str_getcsv( $csv );
         $failed = [];
@@ -43,7 +43,7 @@ class Evaluate extends \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helpe
         throw new \Exception( "No evaluation result for : $csv \n\n$failed" );
     }
 
-    public function evaluate( $expression, $object )
+    function evaluate( $expression, $object )
     {
         $expression = $this->clean( $expression );
         if ( $this->isLiteral( $expression ) )

@@ -11,7 +11,7 @@ class Plugin
      * @param \Magento\Framework\App\RequestInterface $request
      * @param \Magento\Framework\App\ActionInterface $action
      */
-    public function aroundValidate(
+    function aroundValidate(
         $subject,
         \Closure $proceed,
         $request,

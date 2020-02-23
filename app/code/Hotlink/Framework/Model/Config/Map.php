@@ -45,7 +45,7 @@ class Map
     protected $exceptionHelper;
     protected $reflectionHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Model\Config\Map\Reader $reader
@@ -120,12 +120,12 @@ class Map
             }
     }
 
-    public function setConfig( $config )
+    function setConfig( $config )
     {
         $this->_config = $config;
     }
 
-    public function getSingleton( $class )
+    function getSingleton( $class )
     {
         return \Magento\Framework\App\ObjectManager::getInstance()->get( $class );
     }
@@ -138,12 +138,12 @@ class Map
     //
     //  Public interface
     //
-    public function getPlatforms()
+    function getPlatforms()
     {
         return array_keys( $this->_platforms );
     }
 
-    public function getPlatform( $thing = null )
+    function getPlatform( $thing = null )
     {
         $thing = $this->_stringify( $thing );
         if ( array_key_exists( $thing, $this->_interactions ) )
@@ -153,7 +153,7 @@ class Map
         return null;
     }
 
-    public function getMonitors( $thing = null )
+    function getMonitors( $thing = null )
     {
         $thing = $this->_stringify( $thing );
         if ( is_null( $thing ) )
@@ -167,7 +167,7 @@ class Map
         return [];
     }
 
-    public function getTriggers( $thing = null )
+    function getTriggers( $thing = null )
     {
         $thing = $this->_stringify( $thing );
         if ( is_null( $thing ) )
@@ -192,7 +192,7 @@ class Map
         return [];
     }
 
-    public function getInteractions( $thing = null )
+    function getInteractions( $thing = null )
     {
         $thing = $this->_stringify( $thing );
         if ( is_null( $thing ) )
@@ -232,8 +232,8 @@ class Map
         return [];
     }
 
-    //public function getImplementations( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
-    public function getImplementations( $thing = null )
+    //function getImplementations( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
+    function getImplementations( $thing = null )
     {
         $thing = $this->_stringify( $thing );
         if ( array_key_exists( $thing, $this->_interactions ) )
@@ -243,7 +243,7 @@ class Map
         return [];
     }
 
-    public function getIndexOfInteraction( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
+    function getIndexOfInteraction( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
     {
         $counter = 0;
         $found = false;
@@ -260,7 +260,7 @@ class Map
         return ( $found ) ? $counter : 0;
     }
 
-    public function getActions( $thing = null )
+    function getActions( $thing = null )
     {
         $thing = $this->_stringify( $thing );
         if ( is_null( $thing ) )
@@ -275,7 +275,7 @@ class Map
         return [];
     }
 
-    public function getRequirements( $thing )
+    function getRequirements( $thing )
     {
         $class = $this->$this->reflectionHelper->getClass( $thing );
         if ( array_key_exists( $class, $this->_requirements ) )
@@ -285,7 +285,7 @@ class Map
         return array();
     }
 
-    public function getDataobjects()
+    function getDataobjects()
     {
         return $this->_dataobjects;
     }

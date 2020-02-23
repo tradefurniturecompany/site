@@ -12,7 +12,7 @@ class Field implements \Magento\Framework\Option\ArrayInterface
     const CHANNEL_ID         = "channelId";
 
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             [ 'value' => self::CREATED_ON,         'label' => __( 'Created on' ) ],
@@ -24,7 +24,7 @@ class Field implements \Magento\Framework\Option\ArrayInterface
             [ 'value' => self::CHANNEL_ID,         'label' => __( 'Channel id' ) ] ];
     }
 
-    public function toArray()
+    function toArray()
     {
         return [
             self::GOODS_OUT_NOTE_ID  => __( 'Goods-out note id' ),

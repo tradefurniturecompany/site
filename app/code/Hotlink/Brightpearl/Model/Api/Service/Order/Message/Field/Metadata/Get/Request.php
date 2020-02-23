@@ -3,12 +3,12 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Order\Message\Field\Metadata\Get
 
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get\AbstractGet
 {
-    public function getFunction()
+    function getFunction()
     {
         return $this->getMethod(). " order-service/custom-field-meta-data";
     }
 
-    public function getAction()
+    function getAction()
     {
         return sprintf('/public-api/%s/order-service/%s/custom-field-meta-data/%s',
                        $this->getTransaction()->getAccountCode(),

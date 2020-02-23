@@ -14,7 +14,7 @@ class Changed extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
      */
     protected $collectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -47,17 +47,17 @@ class Changed extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
         return 'Order status changed';
     }
 
-    public function getMagentoEvents()
+    function getMagentoEvents()
     {
         return [ 'After order save' => 'sales_order_save_commit_after' ];
     }
 
-    public function getContexts()
+    function getContexts()
     {
         return [ self::KEY_STATUS_CHANGED => self::LABEL_STATUS_CHANGED ];
     }
 
-    public function getContext()
+    function getContext()
     {
         $event = $this->getMagentoEvent();
 

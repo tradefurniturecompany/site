@@ -7,7 +7,7 @@ class Render extends \Magento\Backend\App\Action
     protected $interactionReportFactory;
     protected $httpResponseFactory;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Hotlink\Framework\Model\ReportFactory $interactionReportFactory,
         \Hotlink\Framework\Controller\Adminhtml\ResponseFactory $httpResponseFactory
@@ -19,7 +19,7 @@ class Render extends \Magento\Backend\App\Action
         parent::__construct( $context );
     }
 
-    public function execute()
+    function execute()
     {
         $response = $this->httpResponseFactory->create();
 

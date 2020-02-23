@@ -9,7 +9,7 @@ class Config extends \Hotlink\Framework\Model\Config\Module\AbstractConfig
         return 'installation';
     }
 
-    public function getLoggingEnabled( $storeId = null )
+    function getLoggingEnabled( $storeId = null )
     {
         return $this->getConfigData( 'enable_logging', $storeId, false );
     }

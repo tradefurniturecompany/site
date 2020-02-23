@@ -14,7 +14,7 @@ class Warehouse extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
     protected $transactionDropshipGetFactory;
     protected $transactionGoodsinPostFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -51,12 +51,12 @@ class Warehouse extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         );
     }
 
-    public function getName()
+    function getName()
     {
         return 'Warehouse API';
     }
 
-    public function getWarehouses($storeId, $accountCode, $idSet = null, $timeout = 5000)
+    function getWarehouses($storeId, $accountCode, $idSet = null, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -76,7 +76,7 @@ class Warehouse extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $warehouses;
     }
 
-    public function getShippingMethods($storeId, $accountCode, $idSet = null, $timeout = 5000)
+    function getShippingMethods($storeId, $accountCode, $idSet = null, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -96,7 +96,7 @@ class Warehouse extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $methods;
     }
 
-    public function getGoodsoutNote($storeId, $accountCode, $idOrderSet = '*', $idSet = null, $timeout = 5000)
+    function getGoodsoutNote($storeId, $accountCode, $idOrderSet = '*', $idSet = null, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('accountCode', $accountCode);
@@ -117,7 +117,7 @@ class Warehouse extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $_notes;
     }
 
-    public function getDropshipNote($storeId, $accountCode, $idOrderSet = '*', $idSet = null, $timeout = 5000)
+    function getDropshipNote($storeId, $accountCode, $idOrderSet = '*', $idSet = null, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('accountCode', $accountCode);
@@ -148,7 +148,7 @@ class Warehouse extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $_notes;
     }
 
-    public function exportGoodsinNote( $storeId, $accountCode, $purchaseOrderId, $note, $timeout = 5000 )
+    function exportGoodsinNote( $storeId, $accountCode, $purchaseOrderId, $note, $timeout = 5000 )
     {
         $report = $this->getReport();
         $this
@@ -168,7 +168,7 @@ class Warehouse extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $response;
     }
 
-    public function getWarehouseLocationQuarantine( $storeId, $accountCode, $idSet, $timeout = 5000 )
+    function getWarehouseLocationQuarantine( $storeId, $accountCode, $idSet, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty( 'storeId', $storeId )

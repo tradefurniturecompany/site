@@ -6,12 +6,12 @@ class Plugin
 
     protected $eventManager;
 
-    public function __construct( \Magento\Framework\Event\ManagerInterface $eventManager )
+    function __construct( \Magento\Framework\Event\ManagerInterface $eventManager )
     {
         $this->eventManager = $eventManager;
     }
 
-    public function afterRefund( $subject, $result )
+    function afterRefund( $subject, $result )
     {
         if ( $result instanceof \Magento\Sales\Model\Order\Creditmemo )
             {

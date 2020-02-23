@@ -13,7 +13,7 @@ class Observer implements \Magento\Framework\Event\ObserverInterface
     protected $interaction;
     protected $queueOrderHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Model\Interaction\Order\Export $interaction,
         \Hotlink\Brightpearl\Helper\Queue\Order $queueOrderHelper
     )
@@ -22,7 +22,7 @@ class Observer implements \Magento\Framework\Event\ObserverInterface
         $this->queueOrderHelper = $queueOrderHelper;
     }
 
-    public function execute( \Magento\Framework\Event\Observer $observer )
+    function execute( \Magento\Framework\Event\Observer $observer )
     {
         if ( $order = $observer->getOrder() )
             {

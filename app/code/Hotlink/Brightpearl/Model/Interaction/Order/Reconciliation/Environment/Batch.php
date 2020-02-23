@@ -3,22 +3,22 @@ namespace Hotlink\Brightpearl\Model\Interaction\Order\Reconciliation\Environment
 
 class Batch extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter
 {
-    public function getName()
+    function getName()
     {
         return 'Batch size';
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'batch';
     }
 
-    public function getNote()
+    function getNote()
     {
         return 'Number of queue items in a batch';
     }
 
-    public function getDefault()
+    function getDefault()
     {
         return 100;
     }

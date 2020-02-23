@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Html\Form\Element;
 class Iframe extends \Magento\Framework\Data\Form\Element\AbstractElement
 {
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Data\Form\Element\Factory $factoryElement,
         \Magento\Framework\Data\Form\Element\CollectionFactory $factoryCollection,
         \Magento\Framework\Escaper $escaper,
@@ -19,7 +19,7 @@ class Iframe extends \Magento\Framework\Data\Form\Element\AbstractElement
         $this->setFrameborder( 0 );
     }
 
-    public function getHtmlAttributes()
+    function getHtmlAttributes()
     {
         return array( 'class', 'style', 'width', 'onclick', 'onchange', 'frameborder', 'src' );
     }
@@ -29,7 +29,7 @@ class Iframe extends \Magento\Framework\Data\Form\Element\AbstractElement
         return array( 'class', 'style' );
     }
 
-    public function getElementHtml()
+    function getElementHtml()
     {
         $html = '<iframe id="'.$this->getHtmlId() . '" name="'.$this->getName().'" '
             . $this->serialize( $this->getHtmlAttributes() )

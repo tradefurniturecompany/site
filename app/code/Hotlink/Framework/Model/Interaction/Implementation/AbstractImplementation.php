@@ -7,45 +7,45 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\AbstractM
     protected $_interaction = false;
 
     abstract protected function _getName();
-    abstract public function execute();
+    abstract function execute();
 
-    public function getInteraction()
+    function getInteraction()
     {
         return $this->_interaction;
     }
 
-    public function setInteraction( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
+    function setInteraction( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
     {
         $this->_interaction = $interaction;
         return $this;
     }
 
-    public function getName()
+    function getName()
     {
         return __( $this->_getName() );
     }
 
-    public function getTrigger()
+    function getTrigger()
     {
         return $this->getInteraction()->getTrigger();
     }
 
-    public function getEnvironments()
+    function getEnvironments()
     {
         return $this->getInteraction()->getEnvironments();
     }
 
-    public function getEnvironment( $storeId = null )
+    function getEnvironment( $storeId = null )
     {
         return $this->getInteraction()->getEnvironment( $storeId );
     }
 
-    public function createEnvironment( $storeId )
+    function createEnvironment( $storeId )
     {
         return $this->getInteraction()->createEnvironment( $storeId );
     }
 
-    public function hasEnvironment( $storeId = null )
+    function hasEnvironment( $storeId = null )
     {
         return $this->getInteraction()->hasEnvironment( $storeId );
     }
@@ -53,7 +53,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\AbstractM
     //
     //  IReport
     //
-    public function getReportSection()
+    function getReportSection()
     {
         return 'implementation';
     }

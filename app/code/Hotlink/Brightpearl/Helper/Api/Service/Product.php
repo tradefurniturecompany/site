@@ -10,7 +10,7 @@ class Product extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
     protected $transactionProductGetFactory;
     protected $brightpearlPlatformDataFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -40,12 +40,12 @@ class Product extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         );
     }
 
-    public function getName()
+    function getName()
     {
         return 'Price API';
     }
 
-    public function getPriceLists( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
+    function getPriceLists( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -65,7 +65,7 @@ class Product extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $priceLists;
     }
 
-    public function getChannels($storeId, $accountCode, $idSet = null, $timeout = 5000)
+    function getChannels($storeId, $accountCode, $idSet = null, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -85,7 +85,7 @@ class Product extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $channels;
     }
 
-    public function getProducts( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
+    function getProducts( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty( 'storeId', $storeId )

@@ -15,7 +15,7 @@ class Config extends \Hotlink\Brightpearl\Model\Interaction\Config\AbstractConfi
     protected $configHelper;
     protected $sharedOrderConfig;
 
-    public function __construct(
+    function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Convention\Interaction\Config $configConvention,
@@ -40,49 +40,49 @@ class Config extends \Hotlink\Brightpearl\Model\Interaction\Config\AbstractConfi
                              $data );
     }
 
-    public function getSalesCreditOrderStatus( $storeId=null )
+    function getSalesCreditOrderStatus( $storeId=null )
     {
         return $this->getConfigData( self::KEY_SALES_CREDIT_ORDER_STATUS, $storeId, null );
     }
 
-    public function getRefundsEnabled( $storeId=null )
+    function getRefundsEnabled( $storeId=null )
     {
         return ( boolean ) $this->getConfigData( self::KEY_REFUNDS_ENABLED, $storeId, false );
     }
 
-    public function getRefundsShippingNominalCode( $storeId=null )
+    function getRefundsShippingNominalCode( $storeId=null )
     {
         return $this->getConfigData( self::KEY_REFUNDS_SHIPPING_NOMINAL_CODE, $storeId, false );
     }
 
-    public function saveRefundsShippingNominalCode( $value, $storeId = null )
+    function saveRefundsShippingNominalCode( $value, $storeId = null )
     {
         $section = $this->getSection();
         $group = $this->getGroup();
         return $this->configHelper->saveValue( $section, $group, $value, self::KEY_REFUNDS_SHIPPING_NOMINAL_CODE, $storeId );
     }
 
-    public function getQuarantineEnabled( $storeId=null )
+    function getQuarantineEnabled( $storeId=null )
     {
         return ( boolean ) $this->getConfigData( self::KEY_QUARANTINE_ENABLED, $storeId, false );
     }
 
-    public function getQuarantineWarehouse( $storeId=null )
+    function getQuarantineWarehouse( $storeId=null )
     {
         return $this->getConfigData( self::KEY_QUARANTINE_WAREHOUSE, $storeId, null );
     }
 
-    public function getQuarantineWarehouseLocation( $storeId=null )
+    function getQuarantineWarehouseLocation( $storeId=null )
     {
         return $this->getConfigData( self::KEY_QUARANTINE_WAREHOUSE_LOCATION, $storeId, null );
     }
 
-    public function getQuarantinePricelist( $storeId=null )
+    function getQuarantinePricelist( $storeId=null )
     {
         return $this->getConfigData( self::KEY_QUARANTINE_PRICELIST, $storeId, null );
     }
 
-    public function getUseCurrency( $storeId=null )
+    function getUseCurrency( $storeId=null )
     {
         return ( $val = $this->sharedOrderConfig->getUseCurrency( $storeId ) )
             ? $val

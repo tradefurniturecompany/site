@@ -5,7 +5,7 @@ class Form extends \Magento\Backend\Block\Widget\Form
 {
     protected $formFactory;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Data\FormFactory $formFactory,
         array $data = []

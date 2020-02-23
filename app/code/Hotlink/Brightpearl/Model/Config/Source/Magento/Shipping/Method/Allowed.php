@@ -21,7 +21,7 @@ class Allowed extends \Magento\Shipping\Model\Config\Source\Allmethods
 
     protected $shippingHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Shipping\Model\Config $shippingConfig,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Psr\Log\LoggerInterface $logger,
@@ -39,7 +39,7 @@ class Allowed extends \Magento\Shipping\Model\Config\Source\Allmethods
      * reason: in some cases $carrierModel->getAllowedMethods(); throws an exception
      * and breaks our config screen.
      */
-    public function toOptionArray($isActiveOnlyFlag=false)
+    function toOptionArray($isActiveOnlyFlag=false)
     {
         $methods = array( array( 'value' => '', 'label' => ' ' ) );
         try

@@ -11,7 +11,7 @@ class Locate extends \Hotlink\Brightpearl\Controller\Adminhtml\Authorisation\Abs
     protected $brightpearlHelper;
     protected $httpAuthHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Hotlink\Framework\Model\ReportFactory $interactionReportFactory,
         \Hotlink\Framework\Model\UserFactory $interactionUserFactory,
@@ -38,7 +38,7 @@ class Locate extends \Hotlink\Brightpearl\Controller\Adminhtml\Authorisation\Abs
         );
     }
 
-    public function execute()
+    function execute()
     {
         $storeId = $this->storeManager->getStore()->getId();
         $config = $this->authorisationConfig;

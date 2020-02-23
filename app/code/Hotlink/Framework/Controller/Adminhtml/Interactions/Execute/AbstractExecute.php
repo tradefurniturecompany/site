@@ -6,7 +6,7 @@ abstract class AbstractExecute extends \Hotlink\Framework\Controller\Adminhtml\I
 
     protected $responseFactory;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Hotlink\Framework\Model\Platform\AbstractPlatform $platform,
         \Hotlink\Framework\Controller\Adminhtml\ResponseFactory $responseFactory
@@ -19,7 +19,7 @@ abstract class AbstractExecute extends \Hotlink\Framework\Controller\Adminhtml\I
         );
     }
 
-    public function execute()
+    function execute()
     {
         $data = $this->getRequest();
         $this->_getEventManager()->dispatch( "hotlink_framework_trigger_admin_user_request", array( 'request' => $data ) );
@@ -27,7 +27,7 @@ abstract class AbstractExecute extends \Hotlink\Framework\Controller\Adminhtml\I
         return $result;
     }
 
-    public function getPageTitle()
+    function getPageTitle()
     {
         return __( $this->getPlatform()->getName() . " Executing" );
     }

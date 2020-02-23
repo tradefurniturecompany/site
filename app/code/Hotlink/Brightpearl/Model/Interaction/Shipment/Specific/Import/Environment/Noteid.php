@@ -4,22 +4,22 @@ namespace Hotlink\Brightpearl\Model\Interaction\Shipment\Specific\Import\Environ
 class Noteid extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter
 {
 
-    public function getDefault()
+    function getDefault()
     {
         return null;
     }
 
-    public function getName()
+    function getName()
     {
         return "Note id";
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'goodsounote_id';
     }
 
-    public function getNote()
+    function getNote()
     {
         return 'Brightpearl note ID';
     }

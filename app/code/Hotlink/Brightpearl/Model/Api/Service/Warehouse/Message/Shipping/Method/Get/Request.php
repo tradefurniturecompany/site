@@ -3,12 +3,12 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Warehouse\Message\Shipping\Metho
 
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get\AbstractGet
 {
-    public function getFunction()
+    function getFunction()
     {
         return $this->getMethod(). " warehouse-service/shipping-method";
     }
 
-    public function getAction()
+    function getAction()
     {
         return sprintf( '/public-api/%s/warehouse-service/shipping-method/%s',
                         $this->getTransaction()->getAccountCode(),

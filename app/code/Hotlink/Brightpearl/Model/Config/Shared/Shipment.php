@@ -8,12 +8,12 @@ class Shipment extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
         return 'shared_shipment';
     }
 
-    public function getNotifyCustomer( $storeId = null )
+    function getNotifyCustomer( $storeId = null )
     {
         return $this->getConfigData( 'notify_customer', $storeId );
     }
 
-    public function getShippingOptionsMap( $storeId = null )
+    function getShippingOptionsMap( $storeId = null )
     {
         return $this->getSerializedField( 'shipping_map', $storeId );
     }

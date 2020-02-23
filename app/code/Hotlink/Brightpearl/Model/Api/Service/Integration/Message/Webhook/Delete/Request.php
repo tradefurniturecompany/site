@@ -3,19 +3,19 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Integration\Message\Webhook\Dele
 
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Delete\AbstractDelete
 {
-    public function getFunction()
+    function getFunction()
     {
         return $this->getMethod() ." integration-service/webhook";
     }
 
-    public function getAction()
+    function getAction()
     {
         return sprintf( '/public-api/%s/integration-service/webhook/%s',
                         $this->getTransaction()->getAccountCode(),
                         $this->getTransaction()->getWebhookId() );
     }
 
-    public function validate()
+    function validate()
     {
         return $this->_assertNotEmpty( $this->getTransaction()->getWebhookId(), 'webhookId' );
     }

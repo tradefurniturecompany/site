@@ -12,7 +12,7 @@ abstract class AbstractLog extends \Magento\Backend\App\Action
     protected $registry;
     protected $reportHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\App\Action\Context $context,
 
         \Magento\Framework\Registry $registry,
@@ -50,7 +50,7 @@ abstract class AbstractLog extends \Magento\Backend\App\Action
         return $this;
     }
 
-    public function getPage()
+    function getPage()
     {
         return $this->_view->getPage();
     }

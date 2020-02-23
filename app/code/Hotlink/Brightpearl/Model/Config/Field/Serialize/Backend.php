@@ -9,7 +9,7 @@ class Backend extends \Magento\Framework\App\Config\Value
      */
     protected $brightpearlHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\App\Config\ScopeConfigInterface $config,
@@ -38,7 +38,7 @@ class Backend extends \Magento\Framework\App\Config\Value
         $this->setValue( $value );
     }
 
-    public function save()
+    function save()
     {
         $value = $this->brightpearlHelper->getSerializedOptions( $this->getValue() );
         $this->setValue( $value );

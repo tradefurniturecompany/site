@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Helper\Api;
 abstract class AbstractApi implements \Hotlink\Framework\Model\Report\IReport
 {
 
-    abstract public function getName();
+    abstract function getName();
 
     protected $_report;
 
@@ -12,7 +12,7 @@ abstract class AbstractApi implements \Hotlink\Framework\Model\Report\IReport
     protected $reportHelper;
     protected $brightpearlConfigApi;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi
@@ -23,7 +23,7 @@ abstract class AbstractApi implements \Hotlink\Framework\Model\Report\IReport
         $this->brightpearlConfigApi = $brightpearlConfigApi;
     }
 
-    public function submit( \Hotlink\Brightpearl\Model\Api\Transaction\AbstractTransaction $transaction,
+    function submit( \Hotlink\Brightpearl\Model\Api\Transaction\AbstractTransaction $transaction,
                             \Hotlink\Brightpearl\Model\Api\Transport\AbstractTransport $transport )
     {
         $report = $this->getReport();
@@ -43,7 +43,7 @@ abstract class AbstractApi implements \Hotlink\Framework\Model\Report\IReport
         return $this->exceptionHelper;
     }
 
-    public function exception()
+    function exception()
     {
         return $this->exceptionHelper;
     }
@@ -65,7 +65,7 @@ abstract class AbstractApi implements \Hotlink\Framework\Model\Report\IReport
     //
     //  IReport
     //
-    public function getReport($safe = true)
+    function getReport($safe = true)
     {
         if ( !$this->_report && $safe )
             {
@@ -74,13 +74,13 @@ abstract class AbstractApi implements \Hotlink\Framework\Model\Report\IReport
         return $this->_report;
     }
 
-    public function setReport( \Hotlink\Framework\Model\Report $report = null )
+    function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
         return $this;
     }
 
-    public function getReportSection()
+    function getReportSection()
     {
         return 'api';
     }

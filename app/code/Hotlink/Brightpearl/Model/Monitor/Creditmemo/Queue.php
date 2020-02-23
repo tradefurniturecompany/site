@@ -11,7 +11,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
     protected $resourceCreditmemoCollectionFactory;
     protected $resourceQueueFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Model\ReportFactory $reportFactory,
         \Hotlink\Framework\Helper\Convention\Monitor $conventionMonitorHelper,
         \Hotlink\Framework\Helper\Factory $factoryHelper,
@@ -36,7 +36,7 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
         );
     }
 
-    public function getCronFieldName()
+    function getCronFieldName()
     {
         return 'monitor_creditmemo_queue_cron_expr';
     }
@@ -46,12 +46,12 @@ class Queue extends \Hotlink\Brightpearl\Model\Monitor\Queue\AbstractQueue
         return 'Creditmemo Queue Monitor';
     }
 
-    public function execute()
+    function execute()
     {
         $this->_process( 'hotlink_framework_monitor_creditmemo_queue' );
     }
 
-    public function getList()
+    function getList()
     {
         $config = $this->getConfig();
 

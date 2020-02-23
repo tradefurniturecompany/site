@@ -56,7 +56,7 @@ class Transaction
     protected $interactionApiResponseFactory;
 
     //
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Reflection $interactionReflectionHelper,
         \Hotlink\Framework\Model\Api\RequestFactory $interactionApiRequestFactory,
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
@@ -67,7 +67,7 @@ class Transaction
         $this->interactionExceptionHelper = $interactionExceptionHelper;
         $this->interactionApiResponseFactory = $interactionApiResponseFactory;
     }
-        public function getName()
+        function getName()
     {
         return $this->interactionReflectionHelper ->getName( $this );
     }
@@ -78,7 +78,7 @@ class Transaction
     //  Using parent:: generates Fatal error: Cannot access parent:: when current class scope has no parent
     //  Therefore this algorithm cannot be written recursively, hence the obscure loop
     //
-    public function getRequest()
+    function getRequest()
     {
         if ( !$this->_request )
             {
@@ -100,7 +100,7 @@ class Transaction
         return $this->_request;
     }
 
-    public function setRequest( \Hotlink\Framework\Model\Api\Request $request )
+    function setRequest( \Hotlink\Framework\Model\Api\Request $request )
     {
         if ( $this->_response )
             {
@@ -111,7 +111,7 @@ class Transaction
         return $this;
     }
 
-    public function getResponse()
+    function getResponse()
     {
         if ( !$this->_response )
             {
@@ -132,7 +132,7 @@ class Transaction
         return $this->_response;
     }
 
-    public function setResponse( \Hotlink\Framework\Model\Api\Response $response )
+    function setResponse( \Hotlink\Framework\Model\Api\Response $response )
     {
         if ( $this->_response )
             {

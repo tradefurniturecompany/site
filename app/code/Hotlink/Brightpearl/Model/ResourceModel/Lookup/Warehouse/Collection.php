@@ -6,22 +6,22 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 
     protected $_idFieldName = 'id';
 
-    public function _construct()
+    function _construct()
     {
         $this->_init( '\Hotlink\Brightpearl\Model\Lookup\Warehouse', '\Hotlink\Brightpearl\Model\ResourceModel\Lookup\Warehouse' );
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->_toOptionArray( 'id', 'name' );
     }
 
-    public function toOptionHash()
+    function toOptionHash()
     {
         return $this->toOptionHash( 'id', 'name' );
     }
 
-    public function addIdFilter( $warehouseId, $exclude = false )
+    function addIdFilter( $warehouseId, $exclude = false )
     {
         if ( !is_array( $warehouseId ) )
             {
@@ -40,7 +40,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         return $this;
     }
 
-    public function addActiveFilter()
+    function addActiveFilter()
     {
         $this->addFieldToFilter( 'deleted', [ 'eq' => 0 ] );
         return $this;

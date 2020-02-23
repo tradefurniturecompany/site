@@ -4,17 +4,17 @@ namespace Hotlink\Framework\Model\Interaction\Environment\Parameter\Scalar;
 class Timespan extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Scalar\AbstractScalar
 {
 
-    public function getName()
+    function getName()
     {
         return 'Timespan';
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'timespan';
     }
 
-    public function getOptions()
+    function getOptions()
     {
         return array( 'seconds'  => 'Seconds',
                       'minutes'  => 'Minutes',
@@ -25,7 +25,7 @@ class Timespan extends \Hotlink\Framework\Model\Interaction\Environment\Paramete
                       'years'    => 'Years' );
     }
 
-    public function getSeconds()
+    function getSeconds()
     {
         $seconds = 0;
         $value = $this->getValue();
@@ -39,7 +39,7 @@ class Timespan extends \Hotlink\Framework\Model\Interaction\Environment\Paramete
         return $seconds;
     }
 
-    public function getDate( $future = false )
+    function getDate( $future = false )
     {
         $seconds = $this->getSeconds();
 
@@ -51,7 +51,7 @@ class Timespan extends \Hotlink\Framework\Model\Interaction\Environment\Paramete
         return $date;
     }
 
-    public function asString()
+    function asString()
     {
         $date = $this->getDate();
         $output = parent::asString() . " ($date)";

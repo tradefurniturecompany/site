@@ -11,7 +11,7 @@ class Email extends \Hotlink\Framework\Model\Interaction\Action\AbstractAction
     protected $emailConfig;
     protected $stringWriterFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -31,16 +31,16 @@ class Email extends \Hotlink\Framework\Model\Interaction\Action\AbstractAction
         $this->stringWriterFactory = $stringWriterFactory;
     }
 
-    public function getReportSection()
+    function getReportSection()
     {
         return 'email';
     }
 
-    public function before()
+    function before()
     {
     }
 
-    public function after()
+    function after()
     {
         $to = [];
         $errors = null;

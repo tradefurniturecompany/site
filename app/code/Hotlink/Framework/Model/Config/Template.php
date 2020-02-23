@@ -16,7 +16,7 @@ class Template
 
     protected $_template = null;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Factory $factory,
         \Hotlink\Framework\Helper\Reflection $reflection,
         \Hotlink\Framework\Helper\Html $html,
@@ -35,27 +35,27 @@ class Template
         $this->scopeDefiner = $scopeDefiner;
     }
 
-    public function getFactory()
+    function getFactory()
     {
         return $this->factory;
     }
 
-    public function getReflection()
+    function getReflection()
     {
         return $this->reflection;
     }
 
-    public function getHtml()
+    function getHtml()
     {
         return $this->html;
     }
 
-    public function getMap()
+    function getMap()
     {
         return $this->map;
     }
 
-    public function apply( $config )
+    function apply( $config )
     {
         if ( $sections = $this->extract( $config, 'config/system/sections' ) )
             {
@@ -100,14 +100,14 @@ class Template
         return $config;
     }
 
-    public function compare( $a, $b )
+    function compare( $a, $b )
     {
         $orderA = ( int ) $this->extract( $a, 'sortOrder', 99999 );
         $orderB = ( int ) $this->extract( $b, 'sortOrder', 99999 );
         return $orderA - $orderB;
     }
 
-    public function extract( $data, $path, $missing = false )
+    function extract( $data, $path, $missing = false )
     {
         $parts = explode( '/', $path );
         foreach ( $parts as $part )
@@ -124,7 +124,7 @@ class Template
         return $data;
     }
 
-    public function setReferences( $fields, $sectionName, $groupName )
+    function setReferences( $fields, $sectionName, $groupName )
     {
         foreach ( $fields as $name => $field )
             {
@@ -142,13 +142,13 @@ class Template
         return $fields;
     }
 
-    public function merge( $submissive, $dominant )
+    function merge( $submissive, $dominant )
     {
         $result = array_replace_recursive( $submissive, $dominant );
         return $result;
     }
 
-    public function getTemplate()
+    function getTemplate()
     {
         if ( is_null( $this->_template ) )
             {
@@ -157,17 +157,17 @@ class Template
         return $this->_template;
     }
 
-    public function getTemplateFields( $path )
+    function getTemplateFields( $path )
     {
         return $this->extract( $this->getTemplate(), $path, [] );
     }
 
-    public function getTemplateFieldsHeadings( $interaction )
+    function getTemplateFieldsHeadings( $interaction )
     {
         return $this->getTemplateFields( 'config/system/sections/template/children/interaction/children' );
     }
 
-    public function getTemplateFieldsImplementations( $interaction )
+    function getTemplateFieldsImplementations( $interaction )
     {
         $result = [];
         $implementations = $this->getMap()->getImplementations( $interaction );
@@ -182,7 +182,7 @@ class Template
         return $result;
     }
 
-    public function getTemplateFieldsActions( $interaction )
+    function getTemplateFieldsActions( $interaction )
     {
         $result = [];
         $actions = $this->getMap()->getActions( $interaction );
@@ -194,7 +194,7 @@ class Template
         return $result;
     }
 
-    public function getTemplateFieldsMonitors( $interaction )
+    function getTemplateFieldsMonitors( $interaction )
     {
         $result = [];
         $monitors = $this->getMap()->getMonitors( $interaction );
@@ -206,7 +206,7 @@ class Template
         return $result;
     }
 
-    public function getTemplateFieldsTriggers( $interaction )
+    function getTemplateFieldsTriggers( $interaction )
     {
         $result = [];
         $triggers = $this->getMap()->getTriggers( $interaction );
@@ -247,7 +247,7 @@ class Template
 
     // A one-way hash - this does not need to be reversible, only repeatable
     // Requires that context keys are unique across triggers
-    public function getContextKey( $context, $key )
+    function getContextKey( $context, $key )
     {
         return $context;
         $parts = [ 'context', $context, $key ];
