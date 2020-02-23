@@ -11,7 +11,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Shipment\Imp
         return 'Hotlink Brightpearl Goods-Out Note Importer (bulk)';
     }
 
-    public function execute()
+    function execute()
     {
         $report = $this->getReport();
         $env    = $this->getEnvironment();

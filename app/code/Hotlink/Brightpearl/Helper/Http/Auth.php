@@ -6,12 +6,12 @@ class Auth
 
     protected $config;
 
-    public function __construct( \Hotlink\Brightpearl\Model\Config\Authorisation $config )
+    function __construct( \Hotlink\Brightpearl\Model\Config\Authorisation $config )
     {
         $this->config = $config;
     }
 
-    public function getUrl( $url, $storeId )
+    function getUrl( $url, $storeId )
     {
         if ( $this->config->getHttpAuthEnabled( $storeId ) )
             {

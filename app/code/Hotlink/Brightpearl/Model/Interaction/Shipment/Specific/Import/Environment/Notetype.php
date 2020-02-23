@@ -6,7 +6,7 @@ class Notetype extends \Hotlink\Framework\Model\Interaction\Environment\Paramete
 
     protected $shipmentTypeSource;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
 
@@ -17,32 +17,32 @@ class Notetype extends \Hotlink\Framework\Model\Interaction\Environment\Paramete
         $this->shipmentTypeSource = $shipmentTypeSource;
     }
 
-    public function getDefault()
+    function getDefault()
     {
         return null;
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'note_type';
     }
 
-    public function getName()
+    function getName()
     {
         return 'Note type';
     }
 
-    public function getNote()
+    function getNote()
     {
         return '';
     }
 
-    public function getOptions()
+    function getOptions()
     {
         return $this->shipmentTypeSource->toArray();
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->shipmentTypeSource->toOptionArray();
     }

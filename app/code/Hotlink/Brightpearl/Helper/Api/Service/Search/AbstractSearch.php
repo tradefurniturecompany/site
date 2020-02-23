@@ -11,7 +11,7 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Helper\Api\Service\Ab
     abstract protected function _getTransactionModel();
     abstract protected function _getPlatformDataModel();
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -37,7 +37,7 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Helper\Api\Service\Ab
         );
     }
 
-    public function search($storeId,
+    function search($storeId,
                            $accountCode,
                            $filters = null,
                            $pageSize = null,

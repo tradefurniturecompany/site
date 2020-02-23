@@ -6,7 +6,7 @@ class MassDelete extends \Hotlink\Framework\Controller\Adminhtml\Log\AbstractLog
 
     protected $filter;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\App\Action\Context $context,
 
         \Magento\Framework\Registry $registry,
@@ -21,7 +21,7 @@ class MassDelete extends \Hotlink\Framework\Controller\Adminhtml\Log\AbstractLog
         $this->filter = $filter;
     }
 
-    public function execute()
+    function execute()
     {
         $component = $this->filter->getComponent();
         $this->filter->prepareComponent($component);

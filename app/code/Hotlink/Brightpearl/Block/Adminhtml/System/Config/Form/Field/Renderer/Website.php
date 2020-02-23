@@ -9,7 +9,7 @@ class Website extends \Magento\Framework\View\Element\Html\Select
      */
     protected $brightpearlConfigSourceMagentoWebsite;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Hotlink\Brightpearl\Model\Config\Source\Magento\Website $brightpearlConfigSourceMagentoWebsite,
         array $data = []
@@ -21,12 +21,12 @@ class Website extends \Magento\Framework\View\Element\Html\Select
         );
     }
 
-    public function setInputName( $value )
+    function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    public function _toHtml()
+    function _toHtml()
     {
         if ( !$this->getOptions() )
             {

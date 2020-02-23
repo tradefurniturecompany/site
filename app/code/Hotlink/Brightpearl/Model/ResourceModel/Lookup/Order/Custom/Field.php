@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\ResourceModel\Lookup\Order\Custom;
 class Field extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
 
-    public function _construct()
+    function _construct()
     {
         $this->_init( 'hotlink_brightpearl_lookup_order_custom_field', 'id');
     }

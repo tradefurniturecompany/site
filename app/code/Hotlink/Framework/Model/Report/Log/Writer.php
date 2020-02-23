@@ -20,19 +20,19 @@ class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
      */
     protected $interactionExceptionHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Model\Report\LogFactory $interactionReportLogFactory,
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper
     ) {
         $this->interactionReportLogFactory = $interactionReportLogFactory;
         $this->interactionExceptionHelper = $interactionExceptionHelper;
     }
-    public function getCode()
+    function getCode()
     {
         return 'log';
     }
 
-    public function getWriterId()
+    function getWriterId()
     {
         if ( $this->_log )
             {
@@ -46,7 +46,7 @@ class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
 	 * @used-by \Hotlink\Framework\Model\Schedule\Cron\AbstractCron::_initOnceReport() 
 	 * @return bool
 	 */
-    public function getLog()
+    function getLog()
     {
         if ( $this->isOpen() )
             {

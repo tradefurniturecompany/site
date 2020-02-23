@@ -7,7 +7,7 @@ class Data
     protected $_value;
     protected $_renderer;
 
-    public function init( $id, $value, $renderer )
+    function init( $id, $value, $renderer )
     {
         $this->_id = $id;
         $this->_value = $value;
@@ -21,22 +21,22 @@ class Data
         return $this;
     }
 
-    public function getId()
+    function getId()
     {
         return $this->_id;
     }
 
-    public function getValue()
+    function getValue()
     {
         return $this->_value;
     }
 
-    public function getRenderer()
+    function getRenderer()
     {
         return $this->_renderer;
     }
 
-    public function setRenderer( $value )
+    function setRenderer( $value )
     {
         $this->_renderer = $value;
         return $this;

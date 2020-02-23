@@ -18,7 +18,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
     protected $apiServiceIntegrationHelper;
     protected $interactionCreditmemoExport;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -61,7 +61,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         return 'Hotlink Brightpearl settings Importer';
     }
 
-    public function execute()
+    function execute()
     {
         $this->getReport()->debug( 'Using accountcode : ' . $this->getEnvironment()->getAccountCode() );
 

@@ -8,7 +8,7 @@ class General extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
         return 'shared_general';
     }
 
-    public function getChannel( $storeId = null )
+    function getChannel( $storeId = null )
     {
         return $this->getConfigData( 'channel', $storeId );
     }

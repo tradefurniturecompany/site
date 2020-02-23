@@ -3,27 +3,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Shipment\Bulk\Import\Environment
 
 class Lookbehind extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Scalar\Timespan
 {
-    public function getName()
+    function getName()
     {
         return 'Lookbehind';
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'lookbehind';
     }
 
-    public function getNote()
+    function getNote()
     {
         return 'Fetch shipments created in the past ...';
     }
 
-    public function getDefaultUnit()
+    function getDefaultUnit()
     {
         return 'hours';
     }
 
-    public function getValue()
+    function getValue()
     {
         if ( !$this->_valueInitialised )
             {

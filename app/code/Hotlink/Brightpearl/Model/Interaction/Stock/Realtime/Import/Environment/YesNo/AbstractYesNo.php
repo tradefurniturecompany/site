@@ -6,7 +6,7 @@ abstract class AbstractYesNo extends \Hotlink\Framework\Model\Interaction\Enviro
 
     protected $configConfigSourceYesno;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
 
@@ -17,12 +17,12 @@ abstract class AbstractYesNo extends \Hotlink\Framework\Model\Interaction\Enviro
         $this->configConfigSourceYesno = $configConfigSourceYesno;
     }
 
-    public function getOptions()
+    function getOptions()
     {
         return $this->configConfigSourceYesno->toArray();
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return $this->configConfigSourceYesno->toOptionArray();
     }

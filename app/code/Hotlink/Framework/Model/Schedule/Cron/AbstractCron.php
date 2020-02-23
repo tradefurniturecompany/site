@@ -1,6 +1,10 @@
 <?php
 namespace Hotlink\Framework\Model\Schedule\Cron;
 use Hotlink\Framework\Model\Report\Log;
+/**
+ * @see \Hotlink\Framework\Model\Schedule\Cron\Inject
+ * @see \Hotlink\Framework\Model\Schedule\Cron\Run
+ */
 abstract class AbstractCron extends \Hotlink\Framework\Model\Schedule\AbstractSchedule
 {
 
@@ -16,7 +20,7 @@ abstract class AbstractCron extends \Hotlink\Framework\Model\Schedule\AbstractSc
 	abstract protected function _getReportContext();
 	abstract protected function _execute( $thing );
 
-	public function __construct(
+	function __construct(
 		\Magento\Framework\App\Console\Request $request,
 		\Hotlink\Framework\Model\Schedule\Config $config,
 		\Hotlink\Framework\Helper\Report $reportHelper,
@@ -36,13 +40,18 @@ abstract class AbstractCron extends \Hotlink\Framework\Model\Schedule\AbstractSc
 		parent::__construct( $config, $reportHelper );
 	}
 
-	public function isRelevantRequest()
+	function isRelevantRequest()
 	{
 		$group = $this->request->getParam( 'group' );
 		return ( is_null( $group ) || ( $group == 'default' ) );
 	}
 
-	public function execute( $thing )
+	/**
+	 * @used-by \Hotlink\Framework\Model\Schedule\Cron\Config\Plugin::afterGetJobs()
+	 * @param $thing
+	 * @return mixed
+	 */
+	final function execute( $thing )
 	{
 		if ( ! $this->isRelevantRequest() )
 			{

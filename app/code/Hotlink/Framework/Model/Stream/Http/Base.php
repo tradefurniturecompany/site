@@ -10,7 +10,7 @@ abstract class Base extends \Hotlink\Framework\Model\Stream\Writer
 
     protected $config;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,

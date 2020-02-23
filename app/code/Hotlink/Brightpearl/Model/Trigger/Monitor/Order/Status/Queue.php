@@ -9,7 +9,7 @@ class Queue extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
      */
     protected $interactionStreamMagentoModelReaderFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -33,17 +33,17 @@ class Queue extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
         );
     }
 
-    public function getMagentoEvents()
+    function getMagentoEvents()
     {
         return [ 'hotlink_framework_monitor_order_status_queue' ];
     }
 
-    public function getContexts()
+    function getContexts()
     {
         return [ 'on_order_status_queued' => 'On order status queued' ];
     }
 
-    public function getContext()
+    function getContext()
     {
         return 'on_order_status_queued';
     }

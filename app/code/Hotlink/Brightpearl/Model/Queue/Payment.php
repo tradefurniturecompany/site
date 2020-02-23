@@ -4,17 +4,17 @@ namespace Hotlink\Brightpearl\Model\Queue;
 class Payment extends \Hotlink\Brightpearl\Model\Queue\AbstractQueue
 {
 
-    public function _construct()
+    function _construct()
     {
         $this->_init( '\Hotlink\Brightpearl\Model\ResourceModel\Queue\Payment' );
     }
 
-    public function setParentId( $paymentId )
+    function setParentId( $paymentId )
     {
         $this->setPaymentId( $paymentId );
     }
 
-    public function shouldSend( \Hotlink\Brightpearl\Model\Queue\Order $orderTracking )
+    function shouldSend( \Hotlink\Brightpearl\Model\Queue\Order $orderTracking )
     {
         $send = false;
 
@@ -57,7 +57,7 @@ class Payment extends \Hotlink\Brightpearl\Model\Queue\AbstractQueue
         return $send;
     }
 
-    public function getReportSection()
+    function getReportSection()
     {
         return 'queue (payment)';
     }

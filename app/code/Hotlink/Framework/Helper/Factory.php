@@ -7,7 +7,7 @@ class Factory
     protected $universalFactory;
     protected $objectManager;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Validator\UniversalFactory $universalFactory,
         \Magento\Framework\ObjectManagerInterface $objectManager
     )
@@ -16,37 +16,37 @@ class Factory
         $this->objectManager = $objectManager;
     }
 
-    public function create( $class, $args = [] )
+    function create( $class, $args = [] )
     {
         return $this->universalFactory->create( $class, $args );
     }
 
-    // public function create( $class )
+    // function create( $class )
     // {
     //     return $this->objectManager->create( $class );
     // }
 
-    public function get( $class )
+    function get( $class )
     {
         return $this->objectManager->get( $class );
     }
 
-    public function singleton( $class )
+    function singleton( $class )
     {
         return $this->get( $class );
     }
 
-    public function objectManager()
+    function objectManager()
     {
         return $this->objectManager;
     }
 
-    public function objectManagerInstance()
+    function objectManagerInstance()
     {
         return \Magento\Framework\App\ObjectManager::getInstance();
     }
 
-    public function get2( $class )
+    function get2( $class )
     {
         return \Magento\Framework\App\ObjectManager::getInstance()->get( $class );
     }

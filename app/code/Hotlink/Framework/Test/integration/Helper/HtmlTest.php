@@ -8,12 +8,12 @@ namespace Hotlink\Framework\Test\integration\Helper;
 class HtmlTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    function setUp()
     {
         $this->manager = \Magento\TestFramework\ObjectManager::getInstance();
     }
 
-    public function test_get_html_name()
+    function test_get_html_name()
     {
         $helper = $this->getHelper();
         $platform = $this->getPlatform();
@@ -23,12 +23,12 @@ class HtmlTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( 'Hotlink-Framework-Helper-Thing', $helper->encode( '\Hotlink\Framework\Helper\Thing' ) );
     }
 
-    public function getHelper()
+    function getHelper()
     {
         return $this->manager->create( '\Hotlink\Framework\Helper\Html' );
     }
 
-    public function getPlatform()
+    function getPlatform()
     {
         return $this->manager->create( '\Hotlink\Framework\Model\Platform' );
     }

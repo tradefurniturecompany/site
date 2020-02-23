@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\Config\Template;
 class Converter implements \Magento\Framework\Config\ConverterInterface
 {
 
-    public function convert( $source )
+    function convert( $source )
     {
         if ( $source === null )
             {

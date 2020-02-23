@@ -10,7 +10,7 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
     protected $interactionFormFactory;
     protected $htmlHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Json\EncoderInterface $jsonEncoder,
         \Magento\Backend\Model\Auth\Session $authSession,

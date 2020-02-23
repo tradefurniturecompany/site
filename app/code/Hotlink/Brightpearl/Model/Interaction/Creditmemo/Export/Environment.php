@@ -6,7 +6,7 @@ class Environment extends \Hotlink\Brightpearl\Model\Interaction\Environment\Abs
 
     protected $sharedOrderConfig;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -45,13 +45,13 @@ class Environment extends \Hotlink\Brightpearl\Model\Interaction\Environment\Abs
         ];
     }
 
-    public function getCreditmemoChannelId()
+    function getCreditmemoChannelId()
     {
         $channelId = $this->getConfig()->getChannel( $this->getStoreId() );
         return $channelId ? ( int ) $channelId : null;
     }
 
-    public function formatDate( $date )
+    function formatDate( $date )
     {
         $result = null;
         if ( $milliseconds = strtotime( $date ) )
@@ -61,37 +61,37 @@ class Environment extends \Hotlink\Brightpearl\Model\Interaction\Environment\Abs
         return $result;
     }
 
-    public function getSalesCreditOrderStatus()
+    function getSalesCreditOrderStatus()
     {
         return $this->getConfig()->getSalesCreditOrderStatus( $this->getStoreId() );
     }
 
-    public function getQuarantineEnabled()
+    function getQuarantineEnabled()
     {
         return $this->getConfig()->getQuarantineEnabled( $this->getStoreId() );
     }
 
-    public function getQuarantineWarehouse()
+    function getQuarantineWarehouse()
     {
         return $this->getConfig()->getQuarantineWarehouse( $this->getStoreId() );
     }
 
-    public function getQuarantineWarehouseLocation()
+    function getQuarantineWarehouseLocation()
     {
         return $this->getConfig()->getQuarantineWarehouseLocation( $this->getStoreId() );
     }
 
-    public function getQuarantinePricelist()
+    function getQuarantinePricelist()
     {
         return $this->getConfig()->getQuarantinePricelist( $this->getStoreId() );
     }
 
-    public function getUseCurrency()
+    function getUseCurrency()
     {
         return $this->sharedOrderConfig->getUseCurrency( $this->getStoreId() );
     }
 
-    public function getCurrencyCode( \Magento\Sales\Model\Order\Creditmemo $creditmemo )
+    function getCurrencyCode( \Magento\Sales\Model\Order\Creditmemo $creditmemo )
     {
         $use = $this->sharedOrderConfig->getUseCurrency( $this->getStoreId() );
         switch ( $use )
@@ -106,7 +106,7 @@ class Environment extends \Hotlink\Brightpearl\Model\Interaction\Environment\Abs
         return null;
     }
 
-    public function getGrandTotal( \Magento\Sales\Model\Order\Creditmemo $creditmemo )
+    function getGrandTotal( \Magento\Sales\Model\Order\Creditmemo $creditmemo )
     {
         $use = $this->sharedOrderConfig->getUseCurrency( $this->getStoreId() );
         switch ( $use )
@@ -121,7 +121,7 @@ class Environment extends \Hotlink\Brightpearl\Model\Interaction\Environment\Abs
         return false;
     }
 
-    public function getPaymentNominalCode( \Magento\Sales\Model\Order\Payment $payment )
+    function getPaymentNominalCode( \Magento\Sales\Model\Order\Payment $payment )
     {
         $storeId = $this->getStoreId();
         $method  = ( string ) $payment->getMethod();
@@ -152,7 +152,7 @@ class Environment extends \Hotlink\Brightpearl\Model\Interaction\Environment\Abs
         return $nominalCode ? $nominalCode : null;
     }
 
-    public function getAmountByOrderCurrencyUsage( \Magento\Sales\Model\Order\Creditmemo $creditmemo, $field, $baseField )
+    function getAmountByOrderCurrencyUsage( \Magento\Sales\Model\Order\Creditmemo $creditmemo, $field, $baseField )
     {
         $use = $this->getConfig()->getUseCurrency( $this->getStoreId() );
         if ( $use === \Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Currency::ORDER )

@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Html\Form\Element;
 class File extends \Magento\Framework\Data\Form\Element\File
 {
 
-    public function getElementHtml()
+    function getElementHtml()
     {
         $html = $this->getBeforeHtml();
         $html .= '<input type="hidden" name="MAX_FILE_SIZE" value="' . $this->convertBytes( $this->getDataMaxSize() ) . '" />';
@@ -13,22 +13,22 @@ class File extends \Magento\Framework\Data\Form\Element\File
         return $html;
     }
 
-    public function getPostMaxSize()
+    function getPostMaxSize()
     {
         return ini_get('post_max_size');
     }
 
-    public function getUploadMaxSize()
+    function getUploadMaxSize()
     {
         return ini_get('upload_max_filesize');
     }
 
-    public function getDataMaxSize()
+    function getDataMaxSize()
     {
         return min( $this->getPostMaxSize(), $this->getUploadMaxSize() );
     }
 
-    public function convertBytes( $value )
+    function convertBytes( $value )
     {
         if ( is_numeric( $value ) )
             {

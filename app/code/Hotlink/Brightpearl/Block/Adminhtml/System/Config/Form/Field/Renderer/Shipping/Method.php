@@ -5,7 +5,7 @@ class Method extends \Magento\Framework\View\Element\Html\Select
 {
     protected $source;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Hotlink\Brightpearl\Model\Config\Source\Magento\Shipping\Method\Allowed $source,
         array $data = []
@@ -14,12 +14,12 @@ class Method extends \Magento\Framework\View\Element\Html\Select
         parent::__construct( $context, $data  );
     }
 
-    public function setInputName( $value )
+    function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    public function escape( $option )
+    function escape( $option )
     {
         $value = $option[ 'value' ];
         $label = $option[ 'label' ];
@@ -41,7 +41,7 @@ class Method extends \Magento\Framework\View\Element\Html\Select
         return $option;
     }
 
-    public function _toHtml()
+    function _toHtml()
     {
         if ( !$this->getOptions() )
             {

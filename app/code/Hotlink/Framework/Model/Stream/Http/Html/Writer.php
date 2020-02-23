@@ -24,7 +24,7 @@ class Writer extends \Hotlink\Framework\Model\Stream\Http\Base
         return $this;
     }
 
-    public function emit( $something )
+    function emit( $something )
     {
         if ( !$this->_renderer )
             {
@@ -63,12 +63,12 @@ class Writer extends \Hotlink\Framework\Model\Stream\Http\Base
         return $this;
     }
 
-    public function getBufferring()
+    function getBufferring()
     {
         return $this->_bufferring;
     }
 
-    public function setBufferring( $value )
+    function setBufferring( $value )
     {
         $this->_bufferring = $value;
         return $this;

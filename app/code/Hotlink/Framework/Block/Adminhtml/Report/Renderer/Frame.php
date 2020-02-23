@@ -6,7 +6,7 @@ class Frame extends \Magento\Framework\View\Element\Template
     protected $registry;
     protected $urlBuilder;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Backend\Model\UrlInterface $urlBuilder,
@@ -18,7 +18,7 @@ class Frame extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
     }
 
-    public function toHtml()
+    function toHtml()
     {
         $logId = $this->registry->registry( 'hotlink_framework_report_log_id' );
         $source = $this->urlBuilder->getUrl( 'hotlink_framework/report/render', [ 'id' => $logId ] );

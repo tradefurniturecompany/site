@@ -10,7 +10,7 @@ class Method implements \Magento\Framework\Option\ArrayInterface
      */
     protected $brightpearlResourceShippingMethodCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Model\ResourceModel\Lookup\Shipping\Method\CollectionFactory $brightpearlResourceShippingMethodCollectionFactory
     ) {
         $this->brightpearlResourceShippingMethodCollectionFactory = $brightpearlResourceShippingMethodCollectionFactory;
@@ -34,13 +34,13 @@ class Method implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         $this->_init();
         return $this->_data;
     }
 
-    public function toArray()
+    function toArray()
     {
         $ret = array();
         foreach ( $this->toOptionArray() as $item )

@@ -6,7 +6,7 @@ class Feed extends \Magento\AdminNotification\Model\Feed
 
     const XML_LAST_UPDATE_PATH = 'system/adminnotification/hotlink_last_update';
 
-    public function getFeedUrl()
+    function getFeedUrl()
     {
         if ( is_null( $this->_feedUrl ) )
             {
@@ -22,19 +22,19 @@ class Feed extends \Magento\AdminNotification\Model\Feed
         return $this->_feedUrl;
     }
 
-    public function getFrequency()
+    function getFrequency()
     {
         //return 0;
         return 12 * 3600;
     }
 
-    public function getLastUpdate()
+    function getLastUpdate()
     {
         return $this->_cacheManager->load( 'hotlink_notifications_lastcheck' );
     }
 
     /* workaround M2 bug */
-    public function getFeedData()
+    function getFeedData()
     {
         $curl = $this->curlFactory->create();
         $curl->setConfig(
@@ -65,7 +65,7 @@ class Feed extends \Magento\AdminNotification\Model\Feed
     }
 
 
-    public function setLastUpdate()
+    function setLastUpdate()
     {
         $this->_cacheManager->save( time(), 'hotlink_notifications_lastcheck' );
         return $this;

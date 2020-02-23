@@ -4,17 +4,17 @@ namespace Hotlink\Framework\Model\Trigger\Monitor;
 class Cron extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
 {
 
-    public function getMagentoEvents()
+    function getMagentoEvents()
     {
         return [ 'hotlink_framework_monitor_cron' ];
     }
 
-    public function getContexts()
+    function getContexts()
     {
         return [ 'on_clock' => 'On cron schedule' ];
     }
 
-    public function getContext()
+    function getContext()
     {
         return 'on_clock';
     }

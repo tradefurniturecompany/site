@@ -30,7 +30,7 @@ class Field implements \Magento\Framework\Option\ArrayInterface
     const INSTALLED_INTEGRATION_INSTANCE_ID = 'installedIntegrationInstanceId';
 
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             [ 'value' => self::ORDER_ID,                          'label' => 'Order Id' ],
@@ -59,7 +59,7 @@ class Field implements \Magento\Framework\Option\ArrayInterface
             [ 'value' => self::INSTALLED_INTEGRATION_INSTANCE_ID, 'label' => 'Installed Integration Instance Id' ] ];
     }
 
-    public function toArray()
+    function toArray()
     {
         return [
             self::ORDER_ID                   => 'Order Id',

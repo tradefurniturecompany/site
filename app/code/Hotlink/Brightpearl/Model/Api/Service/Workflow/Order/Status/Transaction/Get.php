@@ -5,7 +5,7 @@ class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTra
 {
     protected $externalId;
 
-    public function getName()
+    function getName()
     {
         return 'Order status request GET';
     }
@@ -20,13 +20,13 @@ class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTra
         return '\Hotlink\Brightpearl\Model\Api\Service\Workflow\Order\Status\Message\Get\Response';
     }
 
-    public function setExternalId( $externalId )
+    function setExternalId( $externalId )
     {
         $this->externalId = $externalId;
         return $this;
     }
 
-    public function getExternalId()
+    function getExternalId()
     {
         return $this->externalId;
     }

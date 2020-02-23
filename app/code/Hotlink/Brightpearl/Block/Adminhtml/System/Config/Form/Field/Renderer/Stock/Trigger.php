@@ -6,7 +6,7 @@ class Trigger extends \Magento\Framework\View\Element\Html\Select
 
     protected $triggerFactory;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Hotlink\Framework\Model\Trigger\Stock\Update\RealtimeFactory $triggerFactory,
         array $data = []
@@ -19,12 +19,12 @@ class Trigger extends \Magento\Framework\View\Element\Html\Select
         );
     }
 
-    public function setInputName( $value )
+    function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    public function _toHtml()
+    function _toHtml()
     {
         if ( !$this->getOptions() )
             {

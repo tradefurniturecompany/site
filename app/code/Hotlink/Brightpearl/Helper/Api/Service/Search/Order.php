@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Helper\Api\Service\Search;
 
 class Order extends \Hotlink\Brightpearl\Helper\Api\Service\Search\AbstractSearch
 {
-    public function getName()
+    function getName()
     {
         return 'Order Search API';
     }

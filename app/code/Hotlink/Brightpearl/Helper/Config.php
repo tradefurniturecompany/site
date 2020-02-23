@@ -7,7 +7,7 @@ class Config
     protected $magentoConfigFactory;
     protected $magentoConfig;
 
-    public function __construct( \Magento\Config\Model\Config\Factory $magentoConfigFactory )
+    function __construct( \Magento\Config\Model\Config\Factory $magentoConfigFactory )
     {
         $this->magentoConfigFactory = $magentoConfigFactory;
     }
@@ -21,7 +21,7 @@ class Config
         return $this->magentoConfig;
     }
 
-    public function saveValue( $section, $group, $value, $field, $storeId = null , $website = null, $inherit = false )
+    function saveValue( $section, $group, $value, $field, $storeId = null , $website = null, $inherit = false )
     {
         $this->getMagentoConfig()
             ->setSection( $section )

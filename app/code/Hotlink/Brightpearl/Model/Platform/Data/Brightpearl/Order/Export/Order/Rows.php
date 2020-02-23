@@ -15,7 +15,7 @@ class Rows extends \Hotlink\Brightpearl\Model\Platform\Data
         return $this;
     }
 
-    public function getChildClassDefault( $key )
+    function getChildClassDefault( $key )
     {
         $this->getReport()->warn( $this->annotate( "The product type $key is not explicitly defined, using Simple" ) );
         return '\Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Order\Export\Order\Rows\Simple';

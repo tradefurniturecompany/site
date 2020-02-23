@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\Report\Data;
 class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
 {
 
-    public function getCode()
+    function getCode()
     {
         return 'data';
     }

@@ -11,7 +11,7 @@ abstract class WebhookAbstract extends \Magento\Framework\App\Action\Action
 
     abstract protected function _execute( $payload );
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\App\Action\Context $context,
 
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
@@ -26,7 +26,7 @@ abstract class WebhookAbstract extends \Magento\Framework\App\Action\Action
         $this->eventManager = $context->getEventManager();
     }
 
-    public function execute()
+    function execute()
     {
         $result = $this->resultJsonFactory->create();
         $code = 200;

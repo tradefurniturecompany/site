@@ -16,7 +16,7 @@ class Export extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
     protected $salesOrderFactory;
     protected $collectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -51,19 +51,19 @@ class Export extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
         return 'Order payment export';
     }
 
-    public function getMagentoEvents()
+    function getMagentoEvents()
     {
         return [ 'After successful Order Payment save'   => 'sales_order_payment_save_commit_after',
                  'After successful Order Payment export' => 'hotlink_brightpearl_order_exported' ];
     }
 
-    public function getContexts()
+    function getContexts()
     {
         return [ self::KEY_PAYMENT_UPDATED => self::LABEL_PAYMENT_UPDATED,
                  self::KEY_ORDER_EXPORTED  => self::LABEL_ORDER_EXPORTED ];
     }
 
-    public function getContext()
+    function getContext()
     {
         $event = $this->getMagentoEvent();
         $context = null;

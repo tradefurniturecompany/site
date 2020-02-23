@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisatio
 class Output extends \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisation\CustomisationAbstract
 {
 
-    public function apply( $expression, $object )
+    function apply( $expression, $object )
     {
         if ( $expression )
             {

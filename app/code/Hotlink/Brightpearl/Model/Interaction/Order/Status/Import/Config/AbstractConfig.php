@@ -6,7 +6,7 @@ class AbstractConfig extends \Hotlink\Brightpearl\Model\Interaction\Config\Abstr
 
     protected $orderSharedConfig;
 
-    public function __construct(
+    function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Convention\Interaction\Config $configConvention,
@@ -30,7 +30,7 @@ class AbstractConfig extends \Hotlink\Brightpearl\Model\Interaction\Config\Abstr
             $data );
     }
 
-    public function getOrderStatusMap( $storeId = null )
+    function getOrderStatusMap( $storeId = null )
     {
         return ( $map = $this->orderSharedConfig->getOrderStatusMap( $storeId ) )
             ? $map

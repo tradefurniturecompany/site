@@ -13,7 +13,7 @@ class Lists implements \Magento\Framework\Option\ArrayInterface
 
     protected $priceListItemCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Model\ResourceModel\Lookup\Price\ListPrice\Item\CollectionFactory $priceListItemCollectionFactory
     ) {
         $this->priceListItemCollectionFactory = $priceListItemCollectionFactory;
@@ -43,14 +43,14 @@ class Lists implements \Magento\Framework\Option\ArrayInterface
         return $this->priceListItemCollectionFactory->create();
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         if(!$this->_options)
             $this->_initOptions();
         return $this->_options;
     }
 
-    public function toArray()
+    function toArray()
     {
         if(!$this->_options)
             $this->_initOptions();
@@ -62,7 +62,7 @@ class Lists implements \Magento\Framework\Option\ArrayInterface
         return $options;
     }
 
-    public function getName( $id )
+    function getName( $id )
     {
         foreach ( $this->toArray() as $key => $name )
             {

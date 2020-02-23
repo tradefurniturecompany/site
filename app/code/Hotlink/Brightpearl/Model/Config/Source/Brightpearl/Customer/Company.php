@@ -8,7 +8,7 @@ class Company implements \Magento\Framework\Option\ArrayInterface
     const BILLING                   = 'billing';              // from order billing address attribute "company"
     const SHIPPING                  = 'shipping';             // from order shipping address attribute "company"
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
             array( 'value' => self::LEAVE_EMPTY,
@@ -22,7 +22,7 @@ class Company implements \Magento\Framework\Option\ArrayInterface
         );
     }
 
-    public function toArray()
+    function toArray()
     {
         return array(
             self::LEAVE_EMPTY => __( 'Leave Empty' ),

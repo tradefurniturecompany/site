@@ -3,27 +3,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Order\Reconciliation\Environment
 
 class Sleep extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter
 {
-    public function getDefault()
+    function getDefault()
     {
         return 5000;
     }
 
-    public function getName()
+    function getName()
     {
         return 'Sleep between saves';
     }
 
-    public function getNote()
+    function getNote()
     {
         return 'Millionths of a second (micro seconds)';
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'sleep';
     }
 
-    public function getValue()
+    function getValue()
     {
         if ( !$this->_valueInitialised ) {
             $storeId = $this->getEnvironment()->getStoreId();

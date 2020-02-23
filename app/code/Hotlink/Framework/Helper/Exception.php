@@ -4,37 +4,37 @@ namespace Hotlink\Framework\Helper;
 class Exception
 {
 
-    public function throwCommunicationSoap( $message, $caller, \Exception $previous = null )
+    function throwCommunicationSoap( $message, $caller, \Exception $previous = null )
     {
         $message = $this->getMessageCaller( $message, $caller );
         $this->throwException( '\Hotlink\Framework\Model\Exception\Communication\Soap', $message, $previous );
     }
 
-    public function throwImplementation( $message, $caller, \Exception $previous = null )
+    function throwImplementation( $message, $caller, \Exception $previous = null )
     {
         $message = $this->getMessageCaller( $message, $caller );
         $this->throwException( '\Hotlink\Framework\Model\Exception\Implementation', $message, $previous );
     }
 
-    public function throwConfiguration( $message, $caller, \Exception $previous = null )
+    function throwConfiguration( $message, $caller, \Exception $previous = null )
     {
         $message = $this->getMessageCaller( $message, $caller );
         $this->throwException( '\Hotlink\Framework\Model\Exception\Configuration', $message, $previous );
     }
 
-    public function throwProcessing( $message, $caller, \Exception $previous = null )
+    function throwProcessing( $message, $caller, \Exception $previous = null )
     {
         $message = $this->getMessageCaller( $message, $caller );
         $this->throwException( '\Hotlink\Framework\Model\Exception\Processing', $message, $previous );
     }
 
-    public function throwTransport( $message, $caller, \Exception $previous = null )
+    function throwTransport( $message, $caller, \Exception $previous = null )
     {
         $message = $this->getMessageCaller( $message, $caller );
         $this->throwException( '\Hotlink\Framework\Model\Exception\Transport', $message, $previous );
     }
 
-    public function throwValidation( $message, $caller, \Exception $previous = null )
+    function throwValidation( $message, $caller, \Exception $previous = null )
     {
         $final = '';
         if ( is_array( $message ) )

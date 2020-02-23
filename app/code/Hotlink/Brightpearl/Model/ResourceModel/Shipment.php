@@ -3,12 +3,12 @@ namespace Hotlink\Brightpearl\Model\ResourceModel;
 
 class Shipment extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
-    public function _construct()
+    function _construct()
     {
         $this->_init( 'hotlink_brightpearl_shipment', 'id' );
     }
 
-    public function loadWithType( $object, $noteId, $noteType )
+    function loadWithType( $object, $noteId, $noteType )
     {
         $read = $this->getConnection();
         if ( $read ) {

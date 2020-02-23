@@ -23,7 +23,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
     protected $notifierInterface;
     protected $shippingHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -686,7 +686,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
         return !$error;
     }
 
-    public function register( $shipment )
+    function register( $shipment )
     {
         if ($shipment->getId()) {
             throw new \Magento\Framework\Exception\LocalizedException(

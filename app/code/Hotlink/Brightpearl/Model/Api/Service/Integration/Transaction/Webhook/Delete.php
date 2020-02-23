@@ -5,7 +5,7 @@ class Delete extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Abstract
 {
     protected $webhookId;
 
-    public function getName()
+    function getName()
     {
         return 'Webhook DELETE';
     }
@@ -20,13 +20,13 @@ class Delete extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Abstract
         return '\Hotlink\Brightpearl\Model\Api\Service\Integration\Message\Webhook\Delete\Response';
     }
 
-    public function setWebhookId($webhookId)
+    function setWebhookId($webhookId)
     {
         $this->webhookId = $webhookId;
         return $this;
     }
 
-    public function getWebhookId()
+    function getWebhookId()
     {
         return $this->webhookId;
     }

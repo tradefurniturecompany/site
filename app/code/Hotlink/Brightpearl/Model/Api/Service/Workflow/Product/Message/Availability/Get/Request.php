@@ -3,12 +3,12 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Workflow\Product\Message\Availab
 
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get\AbstractGet
 {
-    public function getFunction()
+    function getFunction()
     {
         return $this->getMethod(). " workflow-integration-service/product-availability";
     }
 
-    public function buildAction( $accountCode, array $warehouses, array $skus)
+    function buildAction( $accountCode, array $warehouses, array $skus)
     {
         $params = array( 'skus'       => $this->_csv( $skus ),
                          'warehouses' => $this->_csv( $warehouses ) );
@@ -19,7 +19,7 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get
     }
 
 
-    public function getAction()
+    function getAction()
     {
         $accountCode = $this->getTransaction()->getAccountCode();
         $skus = $this->getTransaction()->getSkus();
@@ -28,7 +28,7 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get
         return $this->buildAction( $accountCode, $warehouses, $skus );
     }
 
-    public function validate()
+    function validate()
     {
         parent::validate();
 

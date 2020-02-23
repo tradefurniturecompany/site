@@ -12,7 +12,7 @@ class User
     protected $customerSession;
     protected $scopeHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Backend\Model\Auth\Session $backendAuthSession,
         \Magento\Customer\Model\Session $customerSession,
@@ -24,7 +24,7 @@ class User
         $this->scopeHelper = $scopeHelper;
     }
 
-    public function getDescription()
+    function getDescription()
     {
         $fullname = $this->getFullname();
         switch ( $this->getType() )
@@ -73,12 +73,12 @@ class User
             }
     }
 
-    public function getIP()
+    function getIP()
     {
         return ( isset( $_SERVER[ "REMOTE_ADDR" ] ) ) ? $_SERVER[ "REMOTE_ADDR" ] : 'mystery';
     }
 
-    public function getType()
+    function getType()
     {
         if ( ! $this->_type )
             {
@@ -87,7 +87,7 @@ class User
         return $this->_type;
     }
 
-    public function getUsername()
+    function getUsername()
     {
         if ( ! $this->_username )
             {
@@ -96,7 +96,7 @@ class User
         return $this->_username;
     }
 
-    public function getFullname()
+    function getFullname()
     {
         if ( ! $this->_fullname )
             {
@@ -105,7 +105,7 @@ class User
         return $this->_fullname;
     }
 
-    public function getName()
+    function getName()
     {
         return $this->getFullname();
     }

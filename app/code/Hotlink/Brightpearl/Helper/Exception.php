@@ -30,7 +30,7 @@ class Exception extends \Magento\Framework\App\Helper\AbstractHelper
      * by other classes in this module instead of the bare throw, in order to centralize exception
      * handling.
      */
-    public function throwException( \Exception $e )
+    function throwException( \Exception $e )
     {
         throw $e;
     }
@@ -43,7 +43,7 @@ class Exception extends \Magento\Framework\App\Helper\AbstractHelper
      * Are examples of API exceptions connectivity errors (connection timeout, host unreachable etc),
      * SOAP fault exceptions (when SOAP is used as transport) etc.
      */
-    public function throwApi()
+    function throwApi()
     {
         $this->_throw( 'Api', func_get_args() );
     }
@@ -51,7 +51,7 @@ class Exception extends \Magento\Framework\App\Helper\AbstractHelper
     /**
      * Creates and throws an Authorisation exception.
      */
-    public function throwAuthorisation()
+    function throwAuthorisation()
     {
         $this->_throw( 'Authorisation', func_get_args() );
     }
@@ -61,7 +61,7 @@ class Exception extends \Magento\Framework\App\Helper\AbstractHelper
      * A configuration exception occurs when a misconfiguration error is encountered, or when
      * a functionality executed is disabled at config level.
      */
-    public function throwConfiguration()
+    function throwConfiguration()
     {
         $this->_throw( 'Configuration', func_get_args() );
     }
@@ -72,7 +72,7 @@ class Exception extends \Magento\Framework\App\Helper\AbstractHelper
      * for instance not following the designed patterns, as using an API message class without
      * have set its transaction object first, which is supposed to be done at message instantiation.
      */
-    public function throwImplementation()
+    function throwImplementation()
     {
         $this->_throw( 'Implementation', func_get_args() );
     }
@@ -82,7 +82,7 @@ class Exception extends \Magento\Framework\App\Helper\AbstractHelper
      * Are examples of Transport exceptions connectivity errors (connection timeout, host unreachable etc),
      * HTTP Client or CURL adapter exceptions.
      */
-    public function throwTransport()
+    function throwTransport()
     {
         $this->_throw( 'Transport', func_get_args() );
     }
@@ -91,7 +91,7 @@ class Exception extends \Magento\Framework\App\Helper\AbstractHelper
      * Creates and throws a validation exception.
      * A validation exception is the one thrown when errors occur during validation process.
      */
-    public function throwValidation()
+    function throwValidation()
     {
         $this->_throw( 'Validation', func_get_args() );
     }

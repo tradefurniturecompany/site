@@ -15,14 +15,14 @@ class Behaviour implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         if(!$this->_options)
             $this->_initOptions();
         return $this->_options;
     }
 
-    public function toArray()
+    function toArray()
     {
         if(!$this->_options)
             $this->_initOptions();

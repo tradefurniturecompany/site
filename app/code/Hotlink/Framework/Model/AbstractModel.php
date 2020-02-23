@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model;
 abstract class AbstractModel implements \Hotlink\Framework\Model\Report\IReport
 {
 
-    abstract public function getReportSection();    // From IReport
+    abstract function getReportSection();    // From IReport
 
     protected $_report = false;
 
@@ -13,7 +13,7 @@ abstract class AbstractModel implements \Hotlink\Framework\Model\Report\IReport
     protected $reportHelper;
     protected $factoryHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -26,22 +26,22 @@ abstract class AbstractModel implements \Hotlink\Framework\Model\Report\IReport
         $this->factoryHelper = $factoryHelper;
     }
 
-    public function reflect()
+    function reflect()
     {
         return $this->reflectionHelper;
     }
 
-    public function exception()
+    function exception()
     {
         return $this->exceptionHelper;
     }
 
-    public function report()
+    function report()
     {
         return $this->reportHelper;
     }
 
-    public function factory()
+    function factory()
     {
         return $this->factoryHelper;
     }
@@ -49,12 +49,12 @@ abstract class AbstractModel implements \Hotlink\Framework\Model\Report\IReport
     //
     //   Returns an unique html safe identifier for a class, can be overloaded for more friendly values.
     //
-    public function getCode()
+    function getCode()
     {
         return $this->reflect()->getClass( $this );
     }
 
-    public function __toString()
+    function __toString()
     {
         return "[" . $this->getCode() . "]";
     }
@@ -62,13 +62,13 @@ abstract class AbstractModel implements \Hotlink\Framework\Model\Report\IReport
     //
     //  IReport
     //
-    public function setReport( \Hotlink\Framework\Model\Report $report = null )
+    function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
         return $this;
     }
 
-    public function getReport( $safe = true )
+    function getReport( $safe = true )
     {
         if ( !$this->_report && $safe )
             {

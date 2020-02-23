@@ -10,7 +10,7 @@ class Source
     protected $reflection;
     protected $map;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Factory $factory,
         \Hotlink\Framework\Helper\Reflection $reflection,
         \Hotlink\Framework\Model\Config\Map $map
@@ -21,12 +21,12 @@ class Source
         $this->reflection = $reflection;
     }
 
-    public function setInteraction( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
+    function setInteraction( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
     {
         $this->_interaction = $interaction;
     }
 
-    public function toOptionArray( $multiselect = false )
+    function toOptionArray( $multiselect = false )
     {
         $options = [];
         if ( $this->_interaction )
@@ -43,7 +43,7 @@ class Source
         return $options;
     }
 
-    public function toOptionArrayFailed()
+    function toOptionArrayFailed()
     {
         $options = array();
         if ( $this->interaction )

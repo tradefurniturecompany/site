@@ -7,7 +7,7 @@ class Reader extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
     protected $magentoModelReaderFactory;
     protected $parameterStreamReaderHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
 
@@ -20,17 +20,17 @@ class Reader extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
         $this->parameterStreamReaderHelper = $parameterStreamReaderHelper;
     }
 
-    public function getName()
+    function getName()
     {
         return 'Data Source';
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'stream';
     }
 
-    public function getDefault()
+    function getDefault()
     {
         return $this->magentoModelReaderFactory->create();
     }
@@ -38,12 +38,12 @@ class Reader extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
     //
     //  IFormHelper
     //
-    public function getFormHelper()
+    function getFormHelper()
     {
         return $this->parameterStreamReaderHelper;
     }
 
-    public function asString()
+    function asString()
     {
         return false;
     }

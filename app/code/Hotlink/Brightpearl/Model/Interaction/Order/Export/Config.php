@@ -16,7 +16,7 @@ class Config extends \Hotlink\Brightpearl\Model\Interaction\Config\AbstractConfi
 
     protected $sharedOrderConfig;
 
-    public function __construct(
+    function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Convention\Interaction\Config $configConvention,
@@ -41,84 +41,84 @@ class Config extends \Hotlink\Brightpearl\Model\Interaction\Config\AbstractConfi
         );
     }
 
-    public function getUpdateExistingCustomers( $storeId=null )
+    function getUpdateExistingCustomers( $storeId=null )
     {
         return (boolean) $this->getConfigData( self::KEY_UPDATE_EXISTING_CUSTOMERS, $storeId, true );
     }
 
-    public function getIncludeMarketing( $storeId=null )
+    function getIncludeMarketing( $storeId=null )
     {
         return (boolean) $this->getConfigData( self::KEY_INCLUDE_MARKETING, $storeId, false );
     }
 
-    public function getUseCurrency( $storeId=null )
+    function getUseCurrency( $storeId=null )
     {
         return ( $val = $this->_getSharedOrderConfig()->getUseCurrency( $storeId ) )
             ? $val
             : \Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Currency::BASE;
     }
 
-    public function getShippingMethodDefault( $storeId=null )
+    function getShippingMethodDefault( $storeId=null )
     {
         return $this->getConfigData( self::KEY_SHIPPING_DEFAULT, $storeId, null );
     }
 
-    public function getGiftMessageField( $storeId=null )
+    function getGiftMessageField( $storeId=null )
     {
         return $this->getConfigData( self::KEY_GIFTMSG_FIELD, $storeId, null );
     }
 
-    public function getCompanyFromMap( $storeId = null )
+    function getCompanyFromMap( $storeId = null )
     {
         return $this->getSerializedField( self::KEY_COMPANY_FROM, $storeId, null );
     }
 
-    public function getShippingMethodMapIsomorphic( $storeId=null )
+    function getShippingMethodMapIsomorphic( $storeId=null )
     {
         return $this->getSerializedField( self::KEY_SHIPPING_MAP_ISOMORPHIC, $storeId, null );
     }
 
-    public function getShippingMethodMapNonisomorphic( $storeId=null )
+    function getShippingMethodMapNonisomorphic( $storeId=null )
     {
         return $this->getSerializedField( self::KEY_SHIPPING_MAP_NONISOMORPHIC, $storeId, null );
     }
 
-    public function getPaymentMethodMap( $storeId=null )
+    function getPaymentMethodMap( $storeId=null )
     {
         return ( $ret = $this->_getSharedOrderConfig()->getPaymentMethodMap( $storeId ) )
             ? $ret
             : [];
     }
 
-    public function getPaymentMethodDefault( $storeId=null )
+    function getPaymentMethodDefault( $storeId=null )
     {
         return ( $ret = $this->_getSharedOrderConfig()->getPaymentMethodDefault( $storeId ) )
             ? $ret
             : null;
     }
 
-    public function getPaymentMethodDefaultCreateReceipts( $storeId = null )
+    function getPaymentMethodDefaultCreateReceipts( $storeId = null )
     {
         return ( $ret = $this->_getSharedOrderConfig()->getPaymentMethodDefaultCreateReceipts( $storeId ) )
             ? $ret
             : null;
     }
 
-    public function getOrderStatusMap( $storeId=null )
+    function getOrderStatusMap( $storeId=null )
     {
         return ( $ret = $this->_getSharedOrderConfig()->getOrderStatusMap( $storeId ) )
             ? $ret
             : [];
     }
 
-    public function getOrderStatusDefault( $storeId=null )
+    function getOrderStatusDefault( $storeId=null )
     {
         return ( $ret = $this->_getSharedOrderConfig()->getOrderStatusDefault( $storeId ) )
             ? $ret
             : null;
     }
 
-    public function getCustomisationMap( $storeId = null )
+    function getCustomisationMap( $storeId = null )
     {
         $customisations = $this->getSerializedField( self::KEY_CUSTOMISATION_MAP, $storeId, null );
         if ( $customisations )

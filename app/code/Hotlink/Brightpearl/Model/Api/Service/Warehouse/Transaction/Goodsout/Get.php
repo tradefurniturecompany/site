@@ -5,17 +5,17 @@ class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\Abstrac
 {
     protected $idOrderSet;
 
-    public function setOrderIdSet( $idOrderSet )
+    function setOrderIdSet( $idOrderSet )
     {
         $this->idOrderSet = $idOrderSet;
         return $this;
     }
 
-    public function getOrderIdSet()
+    function getOrderIdSet()
     {
         return $this->idOrderSet;
     }
-    public function getName()
+    function getName()
     {
         return 'Goods-out Method GET';
     }

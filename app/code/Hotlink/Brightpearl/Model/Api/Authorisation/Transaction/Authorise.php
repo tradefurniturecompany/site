@@ -16,23 +16,23 @@ class Authorise extends \Hotlink\Brightpearl\Model\Api\Transaction\AbstractTrans
         return '\Hotlink\Brightpearl\Model\Api\Authorisation\Message\Authorise\Response';
     }
 
-    public function getAccountCode()
+    function getAccountCode()
     {
         return $this->_accountCode;
     }
 
-    public function setAccountCode( $value )
+    function setAccountCode( $value )
     {
         $this->_accountCode = $value;
         return $this;
     }
 
-    public function getRequestToken()
+    function getRequestToken()
     {
         return $this->_requestToken;
     }
 
-    public function setRequestToken( $value )
+    function setRequestToken( $value )
     {
         $this->_requestToken = $value;
         return $this;

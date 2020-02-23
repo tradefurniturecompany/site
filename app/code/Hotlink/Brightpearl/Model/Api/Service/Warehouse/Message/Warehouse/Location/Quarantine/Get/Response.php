@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Warehouse\Message\Warehouse\Loca
 class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\AbstractResponse
 {
 
-    public function getLocation()
+    function getLocation()
     {
         return $this->_get( 'response' );
     }

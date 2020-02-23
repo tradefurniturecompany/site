@@ -36,7 +36,7 @@ class Item implements \Serializable
     protected $_count_fail;
     protected $_indent;
 
-    public function init( $report, $id, $section, $batch, $level, $message, $success, $fail, $indent )
+    function init( $report, $id, $section, $batch, $level, $message, $success, $fail, $indent )
     {
         $message = str_replace( "\n", '</n>', $message );
         $message = str_replace( "\t", '</t>', $message );
@@ -57,7 +57,7 @@ class Item implements \Serializable
         return $this;
     }
 
-    public function serialize()
+    function serialize()
     {
         $data = array( self::FIELD_ID             => $this->_id,
                        self::FIELD_MB             => $this->_memory,
@@ -73,7 +73,7 @@ class Item implements \Serializable
         return serialize( $data );
     }
 
-    public function unserialize( $serialized )
+    function unserialize( $serialized )
     {
         $data = unserialize( $serialized );
         $this->_id             = $data[ self::FIELD_ID ];
@@ -91,68 +91,68 @@ class Item implements \Serializable
         $this->_message        = str_replace( '</r>', "\r", $this->_message );
     }
 
-    public function getReport()
+    function getReport()
     {
         return $this->_report;
     }
 
-    public function getId()
+    function getId()
     {
         return $this->_id;
     }
 
-    public function getMemory()
+    function getMemory()
     {
         return $this->_memory;
     }
 
-    public function getTimestamp()
+    function getTimestamp()
     {
         return $this->_timestamp;
     }
 
-    public function getSection()
+    function getSection()
     {
         return $this->_report_section;
     }
 
-    public function getBatch()
+    function getBatch()
     {
         return $this->_report_batch;
     }
 
-    public function getLevel()
+    function getLevel()
     {
         return $this->_message_level;
     }
 
-    public function getMessage()
+    function getMessage()
     {
         return $this->_message;
     }
 
-    public function getData()
+    function getData()
     {
         return $this->_message_data;
     }
 
-    public function setData( \Hotlink\Framework\Model\Report\Data $value )
+    function setData( \Hotlink\Framework\Model\Report\Data $value )
     {
         $this->_message_data = $value;
         return $this;
     }
 
-    public function getSuccess()
+    function getSuccess()
     {
         return $this->_count_success;
     }
 
-    public function getFail()
+    function getFail()
     {
         return $this->_count_fail;
     }
 
-    public function getIndent()
+    function getIndent()
     {
         return $this->_indent;
     }

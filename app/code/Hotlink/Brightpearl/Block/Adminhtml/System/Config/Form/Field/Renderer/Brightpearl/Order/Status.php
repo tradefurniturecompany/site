@@ -5,7 +5,7 @@ class Status extends \Magento\Framework\View\Element\Html\Select
 {
     protected $bpOrderStatusSource;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Status $bpOrderStatusSource,
         array $data = []
@@ -14,12 +14,12 @@ class Status extends \Magento\Framework\View\Element\Html\Select
         parent::__construct( $context, $data  );
     }
 
-    public function setInputName( $value )
+    function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    public function _toHtml()
+    function _toHtml()
     {
         if ( !$this->getOptions() )
             {

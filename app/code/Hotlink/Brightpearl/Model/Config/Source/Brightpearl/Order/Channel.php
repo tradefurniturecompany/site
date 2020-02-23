@@ -10,7 +10,7 @@ class Channel implements \Magento\Framework\Option\ArrayInterface
      */
     protected $brightpearlResourceChannelCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Model\ResourceModel\Lookup\Channel\CollectionFactory $brightpearlResourceChannelCollectionFactory
     ) {
         $this->brightpearlResourceChannelCollectionFactory = $brightpearlResourceChannelCollectionFactory;
@@ -34,13 +34,13 @@ class Channel implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         $this->_init();
         return $this->_data;
     }
 
-    public function toArray()
+    function toArray()
     {
         $ret = array();
         foreach ( $this->toOptionArray() as $item )

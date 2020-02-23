@@ -7,7 +7,7 @@ abstract class AbstractConfig extends \Hotlink\Framework\Model\Interaction\Envir
     //
     //  Overload to specialise parameter values
     //
-    public function getValue()
+    function getValue()
     {
         if ( !$this->_valueInitialised )
             {

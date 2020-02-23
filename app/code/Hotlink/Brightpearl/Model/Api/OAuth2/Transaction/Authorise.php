@@ -18,51 +18,51 @@ class Authorise extends \Hotlink\Brightpearl\Model\Api\Transaction\AbstractTrans
         return '\Hotlink\Brightpearl\Model\Api\OAuth2\Message\Authorise\Response';
     }
 
-    public function getAccount()
+    function getAccount()
     {
         return $this->_account;
     }
 
-    public function setAccount( $value )
+    function setAccount( $value )
     {
         $this->_account = $value;
         return $this;
     }
 
-    public function getCode()
+    function getCode()
     {
         return $this->_code;
     }
 
-    public function setCode( $value )
+    function setCode( $value )
     {
         $this->_code = $value;
         return $this;
     }
 
-    public function getRedirectUri()
+    function getRedirectUri()
     {
         return $this->_redirectUri;
     }
 
-    public function setRedirectUri( $value )
+    function setRedirectUri( $value )
     {
         $this->_redirectUri = $value;
         return $this;
     }
 
-    public function getClientId()
+    function getClientId()
     {
         return $this->_clientId;
     }
 
-    public function setClientId( $value )
+    function setClientId( $value )
     {
         $this->_clientId = $value;
         return $this;
     }
 
-    public function getContentType()
+    function getContentType()
     {
         return 'application/x-www-form-urlencoded';
     }

@@ -50,7 +50,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
     protected $xmlFactory;
     protected $factoryHelper;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Simplexml\ElementFactory $xmlFactory,
         \Hotlink\Framework\Helper\Factory $factoryHelper,
         \Hotlink\Framework\Model\ReportFactory $reportFactory,
@@ -75,21 +75,21 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
         );
     }
 
-    public function getName()
+    function getName()
     {
         $class = get_class( $this );
         $name = strtolower( $class );
         return $name;
     }
 
-    public function getKey()
+    function getKey()
     {
         $class = get_class( $this );
         $parts = explode( '_', $class );
         return array_pop( $parts );
     }
 
-    public function getReport( $safe = true )
+    function getReport( $safe = true )
     {
         if ( !$this->_report && $safe )
             {
@@ -98,18 +98,18 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
         return $this->_report;
     }
 
-    public function setReport( \Hotlink\Framework\Model\Report $report = null )
+    function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
         return $this;
     }
 
-    public function getReportSection()
+    function getReportSection()
     {
         return 'data';
     }
 
-    public function map( $data, $type = false, $extra = false )
+    function map( $data, $type = false, $extra = false )
     {
         $this->_type = $type;
         $methods = array( '_map', '_map_inference' );
@@ -133,7 +133,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
     //  Returns a hash of (type, methodname) to support different mappings.
     //  Overload to support multiple types.
     //
-    public function getMappings()
+    function getMappings()
     {
         return array();
     }
@@ -190,7 +190,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
     //
     //   Used to filter simple values or objects.
     //
-    public function filterObjects( $include = false )
+    function filterObjects( $include = false )
     {
         $result = array();
         foreach ( $this as $key => $value )
@@ -213,12 +213,12 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
         return $result;
     }
 
-    public function getParent()
+    function getParent()
     {
         return $this->_parent;
     }
 
-    public function setParent( \Hotlink\Framework\Model\Api\Data $object = null )
+    function setParent( \Hotlink\Framework\Model\Api\Data $object = null )
     {
         $this->_parent = $object;
         return $this;
@@ -230,7 +230,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
     //  Support * wildcards.
     //  Leading / skips starting object
     //
-    public function xpath( $path )
+    function xpath( $path )
     {
         $results = array();
         $parts = explode( '/', $path );
@@ -283,7 +283,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
     //
     //  Use to pass configuration parameters and/or utility functions deep into the objects
     //
-    public function getHelper()
+    function getHelper()
     {
         if ( is_null( $this->_helper ) )
             {
@@ -292,7 +292,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
         return $this->_helper;
     }
 
-    public function setHelper( $object )
+    function setHelper( $object )
     {
         if ( $this->_helper )
             {
@@ -302,7 +302,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
         return $this;
     }
 
-    public function toString( $format='' )
+    function toString( $format='' )
     {
         if ( !$format )
             {
@@ -347,13 +347,13 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
     //
     //  For a given key, identifies a data object model to be used.
     //
-    public function setChildClass( $key, $model )
+    function setChildClass( $key, $model )
     {
         $this->_childClasses[ $key ] = $model;
         return $this;
     }
 
-    public function getChildClass( $key )
+    function getChildClass( $key )
     {
         if ( $model = $this->getChildClassAssigned( $key ) )
             {
@@ -370,7 +370,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
         return $this->getChildClassDefault( $key );
     }
 
-    public function getChildClassAssigned( $key )
+    function getChildClassAssigned( $key )
     {
         if ( array_key_exists( $key, $this->_childClasses ) )
             {
@@ -379,7 +379,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
         return false;
     }
 
-    public function getChildClassConfig( $key )
+    function getChildClassConfig( $key )
     {
         $dataobjects = $this->configMap->getDataobjects();
         $name = $this->getName() . '\\' . $key;
@@ -388,12 +388,12 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
             : false;
     }
 
-    public function getChildClassConvention( $key )
+    function getChildClassConvention( $key )
     {
         return $this->conventionDataHelper->getModel( $this, $key );
     }
 
-    public function getChildClassDefault( $key )
+    function getChildClassDefault( $key )
     {
         return '\Hotlink\Framework\Model\Api\Data';
     }
@@ -533,7 +533,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
         return ( $indent == 0 ) ? '' : str_pad( ' ', ( $indent * self::INDENT ) );
     }
 
-    public function asXmlString( array $attributes=array(), $tagName='root', $intName='item', $indent=0, $addHeader=false, $addCdata=false )
+    function asXmlString( array $attributes=array(), $tagName='root', $intName='item', $indent=0, $addHeader=false, $addCdata=false )
     {
         $atts = array();
         $tags = array();
@@ -622,7 +622,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
     //
     //  interface IteratorAggregate
     //
-    public function getIterator()
+    function getIterator()
     {
         return new \ArrayIterator( $this->getData() );
     }
@@ -630,7 +630,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
     //
     //  interface ArrayAccess, modify to permit $object[] = "something" syntax
     //
-    public function offsetSet( $offset, $value )
+    function offsetSet( $offset, $value )
     {
         if ( is_null( $offset ) )
             {
@@ -645,7 +645,7 @@ class Data extends \Magento\Framework\DataObject implements \IteratorAggregate, 
     //
     //  interface Countable
     //
-    public function count()
+    function count()
     {
         return count( $this->getData() );
     }

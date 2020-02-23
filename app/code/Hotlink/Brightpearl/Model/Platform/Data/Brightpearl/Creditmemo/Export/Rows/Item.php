@@ -36,8 +36,8 @@ class Item extends \Hotlink\Brightpearl\Model\Platform\Data
         //
         //      Magento/Weee/Block/Item/Price/Renderer.php
         //
-        //          public function getBaseTotalAmount($item)
-        //          public function getTotalAmount($item)
+        //          function getBaseTotalAmount($item)
+        //          function getTotalAmount($item)
         //
         //          these two function utilise a Weee helper
         //
@@ -45,7 +45,7 @@ class Item extends \Hotlink\Brightpearl\Model\Platform\Data
         //
         //      Magento/Sales/Block/Order/Item/Renderer/DefaultRenderer.php
         //
-        //          public function getTotalAmount($item)
+        //          function getTotalAmount($item)
         //
         //          this function utilises persisted Weee tax data
         //

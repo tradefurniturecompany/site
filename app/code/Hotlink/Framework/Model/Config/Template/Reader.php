@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\Config\Template;
 class Reader extends \Magento\Framework\Config\Reader\Filesystem
 {
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Config\FileResolverInterface $fileResolver,
         \Magento\Framework\Config\ValidationStateInterface $validationState,
         \Magento\Config\Model\Config\SchemaLocator $schemaLocator,
@@ -39,7 +39,7 @@ class Reader extends \Magento\Framework\Config\Reader\Filesystem
 class Reader extends \Magento\Config\Model\Config\Structure\Reader
 {
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Config\FileResolverInterface $fileResolver,
         \Magento\Config\Model\Config\Structure\Converter $converter,
         \Magento\Config\Model\Config\SchemaLocator $schemaLocator,

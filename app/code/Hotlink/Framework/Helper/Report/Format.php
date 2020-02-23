@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Helper\Report;
 class Format
 {
 
-    public function htmlXml( $xml )
+    function htmlXml( $xml )
     {
         // add marker linefeeds to aid the pretty-tokeniser (adds a linefeed between all tag-end boundaries)
         $xml = preg_replace('/(>)(<)(\/*)/', "$1\n$2$3", $xml);
@@ -70,7 +70,7 @@ class Format
         return $xml;
     }
 
-    public function htmlPrintR( $arg )
+    function htmlPrintR( $arg )
     {
         $out = '';
         ob_start();
@@ -80,7 +80,7 @@ class Format
         return $out;
     }
 
-    public function htmlVarDump( $arg )
+    function htmlVarDump( $arg )
     {
         $out = '';
         ob_start();

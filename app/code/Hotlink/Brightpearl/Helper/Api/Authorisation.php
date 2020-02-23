@@ -8,7 +8,7 @@ class Authorisation extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
     protected $brightpearlConfigAuthorisation;
     protected $apiTransportFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -24,12 +24,12 @@ class Authorisation extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
         $this->apiTransportFactory = $apiTransportFactory;
     }
 
-    public function getName()
+    function getName()
     {
         return 'Authorisation API';
     }
 
-    public function requestAccessToken($storeId, $accountCode, $requestToken, $timeout = 5000)
+    function requestAccessToken($storeId, $accountCode, $requestToken, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)

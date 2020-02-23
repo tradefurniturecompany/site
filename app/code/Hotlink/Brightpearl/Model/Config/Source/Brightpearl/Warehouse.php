@@ -10,7 +10,7 @@ class Warehouse implements \Magento\Framework\Option\ArrayInterface
      */
     protected $warehouseCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Model\ResourceModel\Lookup\Warehouse\CollectionFactory $warehouseCollectionFactory
     ) {
         $this->warehouseCollectionFactory = $warehouseCollectionFactory;
@@ -35,7 +35,7 @@ class Warehouse implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         if ( !$this->_options ) {
             $this->_initOptions();
@@ -43,7 +43,7 @@ class Warehouse implements \Magento\Framework\Option\ArrayInterface
         return $this->_options;
     }
 
-    public function toArray()
+    function toArray()
     {
         if ( !$this->_options ) {
             $this->_initOptions();

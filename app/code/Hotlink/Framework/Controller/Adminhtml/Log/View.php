@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Controller\Adminhtml\Log;
 class View extends \Hotlink\Framework\Controller\Adminhtml\Log\AbstractLog
 {
 
-    public function execute()
+    function execute()
     {
         $logId = ( int ) $this->getRequest()->getParam( 'id' );
         if ( $logId )
