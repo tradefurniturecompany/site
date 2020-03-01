@@ -9,6 +9,10 @@
 !/composer.json
 !/README.md
 !app/code/**/*
+# 2019-10-07 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# «Function mcrypt_create_iv() is deprecated in lib/internal/Customweb/Core/Util/Rand.php on line 86»
+# in Magento 2.3.2: https://github.com/tradefurniturecompany/core/issues/10
+!app/bootstrap.php
 !app/design/frontend/TradeFurnitureCompany/default/**/*
 !app/etc/config.php
 !lib/internal/Crypt/**/*
