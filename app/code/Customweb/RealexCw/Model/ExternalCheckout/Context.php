@@ -40,7 +40,9 @@ namespace Customweb\RealexCw\Model\ExternalCheckout;
  * @method \Customweb\RealexCw\Model\ExternalCheckout\Context setShippingAddress(\Customweb_Payment_Authorization_OrderContext_IAddress $value)
  * @method \Customweb\RealexCw\Model\ExternalCheckout\Context setBillingAddress(\Customweb_Payment_Authorization_OrderContext_IAddress $value)
  * @method \Customweb\RealexCw\Model\ExternalCheckout\Context setShippingMethodName(string $value)
- * @method \Customweb\RealexCw\Model\ExternalCheckout\Context setPaymentMethod(string $value)
+ * 2020-03-13 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+ * "The method `Customweb\RealexCw\Model\ExternalCheckout\Context::setPaymentMethod()` is defined twice":
+ * https://github.com/tradefurniturecompany/site/issues/134
  * @method \Customweb\RealexCw\Model\ExternalCheckout\Context setProviderData(array $value)
  * @method string getCreatedOn()
  * @method \Customweb\RealexCw\Model\ExternalCheckout\Context setCreatedOn(string $value)
