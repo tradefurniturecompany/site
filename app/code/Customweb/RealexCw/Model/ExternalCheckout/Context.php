@@ -138,6 +138,9 @@ class Context extends \Magento\Framework\Model\AbstractModel implements \Customw
 	private $cachedPaymentMethod;
 
 	/**
+	 * "An undefined class `Magento\Framework\Data\Collection\Db`
+	 * in `\Customweb\RealexCw\Model\ExternalCheckout\Context::__construct()`":
+	 * https://github.com/tradefurniturecompany/site/issues/133
 	 * @param \Magento\Framework\Model\Context $context
 	 * @param \Magento\Framework\Registry $registry
 	 * @param \Magento\Payment\Helper\Data $paymentHelper
@@ -149,7 +152,7 @@ class Context extends \Magento\Framework\Model\AbstractModel implements \Customw
 	 * @param \Customweb\RealexCw\Helper\InvoiceItem $invoiceItemHelper
 	 * @param \Customweb\RealexCw\Helper\FoomanSurcharge $foomanSurchargeHelper
 	 * @param \Magento\Framework\Model\ResourceModel\AbstractResource $resource
-	 * @param \Magento\Framework\Data\Collection\Db $resourceCollection
+	 * @param \Magento\Framework\Data\Collection\AbstractDb $resourceCollection
 	 * @param array $data
 	 */
 	public function __construct(
