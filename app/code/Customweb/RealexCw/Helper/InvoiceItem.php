@@ -1,29 +1,9 @@
 <?php
-/**
- * You are allowed to use this API in your web application.
- *
- * Copyright (C) 2018 by customweb GmbH
- *
- * This program is licenced under the customweb software licence. With the
- * purchase or the installation of the software in your application you
- * accept the licence agreement. The allowed usage is outlined in the
- * customweb software licence which can be found under
- * http://www.sellxed.com/en/software-license-agreement
- *
- * Any modification or distribution is strictly forbidden. The license
- * grants you the installation in one application. For multiuse you will need
- * to purchase further licences at http://www.sellxed.com/shop.
- *
- * See the customweb software licence agreement for more details.
- *
- *
- * @category	Customweb
- * @package		Customweb_RealexCw
- *
- */
-
 namespace Customweb\RealexCw\Helper;
-
+use Magento\Quote\Model\Quote\Item as QI;
+use Magento\Sales\Model\Order\Creditmemo\Item as CI;
+use Magento\Sales\Model\Order\Item as OI;
+use Magento\Sales\Model\ResourceModel\Order\Invoice\Item as II;
 class InvoiceItem extends \Magento\Framework\App\Helper\AbstractHelper
 {
 	/**
@@ -59,7 +39,13 @@ class InvoiceItem extends \Magento\Framework\App\Helper\AbstractHelper
 	}
 
 	/**
-	 * @param array $items
+	 * 2020-03-13 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+	 * @used-by \Customweb\RealexCw\Model\Authorization\OrderContext::assembleDataFromOrder()
+	 * @used-by \Customweb\RealexCw\Model\Authorization\OrderContext::assembleDataFromQuote()
+	 * @used-by \Customweb\RealexCw\Model\ExternalCheckout\Context::updateFromQuote()
+	 * @used-by \Customweb\RealexCw\Model\Payment\Method\AbstractMethod::capture()
+	 * @used-by \Customweb\RealexCw\Model\Payment\Method\AbstractMethod::refund()
+	 * @param CI[]|II[]|OI[]|QI[] $items
 	 * @param \Magento\Sales\Model\Order\Address|\Magento\Quote\Model\Quote\Address $billingAddress
 	 * @param \Magento\Sales\Model\Order\Address|\Magento\Quote\Model\Quote\Address $shippingAddress
 	 * @param \Magento\Store\Model\Store $store
@@ -97,7 +83,7 @@ class InvoiceItem extends \Magento\Framework\App\Helper\AbstractHelper
 	) {
 		$invoiceItems = [];
 
-		foreach ($items as $item) {
+		foreach ($items as $item) { /** @var CI|II|OI|QI $item */
 			$parentItem = null;
 			if ($item->getOrderItem() != null && $item->getOrderItem()->getParentItemId() != null) {
 				$parentItem = $item->getOrderItem()->getParentItem();
@@ -126,6 +112,19 @@ class InvoiceItem extends \Magento\Framework\App\Helper\AbstractHelper
 		}
 
 		if ($discountAmount < 0) {
+			// 2020-03-13 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			// «Division by zero in app/code/Customweb/RealexCw/Helper/InvoiceItem.php on line 129»:
+			// https://github.com/tradefurniturecompany/site/issues/132
+			if (dff_eq0(abs($discountAmount) - abs($discountTaxAmount))) {
+				$item = df_first($items); /** @var CI|II|OI|QI $item */
+				df_log_l($this, [
+					'discountAmount' => $discountAmount
+					,'discountTaxAmount' => $discountTaxAmount
+					,'itemClass' => get_class(df_first($items))
+					,'The sales document ID' => df_sales_doc($item)->getId()
+
+				], 'division-by-zero');
+			}
 			$discountTaxRate = abs($discountTaxAmount) / (abs($discountAmount) - abs($discountTaxAmount)) * 100;
 			$discountItem = new \Customweb_Payment_Authorization_DefaultInvoiceItem(
 					'discount',
