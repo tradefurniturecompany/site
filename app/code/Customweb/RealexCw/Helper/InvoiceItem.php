@@ -112,20 +112,36 @@ class InvoiceItem extends \Magento\Framework\App\Helper\AbstractHelper
 		}
 
 		if ($discountAmount < 0) {
-			// 2020-03-13 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-			// «Division by zero in app/code/Customweb/RealexCw/Helper/InvoiceItem.php on line 129»:
-			// https://github.com/tradefurniturecompany/site/issues/132
-			if (dff_eq0(abs($discountAmount) - abs($discountTaxAmount))) {
-				$item = df_first($items); /** @var CI|II|OI|QI $item */
-				df_log_l($this, [
-					'discountAmount' => $discountAmount
-					,'discountTaxAmount' => $discountTaxAmount
-					,'itemClass' => get_class(df_first($items))
-					,'The sales document ID' => df_sales_doc($item)->getId()
-
-				], 'division-by-zero');
+			/**
+			 * 2020-03-17 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			 * 1) «Division by zero in app/code/Customweb/RealexCw/Helper/InvoiceItem.php on line 129»:
+			 * https://github.com/tradefurniturecompany/site/issues/132
+			 * 2)
+			 * 		"discountAmount": "-0.0100",
+			 * 		"discountTaxAmount": "0.0100",
+			 * 		"itemClass": "Magento\Quote\Model\Quote\Item",
+			 * 		"The sales document ID": "15553"
+			 * https://github.com/tradefurniturecompany/site/issues/132#issuecomment-599827387
+			 */
+			if (dff_eq0($discountAmount, .01) && dff_eq0($discountTaxAmount, .01)) {
+				$discountTaxRate = 0;
 			}
-			$discountTaxRate = abs($discountTaxAmount) / (abs($discountAmount) - abs($discountTaxAmount)) * 100;
+			else {
+				// 2020-03-13 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+				// «Division by zero in app/code/Customweb/RealexCw/Helper/InvoiceItem.php on line 129»:
+				// https://github.com/tradefurniturecompany/site/issues/132
+				if (dff_eq($discountAmount, $discountTaxAmount)) {
+					$item = df_first($items); /** @var CI|II|OI|QI $item */
+					df_log_l($this, [
+						'discountAmount' => $discountAmount
+						,'discountTaxAmount' => $discountTaxAmount
+						,'itemClass' => get_class(df_first($items))
+						,'The sales document ID' => df_sales_doc($item)->getId()
+
+					], 'division-by-zero');
+				}
+				$discountTaxRate = abs($discountTaxAmount) / (abs($discountAmount) - abs($discountTaxAmount)) * 100;
+			}
 			$discountItem = new \Customweb_Payment_Authorization_DefaultInvoiceItem(
 					'discount',
 					(string)__('Discount'),
