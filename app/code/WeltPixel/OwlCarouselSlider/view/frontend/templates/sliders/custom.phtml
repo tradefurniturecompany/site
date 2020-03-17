@@ -1,9 +1,13 @@
-<?php  /* @var \WeltPixel\OwlCarouselSlider\Block\Slider\Custom $this */ ?>
-
-<?php $sliderConfig  = $this->getSliderConfiguration(); ?>
-<?php $sliderGeneral = $sliderConfig['slider_config']; ?>
-<?php $enabled       = (array_key_exists('status', $sliderGeneral) && $sliderGeneral['status'] !=0) ? true : false; ?>
-
+<?php  /* @var \WeltPixel\OwlCarouselSlider\Block\Slider\Custom $this */
+$sliderConfig  = $this->getSliderConfiguration();
+// 2020-01-17 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+// 1) "Defer offscreen images for the `WeltPixel_OwlCarouselSlider` module":
+// https://github.com/tradefurniturecompany/site/issues/152
+// 2) The Chrome's `loading='lazy'` attribute of the `img` tag
+// does not remove the «Defer offscreen images» warning in the Google Lightspeed report.
+// https://web.dev/native-lazy-loading
+$sliderGeneral = ['lazyLoad' => 1] + $sliderConfig['slider_config'];
+$enabled = (array_key_exists('status', $sliderGeneral) && $sliderGeneral['status'] !=0) ? true : false; ?>
 <?php if ($enabled) : ?>
 
     <?php
@@ -72,8 +76,9 @@
                                      alt="<?php echo $altText; ?>" title="<?php echo $altText; ?>"
                                     <?php echo $sliderGeneral['lazyLoad'] ? 'data-src="' . $mediaUrl
                                         . $image . '" data-src-retina="' . $mediaUrl . $image
-                                        . '" class="owl-lazy"' : '' ?>
-                                />
+                                        . '" class="owl-lazy"' : ''
+									?>
+								/>
                             </span>
                             <?php if (!$buttonText): ?>
                                 <?php if (isset($url)): ?>
