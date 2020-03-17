@@ -6,12 +6,6 @@ $sliderConfig  = $this->getSliderConfiguration();
  * https://github.com/tradefurniturecompany/site/issues/152
  * 2) The `lazyLoad` feature does not have an UI backend setting for an unknown reason,
  * so the feature can be enabled only programmatically.
- * 3) The `lazyLoad` feature alone (without the Chrome's `loading='lazy'` attribute of the `img` tag)
- * does not remove the «Defer offscreen images» warning in the Google Lightspeed report (for an unknown reason).
- * 4) The Chrome's `loading='lazy'` attribute of the `img` tag alone
- * (without the `lazyLoad` feature) does not remove the «Defer offscreen images» warning
- * in the Google Lightspeed report (for an unknown reason).
- * https://web.dev/native-lazy-loading
  */
 $sliderGeneral = ['lazyLoad' => 1] + $sliderConfig['slider_config'];
 $enabled = (array_key_exists('status', $sliderGeneral) && $sliderGeneral['status'] !=0) ? true : false; ?>
@@ -76,19 +70,7 @@ $enabled = (array_key_exists('status', $sliderGeneral) && $sliderGeneral['status
                                 <?php endif; ?>
                             <?php endif; ?>
                             <span class="banner-image">
-<!-- 2020-01-17 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-1) "Defer offscreen images for the `WeltPixel_OwlCarouselSlider` module":
-https://github.com/tradefurniturecompany/site/issues/152
-2) The `lazyLoad` feature does not have an UI backend setting for an unknown reason,
-so the feature can be enabled only programmatically.
-3) The `lazyLoad` feature alone (without the Chrome's `loading='lazy'` attribute of the `img` tag)
-does not remove the «Defer offscreen images» warning in the Google Lightspeed report (for an unknown reason).
-4) The Chrome's `loading='lazy'` attribute of the `img` tag alone
-(without the `lazyLoad` feature) does not remove the «Defer offscreen images» warning
-in the Google Lightspeed report (for an unknown reason).
-https://web.dev/native-lazy-loading -->
                                 <img
-									loading='lazy'
                                     <?php if (!$sliderGeneral['lazyLoad']) : ?>
                                     src="<?php echo $mediaUrl . $image; ?>"
                                     <?php endif; ?>
