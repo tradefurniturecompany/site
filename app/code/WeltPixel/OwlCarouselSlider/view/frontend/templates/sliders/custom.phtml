@@ -13,7 +13,7 @@ $cfgG = ['lazyLoad' => 1] + $cfg['slider_config'];
 if (dfa($cfgG, 'status')) {
 	$sliderId = (int)$b['slider_id']; /** @var int $sliderId */
 	$breakpoint = $b->getBreakpointConfiguration();
-	$bannerConfig = $cfg['banner_config'];
+	$bnConfig = $cfg['banner_config'];
 	$cfg = json_encode($cfgG);
 	$mediaUrl = $b->getMediaUrl();
 	$isGatEnabled = $b->isGatEnabled();
@@ -25,29 +25,29 @@ if (dfa($cfgG, 'status')) {
 	<div class='custom-slider'>
 		<div class='owl-carousel-custom-<?= $sliderId;?>'>
 			<?php
-			foreach($bannerConfig as $banner) {
-				$description = (array_key_exists('description', $banner) && $banner['description'] !='')
-				? $banner['description'] : false;
-				$showDescription = array_key_exists('show_description', $banner)
-				? $banner['show_description'] : false;
-				$url = array_key_exists('url', $banner) ? $banner['url'] : null;
-				$target = array_key_exists('target', $banner) ? $banner['target'] : '_blank';
-				$bannerType = array_key_exists('banner_type', $banner) ? $banner['banner_type'] : '';
-				$image = array_key_exists('image', $banner) ? $banner['image'] : '';
-				$altText = array_key_exists('alt_text', $banner) ? $banner['alt_text'] : '';
-				$video = array_key_exists('video', $banner) ? $banner['video'] : '';
-				$custom = array_key_exists('custom', $banner) ? $banner['custom'] : '';
-				$buttonText = array_key_exists('button_text', $banner) ? $banner['button_text'] : null;
-				$customContent = array_key_exists('custom_content', $banner) ? $banner['custom_content'] : '';
-				$customCss = array_key_exists('custom_css', $banner) ? $banner['custom_css'] : '';
-				$gaPromoId = array_key_exists('ga_promo_id', $banner) ? $banner['ga_promo_id'] : '';
-				$gaPromoName = array_key_exists('ga_promo_name', $banner) ? $banner['ga_promo_name'] : '';
-				$gaPromoCreative = array_key_exists('ga_promo_creative', $banner) ? $banner['ga_promo_creative'] : '';
-				$gaPromoPosition = array_key_exists('ga_promo_position', $banner) ? $banner['ga_promo_position'] : '';
+			foreach ($bnConfig as $bn) { /** @var array(string => string) $bn */
+				$description = (array_key_exists('description', $bn) && $bn['description'] !='')
+				? $bn['description'] : false;
+				$showDescription = array_key_exists('show_description', $bn)
+				? $bn['show_description'] : false;
+				$url = array_key_exists('url', $bn) ? $bn['url'] : null;
+				$target = array_key_exists('target', $bn) ? $bn['target'] : '_blank';
+				$bnType = array_key_exists('banner_type', $bn) ? $bn['banner_type'] : '';
+				$image = array_key_exists('image', $bn) ? $bn['image'] : '';
+				$altText = array_key_exists('alt_text', $bn) ? $bn['alt_text'] : '';
+				$video = array_key_exists('video', $bn) ? $bn['video'] : '';
+				$custom = array_key_exists('custom', $bn) ? $bn['custom'] : '';
+				$buttonText = array_key_exists('button_text', $bn) ? $bn['button_text'] : null;
+				$customContent = array_key_exists('custom_content', $bn) ? $bn['custom_content'] : '';
+				$customCss = array_key_exists('custom_css', $bn) ? $bn['custom_css'] : '';
+				$gaPromoId = array_key_exists('ga_promo_id', $bn) ? $bn['ga_promo_id'] : '';
+				$gaPromoName = array_key_exists('ga_promo_name', $bn) ? $bn['ga_promo_name'] : '';
+				$gaPromoCreative = array_key_exists('ga_promo_creative', $bn) ? $bn['ga_promo_creative'] : '';
+				$gaPromoPosition = array_key_exists('ga_promo_position', $bn) ? $bn['ga_promo_position'] : '';
 				?>
 
-					<div class="banner-item banner-<?= $banner['id']; ?>">
-						<?php if ($bannerType == 1) : ?>
+					<div class="banner-item banner-<?= $bn['id']; ?>">
+						<?php if ($bnType == 1) : ?>
 							<?php if (!$buttonText): ?>
 								<?php if (isset($url)): ?>
 									<a
@@ -80,7 +80,7 @@ if (dfa($cfgG, 'status')) {
 								<?php endif; ?>
 							<?php endif; ?>
 
-						<?php elseif ($bannerType == 3) : ?>
+						<?php elseif ($bnType == 3) : ?>
 							<?php if (!$buttonText): ?>
 								<?php if ($url): ?>
 									<a href="<?= $url; ?>" target="<?= $target; ?>" >
@@ -94,13 +94,13 @@ if (dfa($cfgG, 'status')) {
 									</a>
 								<?php endif; ?>
 							<?php endif; ?>
-						<?php elseif ($bannerType == 2) : ?>
+						<?php elseif ($bnType == 2) : ?>
 							<span class="banner-video">
 								<?= $b->getVideoHtml($video);  ?>
 							</span>
 						<?php endif; ?>
 						<div class="content_slider">
-							<?php if (dfa($banner, 'show_title') && ($title = dfa($banner, 'title'))) { ?>
+							<?php if (dfa($bn, 'show_title') && ($title = dfa($bn, 'title'))) { ?>
 								<span class="banner-title"><?= $title; ?></span>
 							<?php } ?>
 							<?php if ($showDescription && $description) : ?>
