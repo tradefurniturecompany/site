@@ -9,19 +9,19 @@ $cfg  = $b->getSliderConfiguration();
  * 2) The `lazyLoad` feature does not have an UI backend setting for an unknown reason,
  * so the feature can be enabled only programmatically.
  */
-$sliderGeneral = ['lazyLoad' => 1] + $cfg['slider_config'];
-if (dfa($sliderGeneral, 'status')) {
+$cfgG = ['lazyLoad' => 1] + $cfg['slider_config'];
+if (dfa($cfgG, 'status')) {
 	$sliderId = $b->getData('slider_id');
 	$breakpoint = $b->getBreakpointConfiguration();
 	$bannerConfig = $cfg['banner_config'];
-	$cfg = json_encode($sliderGeneral);
+	$cfg = json_encode($cfgG);
 	$mediaUrl = $b->getMediaUrl();
 	$isGatEnabled = $b->isGatEnabled();
 	?>
 
-	<?php if ($sliderGeneral['show_title'] && trim($sliderGeneral['title'])) : ?>
+	<?php if ($cfgG['show_title'] && trim($cfgG['title'])) : ?>
 		<div class="content-heading">
-			<h2 class="title"><?php echo $sliderGeneral['title']; ?></h2>
+			<h2 class="title"><?php echo $cfgG['title']; ?></h2>
 		</div>
 	<?php endif; ?>
 
@@ -70,11 +70,11 @@ if (dfa($sliderGeneral, 'status')) {
 							<?php endif; ?>
 							<span class="banner-image">
 								<img
-									<?php if (!$sliderGeneral['lazyLoad']) : ?>
+									<?php if (!$cfgG['lazyLoad']) : ?>
 									src="<?php echo $mediaUrl . $image; ?>"
 									<?php endif; ?>
 									 alt="<?php echo $altText; ?>" title="<?php echo $altText; ?>"
-									<?php echo $sliderGeneral['lazyLoad'] ? 'data-src="' . $mediaUrl
+									<?php echo $cfgG['lazyLoad'] ? 'data-src="' . $mediaUrl
 										. $image . '" data-src-retina="' . $mediaUrl . $image
 										. '" class="owl-lazy"' : ''
 									?>
