@@ -14,7 +14,7 @@ class Banners extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Slider
     /**
      * Dispatch request
      */
-    public function execute()
+    function execute()
     {
         $resultLayout = $this->_resultLayoutFactory->create();
         

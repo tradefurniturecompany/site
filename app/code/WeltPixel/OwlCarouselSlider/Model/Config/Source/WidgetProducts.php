@@ -8,7 +8,7 @@ class WidgetProducts implements \Magento\Framework\Option\ArrayInterface
      *
      * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             ['value' => '0', 'label' => __('Select Products Slider...')],

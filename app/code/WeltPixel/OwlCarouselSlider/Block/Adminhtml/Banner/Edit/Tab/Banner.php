@@ -50,7 +50,7 @@ class Banner extends \Magento\Backend\Block\Widget\Form\Generic
      * @param \WeltPixel\OwlCarouselSlider\Model\Status                                $status
      * @param array                                                                    $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
@@ -541,7 +541,7 @@ done also later from Sliders Manager > Edit or Add New
      *
      * @return \WeltPixel\OwlCarouselSlider\Model\Banner
      */
-    public function getBanner()
+    function getBanner()
     {
         return $this->_coreRegistry->registry('banner');
     }
@@ -551,7 +551,7 @@ done also later from Sliders Manager > Edit or Add New
      *
      * @return \Magento\Framework\Phrase
      */
-    public function getPageTitle()
+    function getPageTitle()
     {
         return $this->getBanner()->getId()
             ? __("Edit Banner '%1'", $this->escapeHtml($this->getBanner()->getTitle())) : __('New Banner');
@@ -562,7 +562,7 @@ done also later from Sliders Manager > Edit or Add New
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return __('Banner Details');
     }
@@ -572,7 +572,7 @@ done also later from Sliders Manager > Edit or Add New
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return __('Banner Details');
     }
@@ -583,7 +583,7 @@ done also later from Sliders Manager > Edit or Add New
      * @return boolean
      * @api
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -594,7 +594,7 @@ done also later from Sliders Manager > Edit or Add New
      * @return boolean
      * @api
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }
@@ -604,7 +604,7 @@ done also later from Sliders Manager > Edit or Add New
      *
      * @return boolean
      */
-    public function showGaFields()
+    function showGaFields()
     {
         $sysPath = 'weltpixel_owl_slider_config/general/enable_google_tracking';
         return $this->_scopeConfig->getValue($sysPath, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);

@@ -54,7 +54,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      * @param \WeltPixel\OwlCarouselSlider\Model\Status                              $status
      * @param array                                                                  $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
@@ -563,7 +563,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      *
      * @return Magento\Config\Model\Config\Structure\Element\Dependency\Field [description]
      */
-    public function getDependencyField($refField, $negative = false, $separator = ',', $fieldPrefix = '')
+    function getDependencyField($refField, $negative = false, $separator = ',', $fieldPrefix = '')
     {
         return $this->_fieldFactory->create(
             ['fieldData' => [
@@ -575,7 +575,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         );
     }
 
-    public function getMappingFieldDependence()
+    function getMappingFieldDependence()
     {
         return [
             [
@@ -605,12 +605,12 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         ];
     }
 
-    public function getSlider()
+    function getSlider()
     {
         return $this->_coreRegistry->registry('slider');
     }
 
-    public function getPageTitle()
+    function getPageTitle()
     {
         return $this->getSlider()->getId()
             ? __("Edit Slider '%1'", $this->escapeHtml($this->getSlider()->getTitle()))
@@ -622,7 +622,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return __('Slider Details');
     }
@@ -632,7 +632,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return __('Slider Details');
     }
@@ -643,7 +643,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      * @return boolean
      * @api
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -654,7 +654,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
      * @return boolean
      * @api
      */
-    public function isHidden()
+    function isHidden()
     {
         return false;
     }

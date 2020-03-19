@@ -22,7 +22,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
      * @param Context $context
      * @param array   $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Widget\Context $context,
         \Magento\Framework\Registry $registry,
         array $data = []
@@ -101,7 +101,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
 		";
     }
 
-    public function getSlider()
+    function getSlider()
     {
         return $this->_coreRegistry->registry('slider');
     }
@@ -124,7 +124,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
      *
      * @return string
      */
-    public function getCreateBannerUrl()
+    function getCreateBannerUrl()
     {
         return $this->getUrl('*/banner/new', ['current_slider_id' => $this->getSlider()->getId()]);
     }

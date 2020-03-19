@@ -14,7 +14,7 @@ class Index extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Banner
     /**
      * Dispatch request
      */
-    public function execute()
+    function execute()
     {
         if ($this->getRequest()->getQuery('ajax')) {
             $resultForward = $this->_resultForwardFactory->create();

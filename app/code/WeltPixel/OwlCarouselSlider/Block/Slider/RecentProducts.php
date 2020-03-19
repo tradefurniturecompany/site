@@ -40,7 +40,7 @@ class RecentProducts extends \Magento\Catalog\Block\Product\AbstractProduct impl
      * @param \Magento\Reports\Block\Product\Widget\Viewed\Proxy $viewedProductsBlock
      * @param array $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Catalog\Block\Product\Context $context,
         \WeltPixel\OwlCarouselSlider\Helper\Products $helperProducts,
         \WeltPixel\OwlCarouselSlider\Helper\Custom $helperCustom,
@@ -70,7 +70,7 @@ class RecentProducts extends \Magento\Catalog\Block\Product\AbstractProduct impl
      *
      * @return array|\Magento\Catalog\Model\ResourceModel\Product\Collection
      */
-    public function getProductCollection()
+    function getProductCollection()
     {
         $productCollection =  $this->_getRecentlyViewedCollection($this->_productCollectionFactory->create());
         return $productCollection;
@@ -81,7 +81,7 @@ class RecentProducts extends \Magento\Catalog\Block\Product\AbstractProduct impl
      *
      * @return array
      */
-    public function getSliderConfiguration()
+    function getSliderConfiguration()
     {
         if (is_null($this->_sliderConfiguration)) {
             $this->_sliderConfiguration = $this->_helperProducts->getSliderConfigOptions(self::COLLECTION_TYPE);
@@ -95,7 +95,7 @@ class RecentProducts extends \Magento\Catalog\Block\Product\AbstractProduct impl
      *
      * @return array
      */
-    public function getBreakpointConfiguration()
+    function getBreakpointConfiguration()
     {
         return $this->_helperCustom->getBreakpointConfiguration();
     }
@@ -166,7 +166,7 @@ class RecentProducts extends \Magento\Catalog\Block\Product\AbstractProduct impl
      *
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeManager->getStore()->getId();
     }
@@ -177,7 +177,7 @@ class RecentProducts extends \Magento\Catalog\Block\Product\AbstractProduct impl
      * @param array $additional
      * @return string
      */
-    public function getCustomAddToCartUrl($product, $additional = [])
+    function getCustomAddToCartUrl($product, $additional = [])
     {
         $referer = $this->_request->getServer('HTTP_REFERER');
         $uenc = $this->_urlCoder->encode($referer);

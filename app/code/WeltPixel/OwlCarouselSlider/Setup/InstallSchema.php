@@ -22,7 +22,7 @@ class InstallSchema implements InstallSchemaInterface
      * @param ModuleContextInterface $context
      * @return void
      */
-    public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
+    function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
         $installer = $setup;
 

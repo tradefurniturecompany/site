@@ -39,7 +39,7 @@ class Collection extends \Magento\Reports\Model\ResourceModel\Product\Index\View
      * @param \Magento\Framework\App\Http\Context $httpContext
      * @param \Magento\Framework\DB\Adapter\AdapterInterface|null $connection
      */
-    public function __construct(
+    function __construct(
         \Magento\Framework\Data\Collection\EntityFactory $entityFactory,
         \Psr\Log\LoggerInterface $logger,
         \Magento\Framework\Data\Collection\Db\FetchStrategyInterface $fetchStrategy,

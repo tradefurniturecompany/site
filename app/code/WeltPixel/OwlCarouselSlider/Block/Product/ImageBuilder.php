@@ -15,7 +15,7 @@ class ImageBuilder extends \Magento\Catalog\Block\Product\ImageBuilder
      * @param \Magento\Catalog\Block\Product\ImageFactory $imageFactory
      * @param \WeltPixel\OwlCarouselSlider\Helper\Custom $_helperCustom
      */
-    public function __construct(
+    function __construct(
         HelperFactory $helperFactory,
         \Magento\Catalog\Block\Product\ImageFactory $imageFactory,
         \WeltPixel\OwlCarouselSlider\Helper\Custom $_helperCustom

@@ -14,7 +14,7 @@ class Delete extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Slider
     /**
      * Dispatch request
      */
-    public function execute()
+    function execute()
     {
         $sliderId = $this->getRequest()->getParam(static::PARAM_ID);
         try {

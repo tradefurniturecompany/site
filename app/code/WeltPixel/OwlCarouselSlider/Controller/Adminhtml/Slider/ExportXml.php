@@ -16,7 +16,7 @@ class ExportXml extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Slider
     /**
      * Dispatch request
      */
-    public function execute()
+    function execute()
     {
         $fileName = 'owlcarousel_sliders.xml';
 

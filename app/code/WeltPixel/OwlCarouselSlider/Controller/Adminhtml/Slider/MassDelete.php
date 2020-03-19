@@ -16,7 +16,7 @@ class MassDelete extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Slide
      *
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    public function execute()
+    function execute()
     {
         $sliderIds = $this->getRequest()->getParam('slider');
         

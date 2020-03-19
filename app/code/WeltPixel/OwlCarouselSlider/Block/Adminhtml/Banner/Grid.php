@@ -41,7 +41,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
      * @param \WeltPixel\OwlCarouselSlider\Model\Status                                 $status
      * @param array                                                                     $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
         \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Banner\CollectionFactory $bannerCollectionFactory,
@@ -198,7 +198,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
      *
      * @return array
      */
-    public function getSliderAvailableOption()
+    function getSliderAvailableOption()
     {
         $option = [];
 
@@ -260,7 +260,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
      *
      * @return string;
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/grid', ['_current' => true]);
     }
@@ -271,7 +271,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
      * @param \Magento\Catalog\Model\Product|\Magento\Framework\DataObject $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return $this->getUrl('*/*/edit', ['id' => $row->getId()]);
     }

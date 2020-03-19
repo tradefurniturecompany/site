@@ -47,7 +47,7 @@ class Banner extends \Magento\Framework\Model\AbstractModel
      * @param \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Slider\CollectionFactory $sliderCollectionFactory
      * @param \Magento\Store\Model\StoreManagerInterface                                $storeManager
      */
-    public function __construct(
+    function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Banner $resource,
@@ -69,7 +69,7 @@ class Banner extends \Magento\Framework\Model\AbstractModel
      *
      * @return string
      */
-    public function getFormFieldHtmlIdPrefix()
+    function getFormFieldHtmlIdPrefix()
     {
         return $this->_formFieldHtmlIdPrefix;
     }
@@ -79,7 +79,7 @@ class Banner extends \Magento\Framework\Model\AbstractModel
      *
      * @return []
      */
-    public function getAvailableSliders()
+    function getAvailableSliders()
     {
         $option[] = [
             'value' => '',
@@ -105,7 +105,7 @@ class Banner extends \Magento\Framework\Model\AbstractModel
      *
      * @return []
      */
-    public function getAvailableBannerType()
+    function getAvailableBannerType()
     {
         $options = [];
         $options[] = [

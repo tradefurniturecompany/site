@@ -33,7 +33,7 @@ class EditBanner extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\Abst
      * @param \WeltPixel\OwlCarouselSlider\Model\BannerFactory $bannerFactory
      * @param array                                            $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Context $context,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \WeltPixel\OwlCarouselSlider\Model\BannerFactory $bannerFactory,
@@ -51,7 +51,7 @@ class EditBanner extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\Abst
      *
      * @return string
      */
-    public function render(\Magento\Framework\DataObject $row)
+    function render(\Magento\Framework\DataObject $row)
     {
         return '<a href="' . $this->getUrl('*/banner/edit', ['_current' => false, 'id' => $row->getId()])
             . '" target="_blank">Edit</a> ';

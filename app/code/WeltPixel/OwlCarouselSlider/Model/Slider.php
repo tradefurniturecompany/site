@@ -32,7 +32,7 @@ class Slider extends \Magento\Framework\Model\AbstractModel
      * @param \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Slider                   $resource
      * @param \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Slider\Collection        $resourceCollection
      */
-    public function __construct(
+    function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Banner\CollectionFactory $bannerCollectionFactory,
@@ -62,7 +62,7 @@ class Slider extends \Magento\Framework\Model\AbstractModel
      *
      * @return \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Banner\Collection
      */
-    public function getSliderBanerCollection()
+    function getSliderBanerCollection()
     {
         return $this->_bannerCollectionFactory->create()->addFieldToFilter('slider_id', $this->getId());
     }

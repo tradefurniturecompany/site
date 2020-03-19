@@ -16,7 +16,7 @@ class Index extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Slider
      *
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    public function execute()
+    function execute()
     {
         if ($this->getRequest()->getQuery('ajax')) {
             $resultForward = $this->_resultForwardFactory->create();

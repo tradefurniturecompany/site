@@ -16,7 +16,7 @@ class MassDelete extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Banne
      * 
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    public function execute()
+    function execute()
     {
         $bannerIds = $this->getRequest()->getParam('banner');
         if (!is_array($bannerIds) || empty($bannerIds)) {

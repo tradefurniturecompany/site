@@ -16,7 +16,7 @@ class ExportExcel extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Bann
     /**
      * Dispatch request
      */
-    public function execute()
+    function execute()
     {
         $fileName = 'owlcarousel_banners.xls';
 

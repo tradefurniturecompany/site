@@ -51,7 +51,7 @@ class Index extends \Magento\Framework\App\Action\Action
      * @param RawFactory $resultRawFactory
      * @param PageFactory $resultPageFactory
      */
-    public function __construct(
+    function __construct(
         Context $context,
         Data $jsonHelper,
         LoggerInterface $logger,
@@ -76,7 +76,7 @@ class Index extends \Magento\Framework\App\Action\Action
      *
      * @return \Magento\Framework\Controller\ResultInterface
      */
-    public function execute()
+    function execute()
     {
         $isAjax = false;
         $responseData = [];
@@ -122,7 +122,7 @@ class Index extends \Magento\Framework\App\Action\Action
      *
      * @return \Magento\Framework\Controller\ResultInterface
      */
-    public function jsonResponse($response = '')
+    function jsonResponse($response = '')
     {
         return $this->getResponse()->representJson(
             $this->_jsonHelper->jsonEncode($response)

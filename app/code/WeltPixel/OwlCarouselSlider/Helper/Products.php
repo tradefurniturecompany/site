@@ -23,7 +23,7 @@ class Products extends \Magento\Framework\App\Helper\AbstractHelper
     /**
      * @param \Magento\Framework\App\Helper\Context  $context
      */
-    public function __construct(
+    function __construct(
         \Magento\Framework\App\Helper\Context $context
     ) {
         parent::__construct($context);
@@ -37,7 +37,7 @@ class Products extends \Magento\Framework\App\Helper\AbstractHelper
      * @param $type
      * @return array
      */
-    public function getSliderConfigOptions($type)
+    function getSliderConfigOptions($type)
     {
         $configFields = [
             'status',
@@ -136,7 +136,7 @@ class Products extends \Magento\Framework\App\Helper\AbstractHelper
      * @param string $type
      * @return int
      */
-    public function getProductLimit($type)
+    function getProductLimit($type)
     {
         $configPath = self::SYS_PATH . $type . '/max_items';
         
@@ -149,7 +149,7 @@ class Products extends \Magento\Framework\App\Helper\AbstractHelper
      * @param string $type
      * @return int
      */
-    public function getRandomSort($type)
+    function getRandomSort($type)
     {
         $configPath = self::SYS_PATH . $type . '/random_sort';
 
@@ -162,7 +162,7 @@ class Products extends \Magento\Framework\App\Helper\AbstractHelper
      * @param string $type
      * @return array
      */
-    public function getSliderConfiguration($type)
+    function getSliderConfiguration($type)
     {
         switch($type){
             case 'related':

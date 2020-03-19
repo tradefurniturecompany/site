@@ -15,7 +15,7 @@ class Categories implements \Magento\Framework\Option\ArrayInterface
      * @param \Magento\Catalog\Helper\Category                    $categoryHelper
      * @param array $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Catalog\Helper\Category $categoryHelper,
         \Magento\Catalog\Model\Indexer\Category\Flat\State $categoryFlatState
@@ -32,7 +32,7 @@ class Categories implements \Magento\Framework\Option\ArrayInterface
      * @param bool $toLoad
      * @return \Magento\Framework\Data\Tree\Node\Collection|\Magento\Catalog\Model\Resource\Category\Collection|array
      */
-    public function getStoreCategories($sorted = false, $asCollection = false, $toLoad = true)
+    function getStoreCategories($sorted = false, $asCollection = false, $toLoad = true)
     {
         return $categories = $this->_categoryHelper->getStoreCategories($sorted , $asCollection, $toLoad);
     }
@@ -44,7 +44,7 @@ class Categories implements \Magento\Framework\Option\ArrayInterface
      * @param null $arr
      * @return null|array
      */
-    public function getChildCategories($category, $arr=null)
+    function getChildCategories($category, $arr=null)
     {
         if ($this->categoryFlatConfig->isFlatEnabled() && $category->getUseFlatResource()) {
             $subcategories = (array)$category->getChildrenNodes();
@@ -69,7 +69,7 @@ class Categories implements \Magento\Framework\Option\ArrayInterface
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $categories = $this->getStoreCategories();
         $options = [];
