@@ -26,10 +26,6 @@ if (dfa($cfgG, 'status')) {
 		<div class='owl-carousel-custom-<?= $sliderId;?>'>
 			<?php
 			foreach ($bnConfig as $bn) { /** @var array(string => string) $bn */
-				$description = (array_key_exists('description', $bn) && $bn['description'] !='')
-				? $bn['description'] : false;
-				$showDescription = array_key_exists('show_description', $bn)
-				? $bn['show_description'] : false;
 				$url = array_key_exists('url', $bn) ? $bn['url'] : null;
 				$target = array_key_exists('target', $bn) ? $bn['target'] : '_blank';
 				$bnType = array_key_exists('banner_type', $bn) ? $bn['banner_type'] : '';
@@ -103,9 +99,11 @@ if (dfa($cfgG, 'status')) {
 							<?php if (dfa($bn, 'show_title') && ($title = dfa($bn, 'title'))) { ?>
 								<span class="banner-title"><?= $title; ?></span>
 							<?php } ?>
-							<?php if ($showDescription && $description) : ?>
+							<?php if (
+								($showDescription = dfa($bn, 'show_description'))
+								&& ($description = dfa($bn, 'description'))) { ?>
 								<span class="banner-description"><?= $description; ?></span>
-							<?php endif; ?>
+							<?php } ?>
 							<div class="buttons">
 								<?php if ($customCss): ?>
 									<style scoped>
