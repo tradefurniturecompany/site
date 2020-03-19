@@ -37,6 +37,10 @@ class Custom extends \Magento\Framework\View\Element\Template implements \Magent
 		return $this->_filterProvider->getBlockFilter()->setStoreId($storeId)->filter($video);
 	}
 
+	/**
+	 * @used-by app/code/WeltPixel/OwlCarouselSlider/view/frontend/templates/sliders/custom.phtml
+	 * @return \Magento\Framework\DataObject
+	 */
 	function getSliderConfiguration() {
 		$sliderId = $this->getData('slider_id');
 		if ($this->_sliderId != $sliderId) {
