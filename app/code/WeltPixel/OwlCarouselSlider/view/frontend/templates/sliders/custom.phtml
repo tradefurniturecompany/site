@@ -21,12 +21,12 @@ if (dfa($cfgG, 'status')) {
 
 	<?php if ($cfgG['show_title'] && trim($cfgG['title'])) : ?>
 		<div class="content-heading">
-			<h2 class="title"><?php echo $cfgG['title']; ?></h2>
+			<h2 class="title"><?= $cfgG['title']; ?></h2>
 		</div>
 	<?php endif; ?>
 
 	<div class="custom-slider">
-		<div class="owl-carousel-custom-<?php echo $sliderId;?>">
+		<div class="owl-carousel-custom-<?= $sliderId;?>">
 			<?php foreach($bannerConfig as $banner) : ?>
 				<?php
 					$title = (array_key_exists('title', $banner) && $banner['title'] !='') ? $banner['title'] : false;
@@ -52,18 +52,18 @@ if (dfa($cfgG, 'status')) {
 					$gaPromoPosition = array_key_exists('ga_promo_position', $banner) ? $banner['ga_promo_position'] : '';
 				?>
 
-					<div class="banner-item banner-<?php echo $banner['id']; ?>">
+					<div class="banner-item banner-<?= $banner['id']; ?>">
 						<?php if ($bannerType == 1) : ?>
 							<?php if (!$buttonText): ?>
 								<?php if (isset($url)): ?>
 									<a
-										href="<?php echo $url; ?>"
-										target="<?php echo $target; ?>"
+										href="<?= $url; ?>"
+										target="<?= $target; ?>"
 										<?php if($isGatEnabled):?>
-											data-track-promo-id="<?php echo $gaPromoId; ?>"
-											data-track-promo-name="<?php echo $gaPromoName; ?>"
-											data-track-promo-creative="<?php echo $gaPromoCreative; ?>"
-											data-track-promo-position="<?php echo $gaPromoPosition; ?>"
+											data-track-promo-id="<?= $gaPromoId; ?>"
+											data-track-promo-name="<?= $gaPromoName; ?>"
+											data-track-promo-creative="<?= $gaPromoCreative; ?>"
+											data-track-promo-position="<?= $gaPromoPosition; ?>"
 										<?php endif;?>
 									>
 								<?php endif; ?>
@@ -71,10 +71,10 @@ if (dfa($cfgG, 'status')) {
 							<span class="banner-image">
 								<img
 									<?php if (!$cfgG['lazyLoad']) : ?>
-									src="<?php echo $mediaUrl . $image; ?>"
+									src="<?= $mediaUrl . $image; ?>"
 									<?php endif; ?>
-									 alt="<?php echo $altText; ?>" title="<?php echo $altText; ?>"
-									<?php echo $cfgG['lazyLoad'] ? 'data-src="' . $mediaUrl
+									 alt="<?= $altText; ?>" title="<?= $altText; ?>"
+									<?= $cfgG['lazyLoad'] ? 'data-src="' . $mediaUrl
 										. $image . '" data-src-retina="' . $mediaUrl . $image
 										. '" class="owl-lazy"' : ''
 									?>
@@ -89,11 +89,11 @@ if (dfa($cfgG, 'status')) {
 						<?php elseif ($bannerType == 3) : ?>
 							<?php if (!$buttonText): ?>
 								<?php if ($url): ?>
-									<a href="<?php echo $url; ?>" target="<?php echo $target; ?>" >
+									<a href="<?= $url; ?>" target="<?= $target; ?>" >
 								<?php endif; ?>
 							<?php endif; ?>
 								<span class="banner-custom">
-									<?php echo $custom; ?>
+									<?= $custom; ?>
 								</span>
 							<?php if (!$buttonText): ?>
 								<?php if ($url): ?>
@@ -102,40 +102,40 @@ if (dfa($cfgG, 'status')) {
 							<?php endif; ?>
 						<?php elseif ($bannerType == 2) : ?>
 							<span class="banner-video">
-								<?php echo $b->getVideoHtml($video);  ?>
+								<?= $b->getVideoHtml($video);  ?>
 							</span>
 						<?php endif; ?>
 						<div class="content_slider">
 							<?php if ($showTitle && $title) : ?>
-								<span class="banner-title"><?php echo $title; ?></span>
+								<span class="banner-title"><?= $title; ?></span>
 							<?php endif; ?>
 
 							<?php if ($showDescription && $description) : ?>
-								<span class="banner-description"><?php echo $description; ?></span>
+								<span class="banner-description"><?= $description; ?></span>
 							<?php endif; ?>
 
 							<div class="buttons">
 								<?php if ($customCss): ?>
 									<style scoped>
-										<?php echo $customCss; ?>
+										<?= $customCss; ?>
 									</style>
 								<?php endif; ?>
 								<?php if ($buttonText && $url): ?>
-									<a class="action primary" href="<?php echo $url; ?>" target="<?php echo $target; ?>"
+									<a class="action primary" href="<?= $url; ?>" target="<?= $target; ?>"
 										<?php if($isGatEnabled):?>
-											data-track-promo-id="<?php echo $gaPromoId; ?>"
-											data-track-promo-name="<?php echo $gaPromoName; ?>"
-											data-track-promo-creative="<?php echo $gaPromoCreative; ?>"
-											data-track-promo-position="<?php echo $gaPromoPosition; ?>"
+											data-track-promo-id="<?= $gaPromoId; ?>"
+											data-track-promo-name="<?= $gaPromoName; ?>"
+											data-track-promo-creative="<?= $gaPromoCreative; ?>"
+											data-track-promo-position="<?= $gaPromoPosition; ?>"
 										<?php endif;?>
 									>
-										<?php echo $buttonText; ?>
+										<?= $buttonText; ?>
 									</a>
 								<?php endif; ?>
 								<?php if ($customContent): ?>
 									<div class="clearfix"></div>
 									<div class="custom_content">
-										<?php echo $customContent; ?>
+										<?= $customContent; ?>
 									</div>
 								<?php endif; ?>
 							</div>
@@ -158,8 +158,8 @@ if (dfa($cfgG, 'status')) {
 			function ($) {
 				$(document).ready(function() {
 
-					var slider_id = <?php echo $sliderId; ?>;
-					var slider_config = <?php echo $cfg; ?>;
+					var slider_id = <?= $sliderId; ?>;
+					var slider_config = <?= $cfg; ?>;
 
 					var items = ((slider_config.items >= 0 && slider_config.items != null) ? slider_config.items : 1);
 					if(slider_config.transition != 'slide') {
@@ -196,19 +196,19 @@ if (dfa($cfgG, 'status')) {
 
 
 						responsive:{
-							<?php echo $breakpoint['breakpoint_1']; ?>:{
+							<?= $breakpoint['breakpoint_1']; ?>:{
 								nav     :parseInt(slider_config.nav_brk1) == 1 ? true : false,
 								items   :parseInt(slider_config.items_brk1  >= 0 ? slider_config.items_brk1 : 0),
 							},
-							<?php echo $breakpoint['breakpoint_2']; ?>:{
+							<?= $breakpoint['breakpoint_2']; ?>:{
 								nav     :parseInt(slider_config.nav_brk2) == 1 ? true : false,
 								items   :parseInt(slider_config.items_brk2  >= 0 ? slider_config.items_brk2 : 0),
 							},
-							<?php echo $breakpoint['breakpoint_3']; ?>:{
+							<?= $breakpoint['breakpoint_3']; ?>:{
 								nav     :parseInt(slider_config.nav_brk3) == 1 ? true : false,
 								items   :parseInt(slider_config.items_brk3  >= 0 ? slider_config.items_brk3 : 0),
 							},
-							<?php echo $breakpoint['breakpoint_4']; ?>:{
+							<?= $breakpoint['breakpoint_4']; ?>:{
 								nav     :parseInt(slider_config.nav_brk4) == 1 ? true : false,
 								items   :parseInt(slider_config.items_brk4  >= 0 ? slider_config.items_brk4 : 0),
 							}
