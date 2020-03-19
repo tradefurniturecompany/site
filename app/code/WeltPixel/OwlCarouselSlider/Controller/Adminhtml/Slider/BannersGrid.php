@@ -14,7 +14,7 @@ class BannersGrid extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Slid
     /**
      * Dispatch request
      */
-    public function execute()
+    function execute()
     {
         $resultLayout = $this->_resultLayoutFactory->create();
         

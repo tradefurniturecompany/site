@@ -18,7 +18,7 @@ class Save extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Banner
      *
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    public function execute()
+    function execute()
     {
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();

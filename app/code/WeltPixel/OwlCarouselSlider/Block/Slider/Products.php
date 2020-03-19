@@ -37,7 +37,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      * @param array $data
      */
 
-    public function __construct(
+    function __construct(
         \Magento\Catalog\Block\Product\Context $context,
         \WeltPixel\OwlCarouselSlider\Helper\Products $helperProducts,
         \WeltPixel\OwlCarouselSlider\Helper\Custom $helperCustom,
@@ -84,7 +84,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return array
      */
-    public function getCacheKeyInfo()
+    function getCacheKeyInfo()
     {
         return [
             'WELTPIXEL_PRODUCTS_LIST_WIDGET',
@@ -101,7 +101,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return array|\Magento\Catalog\Model\ResourceModel\Product\Collection
      */
-    public function getProductCollection()
+    function getProductCollection()
     {
         $productsType = $this->getData('products_type');
 
@@ -139,7 +139,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return array
      */
-    public function getSliderConfiguration()
+    function getSliderConfiguration()
     {
         $productsType = $this->getData('products_type');
 
@@ -156,7 +156,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return array
      */
-    public function getBreakpointConfiguration()
+    function getBreakpointConfiguration()
     {
         return $this->_helperCustom->getBreakpointConfiguration();
     }
@@ -363,7 +363,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return \Magento\Catalog\Model\ResourceModel\Product\Collection
      */
-    public function getProductCollectionRelated()
+    function getProductCollectionRelated()
     {
         if (!$this->_currentProduct) {
             return [];
@@ -377,7 +377,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return array
      */
-    public function getRelatedProducts($currentProduct)
+    function getRelatedProducts($currentProduct)
     {
         if (!$currentProduct->hasRelatedProducts()) {
             $products = [];
@@ -397,7 +397,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return \Magento\Catalog\Model\ResourceModel\Product\Collection
      */
-    public function getProductCollectionUpSell()
+    function getProductCollectionUpSell()
     {
         if(!$this->_currentProduct) {
             return [];
@@ -410,7 +410,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return array
      */
-    public function getUpSellProducts($currentProduct)
+    function getUpSellProducts($currentProduct)
     {
         if (!$currentProduct->hasUpSellProducts()) {
             $products = [];
@@ -430,7 +430,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return \Magento\Catalog\Model\ResourceModel\Product\Collection
      */
-    public function getProductCollectionCrossSell()
+    function getProductCollectionCrossSell()
     {
         if(!$this->_currentProduct) {
             return [];
@@ -444,7 +444,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      *
      * @return array
      */
-    public function getCrossSellProducts($currentProduct)
+    function getCrossSellProducts($currentProduct)
     {
         if (!$currentProduct->hasCrossSellProducts()) {
             $products = [];
@@ -485,7 +485,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      * Get start of day date.
      * @return string
      */
-    public function getStartOfDayDate()
+    function getStartOfDayDate()
     {
         return $this->_localeDate->date()->setTime(0, 0, 0)->format('Y-m-d H:i:s');
     }
@@ -494,7 +494,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      * Get end of day date.
      * @return string
      */
-    public function getEndOfDayDate()
+    function getEndOfDayDate()
     {
         return $this->_localeDate->date()->setTime(23, 59, 59)->format('Y-m-d H:i:s');
     }
@@ -504,7 +504,7 @@ class Products extends \Magento\Catalog\Block\Product\AbstractProduct implements
      * 
      * @return int
      */
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeManager->getStore()->getId();
     }

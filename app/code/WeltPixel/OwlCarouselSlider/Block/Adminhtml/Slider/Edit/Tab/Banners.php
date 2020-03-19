@@ -36,7 +36,7 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
      * @param \WeltPixel\OwlCarouselSlider\Model\Status                                 $status
      * @param array                                                                     $data
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
         \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Banner\CollectionFactory $bannerCollectionFactory,
@@ -229,7 +229,7 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
     /**
      * @return string
      */
-    public function getGridUrl()
+    function getGridUrl()
     {
         return $this->getUrl('*/*/bannersgrid', ['_current' => true]);
     }
@@ -239,7 +239,7 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
      * @param  object $row
      * @return string
      */
-    public function getRowUrl($row)
+    function getRowUrl($row)
     {
         return '';
     }
@@ -248,7 +248,7 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
      * Get selected slider banners
      * @return array
      */
-    public function getSelectedSliderBanners()
+    function getSelectedSliderBanners()
     {
         $sliderId = $this->getRequest()->getParam('id');
         if (!isset($sliderId)) {
@@ -284,7 +284,7 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
      *
      * @return string
      */
-    public function getTabLabel()
+    function getTabLabel()
     {
         return __('Banners');
     }
@@ -294,7 +294,7 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
      *
      * @return string
      */
-    public function getTabTitle()
+    function getTabTitle()
     {
         return __('Banners');
     }
@@ -302,7 +302,7 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
     /**
      * {@inheritdoc}
      */
-    public function canShowTab()
+    function canShowTab()
     {
         return true;
     }
@@ -310,7 +310,7 @@ class Banners extends \Magento\Backend\Block\Widget\Grid\Extended
     /**
      * {@inheritdoc}
      */
-    public function isHidden()
+    function isHidden()
     {
         return true;
     }

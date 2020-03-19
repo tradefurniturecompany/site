@@ -13,7 +13,7 @@ class Truefalse implements \Magento\Framework\Option\ArrayInterface
      *
      * @return array
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             [
@@ -32,7 +32,7 @@ class Truefalse implements \Magento\Framework\Option\ArrayInterface
      *
      * @return array
      */
-    public function toArray()
+    function toArray()
     {
         return [
             1 => __('True'),

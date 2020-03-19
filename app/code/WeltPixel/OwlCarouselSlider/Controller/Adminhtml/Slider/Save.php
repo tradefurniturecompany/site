@@ -18,7 +18,7 @@ class Save extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Slider
      *
      * @return $this|\Magento\Framework\Controller\Result\Redirect
      */
-    public function execute()
+    function execute()
     {
         $resultRedirect = $this->resultRedirectFactory->create();
         $formPostValues = $this->getRequest()->getPostValue();

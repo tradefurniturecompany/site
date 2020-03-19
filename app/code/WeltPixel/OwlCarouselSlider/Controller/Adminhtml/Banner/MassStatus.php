@@ -16,7 +16,7 @@ class MassStatus extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Banne
      *
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    public function execute()
+    function execute()
     {
         $bannerIds = $this->getRequest()->getParam('banner');
         $status = $this->getRequest()->getParam('status');

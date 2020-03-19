@@ -32,7 +32,7 @@ class Custom extends \Magento\Framework\App\Helper\AbstractHelper
      * @param \Magento\Framework\App\Helper\Context              $context
      * @param \WeltPixel\OwlCarouselSlider\Model\Slider          $sliderModel
      */
-    public function __construct(
+    function __construct(
         \Magento\Framework\App\Helper\Context $context,
         \WeltPixel\OwlCarouselSlider\Model\Slider $sliderModel,
         \Magento\Framework\Stdlib\DateTime\DateTime $date
@@ -50,7 +50,7 @@ class Custom extends \Magento\Framework\App\Helper\AbstractHelper
      * @param $sliderId
      * @return \Magento\Framework\DataObject
      */
-    public function getSliderConfigOptions($sliderId)
+    function getSliderConfigOptions($sliderId)
     {
         if($this->_sliderId != $sliderId && is_null($this->_configFieldsSlider)) {
 
@@ -169,7 +169,7 @@ class Custom extends \Magento\Framework\App\Helper\AbstractHelper
      * 
      * @return array
      */
-    public function getBreakpointConfiguration()
+    function getBreakpointConfiguration()
     {
         $configPaths = [
             'breakpoint_1',
@@ -193,7 +193,7 @@ class Custom extends \Magento\Framework\App\Helper\AbstractHelper
      *
      * @return array
      */
-    public function getDisplaySocial()
+    function getDisplaySocial()
     {
         $configPaths = [
             'display_wishlist',
@@ -229,7 +229,7 @@ class Custom extends \Magento\Framework\App\Helper\AbstractHelper
      * @param \WeltPixel\OwlCarouselSlider\Model\Banner $banner
      * @return bool
      */
-    public function validateBannerDisplayDate($banner)
+    function validateBannerDisplayDate($banner)
     {
         $validFrom = $banner->getValidFrom();
         $validTo   = $banner->getValidTo();
@@ -243,13 +243,13 @@ class Custom extends \Magento\Framework\App\Helper\AbstractHelper
         return false;
     }
 
-    public function isGatEnabled()
+    function isGatEnabled()
     {
         $sysPath = 'weltpixel_owl_slider_config/general/enable_google_tracking';
         return $this->_scopeConfig->getValue($sysPath, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 
-    public function isHoverImageEnabled() {
+    function isHoverImageEnabled() {
         return false;
     }
 }

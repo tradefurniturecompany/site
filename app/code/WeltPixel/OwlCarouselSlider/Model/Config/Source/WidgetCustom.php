@@ -16,7 +16,7 @@ class WidgetCustom extends \Magento\Framework\Model\AbstractModel implements \Ma
      *
      * @param \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Slider\CollectionFactory   $slideCollectionFactory
      */
-    public function __construct(
+    function __construct(
         \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Slider\CollectionFactory $slideCollectionFactory
 
     ) {
@@ -28,7 +28,7 @@ class WidgetCustom extends \Magento\Framework\Model\AbstractModel implements \Ma
      *
      * @return \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Slider\Collection
      */
-    public function getSliderCollection()
+    function getSliderCollection()
     {
         $collection = $this->_slideCollectionFactory->create();
 
@@ -40,7 +40,7 @@ class WidgetCustom extends \Magento\Framework\Model\AbstractModel implements \Ma
      *
      * @return array Format: array(array('value' => '<value>', 'label' => '<label>'), ...)
      */
-    public function toOptionArray()
+    function toOptionArray()
     {
         $sliderCollection = $this->getSliderCollection();
 

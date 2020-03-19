@@ -16,7 +16,7 @@ class Edit extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Slider
      *
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    public function execute()
+    function execute()
     {
         $resultPage = $this->_resultPageFactory->create();
 

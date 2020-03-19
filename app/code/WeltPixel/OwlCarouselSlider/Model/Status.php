@@ -19,7 +19,7 @@ class Status
      *
      * @return []
      */
-    public function getAllAvailableStatuses()
+    function getAllAvailableStatuses()
     {
         return [
             self::STATUS_ENABLED  => __('Enabled'),

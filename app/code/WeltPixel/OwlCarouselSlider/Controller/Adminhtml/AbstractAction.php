@@ -88,7 +88,7 @@ abstract class AbstractAction extends \Magento\Backend\App\Action
      * @param \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Banner\CollectionFactory  $bannerCollectionFactory
      * @param \WeltPixel\OwlCarouselSlider\Model\ResourceModel\Slider\CollectionFactory  $sliderCollectionFactory
      */
-    public function __construct(
+    function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $coreRegistry,
         \Magento\Framework\App\Response\Http\FileFactory $fileFactory,

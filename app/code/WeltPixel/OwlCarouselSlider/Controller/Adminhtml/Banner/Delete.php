@@ -15,7 +15,7 @@ class Delete extends \WeltPixel\OwlCarouselSlider\Controller\Adminhtml\Banner
      * Dispatch request
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    public function execute()
+    function execute()
     {
         $bannerId = $this->getRequest()->getParam(static::PARAM_ID);
 

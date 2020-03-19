@@ -22,7 +22,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @param \Magento\Framework\App\Helper\Context          $context
      * @param \Magento\Store\Model\StoreManagerInterface     $storeManager
      */
-    public function __construct(
+    function __construct(
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Backend\Model\UrlInterface $backendUrl
     ) {
@@ -35,7 +35,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * get Slider Banner Url
      * @return string
      */
-    public function getSliderBannerUrl()
+    function getSliderBannerUrl()
     {
         return $this->_backendUrl->getUrl('*/*/banners', ['_current' => true]);
     }
@@ -46,7 +46,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @param $product
      * @return mixed
      */
-    public function getRelatedProducts($product)
+    function getRelatedProducts($product)
     {
         return $product->getRelatedProducts();
     }
@@ -57,7 +57,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @param $product
      * @return mixed
      */
-    public function getUpsellProducts($product)
+    function getUpsellProducts($product)
     {
         return $product->getUpSellProducts();
     }
@@ -68,7 +68,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @param $product
      * @return mixed
      */
-    public function getCrosssellProducts($product)
+    function getCrosssellProducts($product)
     {
         return $product->getCrossSellProducts();
     }

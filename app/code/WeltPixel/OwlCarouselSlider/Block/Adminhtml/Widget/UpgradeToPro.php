@@ -13,7 +13,7 @@ class UpgradeToPro extends \Magento\Backend\Block\Widget\Grid\Extended
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element Form Element
      * @return \Magento\Framework\Data\Form\Element\AbstractElement
      */
-    public function prepareElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    function prepareElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
     {
         $upgradeText = __('<a target="_blank" href="https://www.weltpixel.com/owl-carousel-and-slider.html">Upgrade to Pro version</a> to enable this functionality.');
         $element->setData('after_element_html', $upgradeText);

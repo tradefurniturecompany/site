@@ -18,7 +18,7 @@ class MobileImage extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\Abs
      *
      * @return string
      */
-    public function render(\Magento\Framework\DataObject $row)
+    function render(\Magento\Framework\DataObject $row)
     {
         return '<a target="_blank" href="https://www.weltpixel.com/owl-carousel-and-slider.html">Upgrade to Pro version</a><br/>to enable this functionality.';
     }

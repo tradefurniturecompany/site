@@ -21,7 +21,7 @@ class Element extends \Magento\Backend\Block\Widget\Form\Renderer\Fieldset\Eleme
      *
      * @return string
      */
-    public function getElementName()
+    function getElementName()
     {
         return $this->getElement()->getName();
     }
@@ -31,7 +31,7 @@ class Element extends \Magento\Backend\Block\Widget\Form\Renderer\Fieldset\Eleme
      *
      * @return string
      */
-    public function getElementLabelHtml()
+    function getElementLabelHtml()
     {
         $element = $this->getElement();
         $label   = $element->getLabel();
@@ -48,7 +48,7 @@ class Element extends \Magento\Backend\Block\Widget\Form\Renderer\Fieldset\Eleme
      *
      * @return string
      */
-    public function getElementHtml()
+    function getElementHtml()
     {
         return $this->getElement()->getElementHtml();
     }
