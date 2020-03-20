@@ -26,22 +26,15 @@ if (dfa($cfgG, 'status')) {
 		<div class='owl-carousel-custom-<?= $sliderId;?>'>
 			<?php
 			foreach ($bnConfig as $bn) { /** @var array(string => string) $bn */
-				$url = array_key_exists('url', $bn) ? $bn['url'] : null;
-				$target = array_key_exists('target', $bn) ? $bn['target'] : '_blank';
-				$bnType = array_key_exists('banner_type', $bn) ? $bn['banner_type'] : '';
-				$image = array_key_exists('image', $bn) ? $bn['image'] : '';
-				$altText = array_key_exists('alt_text', $bn) ? $bn['alt_text'] : '';
-				$video = array_key_exists('video', $bn) ? $bn['video'] : '';
-				$custom = array_key_exists('custom', $bn) ? $bn['custom'] : '';
-				$buttonText = array_key_exists('button_text', $bn) ? $bn['button_text'] : null;
-				$customContent = array_key_exists('custom_content', $bn) ? $bn['custom_content'] : '';
-				$customCss = array_key_exists('custom_css', $bn) ? $bn['custom_css'] : '';
-				$gaPromoId = array_key_exists('ga_promo_id', $bn) ? $bn['ga_promo_id'] : '';
-				$gaPromoName = array_key_exists('ga_promo_name', $bn) ? $bn['ga_promo_name'] : '';
-				$gaPromoCreative = array_key_exists('ga_promo_creative', $bn) ? $bn['ga_promo_creative'] : '';
-				$gaPromoPosition = array_key_exists('ga_promo_position', $bn) ? $bn['ga_promo_position'] : '';
+				$url = dfa($bn, 'url'); /** @var string $url */
+				$target = dfa($bn, 'target', '_blank'); /** @var string $target */
+				$bnType = (int)dfa($bn, 'banner_type'); /** @var int $bnType */
+				$buttonText = dfa($bn, 'button_text'); /** @var string $buttonText */
+				$gaPromoId = dfa($bn, 'ga_promo_id'); /** @var string $gaPromoId */
+				$gaPromoName = dfa($bn, 'ga_promo_name'); /** @var string $gaPromoId */
+				$gaPromoCreative = dfa($bn, 'ga_promo_creative'); /** @var string $gaPromoCreative */
+				$gaPromoPosition = dfa($bn, 'ga_promo_position'); /** @var string $gaPromoPosition */
 				?>
-
 					<div class="banner-item banner-<?= $bn['id']; ?>">
 						<?php if ($bnType == 1) : ?>
 							<?php if (!$buttonText): ?>
@@ -59,16 +52,14 @@ if (dfa($cfgG, 'status')) {
 								<?php endif; ?>
 							<?php endif; ?>
 							<span class="banner-image">
-								<img
-									<?php if (!$cfgG['lazyLoad']) : ?>
-									src="<?= $mediaUrl . $image; ?>"
-									<?php endif; ?>
-									 alt="<?= $altText; ?>" title="<?= $altText; ?>"
-									<?= $cfgG['lazyLoad'] ? 'data-src="' . $mediaUrl
-										. $image . '" data-src-retina="' . $mediaUrl . $image
-										. '" class="owl-lazy"' : ''
-									?>
-								/>
+								<?php
+									$image = $mediaUrl . dfa($bn, 'image');
+									$altText = dfa($bn, 'alt_text'); /** @var string $altText */
+									echo df_tag('img', ['alt' => $altText, 'title' => $altText] + (!$cfgG['lazyLoad']
+										? ['src' => $image]
+										: ['class' => 'owl-lazy', 'data-src' => $image, 'data-src-retina' => $image]
+									));
+								?>
 							</span>
 							<?php if (!$buttonText): ?>
 								<?php if (isset($url)): ?>
@@ -82,9 +73,7 @@ if (dfa($cfgG, 'status')) {
 									<a href="<?= $url; ?>" target="<?= $target; ?>" >
 								<?php endif; ?>
 							<?php endif; ?>
-								<span class="banner-custom">
-									<?= $custom; ?>
-								</span>
+								<span class="banner-custom"><?= dfa($bn, 'custom') ?></span>
 							<?php if (!$buttonText): ?>
 								<?php if ($url): ?>
 									</a>
@@ -92,7 +81,7 @@ if (dfa($cfgG, 'status')) {
 							<?php endif; ?>
 						<?php elseif ($bnType == 2) : ?>
 							<span class="banner-video">
-								<?= $b->getVideoHtml($video);  ?>
+								<?= $b->getVideoHtml(dfa($bn, 'video')) ?>
 							</span>
 						<?php endif; ?>
 						<div class="content_slider">
@@ -105,12 +94,11 @@ if (dfa($cfgG, 'status')) {
 								<span class="banner-description"><?= $description; ?></span>
 							<?php } ?>
 							<div class="buttons">
-								<?php if ($customCss): ?>
-									<style scoped>
-										<?= $customCss; ?>
-									</style>
-								<?php endif; ?>
-								<?php if ($buttonText && $url): ?>
+								<?php
+								if ($customCss = dfa($bn, 'custom_css')) { /** @var string $customCss */?>
+									<style scoped><?= $customCss; ?></style>
+								<?php } ?>
+								<?php if ($buttonText && $url) { ?>
 									<a class="action primary" href="<?= $url; ?>" target="<?= $target; ?>"
 										<?php if($isGatEnabled):?>
 											data-track-promo-id="<?= $gaPromoId; ?>"
@@ -121,13 +109,11 @@ if (dfa($cfgG, 'status')) {
 									>
 										<?= $buttonText; ?>
 									</a>
-								<?php endif; ?>
-								<?php if ($customContent): ?>
+								<?php }
+								if ($customContent = dfa($bn, 'custom_content')) { ?>
 									<div class="clearfix"></div>
-									<div class="custom_content">
-										<?= $customContent; ?>
-									</div>
-								<?php endif; ?>
+									<div class="custom_content"><?= $customContent; ?></div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -141,7 +127,6 @@ if (dfa($cfgG, 'status')) {
 			</div>
 		</div>
 	</div>
-
 	<script>
 		require(['jquery', 'owl_carousel', 'owl_config' ],
 			function ($) {
