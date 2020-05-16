@@ -303,6 +303,7 @@ return [
         'Rcreek_ProductViewWoodSamples' => 1,
         'Rcreek_YoutubeVideo' => 1,
         'SpringImport_CatalogDropdownSort' => 1,
+        'TFC_Blog' => 1,
         'TFC_Core' => 1,
         'TFC_Report' => 1,
         'Temando_Shipping' => 0,
