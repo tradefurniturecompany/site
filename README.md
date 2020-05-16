@@ -14,7 +14,7 @@ composer require tradefurniturecompany/core:*
 composer require tradefurniturecompany/report:* 
 bin/magento setup:upgrade
 bin/magento cache:enable
-rm -rf var/di var/generation generated/code
+rm -rf var/di var/generation generated/*
 bin/magento setup:di:compile
 rm -rf pub/static/*
 bin/magento setup:static-content:deploy \
