@@ -17,6 +17,7 @@
         "mageplaza/magento-2-seo-extension": "^2.1",
         "mageplaza/module-core": "^1.3",
         "olegkoval/magento2-regenerate-url-rewrites": "*",
+        "tradefurniturecompany/blog": "*",
         "tradefurniturecompany/core": "*",
         "tradefurniturecompany/report": "*",
         "yireo/magento2-disablelog2": "*"
