@@ -7,10 +7,12 @@ sudo service nginx stop
 sudo service php-fpm stop
 bin/magento maintenance:enable      
 composer remove tradefurniturecompany/core
+composer remove tradefurniturecompany/blog
 composer remove tradefurniturecompany/report  
 rm -rf composer.lock
 composer clear-cache
 composer require tradefurniturecompany/core:*
+composer require tradefurniturecompany/blog:*
 composer require tradefurniturecompany/report:* 
 bin/magento setup:upgrade
 bin/magento cache:enable
