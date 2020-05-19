@@ -13,6 +13,7 @@
     "require": {
         "elgentos/regenerate-catalog-urls": "*",
         "fishpig/magento2-wordpress-integration": "*",
+        "fishpig/magento2-wordpress-integration-yoastseo": "*",
         "magento/product-community-edition": "2.3.2",
         "mageplaza/magento-2-seo-extension": "^2.1",
         "mageplaza/module-core": "^1.3",
