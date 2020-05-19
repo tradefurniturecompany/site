@@ -259,6 +259,7 @@ return [
         'Df_Zf' => 1,
         'Dotdigitalgroup_Email' => 0,
         'FishPig_WordPress' => 1,
+        'FishPig_WordPress_Yoast' => 1,
         'Hotlink_Framework' => 1,
         'Hotlink_Brightpearl' => 1,
         'IWD_All' => 1,
