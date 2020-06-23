@@ -71,6 +71,10 @@ abstract class Customweb_Mvc_Controller_AbstractAdapter implements Customweb_Mvc
 		if (isset($parameters[$this->getControllerQueryKey()])) {
 			return $parameters[$this->getControllerQueryKey()];
 		}
+		// 2020-06-23 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		// "[Customweb_RealexCw] «(Customweb_Mvc_Controller_Dispatcher) No controller provided in the request»":
+		// https://github.com/tradefurniturecompany/site/issues/169
+		df_log_l($this, 'No controller provided in the request');
 		throw new Exception("No controller provided in the request.");
 	}
 	
