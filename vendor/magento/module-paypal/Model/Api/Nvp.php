@@ -1245,7 +1245,19 @@ class Nvp extends \Magento\Paypal\Model\Api\AbstractApi
 		 */
         $errors = $this->_extractErrorsFromResponse($response);
         if ($errors) {
-			df_log_l($this, ['errors' => $errors, 'request' => $request, 'response' => $response], $methodName);
+			/**
+			 * 2020-06-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			 * I skip logging the
+			 * "[PayPal 10486] «This transaction couldn't be completed. Please redirect your customer to PayPal»"
+			 * error because it is not a bug:
+			 * https://github.com/tradefurniturecompany/site/issues/170#issuecomment-647866496
+			 * https://github.com/mage2pro/core/issues/100
+			 */
+			if (10486 !== intval(dfa(df_first($errors), 'code')) || 1 !== count($errors)) {
+				df_log_l($this, [
+					'errors' => $errors, 'request' => $request, 'response' => $response
+				], $methodName);
+			}
         }
         $this->_handleCallErrors($response);
         return $response;
