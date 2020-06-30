@@ -45,6 +45,11 @@
 # https://github.com/tradefurniturecompany/site/issues/170#issuecomment-647866496
 # https://github.com/mage2pro/core/issues/100
 !vendor/magento/module-paypal/Model/Api/Nvp.php
+# 2020-06-30 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# «Invalid state change requested
+# at vendor/magento/module-quote/Model/QuoteRepository/Plugin/AccessChangeQuoteControl.php:45»:
+# https://github.com/tradefurniturecompany/site/issues/171
+!vendor/magento/module-quote/Model/ChangeQuoteControl.php
 dev
 vendor/codeception
 vendor/magento/framework/Test
