@@ -16,7 +16,6 @@
 !app/design/frontend/TradeFurnitureCompany/default/**/*
 !app/etc/config.php
 !lib/internal/Crypt/**/*
-!lib/internal/Customweb/**/*
 !lib/internal/Mageplaza/**/*
 !lib/internal/Math/**/*
 !lib/internal/Net/**/*
