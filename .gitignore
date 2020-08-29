@@ -8,31 +8,31 @@
 !/.gitignore
 !/composer.json
 !/README.md
-!app/code/**/*
+!/app/code/**/*
 # 2019-10-07 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # «Function mcrypt_create_iv() is deprecated in lib/internal/Customweb/Core/Util/Rand.php on line 86»
 # in Magento 2.3.2: https://github.com/tradefurniturecompany/core/issues/10
-!app/bootstrap.php
-!app/design/frontend/TradeFurnitureCompany/default/**/*
-!app/etc/config.php
-!lib/internal/Crypt/**/*
-!lib/internal/Mageplaza/**/*
-!lib/internal/Math/**/*
-!lib/internal/Net/**/*
-!lib/internal/System/**/*
-!lib/internal/loader.php
-!lib/internal/openssl.php
+!/app/bootstrap.php
+!/app/design/frontend/TradeFurnitureCompany/default/**/*
+!/app/etc/config.php
+!/lib/internal/Crypt/**/*
+!/lib/internal/Mageplaza/**/*
+!/lib/internal/Math/**/*
+!/lib/internal/Net/**/*
+!/lib/internal/System/**/*
+!/lib/internal/loader.php
+!/lib/internal/openssl.php
 # 2019-09-19 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # «Provide a way to enlarge product images on frontend product pages»:
 # https://github.com/tradefurniturecompany/core/issues/2
-!lib/web/fotorama/fotorama.js
-!lib/web/i18n/en_GB.csv
-!pub/errors/default/503.phtml
+!/lib/web/fotorama/fotorama.js
+!/lib/web/i18n/en_GB.csv
+!/pub/errors/default/503.phtml
 /update/
 # 2019-10-06 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # How to fix the «Invalid template file» / «require_js.phtml» failure of Magento 2.3.x in Windows?
 # https://mage2.pro/t/5774
-!vendor/magento/framework/View/Element/Template/File/Validator.php
+!/vendor/magento/framework/View/Element/Template/File/Validator.php
 # 2020-02-18 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # "«PayPal gateway has rejected request.
 # You do not have permissions to make this API call» / «#10002: Authentication/Authorization Failed»":
@@ -43,15 +43,15 @@
 # error because it is not a bug:
 # https://github.com/tradefurniturecompany/site/issues/170#issuecomment-647866496
 # https://github.com/mage2pro/core/issues/100
-!vendor/magento/module-paypal/Model/Api/Nvp.php
+!/vendor/magento/module-paypal/Model/Api/Nvp.php
 # 2020-06-30 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # «Invalid state change requested
 # at vendor/magento/module-quote/Model/QuoteRepository/Plugin/AccessChangeQuoteControl.php:45»:
 # https://github.com/tradefurniturecompany/site/issues/171
-!vendor/magento/module-quote/Model/ChangeQuoteControl.php
-dev
-vendor/codeception
-vendor/magento/framework/Test
-vendor/magento/magento2-base
-vendor/magento/magento2-functional-testing-framework
-vendor/tubalmartin
+!/vendor/magento/module-quote/Model/ChangeQuoteControl.php
+/dev
+/vendor/codeception
+/vendor/magento/framework/Test
+/vendor/magento/magento2-base
+/vendor/magento/magento2-functional-testing-framework
+/vendor/tubalmartin
