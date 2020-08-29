@@ -52,6 +52,5 @@
 /dev
 /vendor/codeception
 /vendor/magento/framework/Test
-/vendor/magento/magento2-base
 /vendor/magento/magento2-functional-testing-framework
 /vendor/tubalmartin
