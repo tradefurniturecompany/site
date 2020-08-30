@@ -1252,8 +1252,11 @@ class Nvp extends \Magento\Paypal\Model\Api\AbstractApi
 			 * error because it is not a bug:
 			 * https://github.com/tradefurniturecompany/site/issues/170#issuecomment-647866496
 			 * https://github.com/mage2pro/core/issues/100
+			 * 2020-08-30
+			 * "PayPal responds on `GetExpressCheckoutDetails` with the error 10002
+			 * («You do not have permissions to make this API call»)": https://github.com/tradefurniturecompany/site/issues/179
 			 */
-			if (10486 !== intval(dfa(df_first($errors), 'code')) || 1 !== count($errors)) {
+			if (!in_array(intval(dfa(df_first($errors), 'code')), [10002, 10486]) || 1 !== count($errors)) {
 				df_log_l($this, [
 					'errors' => $errors, 'request' => $request, 'response' => $response
 				], $methodName);
