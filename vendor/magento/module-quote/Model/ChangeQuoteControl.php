@@ -49,14 +49,12 @@ class ChangeQuoteControl implements ChangeQuoteControlInterface
             default:
                 $isAllowed = false;
         }
-        // 2020-06-30 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-		// «Invalid state change requested
-		// at vendor/magento/module-quote/Model/QuoteRepository/Plugin/AccessChangeQuoteControl.php:45»:
-		// https://github.com/tradefurniturecompany/site/issues/171
+        # 2020-06-30 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		# «Invalid state change requested
+		# at vendor/magento/module-quote/Model/QuoteRepository/Plugin/AccessChangeQuoteControl.php:45»:
+		# https://github.com/tradefurniturecompany/site/issues/171
 		if (!$isAllowed) {
-			df_log_l($this, [
-				'getCustomerId' => $quote->getCustomerId(), 'getUserType' => $this->userContext->getUserType()
-			]);
+			df_log_l($this, ['getCustomerId' => $quote->getCustomerId(), 'getUserType' => $this->userContext->getUserType()]);
 		}
         return $isAllowed;
     }
