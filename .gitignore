@@ -43,6 +43,9 @@
 # error because it is not a bug:
 # https://github.com/tradefurniturecompany/site/issues/170#issuecomment-647866496
 # https://github.com/mage2pro/core/issues/100
+# 2020-08-30
+# "PayPal responds on `GetExpressCheckoutDetails` with the error 10002
+# («You do not have permissions to make this API call»)": https://github.com/tradefurniturecompany/site/issues/179
 !/vendor/magento/module-paypal/Model/Api/Nvp.php
 # 2020-06-30 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # «Invalid state change requested
