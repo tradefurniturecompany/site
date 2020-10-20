@@ -31,4 +31,5 @@ sudo service php-fpm start
 sudo service nginx start
 bin/magento maintenance:disable
 sudo service crond start
+rm -rf var/log/* var/report/*
 ```
