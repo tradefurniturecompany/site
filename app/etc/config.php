@@ -213,7 +213,6 @@ return [
         'Amazon_Login' => 0,
         'Amazon_Payment' => 0,
         'Apptrian_ImageOptimizer' => 1,
-        'Cart2Cart_PasswordMigrationToMagento2' => 1,
         'Df_Core' => 1,
         'Df_Backend' => 1,
         'Df_Catalog' => 1,
