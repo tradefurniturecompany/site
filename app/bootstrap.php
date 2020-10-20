@@ -11,6 +11,15 @@
  * 2019-10-07 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
  * «Function mcrypt_create_iv() is deprecated in lib/internal/Customweb/Core/Util/Rand.php on line 86»
  * in Magento 2.3.2: https://github.com/tradefurniturecompany/core/issues/10
+ * 2020-10-21
+ * 1) The `Customweb_Core` module was removed: https://github.com/tradefurniturecompany/site/issues/176
+ * But the @see mcrypt_create_iv() is still used by other third-part modules:
+ * 1.1) `Cart2Cart_PasswordMigrationToMagento2`.
+ * It is unused: https://github.com/tradefurniturecompany/site/issues/181
+ * 1.2) `Mageplaza_SocialLogin`. It is unused too: https://github.com/tradefurniturecompany/site/issues/182
+ * 2) "Remove the `mcrypt_create_iv` function usage": https://github.com/tradefurniturecompany/site/issues/184
+ * 3) "Revert `app/bootstrap.php` to its original state (re-enable `E_DEPRECATED` reporting)":
+ * https://github.com/tradefurniturecompany/site/issues/183
  */
 error_reporting(E_ALL &~ E_DEPRECATED);
 if (in_array('phar', \stream_get_wrappers())) {
