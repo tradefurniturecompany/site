@@ -25,6 +25,13 @@
 !/lib/web/i18n/en_GB.csv
 !/pub/errors/default/503.phtml
 /update/
+# 2020-10-22 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# 1) «Unable to send the cookie. Size of 'mage-messages' is <…> bytes.»
+# https://github.com/tradefurniturecompany/site/issues/186
+# 2) https://magento.stackexchange.com/a/292945
+# 3) https://magento.stackexchange.com/a/314402
+# 4) https://magento.stackexchange.com/a/307744
+!/vendor/magento/framework/Stdlib/Cookie/PhpCookieManager.php
 # 2019-10-06 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # How to fix the «Invalid template file» / «require_js.phtml» failure of Magento 2.3.x in Windows?
 # https://mage2.pro/t/5774
