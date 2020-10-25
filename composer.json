@@ -21,6 +21,7 @@
         "realexpayments/hpp": "*",
         "tradefurniturecompany/blog": "*",
         "tradefurniturecompany/core": "*",
+        "tradefurniturecompany/image": "*",
         "tradefurniturecompany/report": "*",
         "yireo/magento2-disablelog2": "*"
     },
