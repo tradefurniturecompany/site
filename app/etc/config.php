@@ -304,6 +304,7 @@ return [
         'SpringImport_CatalogDropdownSort' => 1,
         'TFC_Blog' => 1,
         'TFC_Core' => 1,
+        'TFC_Image' => 1,
         'TFC_Report' => 1,
         'Temando_Shipping' => 0,
         'Trustedshops_Trustedshops' => 1,
