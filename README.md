@@ -14,7 +14,7 @@ rm -rf composer.lock
 composer clear-cache
 composer require tradefurniturecompany/core:*
 composer require tradefurniturecompany/blog:*
-composer remove tradefurniturecompany/image:*
+composer require tradefurniturecompany/image:*
 composer require tradefurniturecompany/report:* 
 bin/magento setup:upgrade
 bin/magento cache:enable
