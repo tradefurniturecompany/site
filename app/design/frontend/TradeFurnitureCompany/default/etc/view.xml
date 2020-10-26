@@ -8,6 +8,22 @@
 <view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
     <media>
         <images module="Magento_Catalog">
+<!-- 2020-10-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+"Make images squared on the frontend category page": https://github.com/tradefurniturecompany/site/issues/195 -->
+            <image id="category_page_grid" type="small_image">
+				<width>300</width>
+				<height>300</height>
+				<constrain>false</constrain>
+				<aspect_ratio>true</aspect_ratio>
+				<frame>true</frame>
+            </image>
+            <image id="listing_image" type="listing_image">
+				<width>300</width>
+				<height>300</height>
+				<constrain>false</constrain>
+				<aspect_ratio>true</aspect_ratio>
+				<frame>true</frame>
+            </image>
             <image id="bundled_product_customization_page" type="thumbnail">
                 <width>140</width>
                 <height>140</height>
@@ -19,14 +35,6 @@
             <image id="cart_page_product_thumbnail" type="small_image">
                 <width>165</width>
                 <height>165</height>
-            </image>
-            <image id="category_page_grid" type="small_image">
-                <width>240</width>
-                <height>300</height>
-            </image>
-            <image id="category_page_grid-1" type="small_image">
-                <width>240</width>
-                <height>300</height>
             </image>
             <image id="category_page_list" type="small_image">
                 <width>240</width>
@@ -186,10 +194,6 @@
                 <height>113</height>
             </image>
             <image id="wishlist_thumbnail" type="small_image">
-                <width>240</width>
-                <height>300</height>
-            </image>
-            <image id="listing_image" type="listing_image">
                 <width>240</width>
                 <height>300</height>
             </image>
