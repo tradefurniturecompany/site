@@ -1,37 +1,28 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-// @codingStandardsIgnoreFile
-
-?>
-<?php
-/**
- * Category view template
- *
- * @var $block \Magento\Catalog\Block\Category\View
- */
-?>
-<?php if ($_description = $block->getCurrentCategory()->getDescription()): ?>
-    <div class="category-description">
-        <?= /* @escapeNotVerified */ $this->helper('Magento\Catalog\Helper\Output')->categoryAttribute($block->getCurrentCategory(), $_description, 'description') ?>
-    </div>
-    <script type="text/javascript">
-        require(["jquery"],function($){
-            $(document).ready(function() {
-                $("#toggle").click(function() {
-                    var elem = $("#toggle").text();
-                    if (elem == "Read more...") {
-                        $("#toggle").text("Read less...");
-                        $(".text-wrapper").css("height","auto")
-                    } else {
-                        $("#toggle").text("Read more...");
-                        $(".text-wrapper").css("height","54px")
-                    }
-                });
-            });
-        });
-    </script>
-<?php endif; ?>
+use Magento\Catalog\Block\Category\View as B;
+use Magento\Catalog\Model\Category as C;
+/* @var B $block */ $b = $block; /** @var B $b */
+$c = $b->getCurrentCategory(); /** @var C $c */
+if ($v = $c->getDescription()) { /** @var string $v */?>
+	<div class='category-description'>
+		<?php
+			# 2020-10-30 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			# https://stackoverflow.com/a/3809121
+		?>
+		<?= df_trim(preg_replace('#<p[^>]*>[ \s]*<\/p[^>]*>#', '',
+			df_catalog_output()->categoryAttribute($c, $v, 'description'))
+		); ?>
+	</div>
+	<script type='text/javascript'>
+		require(['jquery', 'domReady!'], function($) {
+			$('#toggle').click(function() {
+				var $this = $(this);
+				var elem = $this.text();
+				var more = 'Read more...';
+				var bMore = more === elem;
+				$this.text(bMore ? 'Read less...' : more);
+				$('.text-wrapper').css('height', bMore ? 'auto' : '54px');
+			});
+		});
+	</script>
+<?php }
