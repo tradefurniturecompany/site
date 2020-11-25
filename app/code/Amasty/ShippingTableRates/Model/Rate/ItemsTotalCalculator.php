@@ -79,9 +79,13 @@ class ItemsTotalCalculator
             }
 
             // Fix for correct calculation subtotal for shipping method
-            if ($afterDiscount || $includingTax) {
+			# 2020-11-25 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			# "If a discount coupon is applied to an £299.95 order,
+			# then the «Standard Delivery» rate increases from £19.95 to £29.95":
+			# https://github.com/tradefurniturecompany/site/issues/206
+            /*if ($afterDiscount || $includingTax) {
                 $this->itemsTotals['not_free_price'] += $item->getBaseDiscountTaxCompensationAmount();
-            }
+            }*/
         }
 
         $this->afterCollect($request);
