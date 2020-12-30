@@ -228,6 +228,8 @@ return [
         'Df_Framework' => 1,
         'Df_IE' => 1,
         'Df_Intl' => 1,
+        'Df_InventoryCatalog' => 1,
+        'Df_MediaStorage' => 1,
         'Df_OAuth' => 1,
         'Df_Payment' => 1,
         'Df_Paypal' => 1,
