@@ -17,6 +17,7 @@
         "magento/product-community-edition": "2.3.2",
         "mageplaza/magento-2-seo-extension": "^2.1",
         "mageplaza/module-core": "^1.3",
+        "mailchimp/mc-magento2": "*",
         "olegkoval/magento2-regenerate-url-rewrites": "*",
         "realexpayments/hpp": "*",
         "tradefurniturecompany/blog": "*",
