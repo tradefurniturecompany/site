@@ -97,10 +97,10 @@ class Product extends \Magento\Sitemap\Model\ResourceModel\Catalog\Product
 
     /**
      * Additional condition related to flexible canonical functionality from SEO Base extension
-     *
+     * @used-by getLimitedCollection()
      * @return string
      */
-    protected function getUrlRewriteWhereCondition()
+    private function getUrlRewriteWhereCondition()
     {
         if (!$this->flexibleCanonicalFlag) {
             return ' AND url_rewrite.metadata IS NULL';
@@ -153,7 +153,22 @@ class Product extends \Magento\Sitemap\Model\ResourceModel\Catalog\Product
                 . $connection->quoteInto(' AND url_rewrite.store_id = ?', $store->getId())
                 . $connection->quoteInto(' AND url_rewrite.entity_type = ?', ProductUrlRewriteGenerator::ENTITY_TYPE),
                 ['url' => 'request_path']
-            )->where(
+            )
+			/**
+			 * 2021-06-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			 * 1) «Remove redirected pages from the sitemap»: https://github.com/tradefurniturecompany/core/issues/41
+			 * 2) I have implemented it by analogy with
+			 * @see \MageWorx\HtmlSitemap\Model\ResourceModel\Catalog\Product::getCollection
+			 * 2.1) https://github.com/tradefurniturecompany/site/blob/2021-06-24/app/code/MageWorx/HtmlSitemap/Model/ResourceModel/Catalog/Product.php#L269-L273
+			 * 2.2) https://github.com/tradefurniturecompany/site/blob/2021-06-24/app/code/MageWorx/HtmlSitemap/Model/ResourceModel/Catalog/Product.php#L282-L282
+			 */
+			->joinLeft(
+				['catalog_url_rewrite' => $this->getTable('catalog_url_rewrite_product_category')],
+				'url_rewrite.url_rewrite_id = catalog_url_rewrite.url_rewrite_id',
+				[]
+			)
+			->where('catalog_url_rewrite.category_id IS NULL')
+			->where(
                 'w.website_id = ?',
                 $store->getWebsiteId()
             );
