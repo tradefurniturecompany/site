@@ -171,7 +171,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
 	/**
 	 * Retrieve product URL length (usage categories in product URL)
-	 *
+	 * @used-by \MageWorx\HtmlSitemap\Model\ResourceModel\Catalog\Product::getCollection()
+	 * @used-by \MageWorx\HtmlSitemap\Model\ResourceModel\Catalog\Product::prepareProduct()
 	 * @param int $storeId
 	 * @return int
 	 */
