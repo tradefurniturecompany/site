@@ -826,10 +826,19 @@ class Report {
 		return $this->add( 'warn', $message, $data, $dataRenderer );
 	}
 
-	function info( $message, $data = false, $dataRenderer = false )
-	{
-		return $this->add( 'info', $message, $data, $dataRenderer );
-	}
+	/**
+	 * 2020-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+	 * 1) "Prevent `Hotlink_Framework` from logging `Hotlink\Framework\Model\Report\Item`":
+	 * https://github.com/tradefurniturecompany/site/issues/40
+	 * 2) «Call to a member function incSuccess() on null
+	 * in app/code/Hotlink/Framework/Model/Schedule/Cron/Inject.php:99»:
+	 * https://github.com/tradefurniturecompany/site/issues/41
+	 * @param $message
+	 * @param mixed|false $data
+	 * @param mixed|false $dataRenderer
+	 * @return $this
+	 */
+	function info($message, $data = false, $dataRenderer = false) {return $this;}
 
 	function debug( $message, $data = false, $dataRenderer = false )
 	{
