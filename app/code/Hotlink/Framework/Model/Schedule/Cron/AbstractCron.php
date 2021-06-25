@@ -1,6 +1,10 @@
 <?php
 namespace Hotlink\Framework\Model\Schedule\Cron;
-
+use Hotlink\Framework\Model\Report\Log;
+/**
+ * @see \Hotlink\Framework\Model\Schedule\Cron\Inject
+ * @see \Hotlink\Framework\Model\Schedule\Cron\Run
+ */
 abstract class AbstractCron extends \Hotlink\Framework\Model\Schedule\AbstractSchedule
 {
 
@@ -89,7 +93,13 @@ abstract class AbstractCron extends \Hotlink\Framework\Model\Schedule\AbstractSc
 			->debug( 'Date/Time: '. date( "Y-m-d H:i:s", $this->dateTimeFactory->create()->timestamp( time() ) ) )
 			->trace( 'report initialised' );
 
-		$report->getWriter( 'log' )->getLog()->setInteraction( 'Hotlink Cron Management' );
+		# 2020-02-16 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		# «Call to a member function setInteraction() on boolean
+		# at app/code/Hotlink/Framework/Model/Schedule/Cron/AbstractCron.php:87»:
+		# https://github.com/tradefurniturecompany/site/issues/44
+		if ($l = $report->getWriter('log')->getLog()) { /** @var Log|false $l */
+			$l->setInteraction('Hotlink Cron Management');
+		}
 	}
 
 	//
