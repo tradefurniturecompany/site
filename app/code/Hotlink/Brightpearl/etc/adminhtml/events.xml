@@ -2,8 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
 
     <!-- creditmemo created -->
-    <event name="hotlink_brightpearl_creditmemo_created_admin">
-        <observer name="brightpearl_model_trigger_brightpearl_creditmemo_created" instance="\Hotlink\Brightpearl\Model\Trigger\Creditmemo\Created" />
+    <event name="hotlink_brightpearl_creditmemo_created_byservice_adminhtml">
+        <observer name="brightpearl_model_trigger_brightpearl_creditmemo_created_service" instance="\Hotlink\Brightpearl\Model\Trigger\Creditmemo\Created" />
     </event>
 
 </config>

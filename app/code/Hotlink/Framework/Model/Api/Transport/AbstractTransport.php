@@ -15,7 +15,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
     protected $reportFactory;
     protected $exceptionHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Model\ReportFactory $reportFactory,
         \Hotlink\Framework\Helper\Exception $exceptionHelper
     )
@@ -24,7 +24,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
         $this->exceptionHelper = $exceptionHelper;
     }
 
-    abstract function getProtocol();                                               // A name used in reports
+    abstract public function getProtocol();                                               // A name used in reports
     abstract protected function _submit( \Hotlink\Framework\Model\Api\Request $request );  // Execute the request
     abstract protected function _setLastRequestInfo();                                    // Set transport specific 'last' value here
 
@@ -47,7 +47,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
         return $this;
     }
 
-    function submit( \Hotlink\Framework\Model\Api\Request $request )
+    public function submit( \Hotlink\Framework\Model\Api\Request $request )
     {
         $this->_beforeSubmit( $request );
         $fault = false;
@@ -111,7 +111,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
     //
     //  Hotlink\Framework\Model\Report\IReport
     //
-    function getReport( $safe = true )
+    public function getReport( $safe = true )
     {
         if ( !$this->_report && $safe )
             {
@@ -120,13 +120,13 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
         return $this->_report;
     }
 
-    function setReport( \Hotlink\Framework\Model\Report $report = null )
+    public function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
         return $this;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'transport';
     }
@@ -134,7 +134,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
     //
     //  Logging info
     //
-    function getLastRequestHeaders()
+    public function getLastRequestHeaders()
     {
         return $this->_lastRequestHeaders;
     }
@@ -145,7 +145,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
         return $this;
     }
 
-    function getLastRequest()
+    public function getLastRequest()
     {
         return $this->_lastRequest;
     }
@@ -156,7 +156,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
         return $this;
     }
 
-    function getLastResponseHeaders()
+    public function getLastResponseHeaders()
     {
         return $this->_lastResponseHeaders;
     }
@@ -167,7 +167,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
         return $this;
     }
 
-    function getLastResponse()
+    public function getLastResponse()
     {
         return $this->_lastResponse;
     }
@@ -178,7 +178,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
         return $this;
     }
 
-    function getLastFault()
+    public function getLastFault()
     {
         return $this->_lastFault;
     }
@@ -200,7 +200,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
     //
     //  Serializable
     //
-    function serialize()
+    public function serialize()
     {
         $data = array();
         $serializableFields = $this->_getSerializableFields();
@@ -211,7 +211,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
         return serialize( $data );
     }
 
-    function unserialize( $data )
+    public function unserialize( $data )
     {
         $apply = unserialize( $data );
         $serializableFields = $this->_getSerializableFields();
@@ -227,7 +227,7 @@ abstract class AbstractTransport implements \Hotlink\Framework\Model\Report\IRep
     //
     //  Interface \Hotlink\Framework\Model\Report\IReportData
     //
-    function getReportDataRenderer()
+    public function getReportDataRenderer()
     {
         return 'Hotlink\Framework\Block\Adminhtml\Report\Item\Data\Api\Transport';
     }

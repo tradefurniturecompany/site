@@ -11,7 +11,7 @@ class Finish extends \Hotlink\Brightpearl\Controller\Adminhtml\OAuth2\AbstractOA
     protected $configOAuth2;
     protected $brightpearlHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Hotlink\Framework\Model\ReportFactory $interactionReportFactory,
         \Hotlink\Framework\Model\UserFactory $interactionUserFactory,
@@ -32,7 +32,7 @@ class Finish extends \Hotlink\Brightpearl\Controller\Adminhtml\OAuth2\AbstractOA
         parent::__construct( $context, $resultPageFactory );
     }
 
-    function execute()
+    public function execute()
     {
         $request = $this->getRequest();
         if ( $request->isPost() )

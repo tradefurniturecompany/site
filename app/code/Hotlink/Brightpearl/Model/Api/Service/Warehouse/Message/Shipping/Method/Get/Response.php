@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Warehouse\Message\Shipping\Metho
 
 class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\AbstractResponse
 {
-    function getMethods()
+    public function getMethods()
     {
         return $this->_get( 'response' );
     }

@@ -8,7 +8,7 @@ class Notify extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
      */
     protected $configConfigSourceYesno;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $interactionHtmlFormEnvironmentParameterHelper,
 
@@ -21,37 +21,37 @@ class Notify extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
             $interactionHtmlFormEnvironmentParameterHelper );
     }
 
-    function getDefault()
+    public function getDefault()
     {
         return 1;
     }
 
-    function getName()
+    public function getName()
     {
         return "Notify customer";
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'notify_customer';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Email customer a copy of shipment. Subject to sales_email/order being enabled.';
     }
 
-   function getOptions()
+   public function getOptions()
     {
         return $this->configConfigSourceYesno->toArray();
     }
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         return $this->configConfigSourceYesno->toOptionArray();
     }
 
-    function getValue()
+    public function getValue()
     {
         if (!$this->_valueInitialised) {
             $storeId = $this->getEnvironment()->getStoreId();

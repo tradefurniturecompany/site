@@ -10,7 +10,7 @@ class Method implements \Magento\Framework\Option\ArrayInterface
      */
     protected $brightpearlResourceNominalCodeCollectionFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Brightpearl\Model\ResourceModel\Lookup\Nominal\Code\CollectionFactory $brightpearlResourceNominalCodeCollectionFactory
     ) {
         $this->brightpearlResourceNominalCodeCollectionFactory = $brightpearlResourceNominalCodeCollectionFactory;
@@ -34,13 +34,13 @@ class Method implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         $this->_init();
         return $this->_data;
     }
 
-    function toArray()
+    public function toArray()
     {
         $ret = array();
         foreach ( $this->toOptionArray() as $item )

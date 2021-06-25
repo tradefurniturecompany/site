@@ -6,7 +6,7 @@ class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTra
     protected $_skus;
     protected $_warehouses;
 
-    function getName()
+    public function getName()
     {
         return 'Product Availability GET';
     }
@@ -21,24 +21,24 @@ class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTra
         return '\Hotlink\Brightpearl\Model\Api\Service\Workflow\Product\Message\Availability\Get\Response';
     }
 
-    function setSkus(array $skus)
+    public function setSkus(array $skus)
     {
         $this->_skus = $skus;
         return $this;
     }
 
-    function setWarehouses(array $warehouses)
+    public function setWarehouses(array $warehouses)
     {
         $this->_warehouses = $warehouses;
         return $this;
     }
 
-    function getSkus()
+    public function getSkus()
     {
         return $this->_skus;
     }
 
-    function getWarehouses()
+    public function getWarehouses()
     {
         return $this->_warehouses;
     }

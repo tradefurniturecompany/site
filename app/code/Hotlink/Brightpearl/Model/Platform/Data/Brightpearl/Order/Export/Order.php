@@ -25,9 +25,13 @@ class Order extends \Hotlink\Brightpearl\Model\Platform\Data
 
         $this[ 'total' ]           = $this->getObject( $order, 'Total', true );
         $this[ 'rows' ]            = $this->getObject( $order, 'Rows', true );
+        if ( $warehouseId = $helper->getDefaultAllocationWarehouse() )
+            {
+                $this[ 'warehouseId' ] = $warehouseId;
+            }
     }
 
-    function toArray( array $arrAttributes = array() )
+    public function toArray( array $arrAttributes = array() )
     {
         $ret = parent::toArray( $arrAttributes );
         if ( array_key_exists( 'customFields', $ret ) && empty( $ret[ 'customFields' ] ) )

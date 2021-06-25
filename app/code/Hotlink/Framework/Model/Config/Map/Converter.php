@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\Config\Map;
 class Converter implements \Magento\Framework\Config\ConverterInterface
 {
 
-    function convert( $source )
+    public function convert( $source )
     {
         if ( $source === null )
             {

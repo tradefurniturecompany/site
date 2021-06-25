@@ -15,7 +15,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_encode_invalid_carrier_null()
+    public function test_encode_invalid_carrier_null()
     {
         $this->getHelper()->encode( null, null );
     }
@@ -23,7 +23,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_encode_invalid_carrier_empty()
+    public function test_encode_invalid_carrier_empty()
     {
         $this->getHelper()->encode( "", null );
     }
@@ -31,7 +31,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_encode_invalid_carrier_false()
+    public function test_encode_invalid_carrier_false()
     {
         $this->getHelper()->encode( false, null );
     }
@@ -39,7 +39,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_encode_invalid_carrier_zero()
+    public function test_encode_invalid_carrier_zero()
     {
         $this->getHelper()->encode( 0, null );
     }
@@ -47,7 +47,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Processing
      */
-    function test_encode_invalid_carrier_contains_separator()
+    public function test_encode_invalid_carrier_contains_separator()
     {
         $this->getHelper()->encode( "donkey" . self::SEP . "kong", null );
     }
@@ -55,12 +55,12 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Processing
      */
-    function test_encode_invalid_carrier_startwith_separator()
+    public function test_encode_invalid_carrier_startwith_separator()
     {
         $this->getHelper()->encode( self::SEP . "donkey", null );
     }
 
-    function test_encode()
+    public function test_encode()
     {
         $helper = $this->getHelper();
 
@@ -74,7 +74,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_decode_invalid_null()
+    public function test_decode_invalid_null()
     {
         $this->getHelper()->decodeCarrier( null );
     }
@@ -82,7 +82,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_decode_invalid_empty()
+    public function test_decode_invalid_empty()
     {
         $this->getHelper()->decodeCarrier( "" );
     }
@@ -90,7 +90,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_decode_invalid_false()
+    public function test_decode_invalid_false()
     {
         $this->getHelper()->decodeCarrier( false );
     }
@@ -98,7 +98,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_decode_invalid_zero()
+    public function test_decode_invalid_zero()
     {
         $this->getHelper()->decodeCarrier( 0 );
     }
@@ -106,7 +106,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_decode_invalid_only_separators()
+    public function test_decode_invalid_only_separators()
     {
         $this->getHelper()->decodeCarrier( self::SEP );
     }
@@ -114,12 +114,12 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Framework\Model\Exception\Implementation
      */
-    function test_decode_invalid_only_separators_multiple()
+    public function test_decode_invalid_only_separators_multiple()
     {
         $this->getHelper()->decodeCarrier( self::SEP . self::SEP . self::SEP );
     }
 
-    function test_decode_carrier()
+    public function test_decode_carrier()
     {
         $s = self::SEP;
         $helper = $this->getHelper();
@@ -128,7 +128,7 @@ class ShippingTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( 'ok', $helper->decodeCarrier( "ok" . $s . "too" . $s . "also" ) );
     }
 
-    function test_decode_method()
+    public function test_decode_method()
     {
         $s = self::SEP;
         $helper = $this->getHelper();

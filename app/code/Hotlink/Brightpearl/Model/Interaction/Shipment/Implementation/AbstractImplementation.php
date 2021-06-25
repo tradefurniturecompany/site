@@ -19,11 +19,17 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
     protected $lookupShippingMethodFactory;
     protected $shipmentTrackingFactory;
     protected $orderCollectionFactory;
-    protected $dataObjectFactory;
-    protected $notifierInterface;
-    protected $shippingHelper;
 
-    function __construct(
+    protected $dataObjectFactory;
+    protected $shipmentEmailSender;
+
+    protected $shippingHelper;
+    protected $moduleHelper;
+
+    protected $warehouseCollectionFactory;
+    protected $warehouses;
+
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -34,6 +40,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
         \Magento\Sales\Model\Order\ShipmentFactory $shipmentFactory,
         \Magento\Framework\DB\TransactionFactory $transactionFactory,
         \Magento\Sales\Model\ResourceModel\Order\CollectionFactory $orderCollectionFactory,
+
         \Hotlink\Brightpearl\Helper\Api\Service\Search\Period $apiServiceSearchPeriod,
         \Hotlink\Brightpearl\Helper\Api\Service\Search\Order $apiServiceSearchOrder,
         \Hotlink\Brightpearl\Helper\Api\Service\Search\Warehouse\GoodsoutNote $apiServiceSearchWarehouseGoodsoutnote,
@@ -43,8 +50,12 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
         \Hotlink\Brightpearl\Model\Lookup\Shipping\MethodFactory $lookupShippingMethodFactory,
         \Hotlink\Brightpearl\Model\ShipmentFactory $shipmentTrackingFactory,
         \Magento\Framework\DataObjectFactory $dataObjectFactory,
-        \Magento\Sales\Model\Order\Shipment\NotifierInterface $notifierInterface,
-        \Hotlink\Brightpearl\Helper\Shipping $shippingHelper
+        \Magento\Sales\Model\Order\Email\Sender\ShipmentSender $shipmentEmailSender,
+
+        \Hotlink\Brightpearl\Helper\Shipping $shippingHelper,
+
+        \Hotlink\Framework\Helper\Module $moduleHelper,
+        \Hotlink\Brightpearl\Model\ResourceModel\Lookup\Warehouse\CollectionFactory $warehouseCollectionFactory
     )
     {
         parent::__construct( $exceptionHelper, $reflectionHelper, $reportHelper, $factoryHelper );
@@ -53,6 +64,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
         $this->shipmentFactory = $shipmentFactory;
         $this->transactionFactory = $transactionFactory;
         $this->orderCollectionFactory = $orderCollectionFactory;
+
         $this->apiServiceSearchPeriod = $apiServiceSearchPeriod;
         $this->apiServiceSearchOrder = $apiServiceSearchOrder;
         $this->apiServiceSearchWarehouseGoodsoutnote = $apiServiceSearchWarehouseGoodsoutnote;
@@ -62,8 +74,11 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
         $this->lookupShippingMethodFactory = $lookupShippingMethodFactory;
         $this->shipmentTrackingFactory = $shipmentTrackingFactory;
         $this->dataObjectFactory = $dataObjectFactory;
-        $this->notifierInterface = $notifierInterface;
+        $this->shipmentEmailSender = $shipmentEmailSender;
         $this->shippingHelper = $shippingHelper;
+
+        $this->moduleHelper = $moduleHelper;
+        $this->warehouseCollectionFactory = $warehouseCollectionFactory;
     }
 
     protected function apiSearchOrders( $lookbehindDate, $pageSize, $first )
@@ -235,7 +250,13 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
                         $tracking = ( count( $tracking ) == 0 ) ? null : [ $tracking ];
 
                         //
+                        //  Permit plugins to run (to set MSI source if required)
+                        //
+                        $this->processNoteHook( $bpNote, $this->getWarehouses() );
+
+                        //
                         //  allow magento to create shipment as normal
+                        //
                         $shipment = $this->shipmentFactory->create( $mageOrder, $qtys, $tracking );
 
                         //
@@ -290,6 +311,23 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
         $report->unindent();
     }
 
+    public function getWarehouses()
+    {
+        if ( ! $this->warehouses )
+            {
+                $collection = $this->warehouseCollectionFactory->create();
+                $this->warehouses = $collection->load()->getItems();
+            }
+        return $this->warehouses;
+    }
+
+    //
+    //  Provides a convenient interception point for plugins
+    //
+    public function processNoteHook( $bpNote, $warehouses )
+    {
+    }
+
     protected function mapQtys( \Hotlink\Brightpearl\Model\Platform\Data $note,
                                 \Hotlink\Brightpearl\Model\Platform\Data $bpOrder,
                                 \Magento\Sales\Model\Order $mageOrder )
@@ -328,24 +366,31 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
                         $externalRef = $bpOrderItemRoot[ 'externalRef' ];
                         $mageItem = $mageOrder->getItemById( $externalRef );
 
-                        //
-                        //  Create mapping
-                        //
-                        $mageItemId = $mageItem->getId();
-                        if ( ! isset( $result[ $mageItemId ] ) )
+                        if ( $mageItem )
                             {
-                                $result[ $mageItemId ] = array
-                                                       ( 'mageItem'   => $mageItem,
-                                                         'bpItem'     => $bpOrderItemRoot,
-                                                         'children'   => array(),
-                                                         'quantity'   => null
-                                                       );
+                                //
+                                //  Create mapping
+                                //
+                                $mageItemId = $mageItem->getId();
+                                if ( ! isset( $result[ $mageItemId ] ) )
+                                    {
+                                        $result[ $mageItemId ] = array
+                                                               ( 'mageItem'   => $mageItem,
+                                                                 'bpItem'     => $bpOrderItemRoot,
+                                                                 'children'   => array(),
+                                                                 'quantity'   => null
+                                                               );
+                                    }
+                                if ( $this->isChild( $bpOrderItem ) )
+                                    {
+                                        $map = $result[ $mageItemId ];
+                                        $map[ 'children' ][ $bpOrderItemId ] = $bpOrderItem;
+                                        $result[ $mageItemId ] = $map;
+                                    }
                             }
-                        if ( $this->isChild( $bpOrderItem ) )
+                        else
                             {
-                                $map = $result[ $mageItemId ];
-                                $map[ 'children' ][ $bpOrderItemId ] = $bpOrderItem;
-                                $result[ $mageItemId ] = $map;
+                                $report->error( "BP note row [$bpOrderItemId] has no external ref (Magento row id), perhaps it was added manually within Brightpearl?" );
                             }
                     }
                 else
@@ -426,6 +471,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
                 $result2[ $itemId ] = $item;
             }
 
+        $report->unindent();
         return $result2;
 
     }
@@ -493,8 +539,8 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
                     $report->debug('Mapped qty = '.$minToShip);
                 }
 
-                $report->unindent();
             }
+            $report->unindent();
         }
 
         $report->unindent();
@@ -618,6 +664,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
                 $result2[ $itemId ] = $item;
             }
 
+        $report->unindent();
         return $result2;
     }
 
@@ -680,13 +727,13 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
         }
 
         if ($sendEmail && !$error) {
-            $this->notifierInterface->notify($order, $shipment, null);
+            $this->shipmentEmailSender->send( $shipment );
         }
 
         return !$error;
     }
 
-    function register( $shipment )
+    public function register( $shipment )
     {
         if ($shipment->getId()) {
             throw new \Magento\Framework\Exception\LocalizedException(

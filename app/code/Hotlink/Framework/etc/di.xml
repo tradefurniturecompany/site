@@ -19,11 +19,11 @@
     </type>
 
     <type name="Magento\Config\Model\Config\Structure\Reader">
-        <plugin name="hotlink_system_config_reader" type="Hotlink\Framework\Model\Config\Structure\Reader\Plugin" sortOrder="3" disabled="false" />
+        <plugin name="hotlink_system_config_reader_plugin" type="Hotlink\Framework\Model\Config\Structure\Reader\Plugin" sortOrder="3" disabled="false" />
     </type>
 
     <type name="Magento\Cron\Model\Config">
-        <plugin name="hotlink_system_cron_config_reader" type="Hotlink\Framework\Model\Schedule\Cron\Config\Plugin" sortOrder="3" disabled="false" />
+        <plugin name="hotlink_system_cron_config_reader_plugin" type="Hotlink\Framework\Model\Schedule\Cron\Config\Plugin" sortOrder="3" disabled="false" />
     </type>
 
 </config>

@@ -15,7 +15,7 @@ class Item extends \Hotlink\Brightpearl\Model\Platform\Data
         $this[ "name"      ] = $item->getName();
 
         $qty = $item->getQty();
-        $qty = is_null( $qty ) ? null : ((double) $qty);
+        $qty = is_null( $qty ) ? null : ((double) $qty);  // should not be null (but in case)
 
         $this[ "quantity"  ] = $qty;
 
@@ -36,8 +36,8 @@ class Item extends \Hotlink\Brightpearl\Model\Platform\Data
         //
         //      Magento/Weee/Block/Item/Price/Renderer.php
         //
-        //          function getBaseTotalAmount($item)
-        //          function getTotalAmount($item)
+        //          public function getBaseTotalAmount($item)
+        //          public function getTotalAmount($item)
         //
         //          these two function utilise a Weee helper
         //
@@ -45,7 +45,7 @@ class Item extends \Hotlink\Brightpearl\Model\Platform\Data
         //
         //      Magento/Sales/Block/Order/Item/Renderer/DefaultRenderer.php
         //
-        //          function getTotalAmount($item)
+        //          public function getTotalAmount($item)
         //
         //          this function utilises persisted Weee tax data
         //

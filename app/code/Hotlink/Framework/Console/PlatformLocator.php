@@ -21,7 +21,7 @@ class PlatformLocator
         $result = [];
         foreach ( self::getClasses() as $class )
             {
-                $platform = new $class;
+                $platform = \Magento\Framework\App\ObjectManager::getInstance()->get( $class );
                 if ( ! ( $platform instanceof \Hotlink\Framework\Model\Platform\AbstractPlatform ) )
                     {
                         throw new \Exception( "Platform class '$class' does not extend \Hotlink\Framework\Model\Platform\AbstractPlatform" );

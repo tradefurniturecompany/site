@@ -4,13 +4,13 @@ namespace Hotlink\Framework\Controller\Adminhtml\Interactions;
 abstract class AbstractInteractions extends \Magento\Backend\App\Action
 {
 
-    abstract function getActiveMenuId();
-    abstract function getActiveMenuResource();
-    abstract function getPageTitle();
+    abstract public function getActiveMenuId();
+    abstract public function getActiveMenuResource();
+    abstract public function getPageTitle();
 
     protected $platform;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Hotlink\Framework\Model\Platform\AbstractPlatform $platform
     )
@@ -24,7 +24,7 @@ abstract class AbstractInteractions extends \Magento\Backend\App\Action
         return $this->_authorization->isAllowed( $this->getActiveMenuResource() );
     }
 
-    function getPlatform()
+    public function getPlatform()
     {
         return $this->platform;
     }

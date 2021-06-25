@@ -20,7 +20,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
     protected $clockHelper;
     protected $sourcePriceLists;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -111,7 +111,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
       The module enforces option 2.
 
     */
-    function execute()
+    public function execute()
     {
         $environment = $this->getEnvironment();
         $report = $this->getReport();
@@ -141,7 +141,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
             }
     }
 
-    function process( $websiteId, $skipAttributes, $skipTier, $skuFilter )
+    public function process( $websiteId, $skipAttributes, $skipTier, $skuFilter )
     {
         $report = $this->getReport();
         $idle = 0;
@@ -381,6 +381,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
                                 // This stops the loader applying website exchange rates to tier prices
                                 $product->setData( '_edit_mode', true );
                             }
+                        $collection->setFlag( 'tier_price_added', false );
                         $collection->addTierPriceData();
                     }
 
@@ -764,7 +765,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         $product->setTierPrice( null );
     }
 
-    function mergeTierPricing( $oldTierPrices, $newTierPrices )
+    public function mergeTierPricing( $oldTierPrices, $newTierPrices )
     {
         $inserts = [];
         $deletes = [];
@@ -782,7 +783,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
                             {
                                 $apply[ $k ] = $v;
                             }
-                        if ( $item[ 'price' ] != $apply[ 'price' ] )
+                        if ( $item[ 'price' ] != $old[ $key ][ 'price' ] )
                             {
                                 $updates[] = $apply;
                             }
@@ -806,7 +807,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
                  'updates' => $updates ];
     }
 
-    function getIndexedTierPrices( $tierPrices )
+    public function getIndexedTierPrices( $tierPrices )
     {
         $result = [];
         foreach ( $tierPrices as $tierPrice )
@@ -821,7 +822,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         return $result;
     }
 
-    function getTierPriceKey( $tierPrice )
+    public function getTierPriceKey( $tierPrice )
     {
         $result = [];
         $result[] = array_key_exists( 'website_id', $tierPrice ) ? $tierPrice[ 'website_id' ] : '?';

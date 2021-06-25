@@ -6,7 +6,7 @@ class Store extends \Magento\Framework\Data\Form\Element\AbstractElement
 
     protected $storeManager;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Data\Form\Element\Factory $factoryElement,
         \Magento\Framework\Data\Form\Element\CollectionFactory $factoryCollection,
         \Magento\Framework\Escaper $escaper,
@@ -23,7 +23,7 @@ class Store extends \Magento\Framework\Data\Form\Element\AbstractElement
             $data );
     }
 
-    function getElementHtml()
+    public function getElementHtml()
     {
         $html = $this->getBeforeHtml();
 
@@ -255,7 +255,7 @@ class Store extends \Magento\Framework\Data\Form\Element\AbstractElement
         return $string;
     }
 
-    function getScopeId( $code )
+    public function getScopeId( $code )
     {
         $scopeId = FALSE;
 
@@ -277,7 +277,7 @@ class Store extends \Magento\Framework\Data\Form\Element\AbstractElement
         return $scopeId;
     }
 
-    function getScope( $code )
+    public function getScope( $code )
     {
         if ( $code == 'default' )
             {
@@ -294,7 +294,7 @@ class Store extends \Magento\Framework\Data\Form\Element\AbstractElement
         return false;
     }
 
-    function getScopeCode( $code )
+    public function getScopeCode( $code )
     {
         $parts = explode( '_', $code );
         if ( count ( $parts ) == 1 )

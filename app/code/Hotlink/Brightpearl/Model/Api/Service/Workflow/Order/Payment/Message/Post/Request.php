@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Workflow\Order\Payment\Message\P
 
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Post\AbstractPost
 {
-    function getAction()
+    public function getAction()
     {
         $transaction = $this->getTransaction();
         return sprintf( '/2.0.0/%s/workflow-integration-service/order/%s/payments',
@@ -11,17 +11,17 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Pos
                         self::encodeParam( $transaction->getOrderIncrementId() ) );
     }
 
-    function getFunction()
+    public function getFunction()
     {
         return $this->getMethod(). " workflow-integration-service/order/payments";
     }
 
-    function getBody()
+    public function getBody()
     {
         return $this->_encodeJson( $this->getTransaction()->getPayment() );
     }
 
-    function validate()
+    public function validate()
     {
         return $this
             ->_assertNotEmpty($this->getTransaction()->getPayment(), 'payment')

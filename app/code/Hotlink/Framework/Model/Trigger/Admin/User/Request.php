@@ -8,7 +8,7 @@ class Request extends \Hotlink\Framework\Model\Trigger\AbstractTrigger implement
 
     protected $htmlHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -36,12 +36,12 @@ class Request extends \Hotlink\Framework\Model\Trigger\AbstractTrigger implement
       Unlike most triggers, this one overloads _execute to identify interactions from html, and changes the source whilst
       iterating over interactions.
     */
-    function getMagentoEvents()
+    public function getMagentoEvents()
     {
         return [ 'Initiated manually via admin' => 'hotlink_framework_trigger_admin_user_request' ];
     }
 
-    function getContexts()
+    public function getContexts()
     {
         return [ 'hotlink_framework_trigger_admin_user_request' => 'Initiated manually via admin' ];
     }
@@ -87,18 +87,27 @@ class Request extends \Hotlink\Framework\Model\Trigger\AbstractTrigger implement
                     }
                 $report = $interaction->getReport();
                 $report->addHtmlWriter();
-                if ( !$interaction->canExecute( $this ) )
+                $run = true;
+                try
                     {
+                        $interaction->canExecute( true );
+                    }
+                catch ( \Exception $e )
+                    {
+                        $run = false;
                         $htmlWriter = $report->getWriter( 'html' );
                         $directHtmlWriter = $htmlWriter->getDirectHtmlWriter();
                         if ( ! $directHtmlWriter->isOpen() )
                             {
                                 $directHtmlWriter->open();
                             }
-                        $directHtmlWriter->write( 'EXECUTION DENIED (probably by configuration)' );
+                        $directHtmlWriter->write( $e->getMessage() );
                         $directHtmlWriter->close();
                     }
-                $interaction->execute();
+                if ( $run )
+                    {
+                        $interaction->execute();
+                    }
             }
     }
 

@@ -7,7 +7,7 @@ class AbstractConvention
     protected $reflection;
     protected $check;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Reflection $reflection,
         \Hotlink\Framework\Helper\Convention\Check $check
     )

@@ -11,7 +11,7 @@ class Inventory implements \Magento\Ui\DataProvider\Modifier\ModifierInterface
     protected $stockRegistryProvider;
     protected $stockConfiguration;
 
-    function __construct(
+    public function __construct(
         \Magento\Catalog\Model\Locator\LocatorInterface $locator,
         \Hotlink\Brightpearl\Model\Stock\ItemFactory $stockItemFactory,
         \Magento\CatalogInventory\Model\Spi\StockRegistryProviderInterface $stockRegistryProvider,
@@ -23,12 +23,12 @@ class Inventory implements \Magento\Ui\DataProvider\Modifier\ModifierInterface
         $this->stockConfiguration = $stockConfiguration;
     }
 
-    function modifyData(array $data)
+    public function modifyData(array $data)
     {
         return $data;
     }
 
-    function modifyMeta(array $meta)
+    public function modifyMeta(array $meta)
     {
         $this->meta = $meta;
 

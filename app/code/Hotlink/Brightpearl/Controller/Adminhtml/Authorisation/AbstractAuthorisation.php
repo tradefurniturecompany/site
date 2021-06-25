@@ -11,7 +11,7 @@ abstract class AbstractAuthorisation extends \Magento\Backend\App\Action
     protected $interactionReportFactory;
     protected $interactionUserFactory;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Hotlink\Framework\Model\ReportFactory $interactionReportFactory,
         \Hotlink\Framework\Model\UserFactory $interactionUserFactory

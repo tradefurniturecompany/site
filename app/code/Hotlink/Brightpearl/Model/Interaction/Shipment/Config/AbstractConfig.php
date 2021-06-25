@@ -6,7 +6,7 @@ class AbstractConfig extends \Hotlink\Brightpearl\Model\Interaction\Config\Abstr
 
     protected $sharedShipmentConfig;
 
-    function __construct(
+    public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Convention\Interaction\Config $configConvention,
@@ -30,12 +30,12 @@ class AbstractConfig extends \Hotlink\Brightpearl\Model\Interaction\Config\Abstr
             $data );
     }
 
-    function getNotifyCustomer($storeId = null)
+    public function getNotifyCustomer($storeId = null)
     {
         return $this->sharedShipmentConfig->getNotifyCustomer($storeId);
     }
 
-    function getShippingOptionsMap( $storeId = null)
+    public function getShippingOptionsMap( $storeId = null)
     {
         return $this->sharedShipmentConfig->getShippingOptionsMap($storeId);
     }

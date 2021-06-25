@@ -9,7 +9,7 @@ abstract class AbstractScalar extends \Hotlink\Framework\Model\Interaction\Envir
 
     protected $htmlParameterScalar;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
 
@@ -20,12 +20,12 @@ abstract class AbstractScalar extends \Hotlink\Framework\Model\Interaction\Envir
         $this->htmlParameterScalar = $htmlParameterScalar;
     }
 
-    function getDefault()
+    public function getDefault()
     {
         return '1 ' . $this->getDefaultUnit();
     }
 
-    function setUnit( $unit )
+    public function setUnit( $unit )
     {
         if ( !array_key_exists( $unit, $this->getOptions() ) )
             {
@@ -36,7 +36,7 @@ abstract class AbstractScalar extends \Hotlink\Framework\Model\Interaction\Envir
         return $this;
     }
 
-    function getUnit()
+    public function getUnit()
     {
         if ( !$this->_unitInitialised )
             {
@@ -46,7 +46,7 @@ abstract class AbstractScalar extends \Hotlink\Framework\Model\Interaction\Envir
 
     }
 
-    function getDefaultUnit()
+    public function getDefaultUnit()
     {
         foreach ( $this->getOptions() as $value => $label )
             {
@@ -55,12 +55,12 @@ abstract class AbstractScalar extends \Hotlink\Framework\Model\Interaction\Envir
         return null;
     }
 
-    function getFormHelper()
+    public function getFormHelper()
     {
         return $this->htmlParameterScalar;
     }
 
-    function asString()
+    public function asString()
     {
         $output = $this->getName() . ' = ' . $this->getValue();
         return $output;

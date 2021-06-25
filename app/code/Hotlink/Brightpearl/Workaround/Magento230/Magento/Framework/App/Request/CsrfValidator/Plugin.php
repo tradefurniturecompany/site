@@ -11,7 +11,7 @@ class Plugin
      * @param \Magento\Framework\App\RequestInterface $request
      * @param \Magento\Framework\App\ActionInterface $action
      */
-    function aroundValidate(
+    public function aroundValidate(
         $subject,
         \Closure $proceed,
         $request,
@@ -20,9 +20,9 @@ class Plugin
     {
         if ( $request->getModuleName() == 'hotlink_brightpearl' )
             {
-                return; // Skip CSRF check
+                return true; // Skip CSRF check
             }
-        $proceed( $request, $action );
+        return $proceed( $request, $action );
     }
 
 }

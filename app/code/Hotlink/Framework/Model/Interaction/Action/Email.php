@@ -11,7 +11,7 @@ class Email extends \Hotlink\Framework\Model\Interaction\Action\AbstractAction
     protected $emailConfig;
     protected $stringWriterFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -31,16 +31,16 @@ class Email extends \Hotlink\Framework\Model\Interaction\Action\AbstractAction
         $this->stringWriterFactory = $stringWriterFactory;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'email';
     }
 
-    function before()
+    public function before()
     {
     }
 
-    function after()
+    public function after()
     {
         $to = [];
         $errors = null;
@@ -59,13 +59,42 @@ class Email extends \Hotlink\Framework\Model\Interaction\Action\AbstractAction
             {
                 $subject = ( $errors ) ? self::SUBJECT_ERROR : self::SUBJECT_SUCCESS;
                 $subject = $this->_prepareSubject( $subject, $interaction );
+
+                $headers = $this->_clearHeaders();
                 $content = $this->_getContent( $interaction->getReport()->getId() );
+                $this->_restoreHeaders( $headers );
+
                 $this->emailHelper->send( $to, $subject, $content );
                 $this->getReport()->debug( 'Emailed ' . $subject . ' to ' . implode( ',', $to )  );
             }
         else
             {
                 $this->getReport()->trace( 'Not configured' );
+            }
+    }
+
+    protected function _clearHeaders()
+    {
+        $headers = array();
+        if ( ! headers_sent() )
+            {
+                foreach ( headers_list() as $header )
+                    {
+                        $headers[] = $header;
+                        header_remove( $header );
+                    }
+            }
+        return $headers;
+    }
+
+    protected function _restoreHeaders( $headers )
+    {
+        if ( ! headers_sent() )
+            {
+                foreach ( $headers as $header )
+                    {
+                        header( $header );
+                    }
             }
     }
 

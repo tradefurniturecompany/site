@@ -17,7 +17,7 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
     protected $storeManager;
     protected $htmlFormInteractionHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -41,12 +41,12 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
 
     abstract protected function _getName();
 
-    function getName()
+    public function getName()
     {
         return ( string ) __( $this->_getName() );
     }
 
-    function getKey()
+    public function getKey()
     {
         return get_class($this);
     }
@@ -59,13 +59,13 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
     //  You can overload to provide explict block names if you wish to break from convention.
     //  Returning false indicates the interaction does not support an admin tab.
     //
-    function getTabBlock()
+    public function getTabBlock()
     { // TODO: Rengage the convention
         return '\Hotlink\Framework\Block\Adminhtml\Interactions\Index\Tab\DefaultTab';
         return $this->conventionHelper->getTabBlock( $this );
     }
 
-    function getImplementation()
+    public function getImplementation()
     {
         if ( !$this->_implementation )
             {
@@ -104,18 +104,18 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
     //  Returns name of the class derived from \Hotlink\Framework\Model\Interaction\Environment\AbstractEnvironment
     //  You may need to overload this if the environment belongs to a different module.
     //
-    function getEnvironmentClass()
+    public function getEnvironmentClass()
     {
         return $this->conventionHelper->getEnvironmentClass( $this );
     }
 
-    function setTrigger( \Hotlink\Framework\Model\Trigger\AbstractTrigger $trigger )
+    public function setTrigger( \Hotlink\Framework\Model\Trigger\AbstractTrigger $trigger )
     {
         $this->_trigger = $trigger;
         return $this;
     }
 
-    function getTrigger()
+    public function getTrigger()
     {
         return $this->_trigger;
     }
@@ -123,12 +123,12 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
     //
     //  IReport
     //
-    function setReport( \Hotlink\Framework\Model\Report $report = null )
+    public function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
     }
 
-    function getReport( $safe = true )
+    public function getReport( $safe = true )
     {
         if ( !$this->_report && $safe )
             {
@@ -148,12 +148,12 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
         return $this->_report;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'interaction';
     }
 
-    function execute()
+    public function execute()
     {
         if ( $this->canExecute() )
             {
@@ -193,7 +193,7 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
         return $this;
     }
 
-    function shutdown()
+    public function shutdown()
     {
         if ( $this->getReport( false ) )
             {
@@ -240,18 +240,36 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
         $this->executeActions( 'after' );
     }
 
-    function getActions()
+    public function getActions()
     {
         return $this->configMap->getActions( $this );
     }
 
-    function canExecute()
+    public function canExecute( $throwException = false )
     {
-        if ( $this->getEnvironment()->isEnabled() )
+        if ( $this->_canExecute( $throwException ) )
             {
-                if ( $this->getEnvironment()->isTriggerEnabled( $this->getTrigger() ) )
+                if ( $this->getEnvironment()->isEnabled() )
                     {
-                        return $this->_canExecute();
+                        if ( $this->getEnvironment()->isTriggerEnabled( $this->getTrigger() ) )
+                            {
+                                return true;
+                            }
+                        else
+                            {
+                                if ( $throwException )
+                                    {
+                                        throw new \Hotlink\Framework\Model\Exception\Configuration( 'Trigger not enabled in environment' );
+                                    }
+                            }
+                        return false;
+                    }
+                else
+                    {
+                        if ( $throwException )
+                            {
+                                throw new \Hotlink\Framework\Model\Exception\Configuration( 'Interaction not enabled in environment' );
+                            }
                     }
             }
         return false;
@@ -260,7 +278,7 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
     //
     //  Overload to provide additional execution constraints in derived classes
     //
-    protected function _canExecute()
+    protected function _canExecute( $throwException = false )
     {
         return true;
     }
@@ -274,12 +292,12 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
         return $this->storeManager->getStore( $storeId )->getStoreId();
     }
 
-    function setEnvironment( \Hotlink\Framework\Model\Interaction\Environment\AbstractEnvironment $environment )
+    public function setEnvironment( \Hotlink\Framework\Model\Interaction\Environment\AbstractEnvironment $environment )
     {
         return $this->addEnvironment( $environment );
     }
 
-    function addEnvironment( \Hotlink\Framework\Model\Interaction\Environment\AbstractEnvironment $environment )
+    public function addEnvironment( \Hotlink\Framework\Model\Interaction\Environment\AbstractEnvironment $environment )
     {
         $storeId = $environment->getStoreId();
         if ( isset( $this->_environment[ $storeId ] ) )
@@ -294,7 +312,7 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
     //
     //  Returns a copy of the registered environments - new environments can only be added via addEnvironment()
     //
-    function getEnvironments()
+    public function getEnvironments()
     {
         $copy = array();
         foreach ( $this->_environment as $key => $value )
@@ -304,12 +322,12 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
         return $copy;
     }
 
-    function hasEnvironment( $storeId = null )
+    public function hasEnvironment( $storeId = null )
     {
         return !empty( $this->_environment ) && !empty( $this->_environment[$storeId] );
     }
 
-    function getEnvironment( $storeId = null )
+    public function getEnvironment( $storeId = null )
     {
         if ( is_null( $storeId ) )
             {
@@ -326,7 +344,7 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
         return ( isset( $this->_environment[ $storeId ] ) ) ? $this->_environment[ $storeId ] : false;
     }
 
-    function createEnvironment( $storeId )
+    public function createEnvironment( $storeId )
     {
         $storeId = $this->_getCleanStoreId( $storeId );
         $args = [ 'interaction' => $this, 'storeId' => $storeId ];
@@ -335,18 +353,18 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
         return $environment;
     }
 
-    function newEnvironment( $storeId )
+    public function newEnvironment( $storeId )
     {
         return $this->createEnvironment( $storeId );
     }
 
     // ask / the / one
-    function getConfigClass()
+    public function getConfigClass()
     {
         return $this->conventionHelper->getConfigClass( $this );
     }
 
-    function getConfig()
+    public function getConfig()
     {
         if ( ! $this->_config )
             {
@@ -358,7 +376,7 @@ abstract class AbstractInteraction extends \Hotlink\Framework\Model\AbstractMode
     //
     //  IFormHelper
     //
-    function getFormHelper()
+    public function getFormHelper()
     {
         return $this->htmlFormInteractionHelper;
     }

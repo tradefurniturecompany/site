@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Config\Field\Order\Queue\Sort;
 class Source extends \Hotlink\Framework\Model\Config\Field\Order\Status\Sort\Source
 {
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         $options = parent::toOptionArray();
 

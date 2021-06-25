@@ -9,7 +9,7 @@ class Stock
     protected $bpStockItemCollectionFactory;
     protected $bpStockItemFactory;
 
-    function __construct(
+    public function __construct(
         \Magento\CatalogInventory\Api\StockItemRepositoryInterface $mageStockItemRepository,
         \Magento\CatalogInventory\Api\StockItemCriteriaInterface $mageStockItemSearchCriteria,
 
@@ -23,7 +23,7 @@ class Stock
         $this->mageStockItemSearchCriteria = $mageStockItemSearchCriteria;
     }
 
-    function loadBrightpearlInventory( $productsCollection, $createMissingItems = true )
+    public function loadBrightpearlInventory( $productsCollection, $createMissingItems = true )
     {
         $prodIds = $productsCollection->walk('getId');
 

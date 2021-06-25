@@ -14,7 +14,7 @@ abstract class AbstractForm
     protected $fieldsetHelper;
     protected $htmlHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $fieldsetHelper,
         \Hotlink\Framework\Helper\Html $htmlHelper
@@ -96,7 +96,7 @@ abstract class AbstractForm
     //
     //  abstract protected function _addFields( $fieldset, $object );
     //
-    function addFields( $fieldset, $object )
+    public function addFields( $fieldset, $object )
     {
         return $this->_addFields( $fieldset, $object );
     }

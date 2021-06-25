@@ -220,45 +220,45 @@ class BashPrinter extends \PHPUnit\Util\Printer implements \PHPUnit\Framework\Te
     //
     //  Interface \PHPUnit\Framework\TestListener
     //
-    function addWarning( \PHPUnit\Framework\Test $test, \PHPUnit\Framework\Warning $e, $time )
+    public function addWarning( \PHPUnit\Framework\Test $test, \PHPUnit\Framework\Warning $e, $time )
     {
         $this->testPassed = false;
         $this->writeTest( 'warning', $test->getName() );
         $this->writeException( $e );
     }
 
-    function addError(\PHPUnit\Framework\Test $test, \Exception $e, $time)
+    public function addError(\PHPUnit\Framework\Test $test, \Exception $e, $time)
     {
         $this->testPassed = false;
         $this->writeTest( 'error', $test->getName() );
         $this->writeException( $e );
     }
 
-    function addFailure(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\AssertionFailedError $e, $time)
+    public function addFailure(\PHPUnit\Framework\Test $test, \PHPUnit\Framework\AssertionFailedError $e, $time)
     {
         $this->testPassed = false;
         $this->writeTest( 'fail', $test->getName(), $e->getMessage() );
     }
 
-    function addIncompleteTest(\PHPUnit\Framework\Test $test, \Exception $e, $time)
+    public function addIncompleteTest(\PHPUnit\Framework\Test $test, \Exception $e, $time)
     {
         $this->testPassed = false;
         $this->writeTest( 'incomplete', $test->getName(), $e->getMessage() );
     }
 
-    function addRiskyTest(\PHPUnit\Framework\Test $test, \Exception $e, $time)
+    public function addRiskyTest(\PHPUnit\Framework\Test $test, \Exception $e, $time)
     {
         $this->testPassed = false;
         $this->writeTest( 'risky', $test->getName(), $e->getMessage() );
     }
 
-    function addSkippedTest(\PHPUnit\Framework\Test $test, \Exception $e, $time)
+    public function addSkippedTest(\PHPUnit\Framework\Test $test, \Exception $e, $time)
     {
         $this->testPassed = false;
         $this->writeTest( 'skipped', $test->getName(), $e->getMessage() );
     }
 
-    function startTestSuite(\PHPUnit\Framework\TestSuite $suite)
+    public function startTestSuite(\PHPUnit\Framework\TestSuite $suite)
     {
         $this->suiteNesting++;
         $name = $suite->getName();
@@ -274,7 +274,7 @@ class BashPrinter extends \PHPUnit\Util\Printer implements \PHPUnit\Framework\Te
         $this->indent();
     }
 
-    function endTestSuite(\PHPUnit\Framework\TestSuite $suite)
+    public function endTestSuite(\PHPUnit\Framework\TestSuite $suite)
     {
         $this->unindent();
         if ( $this->getLevel() == self::START_LEVEL )
@@ -285,13 +285,13 @@ class BashPrinter extends \PHPUnit\Util\Printer implements \PHPUnit\Framework\Te
         $this->write( "\r\n" );
     }
 
-    function startTest(\PHPUnit\Framework\Test $test)
+    public function startTest(\PHPUnit\Framework\Test $test)
     {
         $this->testPassed = true;
         $this->writeTest( 'running', $test->getName(), '.... executing ....', false );
     }
 
-    function endTest(\PHPUnit\Framework\Test $test, $time)
+    public function endTest(\PHPUnit\Framework\Test $test, $time)
     {
         if ( $this->testPassed )
             {

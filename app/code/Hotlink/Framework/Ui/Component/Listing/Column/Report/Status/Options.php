@@ -5,7 +5,7 @@ class Options implements \Magento\Framework\Data\OptionSourceInterface
 {
     protected $options;
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         if ($this->options === null) {
             $rawOptions = \Hotlink\Framework\Model\Report::getStatusOptions();

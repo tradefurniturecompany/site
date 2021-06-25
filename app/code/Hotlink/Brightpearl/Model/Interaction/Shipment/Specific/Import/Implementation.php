@@ -9,13 +9,13 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Shipment\Imp
         return 'Hotlink Brightpearl Shipping Importer (specific)';
     }
 
-    function execute()
+    public function execute()
     {
         $report = $this->getReport();
         $env    = $this->getEnvironment();
         $report( $env, "status" );
 
-        $noteId   = $env->getParameter('goodsounote_id')->getValue();
+        $noteId   = $env->getParameter('goodsoutnote_id')->getValue();
         $noteType = $env->getParameter('note_type')->getValue();
         $notify = $env->getParameter('notify_customer')->getValue();
 

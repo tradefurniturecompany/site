@@ -3,27 +3,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Prices\Import\Environment\Skip;
 
 class Group extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Boolean
 {
-    function getDefault()
+    public function getDefault()
     {
         return false;
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'skip_group';
     }
 
-    function getName()
+    public function getName()
     {
         return 'Skip applying group prices';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Do not apply customer group prices during this interaction';
     }
 
-    function getValue()
+    public function getValue()
     {
         if ( !$this->_valueInitialised ) {
             $env = $this->getEnvironment();

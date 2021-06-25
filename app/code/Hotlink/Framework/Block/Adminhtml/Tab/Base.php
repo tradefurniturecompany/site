@@ -8,7 +8,7 @@ abstract class Base extends \Magento\Backend\Block\Widget\Form\Container impleme
 
     protected $fieldsetHtmlHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\Block\Widget\Context $context,
         \Hotlink\Framework\Helper\Html\Fieldset $fieldsetHtmlHelper,
         array $data = []
@@ -44,37 +44,37 @@ abstract class Base extends \Magento\Backend\Block\Widget\Form\Container impleme
         return $this->fieldsetHtmlHelper;
     }
 
-    function addCollectionField( $fieldset, $name, $label = '', $value = '', $add = true )
+    public function addCollectionField( $fieldset, $name, $label = '', $value = '', $add = true )
     {
         return $this->getFieldsetHelper()->createCollection( $fieldset, $name, __( $label ), $value, $add );
     }
 
-    function addButtonField( $fieldset, $name, $label, $value = '', $add = true )
+    public function addButtonField( $fieldset, $name, $label, $value = '', $add = true )
     {
         return $this->getFieldsetHelper()->createButton( $fieldset, $name, __( $label ), $value, $add );
     }
 
-    function addFileField( $fieldset, $name, $label, $value = '', $add = true )
+    public function addFileField( $fieldset, $name, $label, $value = '', $add = true )
     {
         return $this->getFieldsetHelper()->createFile( $fieldset, $name, __( $label ), $value, $add );
     }
 
-    function addTextField( $fieldset, $name, $label, $value = '' )
+    public function addTextField( $fieldset, $name, $label, $value = '' )
     {
         return $this->getFieldsetHelper()->createText( $fieldset, $name, __( $label ), $value );
     }
 
-    function addNoteField( $fieldset, $name, $label, $value = '' )
+    public function addNoteField( $fieldset, $name, $label, $value = '' )
     {
         return $this->getFieldsetHelper()->createNote( $fieldset, $name, __( $label ), $value );
     }
 
-    function addHiddenField( $fieldset, $name, $value = '' )
+    public function addHiddenField( $fieldset, $name, $value = '' )
     {
         return $this->getFieldsetHelper()->createHidden( $fieldset, $name, $value );
     }
 
-    function addSelectField( $fieldset, $name, $label, $value = '', $values = array() )
+    public function addSelectField( $fieldset, $name, $label, $value = '', $values = array() )
     {
         return $this->getFieldsetHelper()->createSelect( $fieldset, $name, __( $label ), $value, $values );
     }
@@ -87,7 +87,7 @@ abstract class Base extends \Magento\Backend\Block\Widget\Form\Container impleme
         return $iframe;
     }
 
-    function addDateField( $fieldset, $name, $label, $value='', $format='yyyy-MM-dd', $required=false, $image=null )
+    public function addDateField( $fieldset, $name, $label, $value='', $format='yyyy-MM-dd', $required=false, $image=null )
     {
         return $this->getFieldsetHelper()->createDate( $fieldset, $name, __( $label ), $value, $format, $required, $image );
     }

@@ -6,7 +6,7 @@ abstract class AbstractConfig extends \Hotlink\Brightpearl\Model\Interaction\Con
 
     protected $sharedStockConfig;
 
-    function __construct(
+    public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Convention\Interaction\Config $configConvention,
@@ -30,32 +30,32 @@ abstract class AbstractConfig extends \Hotlink\Brightpearl\Model\Interaction\Con
         );
     }
 
-    function getWarehouses($storeId = null)
+    public function getWarehouses($storeId = null)
     {
         return $this->_getSharedStockConfig()->getWarehouses($storeId);
     }
 
-    function getBatch($storeId = null)
+    public function getBatch($storeId = null)
     {
         return $this->getConfigData('batch', $storeId, 50);
     }
 
-    function getSleep($storeId = null)
+    public function getSleep($storeId = null)
     {
         return $this->getConfigData('sleep', $storeId, 5000);
     }
 
-    function getPutBackInstock($storeId = null)
+    public function getPutBackInstock($storeId = null)
     {
         return $this->_getSharedStockConfig()->getPutBackInstockFlag($storeId);
     }
 
-    function getQtyZeroWhenMissing($storeId = null)
+    public function getQtyZeroWhenMissing($storeId = null)
     {
         return $this->_getSharedStockConfig()->getQtyZeroWhenMissingFlag($storeId);
     }
 
-    function getSkipUnmanaged($storeId = null)
+    public function getSkipUnmanaged($storeId = null)
     {
         return $this->_getSharedStockConfig()->getStockSkipUnmanaged($storeId);
     }

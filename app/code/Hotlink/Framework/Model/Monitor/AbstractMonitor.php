@@ -11,7 +11,7 @@ abstract class AbstractMonitor implements \Hotlink\Framework\Model\Report\IRepor
     protected $factoryHelper;
     protected $interaction;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Model\ReportFactory $reportFactory,
         \Hotlink\Framework\Helper\Convention\Monitor $conventionMonitorHelper,
         \Hotlink\Framework\Helper\Factory $factoryHelper,
@@ -28,14 +28,14 @@ abstract class AbstractMonitor implements \Hotlink\Framework\Model\Report\IRepor
         $this->configMap = $configMap;
     }
 
-    abstract function execute();
-    abstract function getCronFieldName();
+    abstract public function execute();
+    abstract public function getCronFieldName();
     abstract protected function _getName();
 
     protected $_config = false;
     protected $_report = false;
 
-    function getConfig()
+    public function getConfig()
     {
         if ( !$this->_config )
             {
@@ -44,12 +44,12 @@ abstract class AbstractMonitor implements \Hotlink\Framework\Model\Report\IRepor
         return $this->_config;
     }
 
-    function getName()
+    public function getName()
     {
         return __( $this->_getName() );
     }
 
-    function getInteraction()
+    public function getInteraction()
     {
         return $this->interaction;
     }
@@ -69,7 +69,7 @@ abstract class AbstractMonitor implements \Hotlink\Framework\Model\Report\IRepor
         return $this->configMap;
     }
 
-    function trigger( $event, array $args = [] )
+    public function trigger( $event, array $args = [] )
     {
         if ( !isset( $args[ 'interaction' ] ) )
             {
@@ -90,7 +90,7 @@ abstract class AbstractMonitor implements \Hotlink\Framework\Model\Report\IRepor
     //
     //  \Hotlink\Framework\Model\Report\IReport
     //
-    function getReport( $safe = true )
+    public function getReport( $safe = true )
     {
         if ( !$this->_report && $safe )
             {
@@ -99,13 +99,13 @@ abstract class AbstractMonitor implements \Hotlink\Framework\Model\Report\IRepor
         return $this->_report;
     }
 
-    function setReport(\Hotlink\Framework\Model\Report $report = null)
+    public function setReport(\Hotlink\Framework\Model\Report $report = null)
     {
         $this->_report = $report;
         return $this;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'monitor';
     }

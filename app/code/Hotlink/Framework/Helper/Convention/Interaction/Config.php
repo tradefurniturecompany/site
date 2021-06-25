@@ -6,7 +6,7 @@ class Config extends \Hotlink\Framework\Helper\Convention\AbstractConvention
 
     protected $groupKeyHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Reflection $reflection,
         \Hotlink\Framework\Helper\Convention\Check $check,
         \Hotlink\Framework\Helper\Config\Interaction\Group\Key $groupKeyHelper
@@ -16,19 +16,19 @@ class Config extends \Hotlink\Framework\Helper\Convention\AbstractConvention
         parent::__construct( $reflection, $check );
     }
 
-    function getSectionKey( $thing )
+    public function getSectionKey( $thing )
     {
         $module = $this->reflection->getModule( $thing );
         $key = strtolower( $module );
         return $key;
     }
 
-    function getGroupKey( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
+    public function getGroupKey( \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
     {
         return $this->groupKeyHelper->encode( $interaction );
     }
 
-    function getGroupKeyForConfig( \Hotlink\Framework\Model\Interaction\Config\AbstractConfig $config )
+    public function getGroupKeyForConfig( \Hotlink\Framework\Model\Interaction\Config\AbstractConfig $config )
     {
         $class = $this->reflection->getClass( $config, null, false );
         $parts = explode( '\\', $class );
@@ -37,7 +37,7 @@ class Config extends \Hotlink\Framework\Helper\Convention\AbstractConvention
         return $this->getGroupKeyForInteraction( $class );
     }
 
-    function getGroupKeyForInteraction( $interaction )
+    public function getGroupKeyForInteraction( $interaction )
     {
         return $this->groupKeyHelper->encode( $interaction );
     }

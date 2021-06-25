@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Warehouse\Transaction\Shipping;
 
 class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\AbstractGet
 {
-    function getName()
+    public function getName()
     {
         return 'Shipping Method GET';
     }

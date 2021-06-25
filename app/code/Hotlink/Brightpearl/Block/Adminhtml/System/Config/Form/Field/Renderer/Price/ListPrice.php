@@ -9,7 +9,7 @@ class ListPrice extends \Magento\Framework\View\Element\Html\Select
      */
     protected $brightpearlConfigSourceBrightpearlPriceLists;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Price\Lists $brightpearlConfigSourceBrightpearlPriceLists,
         array $data = []
@@ -21,12 +21,12 @@ class ListPrice extends \Magento\Framework\View\Element\Html\Select
         );
     }
 
-    function setInputName( $value )
+    public function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    function _toHtml()
+    public function _toHtml()
     {
         if ( !$this->getOptions() )
             {

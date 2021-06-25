@@ -9,7 +9,7 @@ class Cleaning extends \Hotlink\Framework\Model\Interaction\AbstractInteraction 
         return "Log Cleaning";
     }
 
-    function getTabBlock()
+    public function getTabBlock()
     {
         return '\Hotlink\Framework\Block\Adminhtml\Interactions\Index\Tab\DefaultTab';
     }

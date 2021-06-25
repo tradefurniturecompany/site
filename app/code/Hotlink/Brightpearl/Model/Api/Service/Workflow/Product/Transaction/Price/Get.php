@@ -6,7 +6,7 @@ class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTra
     protected $_skus;
     protected $_pricelists;
 
-    function getName()
+    public function getName()
     {
         return 'Product Pricing GET';
     }
@@ -21,24 +21,24 @@ class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTra
         return '\Hotlink\Brightpearl\Model\Api\Service\Workflow\Product\Message\Price\Get\Response';
     }
 
-    function setSkus(array $skus)
+    public function setSkus(array $skus)
     {
         $this->_skus = $skus;
         return $this;
     }
 
-    function getSkus()
+    public function getSkus()
     {
         return $this->_skus;
     }
 
-    function setPricelists(array $pricelists)
+    public function setPricelists(array $pricelists)
     {
         $this->_pricelists = $pricelists;
         return $this;
     }
 
-    function getPricelists()
+    public function getPricelists()
     {
         return $this->_pricelists;
     }

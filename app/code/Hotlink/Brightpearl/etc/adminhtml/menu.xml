@@ -12,7 +12,7 @@
              title="Interactions"
              action="hotlink_brightpearl/interactions"
              resource="Hotlink_Brightpearl::interactions" />
-        <add id="Hotlink_Brightpearl::configuration" module="Hotlink_Brightpearl" parent="Hotlink_Brightpearl::brightpearl" sortOrder="20"
+        <add id="Hotlink_Brightpearl::config" module="Hotlink_Brightpearl" parent="Hotlink_Brightpearl::brightpearl" sortOrder="20"
              title="Configuration"
              action="adminhtml/system_config/edit/section/hotlink_brightpearl"
              resource="Hotlink_Brightpearl::config" />

@@ -4,12 +4,12 @@ namespace Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisatio
 class Transform extends \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisation\CustomisationAbstract
 {
 
-    function isDateFormat( $expression )
+    public function isDateFormat( $expression )
     {
         return $this->isEnclosedSquare( $this->clean( $expression ) );
     }
 
-    function getDateFormat( $expression )
+    public function getDateFormat( $expression )
     {
         $expression = $this->clean( $expression );
         if ( $this->isDateFormat( $expression ) )
@@ -19,12 +19,12 @@ class Transform extends \Hotlink\Brightpearl\Model\Interaction\Order\Export\Help
         return '';
     }
 
-    function isLookup( $expression )
+    public function isLookup( $expression )
     {
         return $this->isEnclosedCurly( $this->clean( $expression ) );
     }
 
-    function getLookup( $expression )
+    public function getLookup( $expression )
     {
         $expression = $this->clean( $expression );
         if ( $this->isLookup( $expression ) )
@@ -48,7 +48,7 @@ class Transform extends \Hotlink\Brightpearl\Model\Interaction\Order\Export\Help
         return $this->isEnclosedCurly( $expression );
     }
 
-    function apply( $expression, $value )
+    public function apply( $expression, $value )
     {
         if ( $expression = $this->clean( $expression ) )
             {

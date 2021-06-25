@@ -12,14 +12,14 @@ namespace Hotlink\Brightpearl\Test\unit\Model\Interaction\Order\Export\Helper\Cu
 class TransformTest extends \PHPUnit\Framework\TestCase
 {
 
-    function test_clean()
+    public function test_clean()
     {
         $transform = $this->getTransformer();
         $this->assertEquals( 'abc', $transform->clean( ' abc  ' ), "' abc  '" );
         $this->assertEquals( '1 23', $transform->clean( '   1 23    ' ), "'   1 23    '" );
     }
 
-    function test_is_date_format()
+    public function test_is_date_format()
     {
         $transform = $this->getTransformer();
         $this->assertTrue( $transform->isDateFormat( '[abc]' ),       "'[abc]'" );
@@ -37,7 +37,7 @@ class TransformTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse( $transform->isDateFormat( '' ),           "''" );
     }
 
-    function test_get_date_format()
+    public function test_get_date_format()
     {
         $transform = $this->getTransformer();
         $this->assertEquals( 'abc', $transform->getDateFormat( '[abc]' ) );
@@ -51,7 +51,7 @@ class TransformTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( false, $transform->getDateFormat( '' ) );
     }
 
-    function test_is_lookup()
+    public function test_is_lookup()
     {
         $transform = $this->getTransformer();
         $this->assertTrue( $transform->isLookup( '{a=1,b=2,c=3}' ), "'{a=1,b=2,c=3}'" );
@@ -69,7 +69,7 @@ class TransformTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse( $transform->isLookup( '' ),             "''" );
     }
 
-    function test_get_lookup_success()
+    public function test_get_lookup_success()
     {
         $transform = $this->getTransformer();
         $expression = '{a=1,b=2,3=c, 99  = donkey Kong   , !42  != what a mess,z=, "17, please = nice, to meet you", b=100 }';
@@ -117,7 +117,7 @@ class TransformTest extends \PHPUnit\Framework\TestCase
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      *  @expectedExceptionMessage Unable to create list item from string
      */
-    function test_get_lookup_invalid_empty()
+    public function test_get_lookup_invalid_empty()
     {
         $transform = $this->getTransformer();
         $transform->getLookup( '{}' );
@@ -127,7 +127,7 @@ class TransformTest extends \PHPUnit\Framework\TestCase
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      *  @expectedExceptionMessage Unable to create list item from string
      */
-    function test_get_lookup_invalid_no_key()
+    public function test_get_lookup_invalid_no_key()
     {
         $transform = $this->getTransformer();
         $transform->getLookup( '{a=1,}' );
@@ -137,13 +137,13 @@ class TransformTest extends \PHPUnit\Framework\TestCase
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      *  @expectedExceptionMessage Unable to create list item from string
      */
-    function test_get_lookup_invalid_no_val()
+    public function test_get_lookup_invalid_no_val()
     {
         $transform = $this->getTransformer();
         $transform->getLookup( '{a=1,b}' );
     }
 
-    function test_apply_lookup_success()
+    public function test_apply_lookup_success()
     {
         $transform = $this->getTransformer();
         $expression = '{hot=dog,mouse=mat,"king=kong"}';
@@ -156,7 +156,7 @@ class TransformTest extends \PHPUnit\Framework\TestCase
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      *  @expectedExceptionMessage No lookup key defined for
      */
-    function test_apply_lookup_invalid_key()
+    public function test_apply_lookup_invalid_key()
     {
         $transform = $this->getTransformer();
         $transform->apply( '{hot=dog,mouse=mat,"king=kong"}', 'billboard' );
@@ -166,14 +166,14 @@ class TransformTest extends \PHPUnit\Framework\TestCase
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      *  @expectedExceptionMessage Cannot perform lookup when value is an object
      */
-    function test_apply_lookup_invalid_val()
+    public function test_apply_lookup_invalid_val()
     {
         $transform = $this->getTransformer();
         $object = new \stdClass();
         $transform->apply( '{hot=dog,mouse=mat,"king=kong"}', $object );
     }
 
-    function test_apply_sprintf_success()
+    public function test_apply_sprintf_success()
     {
         $transform = $this->getTransformer();
         $this->assertEquals( 'err : 99', $transform->apply( 'err : %s', 99 ) );
@@ -185,13 +185,13 @@ class TransformTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      */
-    function test_apply_sprintf_fail()
+    public function test_apply_sprintf_fail()
     {
         $transform = $this->getTransformer();
         $transform->apply( '%2$05d', 99 );   // Parameters (2$) are not supported
     }
 
-    function test_apply_date_success()
+    public function test_apply_date_success()
     {
         $transform = $this->getTransformer();
 

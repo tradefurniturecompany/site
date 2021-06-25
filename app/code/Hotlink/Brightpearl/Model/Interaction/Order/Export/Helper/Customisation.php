@@ -11,7 +11,7 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
     protected $transform;
     protected $output;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisation\Evaluate $evaluate,
         \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisation\Transform $transform,
@@ -24,7 +24,7 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
         $this->output = $output;
     }
 
-    function apply( $configMap, $order, $data )
+    public function apply( $configMap, $order, $data )
     {
         $report = $this->getReport();
         if ( count( $configMap ) )
@@ -78,18 +78,16 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
                                         case 'skip':
                                             $report->indent()->debug( $message )->unindent();
                                             $report->unindent();
-                                            continue;
                                             break;
                                         case 'warn':
                                             $report->indent()->warn( $message )->unindent();
                                             $report->unindent();
-                                            continue;
                                             break;
                                         case 'stop':
                                             $report->indent()->error( $message )->unindent();
                                             $report->unindent();
                                             throw new \Exception( 'Failed to apply customisations', 2171828 );
-                                            break 2;
+                                            break;
                                     }
                             }
                     }
@@ -100,22 +98,22 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
             }
     }
 
-    function report()
+    public function report()
     {
         return $this->reportHelper;
     }
 
-    function getEvaluate()
+    public function getEvaluate()
     {
         return $this->evaluate;
     }
 
-    function getTransform()
+    public function getTransform()
     {
         return $this->transform;
     }
 
-    function getOutput()
+    public function getOutput()
     {
         return $this->output;
     }
@@ -123,13 +121,13 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
     //
     //  IReport
     //
-    function setReport( \Hotlink\Framework\Model\Report $report = null )
+    public function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
         return $this;
     }
 
-    function getReport( $safe = true )
+    public function getReport( $safe = true )
     {
         if ( !$this->_report && $safe )
             {
@@ -138,7 +136,7 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
         return $this->_report;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'customisation';
     }

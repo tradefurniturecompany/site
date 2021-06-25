@@ -3,22 +3,22 @@ namespace Hotlink\Brightpearl\Model\Interaction\Order\Status\Realtime\Import\Env
 
 class Order extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter
 {
-    function getDefault()
+    public function getDefault()
     {
         return null;
     }
 
-    function getName()
+    public function getName()
     {
         return "Brightpearl order id";
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'order_id';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'The ID of the Brightpearl order';
     }

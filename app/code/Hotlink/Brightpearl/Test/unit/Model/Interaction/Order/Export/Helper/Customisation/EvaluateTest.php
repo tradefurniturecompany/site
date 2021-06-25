@@ -12,14 +12,14 @@ namespace Hotlink\Brightpearl\Test\unit\Model\Interaction\Order\Export\Helper\Cu
 class EvaluateTest extends \PHPUnit\Framework\TestCase
 {
 
-    function test_clean()
+    public function test_clean()
     {
         $evaluate = $this->getEvaluator();
         $this->assertEquals( 'abc', $evaluate->clean( ' abc  ' ), "' abc  '" );
         $this->assertEquals( '1 23', $evaluate->clean( '   1 23    ' ), "'   1 23    '" );
     }
 
-    function test_is_literal()
+    public function test_is_literal()
     {
         $evaluate = $this->getEvaluator();
         $this->assertTrue( $evaluate->isLiteral( '[abc]' ),       "'[abc]'" );
@@ -37,7 +37,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse( $evaluate->isLiteral( '' ),           "''" );
     }
 
-    function test_get_literal()
+    public function test_get_literal()
     {
         $evaluate = $this->getEvaluator();
         $this->assertEquals( 'abc', $evaluate->getLiteral( '[abc]' ) );
@@ -51,7 +51,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( false, $evaluate->getLiteral( '' ) );
     }
 
-    function test_evaluate_property_success()
+    public function test_evaluate_property_success()
     {
         $evaluate = $this->getEvaluator();
         $object = $this->getNestedObject();
@@ -63,7 +63,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( 3, count( $result ) );
     }
 
-    function test_evaluate_empty()
+    public function test_evaluate_empty()
     {
         $evaluate = $this->getEvaluator();
         $object = $this->getNestedObject();
@@ -73,7 +73,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      */
-    function test_evaluate_not_callable_object_string()
+    public function test_evaluate_not_callable_object_string()
     {
         $evaluate = $this->getEvaluator();
         $evaluate->evaluate( 'getProperty1.result', $this->getNestedObject() );
@@ -82,7 +82,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      */
-    function test_evaluate_not_callable_object_nested1_sting()
+    public function test_evaluate_not_callable_object_nested1_sting()
     {
         $evaluate = $this->getEvaluator();
         $evaluate->evaluate( 'getInside1.getProperty2.noway', $this->getNestedObject() );
@@ -91,7 +91,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      */
-    function test_evaluate_not_callable_object_nested2_tring()
+    public function test_evaluate_not_callable_object_nested2_tring()
     {
         $evaluate = $this->getEvaluator();
         $evaluate->evaluate( 'getInside1.getInside2.getProperty3.nope', $this->getNestedObject() );
@@ -100,7 +100,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      */
-    function test_evaluate_not_callable_object_nested_array()
+    public function test_evaluate_not_callable_object_nested_array()
     {
         $evaluate = $this->getEvaluator();
         $evaluate->evaluate( 'getInside1.getInside2.getArray.nochance', $this->getNestedObject() );
@@ -109,7 +109,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      */
-    function test_evaluate_not_callable_method_missing()
+    public function test_evaluate_not_callable_method_missing()
     {
         $evaluate = $this->getEvaluator();
         $evaluate->evaluate( 'oink', $this->getNestedObject() );
@@ -118,7 +118,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      */
-    function test_evaluate_not_callable_method_nested1_missing()
+    public function test_evaluate_not_callable_method_nested1_missing()
     {
         $evaluate = $this->getEvaluator();
         $evaluate->evaluate( 'getInside1.getSomething', $this->getNestedObject() );
@@ -127,7 +127,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      */
-    function test_evaluate_not_callable_method_nested2_missing()
+    public function test_evaluate_not_callable_method_nested2_missing()
     {
         $evaluate = $this->getEvaluator();
         $evaluate->evaluate( 'getInside1.getInside2.getProperty9', $this->getNestedObject() );
@@ -136,7 +136,7 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
     /**
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      */
-    function test_evaluate_not_callable_method_nested3_missing()
+    public function test_evaluate_not_callable_method_nested3_missing()
     {
         $evaluate = $this->getEvaluator();
         $evaluate->evaluate( 'getInside1.getInside2.getInside3.oinking', $this->getNestedObject() );
@@ -156,11 +156,11 @@ class EvaluateTest extends \PHPUnit\Framework\TestCase
 
 class Nest1
 {
-    function getInside1()
+    public function getInside1()
     {
         return new Nest2();
     }
-    function getProperty1()
+    public function getProperty1()
     {
         return "ok1";
     }
@@ -168,15 +168,15 @@ class Nest1
 
 class Nest2
 {
-    function getInside2()
+    public function getInside2()
     {
         return new Nest3();
     }
-    function getProperty2()
+    public function getProperty2()
     {
         return "ok2";
     }
-    function getArray()
+    public function getArray()
     {
         return [ new Item( 'item1' ),
                  new Item( 'item2' ),
@@ -186,7 +186,7 @@ class Nest2
 
 class Nest3
 {
-    function getProperty3()
+    public function getProperty3()
     {
         return "ok3";
     }
@@ -195,15 +195,15 @@ class Nest3
 class Item
 {
     protected $_id;
-    function __construct( $id )
+    public function __construct( $id )
     {
         $this->_id = $id;
     }
-    function getId()
+    public function getId()
     {
         return $this->_id;
     }
-    function getInsideItem()
+    public function getInsideItem()
     {
         return new Nest1();
     }

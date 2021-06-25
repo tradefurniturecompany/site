@@ -12,12 +12,12 @@ class Container extends \Magento\Backend\Block\Widget\Form\Container
         $this->updateButton( 'save', 'label', __( 'Submit' ) );
     }
 
-    function getHeaderText()
+    public function getHeaderText()
     {
         return __( 'Brightpearl authorisation' );
     }
 
-    function getFormActionUrl()
+    public function getFormActionUrl()
     {
         if ($this->hasFormActionUrl()) {
             return $this->getData('form_action_url');

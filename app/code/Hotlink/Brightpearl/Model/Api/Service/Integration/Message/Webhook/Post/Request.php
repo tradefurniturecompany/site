@@ -3,18 +3,18 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Integration\Message\Webhook\Post
 
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Post\AbstractPost
 {
-    function getFunction()
+    public function getFunction()
     {
         return $this->getMethod(). " integration-service/webhook";
     }
 
-    function getAction()
+    public function getAction()
     {
         return sprintf('/public-api/%s/integration-service/webhook',
                        $this->getTransaction()->getAccountCode());
     }
 
-    function getBody()
+    public function getBody()
     {
         $transaction = $this->getTransaction();
         return $this->_encodeJson( [ 'subscribeTo'   => $transaction->getSubscribeTo(),
@@ -25,7 +25,7 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Pos
                                      'idSetAccepted' => $transaction->getIdSetAccepted() ] );
     }
 
-    function validate()
+    public function validate()
     {
         try {
             \Zend_Uri::factory($this->getTransaction()->getUriTemplate());

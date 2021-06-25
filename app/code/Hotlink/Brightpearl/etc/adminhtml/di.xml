@@ -12,8 +12,9 @@
         </arguments>
     </virtualType>
 
+    <!-- creditmemo -->
     <type name="Magento\Sales\Model\Service\CreditmemoService">
-        <plugin name="hotlink_brightpearl_credit_memo_created" type="Hotlink\Brightpearl\Model\Trigger\Creditmemo\Created\Plugin" sortOrder="0" disabled="false" />
+        <plugin name="hotlink_brightpearl_credit_memo_created_service" type="Hotlink\Brightpearl\Model\Trigger\Creditmemo\Service\Plugin" sortOrder="0" disabled="false" />
     </type>
 
 </config>

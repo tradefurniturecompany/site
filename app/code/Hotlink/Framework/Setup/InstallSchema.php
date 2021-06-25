@@ -3,7 +3,7 @@ namespace Hotlink\Framework\Setup;
 
 class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
-    function install( \Magento\Framework\Setup\SchemaSetupInterface $setup,
+    public function install( \Magento\Framework\Setup\SchemaSetupInterface $setup,
                              \Magento\Framework\Setup\ModuleContextInterface $context )
     {
         $setup->startSetup();

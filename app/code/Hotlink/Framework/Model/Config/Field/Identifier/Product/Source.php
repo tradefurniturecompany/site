@@ -7,7 +7,7 @@ class Source
     const ID_SKU       = 'SKU';
     const ID_ENTITY    = 'Entity';
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         return array(
                      array('value' => self::ID_SKU,
@@ -17,7 +17,7 @@ class Source
                      );
     }
 
-    function getOptions()
+    public function getOptions()
     {
         return array(
                      'Product SKU'  => self::ID_SKU,

@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Accounting\Transaction\Nominal\C
 class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\AbstractGet
 {
 
-    function getName()
+    public function getName()
     {
         return 'Nominal Code GET';
     }

@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Block\Adminhtml\Report\Renderer\Fieldset;
 class Element extends \Magento\Framework\View\Element\Template implements \Magento\Framework\Data\Form\Element\Renderer\RendererInterface
 {
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         array $data = []
     ) {
@@ -14,7 +14,7 @@ class Element extends \Magento\Framework\View\Element\Template implements \Magen
         );
     }
 
-    function _construct()
+    public function _construct()
     {
         parent::_construct();
         if ( !$this->getTemplate() )
@@ -23,7 +23,7 @@ class Element extends \Magento\Framework\View\Element\Template implements \Magen
             }
     }
 
-    function render( \Magento\Framework\Data\Form\Element\AbstractElement $element )
+    public function render( \Magento\Framework\Data\Form\Element\AbstractElement $element )
     {
         $this->setElement( $element );
         return $this->toHtml();

@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\ResourceModel\Queue;
 class Payment extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
 
-    function _construct()
+    public function _construct()
     {
         $this->_init( 'hotlink_brightpearl_queue_payment', 'id' );
     }

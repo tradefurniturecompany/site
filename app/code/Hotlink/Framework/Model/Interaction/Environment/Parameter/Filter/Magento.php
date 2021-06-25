@@ -7,7 +7,7 @@ class Magento extends \Hotlink\Framework\Model\Interaction\Environment\Parameter
     protected $filterMagentoFactory;
     protected $filterMagentoHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
 
@@ -20,27 +20,27 @@ class Magento extends \Hotlink\Framework\Model\Interaction\Environment\Parameter
         $this->filterMagentoHelper = $filterMagentoHelper;
     }
 
-    function getName()
+    public function getName()
     {
         return 'Magento Filter';
     }
 
-    function getDefault()
+    public function getDefault()
     {
         return $this->filterMagentoFactory->create();
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'filter';
     }
 
-    function getFormHelper()
+    public function getFormHelper()
     {
         return $this->filterMagentoHelper;
     }
 
-    function asString()
+    public function asString()
     {
         $identifiers = '';
         if ( $filter = $this->getValue() )

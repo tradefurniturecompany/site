@@ -7,7 +7,7 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
     protected $_purchaseOrderId = null;
     protected $_note = null;
 
-    function getName()
+    public function getName()
     {
         return 'Goods-in Note Create';
     }
@@ -22,24 +22,24 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
         return 'Hotlink\Brightpearl\Model\Api\Service\Warehouse\Message\Goodsin\Post\Response';
     }
 
-    function setPurchaseOrderId( $value )
+    public function setPurchaseOrderId( $value )
     {
         $this->_purchaseOrderId = $value;
         return $this;
     }
 
-    function getPurchaseOrderId()
+    public function getPurchaseOrderId()
     {
         return $this->_purchaseOrderId;
     }
 
-    function setNote( $data )
+    public function setNote( $data )
     {
         $this->_note = $data;
         return $this;
     }
 
-    function getNote()
+    public function getNote()
     {
         return $this->_note;
     }

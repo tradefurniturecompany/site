@@ -9,7 +9,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         $this->_init( 'Hotlink\Brightpearl\Model\Stock\Item', 'Hotlink\Brightpearl\Model\ResourceModel\Stock\Item' );
     }
 
-    function addStockItemFilter( $items )
+    public function addStockItemFilter( $items )
     {
         $itemIds = array();
         foreach ( $items as $item )

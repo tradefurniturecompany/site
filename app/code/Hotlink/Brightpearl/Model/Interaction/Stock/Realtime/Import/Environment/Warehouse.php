@@ -6,7 +6,7 @@ class Warehouse extends \Hotlink\Framework\Model\Interaction\Environment\Paramet
 
     protected $brightpearlConfigSourceBrightpearlWarehouse;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
 
@@ -17,42 +17,42 @@ class Warehouse extends \Hotlink\Framework\Model\Interaction\Environment\Paramet
         $this->brightpearlConfigSourceBrightpearlWarehouse = $brightpearlConfigSourceBrightpearlWarehouse;
     }
 
-    function getDefault()
+    public function getDefault()
     {
         return null;
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'warehouse';
     }
 
-    function getName()
+    public function getName()
     {
         return 'Brightpearl warehouse(s)';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Warehouse(s) used to calculate inventory levels.';
     }
 
-    function getOptions()
+    public function getOptions()
     {
         return $this->brightpearlConfigSourceBrightpearlWarehouse->toArray();
     }
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         return $this->brightpearlConfigSourceBrightpearlWarehouse->toOptionArray();
     }
 
-    function getMultiSelect()
+    public function getMultiSelect()
     {
         return true;
     }
 
-    function getValue()
+    public function getValue()
     {
         if ( !$this->_valueInitialised )
             {

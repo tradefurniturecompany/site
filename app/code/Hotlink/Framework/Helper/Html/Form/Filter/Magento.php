@@ -7,7 +7,7 @@ class Magento extends \Hotlink\Framework\Helper\Html\Form\Filter
     protected $reflectionHelper;
     protected $magentoFilterFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $htmlFieldsetHelper,
         \Hotlink\Framework\Helper\Html $htmlHelper,
@@ -25,7 +25,7 @@ class Magento extends \Hotlink\Framework\Helper\Html\Form\Filter
             $htmlHelper );
     }
 
-    function getHtmlKey()
+    public function getHtmlKey()
     {
         return 'filter_magento';
     }
@@ -61,7 +61,7 @@ class Magento extends \Hotlink\Framework\Helper\Html\Form\Filter
             ->setName( "$name"."[filter][$helper][model]" );
     }
 
-    function getObject( $data, $environment )
+    public function getObject( $data, $environment )
     {
         $filter = $this->magentoFilterFactory->create();
         $filter->setModel( $data[ 'model' ] )

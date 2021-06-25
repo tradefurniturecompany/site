@@ -4,8 +4,8 @@ namespace Hotlink\Framework\Model\Report;
 interface IReport
 {
 
-    function getReport( $safe = true );
-    function setReport( \Hotlink\Framework\Model\Report $report = null );
-    function getReportSection();
+    public function getReport( $safe = true );
+    public function setReport( \Hotlink\Framework\Model\Report $report = null );
+    public function getReportSection();
 
 }

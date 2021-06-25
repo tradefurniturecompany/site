@@ -4,12 +4,12 @@ namespace Hotlink\Brightpearl\Model\Api\Authorisation;
 class Transport extends \Hotlink\Brightpearl\Model\Api\Transport
 {
 
-    function getDevRef()
+    public function getDevRef()
     {
         return \Hotlink\Brightpearl\Model\Platform::DEV_REF;
     }
 
-    function getAppRef()
+    public function getAppRef()
     {
         return \Hotlink\Brightpearl\Model\Platform::APP_REF_M2;
     }
@@ -29,7 +29,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport
         return $this;
     }
 
-    function getHeaders(\Hotlink\Framework\Model\Api\Request $request)
+    public function getHeaders(\Hotlink\Framework\Model\Api\Request $request)
     {
         return array_merge( parent::getHeaders($request),
                             array('brightpearl-dev-ref: '.$this->getDevRef(),

@@ -34,7 +34,7 @@ abstract class AbstractQueue extends \Hotlink\Framework\Model\Monitor\AbstractMo
         return $this->_processed;
     }
 
-    function getNext()
+    public function getNext()
     {
         $collection = $this->getList();
         if ( $size = $this->getConfig()->getBatchSize() )

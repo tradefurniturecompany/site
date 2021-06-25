@@ -10,7 +10,7 @@ class Website implements \Magento\Framework\Option\ArrayInterface
      */
     protected $storeManager;
 
-    function __construct(
+    public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager
     ) {
         $this->storeManager = $storeManager;
@@ -38,7 +38,7 @@ class Website implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         if (!$this->_options) {
             $this->_initOptions();
@@ -46,7 +46,7 @@ class Website implements \Magento\Framework\Option\ArrayInterface
         return $this->_options;
     }
 
-    function toArray()
+    public function toArray()
     {
         if (!$this->_options) {
             $this->_initOptions();

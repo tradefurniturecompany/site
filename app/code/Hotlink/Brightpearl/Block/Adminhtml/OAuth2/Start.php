@@ -9,7 +9,7 @@ class Start extends \Magento\Framework\View\Element\Template
     protected $brightpearlHelper;
     protected $backendHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
 
         \Magento\Backend\Helper\Data $backendHelper,

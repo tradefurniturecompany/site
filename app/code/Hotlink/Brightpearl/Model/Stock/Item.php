@@ -9,7 +9,7 @@ class Item extends \Magento\Framework\Model\AbstractModel
         $this->_init( 'Hotlink\Brightpearl\Model\ResourceModel\Stock\Item', 'id' );
     }
 
-    function save()
+    public function save()
     {
         if ( !$this->getItemId() ) {
             if ( ($item = $this->getMagentoStockItem()) || ($item = $this->getStockItem()) ) {

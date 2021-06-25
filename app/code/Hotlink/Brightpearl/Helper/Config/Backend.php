@@ -3,12 +3,12 @@ namespace Hotlink\Brightpearl\Helper\Config;
 
 class Backend
 {
-    function serialize( $value )
+    public function serialize( $value )
     {
         return @serialize( $value );
     }
 
-    function unserialize( $value )
+    public function unserialize( $value )
     {
         $arr = @unserialize( $value );
 

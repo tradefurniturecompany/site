@@ -7,7 +7,7 @@ abstract class AbstractQueue extends \Magento\Framework\Model\AbstractModel impl
     protected $_report;
     protected $reportHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -20,7 +20,7 @@ abstract class AbstractQueue extends \Magento\Framework\Model\AbstractModel impl
         parent::__construct( $context, $registry, $resource, $resourceCollection, $data );
     }
 
-    function status( $message )
+    public function status( $message )
     {
         $report = $this->getReport();
 
@@ -39,7 +39,7 @@ abstract class AbstractQueue extends \Magento\Framework\Model\AbstractModel impl
     //
     //  IReport
     //
-    function getReport( $safe = true )
+    public function getReport( $safe = true )
     {
         if ( !$this->_report && $safe )
             {
@@ -48,12 +48,12 @@ abstract class AbstractQueue extends \Magento\Framework\Model\AbstractModel impl
         return $this->_report;
     }
 
-    function setReport( \Hotlink\Framework\Model\Report $report = null )
+    public function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
         return $this;
     }
 
-    abstract function getReportSection();
+    abstract public function getReportSection();
 
 }

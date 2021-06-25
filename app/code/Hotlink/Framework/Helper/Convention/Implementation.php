@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Helper\Convention;
 class Implementation extends \Hotlink\Framework\Instance
 {
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         array $data = []
@@ -17,7 +17,7 @@ class Implementation extends \Hotlink\Framework\Instance
         parent::__construct( get_defined_vars() );
     }
 
-    function getClass( $interaction )
+    public function getClass( $interaction )
     {
         return $this->reflectionHelper->getClass( $interaction, '\Implementation' );
     }

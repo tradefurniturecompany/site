@@ -8,7 +8,7 @@ class Form extends \Magento\Backend\App\Action
 
     protected $resultPageFactory;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory
     ) {
@@ -16,7 +16,7 @@ class Form extends \Magento\Backend\App\Action
         parent::__construct( $context );
     }
 
-    function execute()
+    public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu( 'Hotlink_Brightpearl::authorisation' );

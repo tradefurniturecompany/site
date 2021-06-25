@@ -9,7 +9,7 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Mes
 
     abstract protected function _getAction();
 
-    function getAction()
+    public function getAction()
     {
         $action = $this->_getAction();
         $query  = $this->_buildQuery();
@@ -28,7 +28,7 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Mes
         }
         if ($sortBy = $transaction->getSortBy()) {
             $direction = ($transaction->getSortDirection() ? $transaction->getSortDirection() : self::SORT_DESC);
-            $params['sort'] = $sortBy . '|' . $direction;
+            $params['sort'] = $sortBy . '.' . $direction;
         }
         if ($pageSize = $transaction->getPageSize()) {
             $params['pageSize'] = $pageSize;
@@ -43,7 +43,7 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Mes
         return http_build_query($params);
     }
 
-    function validate()
+    public function validate()
     {
         $transaction = $this->getTransaction();
 

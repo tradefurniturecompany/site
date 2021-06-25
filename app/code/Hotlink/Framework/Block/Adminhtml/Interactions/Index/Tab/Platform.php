@@ -9,7 +9,7 @@ class Platform extends \Hotlink\Framework\Block\Adminhtml\Interactions\Index\Tab
      */
     protected $interactionReflectionHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\Block\Widget\Context $context,
         \Hotlink\Framework\Helper\Html\Fieldset $interactionHtmlFieldsetHelper,
         \Hotlink\Framework\Model\Config\Map $interactionConfigMap,
@@ -24,12 +24,12 @@ class Platform extends \Hotlink\Framework\Block\Adminhtml\Interactions\Index\Tab
                              $data );
     }
 
-    function getTabOrder()
+    public function getTabOrder()
     {
         return 10;
     }
 
-    function initForm( $form, $platform )
+    public function initForm( $form, $platform )
     {
         $this->setPlatform( $platform );
         $id = $this->getTabId();
@@ -48,17 +48,17 @@ class Platform extends \Hotlink\Framework\Block\Adminhtml\Interactions\Index\Tab
         $this->addNoteField( $fieldset, 'version', "Version", $this->getPlatform()->getVersion() );
     }
 
-    function getHeaderText()
+    public function getHeaderText()
     {
         return __( $this->getPlatform()->getName() );
     }
 
-    function getTabLabel()
+    public function getTabLabel()
     {
         return __( "Installation" );
     }
 
-    function getTabTitle()
+    public function getTabTitle()
     {
         return __( "Platform" );
     }

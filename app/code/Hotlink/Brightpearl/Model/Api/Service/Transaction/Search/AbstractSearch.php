@@ -18,18 +18,18 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Tra
     protected $_sortDirection;
 
 
-    function setColumns($columns)
+    public function setColumns($columns)
     {
         $this->_columns = $columns;
         return $this;
     }
 
-    function getColumns()
+    public function getColumns()
     {
         return $this->_columns;
     }
 
-    function addFilter($name, $value)
+    public function addFilter($name, $value)
     {
         if (!$this->_filters) {
             $this->_filters = array();
@@ -40,57 +40,57 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Tra
         return $this;
     }
 
-    function setFilters($filters)
+    public function setFilters($filters)
     {
         $this->_filters = $filters;
         return $this;
     }
 
-    function getFilters()
+    public function getFilters()
     {
         return $this->_filters;
     }
 
-    function setPageSize($pageSize)
+    public function setPageSize($pageSize)
     {
         $this->_pageSize = (int) $pageSize;
         return $this;
     }
 
-    function getPageSize()
+    public function getPageSize()
     {
         return $this->_pageSize;
     }
 
-    function setFirstResult($firstResult)
+    public function setFirstResult($firstResult)
     {
         $this->_firstResult = (int) $firstResult;
         return $this;
     }
 
-    function getFirstResult()
+    public function getFirstResult()
     {
         return $this->_firstResult;
     }
 
-    function setSortBy($name)
+    public function setSortBy($name)
     {
         $this->_sortBy = $name;
         return $this;
     }
 
-    function getSortBy()
+    public function getSortBy()
     {
         return $this->_sortBy;
     }
 
-    function setSortDirection($direction)
+    public function setSortDirection($direction)
     {
         $this->_sortDirection = $direction;
         return $this;
     }
 
-    function getSortDirection()
+    public function getSortDirection()
     {
         return $this->_sortDirection;
     }

@@ -5,13 +5,13 @@ class Source
 {
     protected $configIndexer;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Indexer\ConfigInterface $configIndexer
     ) {
         $this->configIndexer = $configIndexer;
     }
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         $indexers = array_keys( $this->configIndexer->getIndexers() );
         $result = array();

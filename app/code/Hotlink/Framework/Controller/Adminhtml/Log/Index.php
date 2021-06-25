@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Controller\Adminhtml\Log;
 class Index extends \Hotlink\Framework\Controller\Adminhtml\Log\AbstractLog
 {
 
-    function execute()
+    public function execute()
     {
         $this
             ->_initPageLayout()

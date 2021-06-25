@@ -183,9 +183,7 @@
 
         <container name="report_container">
             <htmlContent name="report_frame">
-                <argument name="block" xsi:type="configurableObject">
-                    <argument name="class" xsi:type="string">\Hotlink\Framework\Block\Adminhtml\Report\Renderer\Frame</argument>
-                </argument>
+                <block class="Hotlink\Framework\Block\Adminhtml\Report\Renderer\Frame" name="report_frame" />
             </htmlContent>
         </container>
 

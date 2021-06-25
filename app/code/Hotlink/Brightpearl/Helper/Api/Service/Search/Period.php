@@ -15,7 +15,7 @@ class Period
      */
     protected $brightpearlExceptionHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Brightpearl\Helper\Exception $brightpearlExceptionHelper
     ) {
         $this->brightpearlExceptionHelper = $brightpearlExceptionHelper;
@@ -60,22 +60,22 @@ class Period
         return $date->format( \DateTime::ATOM );
     }
 
-    function toExact(\DateTime $date)
+    public function toExact(\DateTime $date)
     {
         return $this->toPeriod(self::EXACT, $date);
     }
 
-    function toBefore(\DateTime $date)
+    public function toBefore(\DateTime $date)
     {
         return $this->toPeriod(self::BEFORE, $date);
     }
 
-    function toAfter(\DateTime $date)
+    public function toAfter(\DateTime $date)
     {
         return $this->toPeriod(self::AFTER, $date);
     }
 
-    function toBetween(\DateTime $date1, \DateTime $date2)
+    public function toBetween(\DateTime $date1, \DateTime $date2)
     {
         return $this->toPeriod(self::BETWEEN, $date1, $date2);
     }

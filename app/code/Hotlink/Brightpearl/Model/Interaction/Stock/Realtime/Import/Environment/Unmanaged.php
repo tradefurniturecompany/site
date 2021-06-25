@@ -4,28 +4,28 @@ namespace Hotlink\Brightpearl\Model\Interaction\Stock\Realtime\Import\Environmen
 class Unmanaged extends \Hotlink\Brightpearl\Model\Interaction\Stock\Realtime\Import\Environment\YesNo\AbstractYesNo
 {
 
-    function getDefault()
+    public function getDefault()
     {
         return 1;
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'skip_unmanaged';
     }
 
-    function getName()
+    public function getName()
     {
         return 'Skip unmanaged';
     }
 
-    function getNote()
+    public function getNote()
     {
         return "Select Yes to skip importing stock availability for products with 'Manage Stock' No or,
 select No to import stock availability even when 'Manage Stock' is No.";
     }
 
-    function getValue()
+    public function getValue()
     {
         if ( !$this->_valueInitialised )
             {

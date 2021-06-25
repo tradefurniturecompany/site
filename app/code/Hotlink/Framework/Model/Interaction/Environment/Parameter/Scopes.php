@@ -14,7 +14,7 @@ class Scopes extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
      */
     protected $storeManager;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
 
@@ -31,27 +31,27 @@ class Scopes extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
             $data );
     }
 
-    function getDefault()
+    public function getDefault()
     {
         return \Magento\Store\Model\Store::DEFAULT_CODE;
     }
 
-    function getName()
+    public function getName()
     {
         return 'Scopes';
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'scopes';
     }
 
-    function getFormHelper()
+    public function getFormHelper()
     {
         return $this->scopesHelper;
     }
 
-    function getSize()
+    public function getSize()
     {
         $stores = $this->storeManager->getStores();
         $groups = $this->storeManager->getGroups();
@@ -60,52 +60,52 @@ class Scopes extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
         return $count + 1;
     }
 
-    function getMultiselect()
+    public function getMultiselect()
     {
         return true;
     }
 
-    function getAdminVisible()
+    public function getAdminVisible()
     {
         return true;
     }
 
-    function getWebsitesVisible()
+    public function getWebsitesVisible()
     {
         return true;
     }
 
-    function getGroupsVisible()
+    public function getGroupsVisible()
     {
         return true;
     }
 
-    function getStoresVisible()
+    public function getStoresVisible()
     {
         return true;
     }
 
-    function getAdminEnabled()
+    public function getAdminEnabled()
     {
         return true;
     }
 
-    function getWebsitesEnabled()
+    public function getWebsitesEnabled()
     {
         return true;
     }
 
-    function getGroupsEnabled()
+    public function getGroupsEnabled()
     {
         return true;
     }
 
-    function getStoresEnabled()
+    public function getStoresEnabled()
     {
         return true;
     }
 
-    function asString()
+    public function asString()
     {
         $output = "";
 

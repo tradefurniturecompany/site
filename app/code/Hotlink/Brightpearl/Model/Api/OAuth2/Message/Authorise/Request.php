@@ -4,27 +4,27 @@ namespace Hotlink\Brightpearl\Model\Api\OAuth2\Message\Authorise;
 class Request extends \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractRequest
 {
 
-    function getFunction()
+    public function getFunction()
     {
         return "exchange instance";
     }
 
-    function getAction()
+    public function getAction()
     {
         return sprintf( '/exchange/%s', $this->getTransaction()->getAccount() );
     }
 
-    function getMethod()
+    public function getMethod()
     {
         return 'POST';
     }
 
-    function getContentEncoding()
+    public function getContentEncoding()
     {
         return \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractRequest::ENCODING_URLENCODED;
     }
 
-    function getBody()
+    public function getBody()
     {
         return $this->_encodeUrlencoded(
             [ 'grant_type'   => 'authorization_code',
@@ -35,7 +35,7 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractReq
         );
     }
 
-    function validate()
+    public function validate()
     {
         return $this
             ->_assertNotEmpty( $this->getTransaction()->getAccount(), 'account' )

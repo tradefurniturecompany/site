@@ -10,7 +10,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport
     protected $oauth2helper;
     protected $oauth2config;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Model\ReportFactory $interactionReportFactory,
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Brightpearl\Helper\Exception $brightpearlExceptionHelper,
@@ -30,7 +30,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport
                              $config );
     }
 
-    function submit( \Hotlink\Framework\Model\Api\Request $request )
+    public function submit( \Hotlink\Framework\Model\Api\Request $request )
     {
         try
             {
@@ -91,34 +91,34 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport
             }
     }
 
-    function setToken( $token )
+    public function setToken( $token )
     {
         $this->_token = $token;
         return $this;
     }
 
-    function getToken()
+    public function getToken()
     {
         return $this->_token;
     }
 
-    function setOAuth2Token( $value )
+    public function setOAuth2Token( $value )
     {
         $this->_oauth2token = $value;
         return $this;
     }
 
-    function getOAuth2Token()
+    public function getOAuth2Token()
     {
         return $this->_oauth2token;
     }
 
-    function getDevRef()
+    public function getDevRef()
     {
         return \Hotlink\Brightpearl\Model\Platform::DEV_REF;
     }
 
-    function getAppRef()
+    public function getAppRef()
     {
         return \Hotlink\Brightpearl\Model\Platform::APP_REF_M2;
     }

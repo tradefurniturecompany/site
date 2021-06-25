@@ -3,27 +3,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Stock\Bulk\Import\Environment;
 
 class Limit  extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Config\AbstractConfig
 {
-    function getDefault()
+    public function getDefault()
     {
         return 512;
     }
 
-    function getName()
+    public function getName()
     {
         return 'Query string limit';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Number of characters allowed by Brightpearl API in a GET request query string';
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'query_limit';
     }
 
-    function getValue()
+    public function getValue()
     {
         if (!$this->_valueInitialised) {
             $limit = $this->getEnvironment()->getApiQueryLimit($this->getEnvironment()->getStoreId());

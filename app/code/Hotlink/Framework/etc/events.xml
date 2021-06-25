@@ -31,4 +31,10 @@
         <observer name="hotlink_framework_trigger_order_placed" instance="\Hotlink\Framework\Model\Trigger\Order\Placed" />
     </event>
 
+    <!-- command line -->
+    <event name="hotlink_framework_trigger_cli_command">
+        <observer name="hotlink_framework_trigger_cli_command_execute" instance="Hotlink\Framework\Model\Trigger\Cli\Command" />
+    </event>
+    <!-- / command line -->
+
 </config>

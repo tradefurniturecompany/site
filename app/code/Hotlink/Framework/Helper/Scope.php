@@ -6,7 +6,7 @@ class Scope
 
     protected $appState;
 
-    function __construct(
+    public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\State $appState
     )
@@ -14,7 +14,7 @@ class Scope
         $this->appState = $appState;
     }
 
-    function isAdmin()
+    public function isAdmin()
     {
         return ( $this->appState->getAreaCode() == 'adminhtml' );
     }

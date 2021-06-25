@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Block\Adminhtml\Interactions\Index\Tab;
 class Form extends \Magento\Backend\Block\Widget\Form
 {
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         array $data = []
     )

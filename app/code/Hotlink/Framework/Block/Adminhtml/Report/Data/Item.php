@@ -33,7 +33,7 @@ class Item extends \Magento\Framework\View\Element\Template
         return parent::_afterToHtml( $html );
     }
 
-    function getItemDuration()
+    public function getItemDuration()
     {
         $duration = 0;
         if ( $item = $this->getItem() )
@@ -46,7 +46,7 @@ class Item extends \Magento\Framework\View\Element\Template
         return $duration;
     }
 
-    function getElapsedTime()
+    public function getElapsedTime()
     {
         $elapsed = 0;
         if ( !is_null( $this->_initialTimestamp ) )
@@ -59,7 +59,7 @@ class Item extends \Magento\Framework\View\Element\Template
         return $elapsed;
     }
 
-    function getDataHtml( \Hotlink\Framework\Model\Report\Data $data )
+    public function getDataHtml( \Hotlink\Framework\Model\Report\Data $data )
     {
         if ( $renderer = $data->getRenderer() )
             {

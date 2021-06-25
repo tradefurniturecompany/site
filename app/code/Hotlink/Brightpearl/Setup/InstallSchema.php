@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Setup;
 class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
 
-    function install( \Magento\Framework\Setup\SchemaSetupInterface $setup,
+    public function install( \Magento\Framework\Setup\SchemaSetupInterface $setup,
                              \Magento\Framework\Setup\ModuleContextInterface $context )
     {
         $setup->startSetup();
@@ -385,12 +385,17 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                         [ 'order_id' ],
                         [ 'type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE ] )
 
-            ->addForeignKey( $setup->getFkName( 'hotlink_brightpearl_queue_order', 'order_id', 'sales_order', 'entity_id' ),
-                             'order_id',
-                             $setup->getTable( 'sales_order' ),
-                             'entity_id',
-                             \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
-                             \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE );
+            ->addForeignKey(
+                $setup->getFkName(
+                    $setup->getTable( 'hotlink_brightpearl_queue_order' ),
+                    'order_id',
+                    $setup->getTable( 'sales_order' ),
+                    'entity_id' ),
+                'order_id',
+                $setup->getTable( 'sales_order' ),
+                'entity_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE );
 
         $setup->getConnection()->createTable($table);
     }
@@ -448,12 +453,17 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                         [ 'payment_id' ],
                         [ 'type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE ] )
 
-            ->addForeignKey( $setup->getFkName( 'hotlink_brightpearl_queue_payment', 'payment_id', 'sales_order_payment', 'entity_id' ),
-                             'payment_id',
-                             $setup->getTable( 'sales_order_payment' ),
-                             'entity_id',
-                             \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
-                             \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE );
+            ->addForeignKey(
+                $setup->getFkName(
+                    $setup->getTable( 'hotlink_brightpearl_queue_payment' ),
+                    'payment_id',
+                    $setup->getTable( 'sales_order_payment' ),
+                    'entity_id' ),
+                'payment_id',
+                $setup->getTable( 'sales_order_payment' ),
+                'entity_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE );
 
         $setup->getConnection()->createTable($table);
     }
@@ -505,11 +515,17 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                         [ 'order_id' ],
                         [ 'type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE ] )
 
-            ->addForeignKey( $setup->getFkName( 'hotlink_brightpearl_queue_order_status', 'order_id', 'sales_order', 'entity_id' ),
-                             'order_id',
-                             $setup->getTable( 'sales_order' ), 'entity_id',
-                             \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
-                             \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE );
+            ->addForeignKey(
+                $setup->getFkName(
+                    $setup->getTable( 'hotlink_brightpearl_queue_order_status' ),
+                    'order_id',
+                    $setup->getTable( 'sales_order' ),
+                    'entity_id' ),
+                'order_id',
+                $setup->getTable( 'sales_order' ),
+                'entity_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE );
 
         $setup->getConnection()->createTable($table);
     }
@@ -554,15 +570,17 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                                             \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INDEX ),
                         [ 'brightpearl_id' ],
                         [ 'type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INDEX ] )
-            ->addForeignKey( $setup->getFkName( 'hotlink_brightpearl_shipment',
-                                                'shipment_id',
-                                                'sales_shipment',
-                                                'entity_id' ),
-                             'shipment_id',
-                             'sales_shipment',
-                             'entity_id',
-                             \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
-                             \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE )
+            ->addForeignKey(
+                $setup->getFkName(
+                    $setup->getTable( 'hotlink_brightpearl_shipment' ),
+                    'shipment_id',
+                    $setup->getTable( 'sales_shipment' ),
+                    'entity_id' ),
+                'shipment_id',
+                $setup->getTable( 'sales_shipment' ),
+                'entity_id',
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
+                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE )
             ->addIndex( $setup->getIdxName( 'hotlink_brightpearl_shipment',
                                             [ 'shipment_id', 'shipment_type' ],
                                             \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE ),
@@ -572,4 +590,5 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 
         $setup->getConnection()->createTable($table);
     }
+
 }

@@ -8,7 +8,7 @@ class Accounting extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
     protected $brightpearlPlatformDataFactory;
     protected $transactionCustomerPaymentPostFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -34,12 +34,12 @@ class Accounting extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         );
     }
 
-    function getName()
+    public function getName()
     {
         return 'Accounting API';
     }
 
-    function getNominalCodes($storeId, $accountCode, $idSet = null, $timeout = 5000)
+    public function getNominalCodes($storeId, $accountCode, $idSet = null, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -59,7 +59,7 @@ class Accounting extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $codes;
     }
 
-    function exportRefund( $storeId, $accountCode, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Refund\Export $refund, $timeout = 5000)
+    public function exportRefund( $storeId, $accountCode, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Refund\Export $refund, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty( 'storeId', $storeId )

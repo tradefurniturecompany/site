@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Integration\Transaction\Instance
 class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\AbstractGet
 {
 
-    function getName()
+    public function getName()
     {
         return 'Integration Instance GET';
     }

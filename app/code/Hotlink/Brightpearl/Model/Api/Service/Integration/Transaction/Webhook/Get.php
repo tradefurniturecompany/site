@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Integration\Transaction\Webhook;
 
 class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\AbstractGet
 {
-    function getName()
+    public function getName()
     {
         return 'Webhook GET';
     }

@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\Config\Field\Report;
 
 class Level implements \Magento\Framework\Option\ArrayInterface
 {
-    function toOptionArray($isMultiselect = false)
+    public function toOptionArray($isMultiselect = false)
     {
         $options = [
             [ 'value' => \Hotlink\Framework\Model\Report\Item::LEVEL_FATAL, 'label' => 'FTL' ],
@@ -22,7 +22,7 @@ class Level implements \Magento\Framework\Option\ArrayInterface
         return $options;
     }
 
-    function toArray()
+    public function toArray()
     {
         return  [
             \Hotlink\Framework\Model\Report\Item::LEVEL_FATAL => 'FTL',

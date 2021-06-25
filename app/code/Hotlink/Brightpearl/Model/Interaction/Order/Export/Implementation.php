@@ -11,7 +11,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Order\Implem
     protected $queueOrderHelper;
     protected $customisation;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -39,7 +39,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Order\Implem
         return 'Hotlink Brightpearl: Magento Sales Order Exporter';
     }
 
-    function execute()
+    public function execute()
     {
         $report = $this->getReport();
         $environment = $this->getEnvironment();
@@ -210,7 +210,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Order\Implem
         return $data;
     }
 
-    function getCustomisation()
+    public function getCustomisation()
     {
         return $this->customisation;
     }

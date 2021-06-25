@@ -3,27 +3,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Prices\Import\Environment\Skip;
 
 class Attribute extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Boolean
 {
-    function getDefault()
+    public function getDefault()
     {
         return false;
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'skip_attributes';
     }
 
-    function getName()
+    public function getName()
     {
         return 'Skip applying attributes';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Do not apply product mapping during this interaction';
     }
 
-    function getValue()
+    public function getValue()
     {
         if ( !$this->_valueInitialised ) {
             $env = $this->getEnvironment();

@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model;
 class Platform extends \Hotlink\Framework\Model\Platform\AbstractPlatform
 {
 
-    function getCode()
+    public function getCode()
     {
         return 'hotlink';
     }
@@ -14,22 +14,22 @@ class Platform extends \Hotlink\Framework\Model\Platform\AbstractPlatform
         return 'Hotlink Framework';
     }
 
-    function getModulePath()
+    public function getModulePath()
     {
         return \Hotlink\Framework\Filesystem::getRelativePath( __FILE__, [], 1 );
     }
 
-    function getSection()
+    public function getSection()
     {
         return 'hotlink_framework';
     }
 
-    function getGroup()
+    public function getGroup()
     {
         return 'installation';
     }
 
-    function getField()
+    public function getField()
     {
         return 'id';
     }

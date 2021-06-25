@@ -6,27 +6,27 @@ class Otp
 
     protected $oauth2config;
     
-    function __construct( \Hotlink\Brightpearl\Model\Config\OAuth2 $oauth2config )
+    public function __construct( \Hotlink\Brightpearl\Model\Config\OAuth2 $oauth2config )
     {
         $this->oauth2config = $oauth2config;
     }
 
-    function get()
+    public function get()
     {
         return $this->oauth2config->getOtp();
     }
 
-    function getSuccessUrl()
+    public function getSuccessUrl()
     {
         return $this->oauth2config->getOtpSuccessUrl();
     }
 
-    function getCallbackUrl()
+    public function getCallbackUrl()
     {
         return $this->oauth2config->getOtpCallbackUrl();
     }
 
-    function isExpired( $timeoutSeconds = 5 * 60 )
+    public function isExpired( $timeoutSeconds = 5 * 60 )
     {
         $otp = $this->oauth2config->getOtp();
         $timestamp = $this->oauth2config->getOtpTimestamp();
@@ -44,7 +44,7 @@ class Otp
         return false;
     }
 
-    function create()
+    public function create()
     {
         if ( function_exists( 'openssl_random_pseudo_bytes' ) )
             {
@@ -53,7 +53,7 @@ class Otp
         return strtolower( sprintf( '%04X%04X%04X%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand( 0, 65535 ) ) );
     }
 
-    function save( $otp, $callbackUrl, $successUrl )
+    public function save( $otp, $callbackUrl, $successUrl )
     {
         $this->oauth2config->saveOtp( $otp );
         $this->oauth2config->saveOtpSuccessUrl( $successUrl );
@@ -62,7 +62,7 @@ class Otp
         $this->oauth2config->saveOtpTimestamp( $now );
     }
 
-    function invalidate()
+    public function invalidate()
     {
         $this->oauth2config->saveOtp( null );
         $this->oauth2config->saveOtpTimestamp( null );

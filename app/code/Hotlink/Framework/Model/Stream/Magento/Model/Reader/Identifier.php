@@ -9,7 +9,7 @@ class Identifier extends \Hotlink\Framework\Model\Stream\Reader implements \Iter
 
     protected $iteratorFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -22,7 +22,7 @@ class Identifier extends \Hotlink\Framework\Model\Stream\Reader implements \Iter
         $this->iteratorFactory = $iteratorFactory;
     }
 
-    function reset()
+    public function reset()
     {
         $this->_page = 0;
         return $this;
@@ -160,7 +160,7 @@ class Identifier extends \Hotlink\Framework\Model\Stream\Reader implements \Iter
     //    IteratorAggreagate
     //
     //  -----------------------------------------------------
-    function getIterator()
+    public function getIterator()
     {
         return $this->iteratorFactory->create( [ 'reader' => $this ] );
     }
@@ -168,7 +168,7 @@ class Identifier extends \Hotlink\Framework\Model\Stream\Reader implements \Iter
     //
     //  Interface for Iterator
     //
-    function getCollection()
+    public function getCollection()
     {
         return $this->_entities;
     }

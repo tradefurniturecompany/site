@@ -12,27 +12,27 @@ class Response extends \Hotlink\Brightpearl\Model\Api\Message\Response\AbstractR
         return $this;
     }
 
-    function getApiDomain()
+    public function getApiDomain()
     {
         return $this->_get(array('response', 'apiDomain'));
     }
 
-    function getDatacentreCode()
+    public function getDatacentreCode()
     {
         return $this->_get(array('response', 'datacentreCode'));
     }
 
-    function getLoginUrl()
+    public function getLoginUrl()
     {
         return $this->_get(array('response', 'urls', 'login'));
     }
 
-    function getAuthorizeServerUrl()
+    public function getAuthorizeServerUrl()
     {
         return $this->_get(array('response', 'urls', 'authorizeServer'));
     }
 
-    function getAuthorizeInstanceUrl()
+    public function getAuthorizeInstanceUrl()
     {
         return $this->_get(array('response', 'urls', 'authorizeInstance'));
     }

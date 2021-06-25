@@ -4,22 +4,22 @@ namespace Hotlink\Framework\Model\Interaction\Log\Cleaning\Environment;
 class Sleep extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Config\AbstractConfig
 {
 
-    function getDefault()
+    public function getDefault()
     {
         return 5000;
     }
 
-    function getName()
+    public function getName()
     {
         return 'Sleep between deletes';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Millionths of a second (micro seconds)';
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'sleep';
     }

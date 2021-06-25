@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- creditmemo -->
+    <type name="Magento\Sales\Model\RefundInvoice">
+        <plugin name="hotlink_brightpearl_credit_memo_created_refund" type="Hotlink\Brightpearl\Model\Trigger\Creditmemo\Refund\Plugin" sortOrder="0" disabled="false" />
+    </type>
+
+</config>

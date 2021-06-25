@@ -6,19 +6,19 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Sea
     const COLUMN_CREATED_ON   = 'createdOn';
     const COLUMN_RELEASE_DATE = 'releaseDate';
 
-    function getFunction()
+    public function getFunction()
     {
         return $this->getMethod(). " /goods-note/goods-out-search";
     }
 
-    function _getAction()
+    public function _getAction()
     {
         $accountCode = $this->getTransaction()->getAccountCode();
 
         return sprintf( '/public-api/%s/warehouse-service/goods-note/goods-out-search', $accountCode );
     }
 
-    function validate()
+    public function validate()
     {
         parent::validate();
 

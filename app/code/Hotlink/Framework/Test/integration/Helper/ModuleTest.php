@@ -8,12 +8,12 @@ namespace Hotlink\Framework\Helper;
 class ModuleTest extends \PHPUnit\Framework\TestCase
 {
 
-    function setUp()
+    public function setUp()
     {
         $this->manager = \Magento\TestFramework\ObjectManager::getInstance();
     }
 
-    function test_get_version()
+    public function test_get_version()
     {
         $helper = $this->getHelper();
         $path = \Hotlink\Framework\Filesystem::getRelativePath( __FILE__, [ 'etc', 'module.xml' ], 3 );
@@ -24,7 +24,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( false, $helper->getVersion( 'Nonexistent_Module' ) );
     }
 
-    function getHelper()
+    public function getHelper()
     {
         return $this->manager->create( '\Hotlink\Framework\Helper\Module' );
     }

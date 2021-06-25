@@ -4,12 +4,12 @@ namespace Hotlink\Brightpearl\Model\Queue;
 class Creditmemo extends \Hotlink\Brightpearl\Model\Queue\AbstractQueue
 {
 
-    function _construct()
+    public function _construct()
     {
         $this->_init( '\Hotlink\Brightpearl\Model\ResourceModel\Queue\Creditmemo' );
     }
 
-    function shouldSend()
+    public function shouldSend()
     {
 
         $send = false;
@@ -41,7 +41,7 @@ class Creditmemo extends \Hotlink\Brightpearl\Model\Queue\AbstractQueue
         return $send;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'queue-creditmemo';
     }

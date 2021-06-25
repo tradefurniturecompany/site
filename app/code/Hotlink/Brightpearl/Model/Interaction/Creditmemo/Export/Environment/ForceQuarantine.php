@@ -3,22 +3,22 @@ namespace Hotlink\Brightpearl\Model\Interaction\Creditmemo\Export\Environment;
 
 class ForceQuarantine extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Boolean
 {
-    function getName()
+    public function getName()
     {
         return 'Force Quarantine';
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'force-quarantine';
     }
 
-    function getDefault()
+    public function getDefault()
     {
         return false;
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Recreate a quarantine note via the Api even if it has already been exported';
     }

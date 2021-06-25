@@ -4,8 +4,8 @@ namespace Hotlink\Framework\Model\Report;
 interface IReportCancellation
 {
 
-    function getStatus();
-    function getStatusCancel();
-    function setStatus( $value );
+    public function getStatus();
+    public function getStatusCancel();
+    public function setStatus( $value );
 
 }

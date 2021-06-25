@@ -4,14 +4,14 @@ namespace Hotlink\Brightpearl\Helper\Api;
 class OAuth2 extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
 {
 
-    const OAUTH2_PROXY_DOMAIN = "https://magento.brightpearlconnect.com/";
+    const OAUTH2_PROXY_DOMAIN = "https://magento.brightpearlconnect.com";
 
     protected $apiAuthoriseFactory;
     protected $apiRefreshFactory;
     protected $apiTransportFactory;
     protected $oauth2config;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -29,12 +29,12 @@ class OAuth2 extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
         $this->oauth2config = $oauth2config;
     }
 
-    function getName()
+    public function getName()
     {
         return 'OAuth2 API';
     }
 
-    function requestAccessToken( $storeId, $account, $code, $redirectUri, $clientId, $timeout = 5000 )
+    public function requestAccessToken( $storeId, $account, $code, $redirectUri, $clientId, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty( 'storeId', $storeId )
@@ -55,7 +55,7 @@ class OAuth2 extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
         return $response;
     }
 
-    function refreshAccessToken( $storeId, $account, $refreshToken, $timeout = 5000 )
+    public function refreshAccessToken( $storeId, $account, $refreshToken, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty( 'account', $account )

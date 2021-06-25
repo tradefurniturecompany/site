@@ -7,7 +7,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport\AbstractTranspo
     protected $curlAdapaterFactory;
     protected $config;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Model\ReportFactory $interactionReportFactory,
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Brightpearl\Helper\Exception $brightpearlExceptionHelper,
@@ -24,7 +24,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport\AbstractTranspo
             $brightpearlExceptionHelper );
     }
 
-    function _submit(\Hotlink\Framework\Model\Api\Request $request)
+    public function _submit(\Hotlink\Framework\Model\Api\Request $request)
     {
         try
             {
@@ -55,19 +55,13 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport\AbstractTranspo
                 // execute request
                 $response = $client->send();
 
-				if (!$response->isSuccess()) {
-					# 2020-10-22 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-					# "«Unable to export status: Failed API request to Brightpearl: [400] Bad Request»
-					# in a `hotlink_framework/report` log file": https://github.com/tradefurniturecompany/site/issues/122
-					df_log_l($this, [
-						'request' => df_dump($request)
-						,'response' => df_cc_s($response->getStatusCode(), $response->getBody())
-					]);
-					throw new \Exception(
-						'Failed API request to Brightpearl: ['.$response->getStatusCode().'] '.$response->getBody(),
-						$response->getStatusCode()
-					);
-				}
+                if ( !$response->isSuccess() )
+                    {
+                        throw new \Exception(
+                            'Failed API request to Brightpearl: ['.$response->getStatusCode().'] '.$response->getBody(),
+                            $response->getStatusCode()
+                        );
+                    }
                 return $response;
             }
         catch ( \Exception $e )
@@ -126,6 +120,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport\AbstractTranspo
         if ( $request->getContentEncoding() == \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractRequest::ENCODING_JSON )
             {
                 $headers[] = 'Content-Type: application/json';
+                $headers[] = 'Accept-Encoding: application/json';
             }
         if ( $request->getContentEncoding() == \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractRequest::ENCODING_URLENCODED )
             {
@@ -134,7 +129,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport\AbstractTranspo
         return $headers;
     }
 
-    function setLastFault( $fault )
+    public function setLastFault( $fault )
     {
         return $this->_setLastFault( $fault );
     }

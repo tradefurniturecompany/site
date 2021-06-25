@@ -18,7 +18,7 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
     protected $scopeConfig;
     protected $interactionConfigFieldHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Config\Field $interactionConfigFieldHelper,
@@ -31,7 +31,7 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
         parent::__construct( $data );
     }
 
-    function getPath( $key = null )
+    public function getPath( $key = null )
     {
         $parts = [ $this->getSection(), $this->getGroup() ];
         if ( ! is_null( $key ) )
@@ -41,7 +41,7 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
         return implode( '/', $parts );
     }
 
-    function getSection()
+    public function getSection()
     {
         if ( !$this->_section )
             {
@@ -50,7 +50,7 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
         return $this->_section;
     }
 
-    function getGroup()
+    public function getGroup()
     {
         if ( !$this->_group )
             {
@@ -59,12 +59,12 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
         return $this->_group;
     }
 
-    function getScopeType()
+    public function getScopeType()
     {
         return \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
     }
 
-    function getScope( $storeId )
+    public function getScope( $storeId )
     {
         if ( is_null( $storeId ) )
             {
@@ -78,7 +78,7 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
         return ( ( is_null( $storeId ) ) ? "null" : $storeId ) . "_" . $path;
     }
 
-    function getData( $path='', $index=null )
+    public function getData( $path='', $index=null )
     {
         if ( array_key_exists( $path, $this->_data ) )
             {
@@ -88,12 +88,12 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
     }
 
     // Get store config data (omit optional parameters for current store)
-    function getConfigData( $key, $storeId=null, $default=false )
+    public function getConfigData( $key, $storeId=null, $default=false )
     {
         return $this->getConfigPathData( $this->getPath( $key ), $storeId, $default );
     }
 
-    function getConfigPathData( $path, $storeId=null, $default=false )
+    public function getConfigPathData( $path, $storeId=null, $default=false )
     {
         $unique = $this->getStoreKey( $storeId, $path );
         if ( !$this->hasData( $unique ) )
@@ -109,13 +109,13 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
     }
 
     // Get store config data (omit optional parameters for current store)
-    function setConfigData( $key, $storeId, $value )
+    public function setConfigData( $key, $storeId, $value )
     {
         return $this->setConfigPathData( $this->getPath( $key ), $storeId, $value );
     }
 
     // Get store config data (omit optional parameters for current store)
-    function setConfigPathData( $path, $storeId, $value )
+    public function setConfigPathData( $path, $storeId, $value )
     {
         $unique = $this->getStoreKey( $storeId, $path );
         $this->setData( $unique, $value );
@@ -125,12 +125,12 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
     //
     //  Returns a multidimensional array key value pairs
     //
-    function getSerializedField( $key, $storeId, $default = '' )
+    public function getSerializedField( $key, $storeId, $default = '' )
     {
         return $this->getSerializedPathField( $this->getPath( $key ), $storeId, $default );
     }
 
-    function getSerializedPathField( $path, $storeId, $default = '' )
+    public function getSerializedPathField( $path, $storeId, $default = '' )
     {
         $unique = $this->getStoreKey( $storeId, $path );
         if ( !array_key_exists( $unique, $this->_serialized ) )
@@ -144,12 +144,12 @@ abstract class AbstractConfig extends \Magento\Framework\DataObject
     //
     //  Returns a one dimensional array of key => val, generated from a serialised array structure
     //
-    function getSerializedFieldFlat( $key, $storeId, $keyField = 'key', $valField = 'val' )
+    public function getSerializedFieldFlat( $key, $storeId, $keyField = 'key', $valField = 'val' )
     {
         return $this->getSerializedPathFieldFlat( $this->getPath( $key ), $storeId, $keyField, $valField );
     }
 
-    function getSerializedPathFieldFlat( $path, $storeId, $keyField = 'key', $valField = 'val' )
+    public function getSerializedPathFieldFlat( $path, $storeId, $keyField = 'key', $valField = 'val' )
     {
         $result = [];
         $data = $this->getSerializedPathField( $path, $storeId, array() );

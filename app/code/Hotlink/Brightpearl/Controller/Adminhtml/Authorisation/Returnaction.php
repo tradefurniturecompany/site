@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Controller\Adminhtml\Authorisation;
 class Returnaction extends \Hotlink\Brightpearl\Controller\Adminhtml\Authorisation\AbstractAuthorisation
 {
 
-    function execute()
+    public function execute()
     {
         $report = $this->_initReport();
         $report

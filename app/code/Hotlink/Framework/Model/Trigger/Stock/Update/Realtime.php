@@ -28,7 +28,7 @@ class Realtime extends \Hotlink\Framework\Model\Trigger\AbstractTrigger implemen
     protected $stockRegistryStorage;
     protected $scopeHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -70,7 +70,7 @@ class Realtime extends \Hotlink\Framework\Model\Trigger\AbstractTrigger implemen
         return 'Realtime Stock Update';
     }
 
-    function getMagentoEvents()
+    public function getMagentoEvents()
     {
         return
             [
@@ -124,7 +124,7 @@ class Realtime extends \Hotlink\Framework\Model\Trigger\AbstractTrigger implemen
             }
     }
 
-    function getContexts()
+    public function getContexts()
     {
         return array(
                      self::KEY_SHOPPER_ON_VIEW_PRODUCT       => self::LABEL_SHOPPER_ON_VIEW_PRODUCT,
@@ -137,7 +137,7 @@ class Realtime extends \Hotlink\Framework\Model\Trigger\AbstractTrigger implemen
                      );
     }
 
-    function getContext()
+    public function getContext()
     {
         $event      = $this->getMagentoEvent();
         $eventName  = $event->getName();

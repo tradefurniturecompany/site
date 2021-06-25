@@ -6,12 +6,12 @@ class Html
 
     protected $reflection;
 
-    function __construct( \Hotlink\Framework\Helper\Reflection $reflection )
+    public function __construct( \Hotlink\Framework\Helper\Reflection $reflection )
     {
         $this->reflection = $reflection;
     }
 
-    function getHtmlNameOld( $thing )
+    public function getHtmlNameOld( $thing )
     {
         $name = is_object( $thing ) ? get_class( $thing ) : ( string ) $thing;
         $name = strtolower( $name );
@@ -23,7 +23,7 @@ class Html
         return $name;
     }
 
-    function getHtmlName2( $thing )
+    public function getHtmlName2( $thing )
     {
         $name = is_object( $thing ) ? get_class( $thing ) : ( string ) $thing;
         if ( substr( $name, 0, 1 ) !== '\\' )
@@ -33,7 +33,7 @@ class Html
         return $name;
     }
 
-    function getHtmlName( $thing )
+    public function getHtmlName( $thing )
     {
         $name = 
         $name = is_object( $thing ) ? get_class( $thing ) : ( string ) $thing;
@@ -45,7 +45,7 @@ class Html
         return $name;
     }
 
-    function encode( $thing )
+    public function encode( $thing )
     {
         $name = $this->reflection->getClass( $thing );
         $name = str_replace( '\\', '-', $name );
@@ -56,7 +56,7 @@ class Html
         return $name;
     }
 
-    function decode( $thing )
+    public function decode( $thing )
     {
         $name = is_object( $thing ) ? get_class( $thing ) : ( string ) $thing;
         $name = $this->reflection->getClass( $thing );

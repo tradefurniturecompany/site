@@ -11,7 +11,7 @@ abstract class AbstractMessage extends \Magento\Framework\DataObject
      */
     protected $interactionApiTransactionFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Model\Api\TransactionFactory $interactionApiTransactionFactory,
         array $data = []
     ) {
@@ -22,13 +22,13 @@ abstract class AbstractMessage extends \Magento\Framework\DataObject
     }
 
 
-    function setTransaction( \Hotlink\Framework\Model\Api\Transaction $transaction )
+    public function setTransaction( \Hotlink\Framework\Model\Api\Transaction $transaction )
     {
         $this->_transaction = $transaction;
         return $this;
     }
 
-    function getTransaction()
+    public function getTransaction()
     {
         if ( !$this->_transaction )
             {

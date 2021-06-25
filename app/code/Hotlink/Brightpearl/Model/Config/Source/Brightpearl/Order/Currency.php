@@ -6,7 +6,7 @@ class Currency implements \Magento\Framework\Option\ArrayInterface
     const BASE               = 'base';              // use store base currency
     const ORDER              = 'order';             // use order currency
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         return [
             [ 'value' => self::BASE,
@@ -15,7 +15,7 @@ class Currency implements \Magento\Framework\Option\ArrayInterface
               'label' => __( 'Order Currency' ) ] ];
     }
 
-    function toArray()
+    public function toArray()
     {
         return [
             self::BASE  => __( 'Base Currency' ),

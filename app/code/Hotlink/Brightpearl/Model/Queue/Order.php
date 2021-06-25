@@ -4,17 +4,17 @@ namespace Hotlink\Brightpearl\Model\Queue;
 class Order extends \Hotlink\Brightpearl\Model\Queue\AbstractQueue
 {
 
-    function _construct()
+    public function _construct()
     {
         $this->_init( '\Hotlink\Brightpearl\Model\ResourceModel\Queue\Order' );
     }
 
-    function setParentId( $orderId )
+    public function setParentId( $orderId )
     {
         $this->setOrderId( $orderId );
     }
 
-    function shouldSend()
+    public function shouldSend()
     {
 
         $send = false;
@@ -46,7 +46,7 @@ class Order extends \Hotlink\Brightpearl\Model\Queue\AbstractQueue
         return $send;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'queue (order)';
     }

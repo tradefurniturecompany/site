@@ -28,7 +28,7 @@ class Run extends \Hotlink\Framework\Model\Schedule\Cron\AbstractCron
     //
     //  Cron does not respect di configuration, so statics required to make a single report
     //
-    function getReport( $safe = true )
+    public function getReport( $safe = true )
     {
         if ( ! $this->_report && $safe )
             {

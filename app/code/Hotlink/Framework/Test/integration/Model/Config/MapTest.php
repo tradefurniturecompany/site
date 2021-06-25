@@ -10,12 +10,12 @@ class MapTest extends \PHPUnit\Framework\TestCase
     //
     //  Must overload to set factory correctly
     //
-    function setUp()
+    public function setUp()
     {
         $this->manager = \Magento\TestFramework\ObjectManager::getInstance();
     }
 
-    function test_platforms()
+    public function test_platforms()
     {
         $map = $this->getMapTestObject();
 
@@ -26,7 +26,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertContains( '\Hotlink\Framework\Model\Platform3', $platforms );
     }
 
-    function test_platform()
+    public function test_platform()
     {
         $map = $this->getMapTestObject();
 
@@ -41,7 +41,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( '\Hotlink\Framework\Model\Platform3', $map->getPlatform( '\Hotlink\Framework\Module3\InteractionB' ) );
     }
 
-    function test_monitors()
+    public function test_monitors()
     {
         $map = $this->getMapTestObject();
 
@@ -87,7 +87,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
 
     }
 
-    function test_triggers()
+    public function test_triggers()
     {
         $map = $this->getMapTestObject();
 
@@ -133,7 +133,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertContains( '\Hotlink\Framework\Model\Trigger\Payment\Complete', $triggers );
     }
 
-    function test_triggers_by_interactions()
+    public function test_triggers_by_interactions()
     {
         $map = $this->getMapTestObject();
 
@@ -178,7 +178,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertContains( '\Hotlink\Framework\Model\Trigger\Payment\Complete', $triggers );
     }
 
-    function test_interactions()
+    public function test_interactions()
     {
         $map = $this->getMapTestObject();
 
@@ -194,7 +194,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertContains( '\Hotlink\Framework\Module3\InteractionB', $interactions );
     }
 
-    function test_interactions_by_platform()
+    public function test_interactions_by_platform()
     {
         $map = $this->getMapTestObject();
 
@@ -218,7 +218,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertContains( '\Hotlink\Framework\Module3\InteractionB', $interactions );
     }
 
-    function test_interactions_by_trigger()
+    public function test_interactions_by_trigger()
     {
         $map = $this->getMapTestObject();
 
@@ -251,7 +251,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertContains( '\Hotlink\Framework\Module2\InteractionA', $interactions );
     }
 
-    function test_interactions_by_monitor()
+    public function test_interactions_by_monitor()
     {
         $map = $this->getMapTestObject();
 
@@ -280,7 +280,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertContains( '\Hotlink\Framework\Module3\InteractionA', $interactions );
     }
 
-    function test_actions()
+    public function test_actions()
     {
         $map = $this->getMapTestObject();
 
@@ -292,7 +292,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertContains( '\Hotlink\Framework\Model\Action\Cleanup', $actions );
     }
 
-    function test_actions_by_interaction()
+    public function test_actions_by_interaction()
     {
         $map = $this->getMapTestObject();
 
@@ -329,7 +329,7 @@ class MapTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( 0, count( $actions ) );
     }
 
-    function getMapTestObject()
+    public function getMapTestObject()
     {
         // $map = $this->manager->create( '\Hotlink\Framework\Model\Config\Map' );
         // return $map;

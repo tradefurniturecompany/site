@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Warehouse\Transaction\Warehouse\
 class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\AbstractGet
 {
 
-    function getName()
+    public function getName()
     {
         return 'Warehouse Location Quarantine GET';
     }

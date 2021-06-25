@@ -16,7 +16,7 @@ abstract class AbstractTransport extends \Hotlink\Framework\Model\Api\Transport\
      */
     protected $brightpearlExceptionHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Model\ReportFactory $interactionReportFactory,
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Brightpearl\Helper\Exception $brightpearlExceptionHelper
@@ -26,12 +26,12 @@ abstract class AbstractTransport extends \Hotlink\Framework\Model\Api\Transport\
         parent::__construct($interactionReportFactory, $interactionExceptionHelper);
     }
 
-    function getProtocol()
+    public function getProtocol()
     {
         return 'curl';
     }
 
-    function setBaseUrl($url, $secure = true)
+    public function setBaseUrl($url, $secure = true)
     {
         $url = str_replace('http://', '', $url);
         $url = str_replace('https://', '', $url);
@@ -45,29 +45,29 @@ abstract class AbstractTransport extends \Hotlink\Framework\Model\Api\Transport\
         return $this;
     }
 
-    function getBaseUrl()
+    public function getBaseUrl()
     {
         return $this->_baseUrl;
     }
 
-    function setTimeout($milliseconds)
+    public function setTimeout($milliseconds)
     {
         $this->_timeout = $milliseconds;
         return $this;
     }
 
-    function getTimeout()
+    public function getTimeout()
     {
         return $this->_timeout ? $this->_timeout : self::DEFAULT_TIMEOUT;
     }
 
-    function setConnectionTimeout($milliseconds)
+    public function setConnectionTimeout($milliseconds)
     {
         $this->_connectTimeout = $milliseconds;
         return $this;
     }
 
-    function getConnectionTimeout()
+    public function getConnectionTimeout()
     {
         return $this->_connectTimeout ? $this->_connectTimeout : self::DEFAULT_CONNECT_TIMEOUT;
     }
@@ -87,20 +87,20 @@ abstract class AbstractTransport extends \Hotlink\Framework\Model\Api\Transport\
         return $this;
     }
 
-    function getReport($safe = true)
+    public function getReport($safe = true)
     {
         if (!$this->_report && $safe)
             $this->setReport($this->interactionReportFactory->create( [ 'object' => $this ] ));
         return $this->_report;
     }
 
-    function setReport(\Hotlink\Framework\Model\Report $report = null)
+    public function setReport(\Hotlink\Framework\Model\Report $report = null)
     {
         $this->_report = $report;
         return $this;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'transport';
     }

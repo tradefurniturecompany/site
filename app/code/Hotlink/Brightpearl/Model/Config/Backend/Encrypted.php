@@ -27,7 +27,7 @@ class Encrypted extends \Magento\Framework\App\Config\Value
 
     protected $_encryptor;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\App\Config\ScopeConfigInterface $config,
@@ -41,13 +41,13 @@ class Encrypted extends \Magento\Framework\App\Config\Value
         parent::__construct($context, $registry, $config, $cacheTypeList, $resource, $resourceCollection, $data);
     }
 
-    function __sleep()
+    public function __sleep()
     {
         $properties = parent::__sleep();
         return array_diff($properties, ['_encryptor']);
     }
 
-    function __wakeup()
+    public function __wakeup()
     {
         parent::__wakeup();
         $this->_encryptor = \Magento\Framework\App\ObjectManager::getInstance()->get(
@@ -63,7 +63,7 @@ class Encrypted extends \Magento\Framework\App\Config\Value
         }
     }
 
-    function beforeSave()
+    public function beforeSave()
     {
         $this->_dataSaveAllowed = false;
         $value = (string)$this->getValue();
@@ -77,12 +77,12 @@ class Encrypted extends \Magento\Framework\App\Config\Value
         }
     }
 
-    function processValue($value)
+    public function processValue($value)
     {
         return $this->_encryptor->decrypt($value);
     }
 
-    function afterLoad()
+    public function afterLoad()
     {
         return parent::afterLoad();
     }

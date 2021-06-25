@@ -4,27 +4,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Stock\Realtime\Import\Environmen
 class Zeroqty extends \Hotlink\Brightpearl\Model\Interaction\Stock\Realtime\Import\Environment\YesNo\AbstractYesNo
 {
 
-    function getDefault()
+    public function getDefault()
     {
         return 1;
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'set_qty_zero_when_missing';
     }
 
-    function getName()
+    public function getName()
     {
         return 'Zero qty on missing availability';
     }
 
-    function getNote()
+    public function getNote()
     {
         return "Select Yes to set qty to 0 when availability missing in Brightpearl response. Select No to reject the sku.";
     }
 
-    function getValue()
+    public function getValue()
     {
         if ( !$this->_valueInitialised )
             {

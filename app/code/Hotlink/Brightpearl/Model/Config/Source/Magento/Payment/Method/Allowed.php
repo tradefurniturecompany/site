@@ -9,13 +9,13 @@ class Allowed implements \Magento\Framework\Option\ArrayInterface
      */
     protected $paymentHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Payment\Helper\Data $paymentHelper
     ) {
         $this->paymentHelper = $paymentHelper;
     }
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         $ret = $this->paymentHelper->getPaymentMethodList( true, true, false, null );
         if ( $ret )
@@ -28,7 +28,7 @@ class Allowed implements \Magento\Framework\Option\ArrayInterface
         return $ret;
     }
 
-    function toArray()
+    public function toArray()
     {
         $ret = $this->paymentHelper->getPaymentMethodList( true, false, false, null );
         if ( $ret )

@@ -8,7 +8,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Order\Status
         return 'Hotlink Brightpearl: Magento Sales Order Status Importer (bulk)';
     }
 
-    function execute()
+    public function execute()
     {
         $report = $this->getReport();
         $env    = $this->getEnvironment();

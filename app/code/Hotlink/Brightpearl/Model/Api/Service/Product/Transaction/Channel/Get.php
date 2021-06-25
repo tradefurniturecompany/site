@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Product\Transaction\Channel;
 class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\AbstractGet
 {
 
-    function getName()
+    public function getName()
     {
         return 'Price Channel GET';
     }

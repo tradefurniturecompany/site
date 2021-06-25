@@ -5,12 +5,12 @@ class Path
 {
     protected $directoryList;
 
-    function __construct(\Magento\Framework\App\Filesystem\DirectoryList $directoryList)
+    public function __construct(\Magento\Framework\App\Filesystem\DirectoryList $directoryList)
     {
         $this->directoryList = $directoryList;
     }
 
-    function absolute( $path, $type = 'base' )
+    public function absolute( $path, $type = 'base' )
     {
         $base = $this->directoryList->getPath( $type );
         if ( strpos( $path, $base ) === 0 )
@@ -21,38 +21,38 @@ class Path
         return $path;
     }
 
-    function getFiles( $path, $glob )
+    public function getFiles( $path, $glob )
     {
         return glob( $path . $glob );
     }
 
-    function rename( $from, $to )
+    public function rename( $from, $to )
     {
         return rename( $from, $to );
     }
 
-    function deleteFile( $name )
+    public function deleteFile( $name )
     {
         unlink( $name );
         return true;
     }
 
-    function exists( $name )
+    public function exists( $name )
     {
         return ( is_dir( $name ) );
     }
 
-    function isReadable( $name )
+    public function isReadable( $name )
     {
         return ( is_readable( $name ) );
     }
 
-    function isWriteable( $name )
+    public function isWriteable( $name )
     {
         return ( is_writeable( $name ) );
     }
 
-    function create( $name )
+    public function create( $name )
     {
         if ( ! $this->exists( $name ) )
             {
@@ -60,7 +60,7 @@ class Path
             }
     }
 
-    function clean( $path )
+    public function clean( $path )
     {
         do
             {
@@ -75,7 +75,7 @@ class Path
     //
     //  NB: This function does not respect Windows C:\\ syntax.
     //
-    function join()
+    public function join()
     {
         $args = func_get_args();
         $paths = array();

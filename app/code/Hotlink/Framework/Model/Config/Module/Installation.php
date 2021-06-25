@@ -9,12 +9,12 @@ class Installation extends \Hotlink\Framework\Model\Config\Module\AbstractConfig
         return 'installation';
     }
 
-    function getLogPath( $storeId )
+    public function getLogPath( $storeId )
     {
         return $this->getConfigData( 'interaction_report_log_path', $storeId );
     }
 
-    function getWriteStreamingGzipHeader( $storeId )
+    public function getWriteStreamingGzipHeader( $storeId )
     {
         return $this->getConfigData( 'write_streaming_gzip_header', $storeId );
     }

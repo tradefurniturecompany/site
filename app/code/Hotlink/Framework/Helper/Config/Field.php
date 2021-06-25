@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Helper\Config;
 class Field
 {
 
-    function serialize( $value, $k = 'key', $v = 'val' )
+    public function serialize( $value, $k = 'key', $v = 'val' )
     {
         if ( is_array( $value ) )
             {
@@ -31,7 +31,7 @@ class Field
         return $value;
     }
 
-    function unserialize( $string )
+    public function unserialize( $string )
     {
         if ( !is_string( $string ) )
             {

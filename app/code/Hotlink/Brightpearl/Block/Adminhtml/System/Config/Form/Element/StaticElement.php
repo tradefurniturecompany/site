@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Block\Adminhtml\System\Config\Form\Element;
 class StaticElement extends \Magento\Backend\Block\AbstractBlock implements \Magento\Framework\Data\Form\Element\Renderer\RendererInterface
 {
 
-    function render(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    public function render(\Magento\Framework\Data\Form\Element\AbstractElement $element)
     {
         $template = <<<EOF
 <tr class="system-fieldset-sub-foot" id="row_%s_static">
@@ -29,7 +29,7 @@ EOF;
         return $html;
     }
 
-    function getValue(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    public function getValue(\Magento\Framework\Data\Form\Element\AbstractElement $element)
     {
         return $this->escapeHtml( $element->getValue() );
     }

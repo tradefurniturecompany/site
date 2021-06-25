@@ -6,14 +6,14 @@ class Source implements \Magento\Framework\Option\ArrayInterface
 
     protected $configFactory;
 
-    function __construct(
+    public function __construct(
         \Magento\Sales\Model\Order\ConfigFactory $configFactory
     )
     {
         $this->configFactory = $configFactory;
     }
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         $values = [];
         $statuses = $this->configFactory->create()->getStatuses();
@@ -27,7 +27,7 @@ class Source implements \Magento\Framework\Option\ArrayInterface
         return $values;
     }
 
-    function toArray()
+    public function toArray()
     {
         return $this->salesOrderConfigFactory->create()->getStatuses();
     }

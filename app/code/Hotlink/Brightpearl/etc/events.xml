@@ -44,6 +44,11 @@
     </event>
     <!-- / status import (webhook) -->
 
+    <!-- creditmemo created -->
+    <event name="hotlink_brightpearl_creditmemo_created_byrefund_webapi_rest">
+        <observer name="brightpearl_model_trigger_brightpearl_creditmemo_created_refund" instance="\Hotlink\Brightpearl\Model\Trigger\Creditmemo\Created" />
+    </event>
+
     <!-- creditmemo monitor -->
     <event name="hotlink_framework_monitor_creditmemo_queue">
         <observer name="brightpearl_model_trigger_monitor_creditmemo_queue" instance="Hotlink\Brightpearl\Model\Trigger\Monitor\Creditmemo\Queue" />

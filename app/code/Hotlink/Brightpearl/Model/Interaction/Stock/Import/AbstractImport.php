@@ -9,7 +9,7 @@ abstract class AbstractImport extends \Hotlink\Framework\Model\Interaction\Imple
     protected $collectionFactory;
     protected $transactionFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -145,7 +145,7 @@ abstract class AbstractImport extends \Hotlink\Framework\Model\Interaction\Imple
         try {
 
             if ($mageStockItem = $bpItem->getMagentoStockItem()) {
-                $actionMsg = $bpItem->getId() ? ' updated' : ' created';
+                $actionMsg = $bpItem->getId() ? 'updated' : 'created';
 
                 $transaction = $this->transactionFactory->create();
                 $transaction->addObject( $mageStockItem );
@@ -247,12 +247,13 @@ abstract class AbstractImport extends \Hotlink\Framework\Model\Interaction\Imple
         foreach ( $products as $product )
             {
                 $sku = $product->getSku();
+                $report->debug( "processing $sku" )->indent();
                 if ( isset( $inventory[ $sku ] ) )
                     {
                         $item = $inventory[ $sku ];
                         if ( isset( $apiAvailability[ $sku ] ) )   // Item returned in response
                             {
-                                $report->info( "$sku returned from api" )->indent();
+                                $report->debug( "$sku returned from api" );
                                 $apiItem = $apiAvailability[ $sku ];
                                 $aggregatedStockLevel = $this->_sumAvailability( $apiItem, $setQtyZeroWhenMissing );
                                 $manageStock = ( int ) $item->getMagentoStockItem()->getManageStock();
@@ -266,11 +267,11 @@ abstract class AbstractImport extends \Hotlink\Framework\Model\Interaction\Imple
                                         $idle += $this->_saveStockItem( $item, $sku, $sleep );
                                         $reindexIds[] = $sku;
                                     }
-                                $report->unindent();
+                                $report->info( "$sku updated to " . $item->getMagentoStockItem()->getQty() );
                             }
                         else   // Item missing from response
                             {
-                                $report->warn( "$sku missing from api response" )->indent();
+                                $report->warn( "$sku missing from api response" );
                                 // sku is not in BP, what to do?
                                 if ( $setQtyZeroWhenMissing )
                                     {
@@ -281,7 +282,6 @@ abstract class AbstractImport extends \Hotlink\Framework\Model\Interaction\Imple
                                     {
                                         $report->debug( "$sku skipping, not in Brightpearl and Zero qty when missing is disabled" );
                                     }
-                                $report->unindent();
                             }
                     }
                 else
@@ -292,6 +292,7 @@ abstract class AbstractImport extends \Hotlink\Framework\Model\Interaction\Imple
                     {
                         $report->trace( 'Idle for ' . $idle . ' seconds.' );
                     }
+                $report->unindent();
             }
         return $reindexIds;
     }

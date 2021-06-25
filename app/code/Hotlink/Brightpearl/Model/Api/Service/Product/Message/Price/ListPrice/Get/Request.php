@@ -3,12 +3,12 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Product\Message\Price\ListPrice\
 
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get\AbstractGet
 {
-    function getFunction()
+    public function getFunction()
     {
         return $this->getMethod(). " product-service/price-list";
     }
 
-    function getAction()
+    public function getAction()
     {
         return sprintf('/public-api/%s/product-service/price-list/%s',
                        $this->getTransaction()->getAccountCode(),

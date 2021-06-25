@@ -8,7 +8,7 @@ class Utility extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
     protected $brightpearlConfigAuthorisation;
     protected $apiTransportFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -24,12 +24,12 @@ class Utility extends \Hotlink\Brightpearl\Helper\Api\AbstractApi
         $this->apiTransportFactory = $apiTransportFactory;
     }
 
-    function getName()
+    public function getName()
     {
         return 'Utility API';
     }
 
-    function locateAccount($storeId, $accountCode, $devRef, $timeout = 5000)
+    public function locateAccount($storeId, $accountCode, $devRef, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)

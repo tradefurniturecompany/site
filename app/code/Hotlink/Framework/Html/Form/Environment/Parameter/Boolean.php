@@ -6,7 +6,7 @@ class Boolean extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
 
     protected $factoryHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $fieldsetHelper,
         \Hotlink\Framework\Helper\Html $htmlHelper,
@@ -18,7 +18,7 @@ class Boolean extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
         $this->factoryHelper = $factoryHelper;
     }
 
-    function getHtmlKey()
+    public function getHtmlKey()
     {
         return 'parameter_boolean';
     }
@@ -36,7 +36,7 @@ class Boolean extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
         $element->setNote( $note );
     }
 
-    function getObject( $form, $environment )
+    public function getObject( $form, $environment )
     {
         $boolean = $this->factoryHelper->create( $this->_getClass( $form ) );
         $value = ( $this->_getData( $form ) ) ? true : false;

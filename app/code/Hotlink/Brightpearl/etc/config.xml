@@ -36,10 +36,7 @@
                 <stock_ttl>3600</stock_ttl>
                 <api_timeout>5000</api_timeout>
             </Hotlink_Brightpearl_Model_Interaction_Stock_Realtime_Import>
-            <Hotlink_Brightpearl_Model_Interaction_Stock_Realtime_Import>
-                <stock_ttl>3600</stock_ttl>
-                <api_timeout>5000</api_timeout>
-            </Hotlink_Brightpearl_Model_Interaction_Stock_Realtime_Import>
+
             <Hotlink_Brightpearl_Model_Interaction_Order_Export>
                 <update_existing_customers>1</update_existing_customers>
                 <monitor_order_queue_cron_expr>*/10 * * * *</monitor_order_queue_cron_expr>
@@ -97,5 +94,6 @@
                 <sleep>5000</sleep>
             </Hotlink_Brightpearl_Model_Interaction_Order_Reconciliation>
         </hotlink_brightpearl>
+
     </default>
 </config>

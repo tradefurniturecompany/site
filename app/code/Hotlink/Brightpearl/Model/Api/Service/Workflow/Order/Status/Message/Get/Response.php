@@ -19,12 +19,12 @@ class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\A
         return $this;
     }
 
-    function getResponse()
+    public function getResponse()
     {
         return $this->_get('response');
     }
 
-    function getError()
+    public function getError()
     {
         return $this->_content;
     }

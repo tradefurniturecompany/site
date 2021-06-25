@@ -4,12 +4,12 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Workflow\Product\Message\Price\G
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get\AbstractGet
 {
 
-    function getFunction()
+    public function getFunction()
     {
         return $this->getMethod(). " workflow-integration-service/product-pricing";
     }
 
-    function getAction()
+    public function getAction()
     {
         $transaction = $this->getTransaction();
 
@@ -20,7 +20,7 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get
         return $this->buildAction($accountCode, $pricelists, $skus);
     }
 
-    function buildAction($accountCode, $pricelists, $skus)
+    public function buildAction($accountCode, $pricelists, $skus)
     {
         $params = array('skus'       => $this->_csv($skus),
                         'pricelists' => $this->_csv($pricelists));
@@ -30,7 +30,7 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get
         return sprintf('/2.0.0/%s/workflow-integration-service/product-pricing?%s', $accountCode, $query);
     }
 
-    function validate()
+    public function validate()
     {
         parent::validate();
 

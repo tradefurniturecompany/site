@@ -18,19 +18,19 @@ class Notification extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
         return 'Shipment notification';
     }
 
-    function getMagentoEvents()
+    public function getMagentoEvents()
     {
         return [ 'On Goods-Out Note notification received' => 'hotlink_brightpearl_shipping_goods_out_callback_received',
                  'On Drop-Ship Note notification received' => 'hotlink_brightpearl_shipping_drop_ship_callback_received' ];
     }
 
-    function getContexts()
+    public function getContexts()
     {
         return [ self::KEY_GOODS_OUT_NOTE => self::LABEL_GOODS_OUT_NOTE,
                  self::KEY_DROP_SHIP_NOTE => self::LABEL_DROP_SHIP_NOTE ];
     }
 
-    function getContext()
+    public function getContext()
     {
         $event = $this->getMagentoEvent();
         $note = $event->getNote();
@@ -90,7 +90,7 @@ class Notification extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
                 }
 
                 $environment = $interaction->getEnvironment($storeId);
-                $environment->getParameter('goodsounote_id')->setValue($noteId);
+                $environment->getParameter('goodsoutnote_id')->setValue($noteId);
                 $environment->getParameter('note_type')->setValue($noteType);
 
                 $interaction->execute();

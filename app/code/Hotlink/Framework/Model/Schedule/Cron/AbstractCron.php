@@ -1,149 +1,133 @@
 <?php
 namespace Hotlink\Framework\Model\Schedule\Cron;
-use Hotlink\Framework\Model\Report\Log;
-/**
- * @see \Hotlink\Framework\Model\Schedule\Cron\Inject
- * @see \Hotlink\Framework\Model\Schedule\Cron\Run
- */
+
 abstract class AbstractCron extends \Hotlink\Framework\Model\Schedule\AbstractSchedule
 {
 
-	const DELIM_CLASSES = '___';
+    const DELIM_CLASSES = '___';
 
-	protected $request;
-	protected $factoryHelper;
-	protected $userFactory;
-	protected $dateTimeFactory;
-	protected $reflectionHelper;
+    protected $request;
+    protected $factoryHelper;
+    protected $userFactory;
+    protected $dateTimeFactory;
+    protected $reflectionHelper;
 
-	abstract protected function _initReport();
-	abstract protected function _getReportContext();
-	abstract protected function _execute( $thing );
+    abstract protected function _initReport();
+    abstract protected function _getReportContext();
+    abstract protected function _execute( $thing );
 
-	function __construct(
-		\Magento\Framework\App\Console\Request $request,
-		\Hotlink\Framework\Model\Schedule\Config $config,
-		\Hotlink\Framework\Helper\Report $reportHelper,
+    public function __construct(
+        \Magento\Framework\App\Console\Request $request,
+        \Hotlink\Framework\Model\Schedule\Config $config,
+        \Hotlink\Framework\Helper\Report $reportHelper,
 
-		\Hotlink\Framework\Helper\Factory $factoryHelper,
-		\Hotlink\Framework\Model\UserFactory $userFactory,
-		\Magento\Framework\Stdlib\DateTime\DateTimeFactory $dateTimeFactory,
-		\Hotlink\Framework\Helper\Reflection $reflectionHelper
-	)
-	{
-		$this->request = $request;
-		$this->factoryHelper = $factoryHelper;
-		$this->userFactory = $userFactory;
-		$this->dateTimeFactory = $dateTimeFactory;
-		$this->reflectionHelper = $reflectionHelper;
+        \Hotlink\Framework\Helper\Factory $factoryHelper,
+        \Hotlink\Framework\Model\UserFactory $userFactory,
+        \Magento\Framework\Stdlib\DateTime\DateTimeFactory $dateTimeFactory,
+        \Hotlink\Framework\Helper\Reflection $reflectionHelper
+    )
+    {
+        $this->request = $request;
+        $this->factoryHelper = $factoryHelper;
+        $this->userFactory = $userFactory;
+        $this->dateTimeFactory = $dateTimeFactory;
+        $this->reflectionHelper = $reflectionHelper;
 
-		parent::__construct( $config, $reportHelper );
-	}
+        parent::__construct( $config, $reportHelper );
+    }
 
-	function isRelevantRequest()
-	{
-		$group = $this->request->getParam( 'group' );
-		return ( is_null( $group ) || ( $group == 'default' ) );
-	}
+    public function isRelevantRequest()
+    {
+        $group = $this->request->getParam( 'group' );
+        return ( is_null( $group ) || ( $group == 'default' ) );
+    }
 
-	/**
-	 * @used-by \Hotlink\Framework\Model\Schedule\Cron\Config\Plugin::afterGetJobs()
-	 * @param $thing
-	 * @return mixed
-	 */
-	final function execute( $thing )
-	{
-		if ( ! $this->isRelevantRequest() )
-			{
-				return $thing;
-			}
-		if ( $this->getConfig()->getLoggingEnabled() )
-			{
-				$this->_initReport();
-			}
-		$report = $this->getReport();
-		$report
-			->setBatch( $report->getBatch() + 1 )
-			->indent()
-			->trace( '@ before job execute' )
-			->indent();
-		$result = $this->_execute( $thing );
-		$report
-			->unindent()
-			->trace( '@ after job execute' )
-			->unindent();
-		return $result;
-	}
+    public function execute( $thing )
+    {
+        if ( ! $this->isRelevantRequest() )
+            {
+                return $thing;
+            }
+        if ( $this->getConfig()->getLoggingEnabled() )
+            {
+                $this->_initReport();
+            }
+        $report = $this->getReport();
+        $report
+            ->setBatch( $report->getBatch() + 1 )
+            ->indent()
+            ->trace( '@ before job execute' )
+            ->indent();
+        $result = $this->_execute( $thing );
+        $report
+            ->unindent()
+            ->trace( '@ after job execute' )
+            ->unindent();
+        return $result;
+    }
 
-	protected function _initOnceReport()
-	{
-		$report = $this->getReport();
-		$report
-			// Required since the number of invocations of execute is unknown, so unknown when to close the report
-			->setOnDestructReportFatalIfOpen( false )
-			->setBatch( 0 )
-			->setUser( $this->userFactory->create()->getDescription() )
-			->setTrigger( 'Cron' )
-			->setContext( $this->_getReportContext() )
-			->addLogWriter()
-			->addItemWriter()
-			->addDataWriter();
+    protected function _initOnceReport()
+    {
+        $report = $this->getReport();
+        $report
+            // Required since the number of invocations of execute is unknown, so unknown when to close the report
+            ->setOnDestructReportFatalIfOpen( false )
+            ->setBatch( 0 )
+            ->setUser( $this->userFactory->create()->getDescription() )
+            ->setTrigger( 'Cron' )
+            ->setContext( $this->_getReportContext() )
+            ->addLogWriter()
+            ->addItemWriter()
+            ->addDataWriter();
 
-		$report
-			->debug( 'Date/Time: '. date( "Y-m-d H:i:s", $this->dateTimeFactory->create()->timestamp( time() ) ) )
-			->trace( 'report initialised' );
-		/**
-		 * 2020-02-16 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
-		 * «Call to a member function setInteraction() on boolean
-		 * at app/code/Hotlink/Framework/Model/Schedule/Cron/AbstractCron.php:87»:
-		 * https://github.com/tradefurniturecompany/site/issues/44
-		 */
-		if ($l = $report->getWriter('log')->getLog()) { /** @var Log|false $l */
-			$l->setInteraction('Hotlink Cron Management');
-		}
-	}
+        $report
+            ->debug( 'Date/Time: '. date( "Y-m-d H:i:s", $this->dateTimeFactory->create()->timestamp( time() ) ) )
+            ->trace( 'report initialised' );
 
-	//
-	//  Internals
-	//
-	protected function setReportStatus()
-	{
-		$report = $this->getReport();
-		$status = \Hotlink\Framework\Model\Report::STATUS_SUCCESS;
-		if ( !$report->failed() && !$report->succeeded() )
-			{
-				$status = \Hotlink\Framework\Model\Report::STATUS_NO_RESULT;
-			}
-		elseif ( $report->failed() )
-			{
-				$status = \Hotlink\Framework\Model\Report::STATUS_ERRORS;
-			}
-		$report->setStatus( $status );
-		return $report;
-	}
+        $report->getWriter( 'log' )->getLog()->setInteraction( 'Hotlink Cron Management' );
+    }
 
-	protected function _encodeJob( \Hotlink\Framework\Model\Monitor\AbstractMonitor $monitor, \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
-	{
-		$monitorClass = $this->reflectionHelper->getClass( $monitor );
-		$interactionClass = $this->reflectionHelper->getClass( $interaction );
-		$jobCode = $monitorClass . self::DELIM_CLASSES . $interactionClass;
-		return $jobCode;
-	}
+    //
+    //  Internals
+    //
+    protected function setReportStatus()
+    {
+        $report = $this->getReport();
+        $status = \Hotlink\Framework\Model\Report::STATUS_SUCCESS;
+        if ( !$report->failed() && !$report->succeeded() )
+            {
+                $status = \Hotlink\Framework\Model\Report::STATUS_NO_RESULT;
+            }
+        elseif ( $report->failed() )
+            {
+                $status = \Hotlink\Framework\Model\Report::STATUS_ERRORS;
+            }
+        $report->setStatus( $status );
+        return $report;
+    }
 
-	protected function _decodeJobMonitor( $jobCode )
-	{
-		return $this->_decodeJobPart( $jobCode, 0 );
-	}
+    protected function _encodeJob( \Hotlink\Framework\Model\Monitor\AbstractMonitor $monitor, \Hotlink\Framework\Model\Interaction\AbstractInteraction $interaction )
+    {
+        $monitorClass = $this->reflectionHelper->getClass( $monitor );
+        $interactionClass = $this->reflectionHelper->getClass( $interaction );
+        $jobCode = $monitorClass . self::DELIM_CLASSES . $interactionClass;
+        return $jobCode;
+    }
 
-	protected function _decodeJobInteraction( $jobCode )
-	{
-		return $this->_decodeJobPart( $jobCode, 1 );
-	}
+    protected function _decodeJobMonitor( $jobCode )
+    {
+        return $this->_decodeJobPart( $jobCode, 0 );
+    }
 
-	protected function _decodeJobPart( $jobCode, $index )
-	{
-		$parts = explode( self::DELIM_CLASSES, $jobCode );
-		return $parts[ $index ];
-	}
+    protected function _decodeJobInteraction( $jobCode )
+    {
+        return $this->_decodeJobPart( $jobCode, 1 );
+    }
+
+    protected function _decodeJobPart( $jobCode, $index )
+    {
+        $parts = explode( self::DELIM_CLASSES, $jobCode );
+        return $parts[ $index ];
+    }
 
 }

@@ -5,7 +5,7 @@ class Method extends \Magento\Framework\View\Element\Html\Select
 {
     protected $paymentMethodSource;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Payment\Method $paymentMethodSource,
         array $data = []
@@ -14,12 +14,12 @@ class Method extends \Magento\Framework\View\Element\Html\Select
         parent::__construct( $context, $data  );
     }
 
-    function setInputName( $value )
+    public function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    function _toHtml()
+    public function _toHtml()
     {
         if ( !$this->getOptions() )
             {

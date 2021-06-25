@@ -7,7 +7,7 @@ class Implementation extends \Magento\Config\Block\System\Config\Form\Field
     protected $factory;
     protected static $_interactions;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Hotlink\Framework\Helper\Factory $factory,
         array $data = []
@@ -20,7 +20,7 @@ class Implementation extends \Magento\Config\Block\System\Config\Form\Field
         );
     }
 
-    function getFactory()
+    public function getFactory()
     {
         return $this->factory;
     }

@@ -1,5 +1,5 @@
 <?php
-namespace Hotlink\Framework\Model\Config;
+namespace Hotlink\Framework\Model\Config\Structure\Initialise;
 
 class Template
 {
@@ -16,13 +16,13 @@ class Template
 
     protected $_template = null;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Factory $factory,
         \Hotlink\Framework\Helper\Reflection $reflection,
         \Hotlink\Framework\Helper\Html $html,
         \Hotlink\Framework\Helper\Config\Interaction\Group\Key $keyGroupHelper,
         \Hotlink\Framework\Model\Config\Map $map,
-        \Hotlink\Framework\Model\Config\Template\Reader $reader,
+        \Hotlink\Framework\Model\Config\Structure\Initialise\Template\Reader $reader,
         \Magento\Config\Model\Config\ScopeDefiner $scopeDefiner
     )
     {
@@ -35,27 +35,27 @@ class Template
         $this->scopeDefiner = $scopeDefiner;
     }
 
-    function getFactory()
+    public function getFactory()
     {
         return $this->factory;
     }
 
-    function getReflection()
+    public function getReflection()
     {
         return $this->reflection;
     }
 
-    function getHtml()
+    public function getHtml()
     {
         return $this->html;
     }
 
-    function getMap()
+    public function getMap()
     {
         return $this->map;
     }
 
-    function apply( $config )
+    public function apply( $config )
     {
         if ( $sections = $this->extract( $config, 'config/system/sections' ) )
             {
@@ -100,14 +100,14 @@ class Template
         return $config;
     }
 
-    function compare( $a, $b )
+    public function compare( $a, $b )
     {
         $orderA = ( int ) $this->extract( $a, 'sortOrder', 99999 );
         $orderB = ( int ) $this->extract( $b, 'sortOrder', 99999 );
         return $orderA - $orderB;
     }
 
-    function extract( $data, $path, $missing = false )
+    public function extract( $data, $path, $missing = false )
     {
         $parts = explode( '/', $path );
         foreach ( $parts as $part )
@@ -124,7 +124,7 @@ class Template
         return $data;
     }
 
-    function setReferences( $fields, $sectionName, $groupName )
+    public function setReferences( $fields, $sectionName, $groupName )
     {
         foreach ( $fields as $name => $field )
             {
@@ -142,13 +142,13 @@ class Template
         return $fields;
     }
 
-    function merge( $submissive, $dominant )
+    public function merge( $submissive, $dominant )
     {
         $result = array_replace_recursive( $submissive, $dominant );
         return $result;
     }
 
-    function getTemplate()
+    public function getTemplate()
     {
         if ( is_null( $this->_template ) )
             {
@@ -157,17 +157,17 @@ class Template
         return $this->_template;
     }
 
-    function getTemplateFields( $path )
+    public function getTemplateFields( $path )
     {
         return $this->extract( $this->getTemplate(), $path, [] );
     }
 
-    function getTemplateFieldsHeadings( $interaction )
+    public function getTemplateFieldsHeadings( $interaction )
     {
         return $this->getTemplateFields( 'config/system/sections/template/children/interaction/children' );
     }
 
-    function getTemplateFieldsImplementations( $interaction )
+    public function getTemplateFieldsImplementations( $interaction )
     {
         $result = [];
         $implementations = $this->getMap()->getImplementations( $interaction );
@@ -182,7 +182,7 @@ class Template
         return $result;
     }
 
-    function getTemplateFieldsActions( $interaction )
+    public function getTemplateFieldsActions( $interaction )
     {
         $result = [];
         $actions = $this->getMap()->getActions( $interaction );
@@ -194,7 +194,7 @@ class Template
         return $result;
     }
 
-    function getTemplateFieldsMonitors( $interaction )
+    public function getTemplateFieldsMonitors( $interaction )
     {
         $result = [];
         $monitors = $this->getMap()->getMonitors( $interaction );
@@ -206,7 +206,7 @@ class Template
         return $result;
     }
 
-    function getTemplateFieldsTriggers( $interaction )
+    public function getTemplateFieldsTriggers( $interaction )
     {
         $result = [];
         $triggers = $this->getMap()->getTriggers( $interaction );
@@ -247,7 +247,7 @@ class Template
 
     // A one-way hash - this does not need to be reversible, only repeatable
     // Requires that context keys are unique across triggers
-    function getContextKey( $context, $key )
+    public function getContextKey( $context, $key )
     {
         return $context;
         $parts = [ 'context', $context, $key ];

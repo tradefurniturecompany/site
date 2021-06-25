@@ -7,19 +7,19 @@ class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Sea
     const COLUMN_DELIVERY_DATE = 'deliveryDate';
     const COLUMN_UPDATED_ON    = 'updatedOn';
 
-    function getFunction()
+    public function getFunction()
     {
         return $this->getMethod(). " order-service/order-search";
     }
 
-    function _getAction()
+    public function _getAction()
     {
         $accountCode = $this->getTransaction()->getAccountCode();
 
         return sprintf('/public-api/%s/order-service/order-search', $accountCode);
     }
 
-    function validate()
+    public function validate()
     {
         parent::validate();
 

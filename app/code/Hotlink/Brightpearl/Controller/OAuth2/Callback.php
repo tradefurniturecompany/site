@@ -18,7 +18,7 @@ class Callback extends \Magento\Framework\App\Action\Action
 
     protected $oauth2otp;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
@@ -60,7 +60,7 @@ class Callback extends \Magento\Framework\App\Action\Action
         );
     }
 
-    function execute()
+    public function execute()
     {
         $result = $this->resultJsonFactory->create();
 

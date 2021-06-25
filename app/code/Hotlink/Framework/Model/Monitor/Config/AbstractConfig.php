@@ -6,7 +6,7 @@ abstract class AbstractConfig extends \Hotlink\Framework\Model\Config\AbstractCo
 
     protected $interaction;
 
-    function __construct(
+    public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Config\Field $interactionConfigFieldHelper,

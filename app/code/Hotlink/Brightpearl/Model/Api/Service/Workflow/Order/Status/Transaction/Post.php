@@ -7,7 +7,7 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
     protected $_orderStatus = null;
     protected $_orderIncrementId = null;
 
-    function getName()
+    public function getName()
     {
         return 'Order Status Export';
     }
@@ -22,24 +22,24 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
         return '\Hotlink\Brightpearl\Model\Api\Service\Workflow\Order\Status\Message\Patch\Response';
     }
 
-    function setOrderStatus( $orderStatus )
+    public function setOrderStatus( $orderStatus )
     {
         $this->_orderStatus = $orderStatus;
         return $this;
     }
 
-    function getOrderStatus()
+    public function getOrderStatus()
     {
         return $this->_orderStatus;
     }
 
-    function setOrderIncrementId( $orderIncrementId )
+    public function setOrderIncrementId( $orderIncrementId )
     {
         $this->_orderIncrementId = $orderIncrementId;
         return $this;
     }
 
-    function getOrderIncrementId()
+    public function getOrderIncrementId()
     {
         return $this->_orderIncrementId;
     }

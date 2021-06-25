@@ -4,12 +4,12 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Integration\Message\Configuratio
 class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\AbstractResponse
 {
 
-    function getResponse()
+    public function getResponse()
     {
         return $this->_get( 'response' );
     }
 
-    function getConfiguration()
+    public function getConfiguration()
     {
         if ( $reponse = $this->getResponse() )
             {
@@ -21,7 +21,7 @@ class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\A
         return null;
     }
 
-    function getShippingNominalCode()
+    public function getShippingNominalCode()
     {
         if ( $configuration = $this->getConfiguration() )
             {

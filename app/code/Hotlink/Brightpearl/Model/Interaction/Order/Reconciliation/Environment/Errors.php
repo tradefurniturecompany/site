@@ -6,7 +6,7 @@ class Errors extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
 
     protected $configConfigSourceYesno;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
 
@@ -17,42 +17,42 @@ class Errors extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\
         $this->configConfigSourceYesno = $configConfigSourceYesno;
     }
 
-    function getName()
+    public function getName()
     {
         return 'Requeue errors';
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'requeue_with_errors';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Select Yes to requeue orders with errors in Brightpearl.<br/> Select No otherwise.';
     }
 
-    function getDefault()
+    public function getDefault()
     {
         return 0;
     }
 
-    function getOptions()
+    public function getOptions()
     {
         return $this->configConfigSourceYesno->toArray();
     }
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         return $this->configConfigSourceYesno->toOptionArray();
     }
 
-    function getMultiselect()
+    public function getMultiselect()
     {
         return false;
     }
 
-    function getValue()
+    public function getValue()
     {
         if ( !$this->_valueInitialised )
             {

@@ -9,13 +9,15 @@ class Rows extends \Hotlink\Brightpearl\Model\Platform\Data
         $items = $creditmemo->getItems();
         foreach ( $items as $item )
             {
-                $orderItemId = $item->getOrderItemId();
-                if ( $brightpearlOrderItem = $this->getBrightpearlOrderItem( $brightpearlOrder, $orderItemId ) )
+                if ( $item->getQty() > 0 )
                     {
-                        $this[] = $this->getObject( $item, "Item", true, $brightpearlOrderItem );
+                        $orderItemId = $item->getOrderItemId();
+                        if ( $brightpearlOrderItem = $this->getBrightpearlOrderItem( $brightpearlOrder, $orderItemId ) )
+                            {
+                                $this[] = $this->getObject( $item, "Item", true, $brightpearlOrderItem );
+                            }
                     }
             }
-
 
         if ( $creditmemo->getShippingAmount() > 0 )
             {

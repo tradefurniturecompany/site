@@ -13,7 +13,7 @@ abstract class AbstractImplementation extends \Hotlink\Brightpearl\Model\Interac
     protected $orderService;
     protected $orderCollectionFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,

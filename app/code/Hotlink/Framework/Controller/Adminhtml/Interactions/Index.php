@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Controller\Adminhtml\Interactions;
 class Index extends \Hotlink\Framework\Controller\Adminhtml\Interactions\Index\AbstractIndex
 {
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\App\Action\Context $context,
 
         \Hotlink\Framework\Model\Platform $platform,
@@ -18,12 +18,12 @@ class Index extends \Hotlink\Framework\Controller\Adminhtml\Interactions\Index\A
         );
     }
 
-    function getActiveMenuId()
+    public function getActiveMenuId()
     {
         return 'Hotlink_Framework::interactions';
     }
 
-    function getActiveMenuResource()
+    public function getActiveMenuResource()
     {
         return 'Hotlink_Framework::interactions';
     }

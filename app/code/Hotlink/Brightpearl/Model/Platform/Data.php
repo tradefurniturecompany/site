@@ -4,17 +4,17 @@ namespace Hotlink\Brightpearl\Model\Platform;
 class Data extends \Hotlink\Framework\Model\Platform\Data
 {
 
-    function getChildClassDefault( $key )
+    public function getChildClassDefault( $key )
     {
         return '\Hotlink\Brightpearl\Model\Platform\Data';
     }
 
-    function getMappings()
+    public function getMappings()
     {
         return \Hotlink\Brightpearl\Model\Platform\Type::getMappings();
     }
 
-    function toArray(array $arrAttributes = array())
+    public function toArray(array $arrAttributes = array())
     {
         $ret = array();
         foreach ( $this as $key => $val )

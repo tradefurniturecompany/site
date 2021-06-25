@@ -4,6 +4,6 @@ namespace Hotlink\Framework\Html;
 interface IFormHelper
 {
 
-    function getFormHelper();
+    public function getFormHelper();
 
 }

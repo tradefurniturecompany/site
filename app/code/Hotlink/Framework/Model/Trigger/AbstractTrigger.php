@@ -11,7 +11,7 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
     protected $configMap;
     protected $userFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -28,8 +28,8 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
         $this->userFactory = $userFactory;
     }
 
-    abstract function getMagentoEvents();     // Returns an array of Magento event names that this object handles.
-    abstract function getContexts();          // Returns an array of Context names that this object responds to.
+    abstract public function getMagentoEvents();     // Returns an array of Magento event names that this object handles.
+    abstract public function getContexts();          // Returns an array of Context names that this object responds to.
     abstract protected function _getName();          // Returns the name of the trigger.
 
     protected $_user = null;
@@ -38,12 +38,12 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
     protected $_interactions = false;
     protected $_executing = false;
 
-    function getName()
+    public function getName()
     {
         return __( $this->_getName() );
     }
 
-    function storeManager()
+    public function storeManager()
     {
         return $this->storeManager;
     }
@@ -51,7 +51,7 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
     //
     //   \Magento\Framework\Event\ObserverInterface
     //
-    function execute( \Magento\Framework\Event\Observer $observer )
+    public function execute( \Magento\Framework\Event\Observer $observer )
     {
         // protection from "Maximum function nesting level reached" error, as interactions launched by
         // this trigger may load product collections (especially in frontend), causing an "infinite" loop
@@ -83,7 +83,7 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
     //
     //  Returns true if any interactions are enabled and can be executed
     //
-    function getExecutableInteractions()
+    public function getExecutableInteractions()
     {
         $result = [];
         foreach ( $this->getInteractions() as $interaction )
@@ -120,12 +120,12 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
     //
     //  Overload this to control the setup of environments for stores other than Magento current
     //
-    function getStoreId()
+    public function getStoreId()
     {
         return $this->storeManager->getStore()->getId();
     }
 
-    function getInteractions()
+    public function getInteractions()
     {
         if ( !$this->_interactions )
             {
@@ -154,12 +154,12 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
     //
     //  Overload this to implement contextual triggers.
     //
-    function getContext()
+    public function getContext()
     {
         return $this->getMagentoEvent()->getName();
     }
 
-    function getMagentoEvent()
+    public function getMagentoEvent()
     {
         return $this->_magentoEvent;
     }
@@ -169,7 +169,7 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
         $this->_magentoEvent = $value;
     }
 
-    function getUser()
+    public function getUser()
     {
         if ( is_null ( $this->_user ) )
             {
@@ -178,7 +178,7 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
         return $this->_user;
     }
 
-    function getContextLabel()
+    public function getContextLabel()
     {
         $context = $this->getContext();
         $contexts = $this->getContexts();
@@ -192,7 +192,7 @@ abstract class AbstractTrigger extends \Hotlink\Framework\Model\AbstractModel im
     //
     //  IReport
     //
-    function getReportSection()
+    public function getReportSection()
     {
         return 'trigger';
     }

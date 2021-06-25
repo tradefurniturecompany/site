@@ -6,7 +6,7 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
     protected $_payment = null;
     protected $_orderIncrementId = null;
 
-    function getName()
+    public function getName()
     {
         return 'Order Payment Export';
     }
@@ -21,24 +21,24 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
         return '\Hotlink\Brightpearl\Model\Api\Service\Workflow\Order\Payment\Message\Post\Response';
     }
 
-    function setPayment( $payment )
+    public function setPayment( $payment )
     {
         $this->_payment = $payment;
         return $this;
     }
 
-    function getPayment()
+    public function getPayment()
     {
         return $this->_payment;
     }
 
-    function setOrderIncrementId( $id )
+    public function setOrderIncrementId( $id )
     {
         $this->_orderIncrementId = $id;
         return $this;
     }
 
-    function getOrderIncrementId()
+    public function getOrderIncrementId()
     {
         return $this->_orderIncrementId;
     }

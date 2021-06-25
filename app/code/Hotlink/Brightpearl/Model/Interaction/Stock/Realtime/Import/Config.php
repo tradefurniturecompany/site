@@ -8,7 +8,7 @@ class Config extends \Hotlink\Brightpearl\Model\Interaction\Stock\Config\Abstrac
      */
     protected $brightpearlHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Convention\Interaction\Config $configConvention,
@@ -34,18 +34,18 @@ class Config extends \Hotlink\Brightpearl\Model\Interaction\Stock\Config\Abstrac
             );
     }
 
-    function getDefaultTtl($storeId = null)
+    public function getDefaultTtl($storeId = null)
     {
         return $this->getConfigData('stock_ttl', $storeId, []);
     }
 
-    function getStockTtlTriggerMap($storeId = null)
+    public function getStockTtlTriggerMap($storeId = null)
     {
         $value = $this->getConfigData('stock_ttl_trigger_map', $storeId, []);
         return ($value ? $this->brightpearlHelper->getUnserializedOptions( $value ) : []);
     }
 
-    function getStockTtl( $context, $storeId = null )
+    public function getStockTtl( $context, $storeId = null )
     {
         $map = $this->getStockTtlTriggerMap( $storeId );
         foreach ( $map as $item )

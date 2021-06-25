@@ -4,22 +4,22 @@ namespace Hotlink\Framework\Model\Interaction\Log\Cleaning\Environment;
 class Count extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Config\AbstractConfig
 {
 
-    function getDefault()
+    public function getDefault()
     {
         return 100000;
     }
 
-    function getName()
+    public function getName()
     {
         return 'Count';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'A positive integer specifying the number of records to retain (and delete all others). A negative integer specifying the number of records to delete.';
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'count';
     }

@@ -6,12 +6,12 @@ class Emailer
 
     protected $scopeConfig;
 
-    function __construct( \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig )
+    public function __construct( \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig )
     {
         $this->scopeConfig = $scopeConfig;
     }
 
-    function send( array $to, $subject, $content, array $cc = array(), $html = true )
+    public function send( array $to, $subject, $content, array $cc = array(), $html = true )
     {
         $senderName = $this->scopeConfig->getValue( 'trans_email/ident_general/name' , \Magento\Store\Model\ScopeInterface::SCOPE_STORE );
         if ( ! $senderName )

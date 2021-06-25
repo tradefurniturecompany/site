@@ -7,7 +7,7 @@ class Index extends \Magento\Backend\Block\Widget\Form\Container
     protected $registry;
     protected $_platform;
 
-    function __construct( \Magento\Backend\Block\Widget\Context $context,
+    public function __construct( \Magento\Backend\Block\Widget\Context $context,
                                  \Magento\Framework\Registry $registry,
                                  array $data = []
     )
@@ -39,7 +39,7 @@ class Index extends \Magento\Backend\Block\Widget\Form\Container
     var frame = document.getElementById( frameid );
     frame.style.display = 'block';
     frame.style.width = '100%';
-    frame.style.height = '500px';
+    frame.style.height = '1000px';
     form.submit();
 }
 
@@ -69,7 +69,7 @@ function clearIFrame( frameid )
         return $this;
     }
 
-    function getFormInitScripts()
+    public function getFormInitScripts()
     {
         return parent::getFormInitScripts();
     }
@@ -79,7 +79,7 @@ function clearIFrame( frameid )
         return $this->registry->registry( 'current_platform' );
     }
 
-    function getFormScripts()
+    public function getFormScripts()
     {
         return parent::getFormScripts();
     }
@@ -93,12 +93,12 @@ function clearIFrame( frameid )
         return $html;
     }
 
-    function getTriggerUrl()
+    public function getTriggerUrl()
     {
         return $this->getUrl('*/' . $this->_controller . '/trigger');
     }
 
-    function getHeaderText()
+    public function getHeaderText()
     {
         return $this->_getPlatform()->getName();
     }

@@ -7,7 +7,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
     protected $sausage = false;   // declared in parent
     protected $loadedData;
 
-    function __construct(
+    public function __construct(
         $name,
         $primaryFieldName,
         $requestFieldName,
@@ -26,12 +26,12 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         return $this;
     }
 
-    function getCollection()
+    public function getCollection()
     {
         return $this->sausage;
     }
 
-    function getData()
+    public function getData()
     {
         if (isset($this->loadedData)) {
             return $this->loadedData;

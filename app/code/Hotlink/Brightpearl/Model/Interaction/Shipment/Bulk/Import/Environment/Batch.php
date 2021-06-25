@@ -4,27 +4,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Shipment\Bulk\Import\Environment
 class Batch extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter
 {
 
-    function getDefault()
+    public function getDefault()
     {
         return 50;
     }
 
-    function getName()
+    public function getName()
     {
         return 'Batch size';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Noumber of records to fetch per Brightpearl query';
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'batch';
     }
 
-    function getValue()
+    public function getValue()
     {
         if ( !$this->_valueInitialised )
             {

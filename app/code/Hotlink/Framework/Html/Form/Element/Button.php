@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Html\Form\Element;
 class Button extends \Magento\Framework\Data\Form\Element\AbstractElement
 {
 
-    function getElementHtml()
+    public function getElementHtml()
     {
         $block = $this->getBlock( '\Magento\Backend\Block\Widget\Button' );
         $block->setType( $this->getType() )

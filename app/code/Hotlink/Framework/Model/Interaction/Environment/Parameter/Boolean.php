@@ -6,7 +6,7 @@ class Boolean extends \Hotlink\Framework\Model\Interaction\Environment\Parameter
 
     protected $htmlBooleanHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
 
@@ -17,22 +17,22 @@ class Boolean extends \Hotlink\Framework\Model\Interaction\Environment\Parameter
         $this->htmlBooleanHelper = $htmlBooleanHelper;
     }
 
-    function getDefault()
+    public function getDefault()
     {
         return false;
     }
 
-    function getName()
+    public function getName()
     {
         return 'Boolean';
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'boolean';
     }
 
-    function getFormHelper()
+    public function getFormHelper()
     {
         return $this->htmlBooleanHelper;
     }

@@ -9,7 +9,7 @@ class Processing implements \Magento\Framework\Option\ArrayInterface
                          'stop' => 'Stop'
     ];
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         $options = [];
         foreach ( $this->toArray() as $key => $label )
@@ -19,7 +19,7 @@ class Processing implements \Magento\Framework\Option\ArrayInterface
         return $options;
     }
 
-    function toArray()
+    public function toArray()
     {
         $result = [];
         foreach ( $this->_data as $key => $label )

@@ -4,22 +4,22 @@ namespace Hotlink\Brightpearl\Model\Queue\Order;
 class Status extends \Hotlink\Brightpearl\Model\Queue\AbstractQueue
 {
 
-    function _construct()
+    public function _construct()
     {
         $this->_init( '\Hotlink\Brightpearl\Model\ResourceModel\Queue\Order\Status', 'id' );
     }
 
-    function setParentId( $orderId )
+    public function setParentId( $orderId )
     {
         $this->setOrderId( $orderId );
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'queue (order status)';
     }
 
-    function shouldSend( \Hotlink\Brightpearl\Model\Queue\Order $orderTracking )
+    public function shouldSend( \Hotlink\Brightpearl\Model\Queue\Order $orderTracking )
     {
         $send = false;
 

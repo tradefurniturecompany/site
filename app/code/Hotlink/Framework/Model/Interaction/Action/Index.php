@@ -21,7 +21,7 @@ class Index extends \Hotlink\Framework\Model\Interaction\Action\AbstractAction
     protected $indexerRegistry;
     protected $configIndexer;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -46,12 +46,12 @@ class Index extends \Hotlink\Framework\Model\Interaction\Action\AbstractAction
         $this->configIndexer = $configIndexer;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'index';
     }
 
-    function before()
+    public function before()
     {
         $interaction = $this->getInteraction();
         $name = $this->interactionReflectionHelper->getClass( $interaction );
@@ -74,7 +74,7 @@ class Index extends \Hotlink\Framework\Model\Interaction\Action\AbstractAction
 
     }
 
-    function after()
+    public function after()
     {
         if ( $this->getConfig()->getAfter() )
             {

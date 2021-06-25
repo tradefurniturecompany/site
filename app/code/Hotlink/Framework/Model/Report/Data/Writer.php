@@ -4,16 +4,11 @@ namespace Hotlink\Framework\Model\Report\Data;
 class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
 {
 
-    function getCode()
+    public function getCode()
     {
         return 'data';
     }
 
-	/**
-	 * @used-by \Hotlink\Framework\Model\Report::write()
-	 * @param \Hotlink\Framework\Model\Report\Item $item
-	 * @return $this
-	 */
     protected function _write( \Hotlink\Framework\Model\Report\Item $item )
     {
         if ( $data = $item->getData() )

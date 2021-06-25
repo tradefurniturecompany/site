@@ -21,7 +21,7 @@ class Shipping extends \Hotlink\Brightpearl\Model\Platform\Data
         $this[ "taxCode"   ] = $brightpearlOrderItem[ 'rowValue' ][ 'taxCode' ];
 
         $helper = $this->getHelper();
-        $total = $helper->getAmountByOrderCurrencyUsage( $creditmemo, 'shipping_amount', 'base_shipping_amount' );
+        $total = $helper->getAmountByOrderCurrencyUsage( $creditmemo, 'shipping_incl_tax', 'base_shipping_incl_tax' );
         $tax   = $helper->getAmountByOrderCurrencyUsage( $creditmemo, 'shipping_tax_amount', 'base_shipping_tax_amount' );
         $this[ "net" ] = $total - $tax;
         $this[ "tax" ] = $tax;

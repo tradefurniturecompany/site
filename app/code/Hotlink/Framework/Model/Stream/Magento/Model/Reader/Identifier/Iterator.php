@@ -11,7 +11,7 @@ class Iterator implements \Iterator
     protected $_iterator = false;
     protected $_expired = false;
 
-    function __construct( $reader )
+    public function __construct( $reader )
     {
         //$args = func_get_args();
         //$this->_reader = $args[ 0 ];
@@ -45,33 +45,33 @@ class Iterator implements \Iterator
     //    Iterator
     //
     //  -----------------------------------------------------
-    function current()
+    public function current()
     {
-        return current( $this->_iterator );
+        return $this->_iterator->current();
     }
 
-    function key()
+    public function key()
     {
-        return key( $this->_iterator );
+        return $this->_iterator->key();
     }
 
-    function next()
+    public function next()
     {
         if ( $this->_index > $this->_count )
             {
                 $this->refresh();
             }
         $this->_index++;
-        return next( $this->_iterator );
+        return $this->_iterator->next();
     }
 
-    function rewind()
+    public function rewind()
     {
         $this->getReader()->reset();
         $this->refresh();
     }
 
-    function valid()
+    public function valid()
     {
         if ( ! $this->_items || ( $this->_index > $this->_count ) )
             {

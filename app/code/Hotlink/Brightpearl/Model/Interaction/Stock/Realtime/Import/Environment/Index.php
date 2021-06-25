@@ -3,27 +3,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Stock\Realtime\Import\Environmen
 
 class Index extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Boolean
 {
-    function getDefault()
+    public function getDefault()
     {
         return false;
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'run_price_index';
     }
 
-    function getName()
+    public function getName()
     {
         return 'Run price index';
     }
 
-    function getNote()
+    public function getNote()
     {
         return "Check only if SKUs participate in a bundle product.";
     }
 
-    function getValue()
+    public function getValue()
     {
         if ( !$this->_valueInitialised ) {
             $this->setValue( $this->getDefault() );

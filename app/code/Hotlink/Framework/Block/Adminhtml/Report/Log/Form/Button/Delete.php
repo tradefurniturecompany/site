@@ -3,7 +3,7 @@ namespace Hotlink\Framework\Block\Adminhtml\Report\Log\Form\Button;
 
 class Delete extends \Hotlink\Framework\Block\Adminhtml\Report\Log\Form\Button  implements \Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface
 {
-    function getButtonData()
+    public function getButtonData()
     {
         $data = [];
         if ( $id = $this->getReportLogId() ) {
@@ -19,7 +19,7 @@ class Delete extends \Hotlink\Framework\Block\Adminhtml\Report\Log\Form\Button  
         return $data;
     }
 
-    function getDeleteUrl( $id )
+    public function getDeleteUrl( $id )
     {
         return $this->getUrl('*/*/delete', [ 'id' => $id ]);
     }

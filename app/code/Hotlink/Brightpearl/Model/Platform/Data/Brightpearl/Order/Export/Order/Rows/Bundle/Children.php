@@ -9,7 +9,7 @@ class Children extends \Hotlink\Brightpearl\Model\Platform\Data
      */
     protected $conventionCheckHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Simplexml\ElementFactory $xmlFactory,
         \Hotlink\Framework\Helper\Factory $factoryHelper,
         \Hotlink\Framework\Model\ReportFactory $reportFactory,
@@ -63,7 +63,7 @@ class Children extends \Hotlink\Brightpearl\Model\Platform\Data
             }
     }
 
-    function getChildClassDefault( $key )
+    public function getChildClassDefault( $key )
     {
         $class = '\Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Order\Export\Order\Rows\\' . $key;
         if ( $this->conventionCheckHelper->exists( $class ) )

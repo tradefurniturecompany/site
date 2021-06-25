@@ -8,7 +8,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     protected $urlBuilder;
     protected $httpAuth;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\Url $urlBuilder,
@@ -23,12 +23,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         parent::__construct( $context );
     }
 
-    function getSerializedOptions( $value )
+    public function getSerializedOptions( $value )
     {
         return serialize( $value );
     }
 
-    function getUnserializedOptions( $value )
+    public function getUnserializedOptions( $value )
     {
         $arr = @unserialize( $value );
         if ( !is_array( $arr ) ) {
@@ -45,7 +45,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return $arr;
     }
 
-    function getBaseCallbackUrl($urlRoute, $options = array())
+    public function getBaseCallbackUrl($urlRoute, $options = array())
     {
         $options['_secure'] = true;
         $options['_nosid'] = true;

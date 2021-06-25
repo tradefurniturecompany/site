@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Helper\Api\Service\Search\Warehouse;
 
 class GoodsoutNote extends \Hotlink\Brightpearl\Helper\Api\Service\Search\AbstractSearch
 {
-    function getName()
+    public function getName()
     {
         return 'Warehouse GoodsoutNote Search API';
     }

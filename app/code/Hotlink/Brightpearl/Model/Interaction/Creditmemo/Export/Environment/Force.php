@@ -3,22 +3,22 @@ namespace Hotlink\Brightpearl\Model\Interaction\Creditmemo\Export\Environment;
 
 class Force extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Boolean
 {
-    function getName()
+    public function getName()
     {
         return 'Force';
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'force';
     }
 
-    function getDefault()
+    public function getDefault()
     {
         return false;
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Resubmit creditmemo to Brightpearl API even if it has already been sent';
     }

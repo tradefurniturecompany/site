@@ -9,7 +9,7 @@ class Stock extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
     }
 
 
-    function getWarehouses($storeId = null)
+    public function getWarehouses($storeId = null)
     {
         // Issue with explode !
         // it returns array with one empty item for both cases:
@@ -24,17 +24,17 @@ class Stock extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
         return $value;
     }
 
-    function getStockSkipUnmanaged($storeId = null)
+    public function getStockSkipUnmanaged($storeId = null)
     {
         return $this->getConfigData( 'skip_unmanaged', $storeId);
     }
 
-    function getPutBackInstockFlag($storeId = null)
+    public function getPutBackInstockFlag($storeId = null)
     {
         return $this->getConfigData( 'put_back_instock', $storeId);
     }
 
-    function getQtyZeroWhenMissingFlag($storeId = null)
+    public function getQtyZeroWhenMissingFlag($storeId = null)
     {
         return $this->getConfigData( 'set_qty_zero_when_missing', $storeId);
     }

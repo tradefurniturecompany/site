@@ -12,7 +12,7 @@ class Response extends \Hotlink\Brightpearl\Model\Api\Message\Response\AbstractR
         return $this;
     }
 
-    function getInstanceToken()
+    public function getInstanceToken()
     {
         return $this->_get( 'response' );
     }

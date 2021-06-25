@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Integration\Message\Instance\Get
 class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\AbstractResponse
 {
 
-    function getInstance()
+    public function getInstance()
     {
         return $this->_get( 'response' );
     }
@@ -20,17 +20,17 @@ class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\A
         return null;
     }
 
-    function getInstalledIntegrationInstanceId()
+    public function getInstalledIntegrationInstanceId()
     {
         return $this->_getInstanceField( 'installedIntegrationInstanceId' );
     }
 
-    function getInstalledIntegrationId()
+    public function getInstalledIntegrationId()
     {
         return $this->_getInstanceField( 'installedIntegrationId' );
     }
 
-    function getInstanceName()
+    public function getInstanceName()
     {
         return $this->_getInstanceField( 'instanceName' );
     }

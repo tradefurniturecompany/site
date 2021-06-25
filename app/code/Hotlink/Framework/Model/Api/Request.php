@@ -6,12 +6,12 @@ class Request extends \Hotlink\Framework\Model\Api\Message\AbstractMessage
 
     protected $_function = false;
 
-    function getFunction()
+    public function getFunction()
     {
         return $this->_function;
     }
 
-    function setFunction( $value )
+    public function setFunction( $value )
     {
         $this->_function = $value;
         return $this;

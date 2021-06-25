@@ -16,7 +16,7 @@ class Export extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
     protected $salesOrderFactory;
     protected $collectionFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -51,19 +51,19 @@ class Export extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
         return 'Order payment export';
     }
 
-    function getMagentoEvents()
+    public function getMagentoEvents()
     {
         return [ 'After successful Order Payment save'   => 'sales_order_payment_save_commit_after',
                  'After successful Order Payment export' => 'hotlink_brightpearl_order_exported' ];
     }
 
-    function getContexts()
+    public function getContexts()
     {
         return [ self::KEY_PAYMENT_UPDATED => self::LABEL_PAYMENT_UPDATED,
                  self::KEY_ORDER_EXPORTED  => self::LABEL_ORDER_EXPORTED ];
     }
 
-    function getContext()
+    public function getContext()
     {
         $event = $this->getMagentoEvent();
         $context = null;
@@ -136,8 +136,17 @@ class Export extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
             {
                 $orig    = $payment->getOrigData();
                 $data    = $payment->getData();
-                $current = array_intersect_key( $data, $orig ); // compare only common keys.
-                $hasChanges = ( $current != $orig ); // same key => value pairs. order doesn't matter.
+                $hasChanges = false;
+                if ( is_array( $orig ) )
+                    {
+                        $current = array_intersect_key( $data, $orig ); // compare only common keys.
+                        $hasChanges = ( $current != $orig ); // same key => value pairs. order doesn't matter.
+                    }
+                else
+                    {
+                        $hasChanges = true;
+                    }
+
                 if ( $hasChanges )
                     {
                         //

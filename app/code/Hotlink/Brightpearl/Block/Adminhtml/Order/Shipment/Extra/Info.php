@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Block\Adminhtml\Order\Shipment\Extra;
 class Info extends \Magento\Shipping\Block\Adminhtml\View\Items
 {
 
-    function getBundleItems()
+    public function getBundleItems()
     {
         $orderItem = $this->getParentBlock()->getItem();
         $result = [];

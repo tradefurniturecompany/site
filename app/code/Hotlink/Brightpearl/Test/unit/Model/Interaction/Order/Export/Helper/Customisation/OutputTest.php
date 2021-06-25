@@ -12,14 +12,14 @@ namespace Hotlink\Brightpearl\Test\unit\Model\Interaction\Order\Export\Helper\Cu
 class OutputTest extends \PHPUnit\Framework\TestCase
 {
 
-    function test_clean()
+    public function test_clean()
     {
         $output = $this->getOutputter();
         $this->assertEquals( 'abc', $output->clean( ' abc  ' ), "' abc  '" );
         $this->assertEquals( '1 23', $output->clean( '   1 23    ' ), "'   1 23    '" );
     }
 
-    function test_apply_success_nest0()
+    public function test_apply_success_nest0()
     {
         $output = $this->getOutputter();
         $target = $this->getNestedObject();
@@ -30,7 +30,7 @@ class OutputTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( 'property', $result[ 'index' ] );
     }
 
-    function test_apply_success_nest1_index()
+    public function test_apply_success_nest1_index()
     {
         $output = $this->getOutputter();
         $target = $this->getNestedObject();
@@ -41,7 +41,7 @@ class OutputTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( 'property', $result[ 'index' ] );
     }
 
-    function test_apply_success_nest2_index_index()
+    public function test_apply_success_nest2_index_index()
     {
         $output = $this->getOutputter();
         $target = $this->getNestedObject();
@@ -56,7 +56,7 @@ class OutputTest extends \PHPUnit\Framework\TestCase
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      *  @expectedExceptionMessage Empty output expression
      */
-    function test_apply_fail_empty_expression()
+    public function test_apply_fail_empty_expression()
     {
         $output = $this->getOutputter();
         $output->apply( '', $this->getNestedObject() );
@@ -66,7 +66,7 @@ class OutputTest extends \PHPUnit\Framework\TestCase
      *  @expectedException \Hotlink\Brightpearl\Model\Exception\Customisation\Parser
      *  @expectedExceptionMessage missing index
      */
-    function test_apply_fail_invalid_expression()
+    public function test_apply_fail_invalid_expression()
     {
         $output = $this->getOutputter();
         $output->apply( 'froggy.pond', $this->getNestedObject() );
@@ -77,7 +77,7 @@ class OutputTest extends \PHPUnit\Framework\TestCase
         return new \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisation\Output();
     }
 
-    function getNestedObject()
+    public function getNestedObject()
     {
         $top = new \Magento\Framework\DataObject();
         $inner1 = new \Magento\Framework\DataObject();

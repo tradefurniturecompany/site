@@ -11,7 +11,7 @@ class Order extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
     protected $transactionCreditPostFactory;
     protected $transactionCreditGetFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -43,12 +43,12 @@ class Order extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         );
     }
 
-    function getName()
+    public function getName()
     {
         return 'Order API';
     }
 
-    function getStatuses( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
+    public function getStatuses( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -68,7 +68,7 @@ class Order extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $orderStatuses;
     }
 
-    function getCustomFields($storeId, $accountCode, $idSet = null, $timeout = 5000)
+    public function getCustomFields($storeId, $accountCode, $idSet = null, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -92,7 +92,7 @@ class Order extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
     /**
      * @deprecated
      */
-    function getOrder( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
+    public function getOrder( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty( 'storeId', $storeId )
@@ -108,7 +108,7 @@ class Order extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $this->brightpearlPlatformDataFactory->create()->map( $response->getOrder() );
     }
 
-    function getOrders($storeId, $accountCode, $idSet = null, $timeout = 5000)
+    public function getOrders($storeId, $accountCode, $idSet = null, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty( 'storeId', $storeId )
@@ -143,7 +143,7 @@ class Order extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $_orders;
     }
 
-    function exportCredit( $storeId, $accountCode, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Creditmemo\Export $credit, $timeout = 5000 )
+    public function exportCredit( $storeId, $accountCode, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Creditmemo\Export $credit, $timeout = 5000 )
     {
         $report = $this->getReport();
         $this
@@ -161,7 +161,7 @@ class Order extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $response;
     }
 
-    function getSalesCredits( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
+    public function getSalesCredits( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty( 'storeId', $storeId )

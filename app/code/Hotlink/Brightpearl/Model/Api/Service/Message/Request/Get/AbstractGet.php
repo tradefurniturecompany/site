@@ -3,22 +3,22 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get;
 
 abstract class AbstractGet extends \Hotlink\Brightpearl\Model\Api\Message\Request\AbstractRequest
 {
-    function getMethod()
+    public function getMethod()
     {
         return 'GET';
     }
 
-    function getContentEncoding()
+    public function getContentEncoding()
+    {
+        return self::ENCODING_JSON;
+    }
+
+    public function getBody()
     {
         return null;
     }
 
-    function getBody()
-    {
-        return null;
-    }
-
-    function validate()
+    public function validate()
     {
         return $this->_assertNotEmpty( $this->getTransaction()->getAccountCode(), 'accountCode' );
     }

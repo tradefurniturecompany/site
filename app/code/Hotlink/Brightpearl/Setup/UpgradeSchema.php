@@ -8,7 +8,7 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 class UpgradeSchema implements UpgradeSchemaInterface
 {
 
-    function upgrade( SchemaSetupInterface $setup, ModuleContextInterface $context )
+    public function upgrade( SchemaSetupInterface $setup, ModuleContextInterface $context )
     {
         $setup->startSetup();
 
@@ -29,7 +29,18 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 $this->addLookupWarehouse_Quarantine_Location( $setup, $context );
             }
 
+        if ( version_compare( $context->getVersion(), '2.10.0', '<' ) )
+            {
+                $this->removeMsiStockSourceTable( $setup, $context );
+            }
+
         $setup->endSetup();
+    }
+
+    protected function removeMsiStockSourceTable( $setup, $context )
+    {
+        $table = $setup->getTable( 'hotlink_brightpearl_msi_source_item' );
+        $setup->getConnection()->dropTable( $table );
     }
 
     protected function addLookupWarehouse_Quarantine_Location( $setup, $context )
@@ -189,7 +200,6 @@ class UpgradeSchema implements UpgradeSchemaInterface
                    [ 'unsigned' => true, 'nullable' => true, 'default' => null ],
                    'The Brightpearl order id')
 
-
                ->addColumn(
                    'created_at',
                    \Magento\Framework\DB\Ddl\Table::TYPE_DATETIME,
@@ -210,18 +220,25 @@ class UpgradeSchema implements UpgradeSchemaInterface
                    [ 'nullable' => true, 'default' => null  ],
                    'Token value at the time this record was sent to bp')
 
-               ->addIndex( $setup->getIdxName( 'hotlink_brightpearl_queue_credit_memo',
-                                               [ 'creditmemo_id' ],
-                                               \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE ),
-                           [ 'creditmemo_id' ],
-                           [ 'type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE ] )
+               ->addIndex(
+                   $setup->getIdxName(
+                       $setup->getTable( 'hotlink_brightpearl_queue_credit_memo' ),
+                       [ 'creditmemo_id' ],
+                       \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE ),
+                   [ 'creditmemo_id' ],
+                   [ 'type' => \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_UNIQUE ] )
 
-               ->addForeignKey( $setup->getFkName( 'hotlink_brightpearl_queue_credit_memo', 'creditmemo_id', 'sales_creditmemo', 'entity_id' ),
-                                'creditmemo_id',
-                                $setup->getTable( 'sales_creditmemo' ),
-                                'entity_id',
-                                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
-                                \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE );
+               ->addForeignKey(
+                   $setup->getFkName(
+                       $setup->getTable( 'hotlink_brightpearl_queue_credit_memo' ),
+                       'creditmemo_id',
+                       $setup->getTable( 'sales_creditmemo' ),
+                       'entity_id' ),
+                   'creditmemo_id',
+                   $setup->getTable( 'sales_creditmemo' ),
+                   'entity_id',
+                   \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE,
+                   \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE );
 
         $setup->getConnection()->createTable($table);
     }

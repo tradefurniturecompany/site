@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Interaction\Prices\Import\Environment;
 class Websites extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Scopes
 {
 
-    function getDefault()
+    public function getDefault()
     {
         $admin = $this->storeManager->getStore( \Magento\Store\Model\Store::ADMIN_CODE );
 
@@ -23,27 +23,27 @@ class Websites extends \Hotlink\Framework\Model\Interaction\Environment\Paramete
         return $result;
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'websites';
     }
 
-    function getName()
+    public function getName()
     {
         return 'Website(s)';
     }
 
-    function getNote()
+    public function getNote()
     {
         return '';
     }
 
-    function getGroupsVisible()
+    public function getGroupsVisible()
     {
         return false;
     }
 
-    function getStoresVisible()
+    public function getStoresVisible()
     {
         return false;
     }

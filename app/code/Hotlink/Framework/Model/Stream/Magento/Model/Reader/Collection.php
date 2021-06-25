@@ -25,12 +25,12 @@ class Collection extends \Hotlink\Framework\Model\Stream\Reader implements \Iter
     //    IteratorAggregate
     //
     //  -----------------------------------------------------
-    function getIterator()
+    public function getIterator()
     {
         return $this->getFilter()->getIterator();
     }
 
-    function getCollection()
+    public function getCollection()
     {
         return $this->_filter;
     }

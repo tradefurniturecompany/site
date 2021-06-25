@@ -20,7 +20,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
     protected $identifierFactory;
     protected $readerCollectionFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -37,10 +37,10 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
 
     protected function _open()
     {
+        $args = func_get_args();
         $filter = $this->getFilter();
         if ( !$filter )
             {
-                $args = func_get_args();
                 $filter = $args[ 0 ];
             }
         if ( $filter instanceof \Hotlink\Framework\Model\Filter\Magento )
@@ -63,7 +63,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
         return $this;
     }
 
-    function setFilter( $filter )
+    public function setFilter( $filter )
     {
         if ( $this->_filterInitialised )
             {
@@ -73,7 +73,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
         return $this;
     }
 
-    function getFilter()
+    public function getFilter()
     {
         return $this->_filter;
     }
@@ -89,7 +89,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
         return call_user_func_array( array( $this->_reader, 'read' ), array() );
     }
 
-    function getReader()
+    public function getReader()
     {
         return $this->_reader;
     }
@@ -99,7 +99,7 @@ class Reader extends \Hotlink\Framework\Model\Stream\Reader implements \Iterator
     //    IteratorAggregate
     //
     //  -----------------------------------------------------
-    function getIterator()
+    public function getIterator()
     {
         return $this->_reader->getIterator();
     }

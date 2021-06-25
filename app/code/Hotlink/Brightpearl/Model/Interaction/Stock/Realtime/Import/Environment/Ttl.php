@@ -6,27 +6,27 @@ class Ttl extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\Con
 
     protected $_context = false;
 
-    function getDefault()
+    public function getDefault()
     {
         return 60 * 60;
     }
 
-    function getName()
+    public function getName()
     {
         return "Time-to-live";
     }
 
-    function getKey()
+    public function getKey()
     {
         return 'stock_ttl';
     }
 
-    function getNote()
+    public function getNote()
     {
         return 'Time-to-live (TTL) in seconds';
     }
 
-    function getValue()
+    public function getValue()
     {
         if ( !$this->_valueInitialised )
             {

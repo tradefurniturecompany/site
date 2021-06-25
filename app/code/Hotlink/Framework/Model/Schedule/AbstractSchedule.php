@@ -9,7 +9,7 @@ abstract class AbstractSchedule implements \Hotlink\Framework\Model\Report\IRepo
     protected $config;
     protected $reportHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Model\Schedule\Config $config,
         \Hotlink\Framework\Helper\Report $reportHelper
     )
@@ -23,7 +23,7 @@ abstract class AbstractSchedule implements \Hotlink\Framework\Model\Report\IRepo
         return $this->config;
     }
 
-    function getReport( $safe = true )
+    public function getReport( $safe = true )
     {
         if ( ! $this->_report && $safe )
             {
@@ -32,13 +32,13 @@ abstract class AbstractSchedule implements \Hotlink\Framework\Model\Report\IRepo
         return $this->_report;
     }
 
-    function setReport( \Hotlink\Framework\Model\Report $report = null )
+    public function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
         return $this;
     }
 
-    function getReportSection()
+    public function getReportSection()
     {
         return 'schedule';
     }

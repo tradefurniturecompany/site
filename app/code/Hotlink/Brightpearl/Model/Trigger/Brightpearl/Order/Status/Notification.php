@@ -13,17 +13,17 @@ class Notification extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
         return 'Order status notification';
     }
 
-    function getMagentoEvents()
+    public function getMagentoEvents()
     {
         return [ self::LABEL_ORDER_STATUS_MODIFIED => self::EVENT_ORDER_STATUS_MODIFIED ];
     }
 
-    function getContexts()
+    public function getContexts()
     {
         return [ self::KEY_ORDER_STATUS_MODIFIED => self::LABEL_ORDER_STATUS_MODIFIED ];
     }
 
-    function getContext()
+    public function getContext()
     {
         $event = $this->getMagentoEvent();
         $order = $event->getOrder();

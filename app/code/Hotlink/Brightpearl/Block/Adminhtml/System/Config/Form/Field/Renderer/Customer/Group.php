@@ -9,7 +9,7 @@ class Group extends \Magento\Framework\View\Element\Html\Select
      */
     protected $customerSourceGroup;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Magento\Customer\Model\Customer\Source\Group $customerSourceGroup,
         array $data = []
@@ -21,22 +21,37 @@ class Group extends \Magento\Framework\View\Element\Html\Select
         );
     }
 
-    function setInputName( $value )
+    public function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    function _toHtml()
+    public function clean( $item )
+    {
+        if ( is_array( $item ) )
+            {
+                $result = [];
+                foreach ( $item as $key => $val )
+                    {
+                        $result[ $key ] = $this->clean( $val );
+                    }
+                return $result;
+            }
+        return $this->escapeJsQuote( $item );
+    }
+
+    public function _toHtml()
     {
         if ( !$this->getOptions() )
             {
                 $options = $this->customerSourceGroup->toOptionArray();
-                foreach ( $options as $item )
+                $cleaned = $this->clean( $options );
+                foreach ( $cleaned as $item )
                     {
                         if ( array_key_exists( 'value', $item ) )
                             {
-                                $value = $this->escapeJsQuote( $item[ 'value' ] );
-                                $label =  $this->escapeJsQuote( $item[ 'label' ] );
+                                $value = $item[ 'value' ];
+                                $label = $item[ 'label' ];
                                 $this->addOption( $value, $label );
                             }
                     }

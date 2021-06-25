@@ -8,7 +8,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Stock\Import
     protected $productCollectionFactory;
     protected $stockHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -44,7 +44,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Stock\Import
         return 'Hotlink Brightpearl Stock Importer (Bulk)';
     }
 
-    function execute()
+    public function execute()
     {
         $report = $this->getReport();
         $environment = $this->getEnvironment();

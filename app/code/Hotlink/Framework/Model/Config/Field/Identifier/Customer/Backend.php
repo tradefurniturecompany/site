@@ -14,7 +14,7 @@ class Backend extends \Magento\Framework\App\Config\Value
      */
     protected $interactionExceptionHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\App\Config\ScopeConfigInterface $config,

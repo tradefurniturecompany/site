@@ -5,13 +5,13 @@ abstract class AbstractTransaction extends \Hotlink\Brightpearl\Model\Api\Transa
 {
     protected $accountCode;
 
-    function setAccountCode($accountCode)
+    public function setAccountCode($accountCode)
     {
         $this->accountCode = $accountCode;
         return $this;
     }
 
-    function getAccountCode()
+    public function getAccountCode()
     {
         return $this->accountCode;
     }

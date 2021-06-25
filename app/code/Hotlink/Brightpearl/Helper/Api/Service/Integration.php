@@ -10,7 +10,7 @@ class Integration extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractServic
     protected $transactionInstanceGetFactory;
     protected $transactionConfigurationGetFactory;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -39,12 +39,12 @@ class Integration extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractServic
         );
     }
 
-    function getName()
+    public function getName()
     {
         return 'Integration API';
     }
 
-    function getWebhook( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
+    public function getWebhook( $storeId, $accountCode, $idSet = null, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -71,7 +71,7 @@ class Integration extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractServic
         return $response->getWebhooks();
     }
 
-    function createWebhook( $storeId,
+    public function createWebhook( $storeId,
                                    $accountCode,
                                    $subscribeTo,
                                    $httpMethod,
@@ -104,7 +104,7 @@ class Integration extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractServic
         return $response->getWebhookId();
     }
 
-    function deleteWebhook( $storeId, $accountCode, $webhookId, $timeout = 5000 )
+    public function deleteWebhook( $storeId, $accountCode, $webhookId, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -119,7 +119,7 @@ class Integration extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractServic
         return $this->submit($transaction, $this->_getTransport($storeId, $timeout));
     }
 
-    function getInstance( $storeId, $accountCode, $timeout = 5000 )
+    public function getInstance( $storeId, $accountCode, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty('storeId', $storeId )
@@ -132,7 +132,7 @@ class Integration extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractServic
         return $response->getInstance();
     }
 
-    function getConfiguration( $storeId, $accountCode, $timeout = 5000 )
+    public function getConfiguration( $storeId, $accountCode, $timeout = 5000 )
     {
         $this
             ->_assertNotEmpty('storeId', $storeId )

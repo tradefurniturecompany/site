@@ -9,7 +9,7 @@ abstract class AbstractIndex extends \Hotlink\Framework\Controller\Adminhtml\Int
     protected $_initPageLayoutCalled = false;
     protected $_initPageLayoutRentry = false;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Hotlink\Framework\Model\Platform\AbstractPlatform $platform,
         \Magento\Framework\Registry $registry
@@ -22,13 +22,13 @@ abstract class AbstractIndex extends \Hotlink\Framework\Controller\Adminhtml\Int
         );
     }
 
-    function execute()
+    public function execute()
     {
         $this->_getRegistry()->register( 'current_platform', $this->getPlatform() );
         return $this->getPage();
     }
 
-    function getPageTitle()
+    public function getPageTitle()
     {
         return __( $this->getPlatform()->getName() . " Interactions" );
     }
@@ -38,7 +38,7 @@ abstract class AbstractIndex extends \Hotlink\Framework\Controller\Adminhtml\Int
         return $this->registry;
     }
 
-    function getPage()
+    public function getPage()
     {
         $this->_initPageLayout();
         return $this->_view->getPage();

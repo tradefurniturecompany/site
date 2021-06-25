@@ -13,13 +13,13 @@ class Attributes
      */
     protected $catalogResourceModelProductAttributeCollectionFactory;
 
-    function __construct(
+    public function __construct(
         \Magento\Catalog\Model\ResourceModel\Product\Attribute\CollectionFactory $catalogResourceModelProductAttributeCollectionFactory
     ) {
         $this->catalogResourceModelProductAttributeCollectionFactory = $catalogResourceModelProductAttributeCollectionFactory;
     }
 
-    function getAttributes()
+    public function getAttributes()
     {
         if ( !$this->_attributes )
             {
@@ -28,7 +28,7 @@ class Attributes
         return $this->_attributes;
     }
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         if ( !$this->_all )
             {
@@ -47,7 +47,7 @@ class Attributes
         return $this->_all;
     }
 
-    function filterWithOptions()
+    public function filterWithOptions()
     {
         if ( !$this->_with_options )
             {

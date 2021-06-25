@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Helper\Queue;
 abstract class AbstractQueue
 {
 
-    abstract function getObject( $entity );
+    abstract public function getObject( $entity );
 
     //
     //  Magento does not necessarily use the same object throughout a single request (eg. the payment object handled in after_save is not
@@ -14,7 +14,7 @@ abstract class AbstractQueue
     protected $_cache = [];
 
 
-    function update( $object, $inBP, $sendToBP, $sentAt = null )
+    public function update( $object, $inBP, $sendToBP, $sentAt = null )
     {
         $object
             ->setInBp( $inBP )

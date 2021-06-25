@@ -6,7 +6,7 @@ class Magento extends \Hotlink\Framework\Html\Form\Environment\Parameter\Filter\
 
     protected $factoryHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $fieldsetHelper,
         \Hotlink\Framework\Helper\Html $htmlHelper,
@@ -18,7 +18,7 @@ class Magento extends \Hotlink\Framework\Html\Form\Environment\Parameter\Filter\
         parent::__construct( $exceptionHelper, $fieldsetHelper, $htmlHelper );
     }
 
-    function getHtmlKey()
+    public function getHtmlKey()
     {
         return 'parameter_filter_magento';
     }
@@ -70,7 +70,7 @@ class Magento extends \Hotlink\Framework\Html\Form\Environment\Parameter\Filter\
             ->createHidden( $fieldset, $htmlName . '[filter_model]', $parameter->getValue()->getModel() );
     }
 
-    function getObject( $form, $environment )
+    public function getObject( $form, $environment )
     {
         $parameter = $this->factoryHelper->create( $this->_getClass( $form ) );
         if ( $data = $this->_getData( $form ) )

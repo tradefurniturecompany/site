@@ -8,12 +8,12 @@ namespace Hotlink\Framework\Test\integration\Helper;
 class ReflectionTest extends \PHPUnit\Framework\TestCase
 {
 
-    function setUp()
+    public function setUp()
     {
         $this->manager = \Magento\TestFramework\ObjectManager::getInstance();
     }
 
-    function test_get_module()
+    public function test_get_module()
     {
         $helper = $this->getHelper();
         $platform = $this->getPlatform();
@@ -24,7 +24,7 @@ class ReflectionTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals( false, $helper->getModule( false ) );
     }
 
-    function test_get_class()
+    public function test_get_class()
     {
         $helper = $this->getHelper();
         $platform = $this->getPlatform();
@@ -42,12 +42,12 @@ class ReflectionTest extends \PHPUnit\Framework\TestCase
 
     }
 
-    function getHelper()
+    public function getHelper()
     {
         return $this->manager->create( '\Hotlink\Framework\Helper\Reflection' );
     }
 
-    function getPlatform()
+    public function getPlatform()
     {
         return $this->manager->create( '\Hotlink\Framework\Model\Platform' );
     }

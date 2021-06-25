@@ -5,7 +5,7 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
 {
     protected $_initialised;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Data\Collection\EntityFactoryInterface $entityFactory,
         \Psr\Log\LoggerInterface $logger,
         \Magento\Framework\Data\Collection\Db\FetchStrategyInterface $fetchStrategy,
@@ -28,7 +28,9 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         // Add progress as custom column to select
         $this->addExpressionFieldToSelect('progress', "concat( success, 's / ', fail, 'f' )", []);
 
-        $this->addExpressionFieldToSelect( 'reference', "LEFT( reference, 38)", '' );
+        $this->addExpressionFieldToSelect( 'reference', new \Zend_Db_Expr( "case when length ( reference ) > 80 then concat( substring( reference, 1, 80 ), '...' ) else reference end" ), [] );
+
+        $this->addExpressionFieldToSelect( 'context', new \Zend_Db_Expr( "case when length ( context ) > 120 then concat( substring( context, 1, 120 ), '...' ) else context end" ), [] );
 
         return $this;
     }

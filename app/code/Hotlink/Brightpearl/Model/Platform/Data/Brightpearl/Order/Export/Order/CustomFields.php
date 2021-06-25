@@ -9,7 +9,7 @@ class CustomFields extends \Hotlink\Brightpearl\Model\Platform\Data
      */
     protected $giftMessageMessageHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Simplexml\ElementFactory $xmlFactory,
         \Hotlink\Framework\Helper\Factory $factoryHelper,
         \Hotlink\Framework\Model\ReportFactory $reportFactory,

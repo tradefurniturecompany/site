@@ -6,7 +6,7 @@ class Locate extends \Hotlink\Brightpearl\Model\Api\Transaction\AbstractTransact
 
     protected $accountCode;
 
-    function getName()
+    public function getName()
     {
         return 'Account Location';
     }
@@ -21,18 +21,18 @@ class Locate extends \Hotlink\Brightpearl\Model\Api\Transaction\AbstractTransact
         return '\Hotlink\Brightpearl\Model\Api\Utility\Message\Account\Locate\Response';
     }
 
-    function getAccountCode()
+    public function getAccountCode()
     {
         return $this->accountCode;
     }
 
-    function setAccountCode($accountCode)
+    public function setAccountCode($accountCode)
     {
         $this->accountCode = $accountCode;
         return $this;
     }
 
-    function getDevRef()
+    public function getDevRef()
     {
         return \Hotlink\Brightpearl\Model\Platform::DEV_REF;
     }

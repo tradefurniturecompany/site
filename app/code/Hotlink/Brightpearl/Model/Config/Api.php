@@ -8,7 +8,7 @@ class Api extends \Hotlink\Brightpearl\Model\Config\AbstractConfig
         return 'api';
     }
 
-    function getQueryLimit($storeId = null)
+    public function getQueryLimit($storeId = null)
     {
         return $this->getConfigData( 'query_limit', $storeId, null );
     }

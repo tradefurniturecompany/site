@@ -9,7 +9,7 @@ class Product extends \Hotlink\Framework\Model\Filter\Magento
      */
     protected $interactionConfigFieldIdentifierProductSource;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Model\Config\Field\Identifier\Product\Source $interactionConfigFieldIdentifierProductSource
     )
     {
@@ -18,7 +18,7 @@ class Product extends \Hotlink\Framework\Model\Filter\Magento
         $this->_field = 'sku';
     }
 
-    function getFields()
+    public function getFields()
     {
         return $this->interactionConfigFieldIdentifierProductSource->getOptions();
     }

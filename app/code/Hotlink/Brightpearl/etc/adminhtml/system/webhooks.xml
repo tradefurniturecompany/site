@@ -3,6 +3,10 @@
 
     <group id="Hotlink_Brightpearl_Model_Interaction_Webhooks_Set" sortOrder="9000" showInDefault="1" translate="label">
         <label>Interaction : Register integration webhooks</label>
+        <comment><![CDATA[<p>This interaction configures Brightpearl to place callbacks to this installation of Magento, facilitating the live update of order status and shipping notes.</p>
+        <p>These facilities are not essential to operation, since when the bulk importers for order status and shipping notes are configured to run, they synchsonise the same data.</p>
+        <p>This interaction only needs to be run once, and can only be executed manually. However if you run this interaction on a different Magento installation, that installation with "steal" the live updates for your account from this installation - in which case you must run the interaction on this installation again to repoint webhooks here.</p>
+        ]]></comment>
         <attribute type="hotlink" interaction="true" />
     </group>
 

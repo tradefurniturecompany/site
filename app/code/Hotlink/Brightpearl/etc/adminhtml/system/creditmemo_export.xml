@@ -59,7 +59,7 @@
 
         <field id="quarantine_pricelist" translate="label" type="select" sortOrder="350" showInDefault="1" showInWebsite="1">
             <label>Quarantine Pricelist</label>
-            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Price\Lists\Sell</source_model>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Price\Lists\Buy</source_model>
             <comment><![CDATA[The price list used to determine the value of products returned by customers.]]></comment>
             <depends>
                 <field id="enabled">1</field>

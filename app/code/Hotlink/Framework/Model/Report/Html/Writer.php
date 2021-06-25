@@ -15,7 +15,7 @@ class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
     protected $htmlStreamWriter;
     protected $layout;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -30,18 +30,18 @@ class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
         $this->layout = $layout;
     }
 
-    function getCode()
+    public function getCode()
     {
         return 'html';
     }
 
-    function setDirectHtmlWriter( \Hotlink\Framework\Model\Stream\Http\Base $value )
+    public function setDirectHtmlWriter( \Hotlink\Framework\Model\Stream\Http\Base $value )
     {
         $this->htmlStreamWriter = $value;
         return $this;
     }
 
-    function getDirectHtmlWriter()
+    public function getDirectHtmlWriter()
     {
         return $this->htmlStreamWriter;
     }

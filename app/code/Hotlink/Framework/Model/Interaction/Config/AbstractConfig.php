@@ -9,7 +9,7 @@ abstract class AbstractConfig extends \Hotlink\Framework\Model\Config\AbstractCo
     protected $configConvention;
     protected $interaction;
 
-    function __construct(
+    public function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Convention\Interaction\Config $configConvention,
@@ -37,19 +37,19 @@ abstract class AbstractConfig extends \Hotlink\Framework\Model\Config\AbstractCo
         return $this->configConvention->getGroupKey( $this->interaction );
     }
 
-    function isEnabled( $storeId = null )
+    public function isEnabled( $storeId = null )
     {
         return $this->getConfigData( 'enabled', $storeId, false );
     }
 
-    function isTriggerEnabled( \Hotlink\Framework\Model\Trigger\AbstractTrigger $trigger, $storeId = null )
+    public function isTriggerEnabled( \Hotlink\Framework\Model\Trigger\AbstractTrigger $trigger, $storeId = null )
     {
         $context = $trigger->getContext();
         if ( !$context ) return false;
         return $this->getConfigData( $context, $storeId, false );
     }
 
-    function getImplementationModel( $storeId )
+    public function getImplementationModel( $storeId )
     {
         return $this->getConfigData( 'interaction_implementation', $storeId, false );
     }

@@ -9,7 +9,7 @@ class Exception extends \Exception implements \Serializable, \Hotlink\Framework\
     protected $_previousTrace = false;
     protected $_safetrace = false;
 
-    function __construct( $message, $code = 0, \Exception $previous = null )
+    public function __construct( $message, $code = 0, \Exception $previous = null )
     {
         if ( $previous )
             {
@@ -22,7 +22,7 @@ class Exception extends \Exception implements \Serializable, \Hotlink\Framework\
             $previous);
     }
 
-    function getBestTrace()
+    public function getBestTrace()
     {
         if ( $this->_previousTrace )
             {
@@ -31,7 +31,7 @@ class Exception extends \Exception implements \Serializable, \Hotlink\Framework\
         return parent::getTrace();
     }
 
-    function serialize()
+    public function serialize()
     {
         $data = array( 'message' => $this->message,
                        'code'    => $this->code,
@@ -41,7 +41,7 @@ class Exception extends \Exception implements \Serializable, \Hotlink\Framework\
         return serialize( $data );
     }
 
-    function unserialize( $serialized )
+    public function unserialize( $serialized )
     {
         $data = unserialize( $serialized );
         $this->message = $data[ 'message' ];
@@ -51,12 +51,12 @@ class Exception extends \Exception implements \Serializable, \Hotlink\Framework\
         $this->_safetrace = $data[ 'trace' ];
     }
 
-    function getReportDataRenderer()
+    public function getReportDataRenderer()
     {
         return '\Hotlink\Framework\Block\Adminhtml\Report\Item\Data\Exception';
     }
 
-    function getSafeTrace()
+    public function getSafeTrace()
     {
         if ( ! $this->_safetrace )
             {
@@ -65,7 +65,7 @@ class Exception extends \Exception implements \Serializable, \Hotlink\Framework\
         return $this->_safetrace;
     }
 
-    function argsToString( $items )
+    public function argsToString( $items )
     {
         $compose = array();
         foreach ( $items as $key => $item )

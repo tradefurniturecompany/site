@@ -18,7 +18,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
     protected $apiServiceIntegrationHelper;
     protected $interactionCreditmemoExport;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -61,7 +61,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         return 'Hotlink Brightpearl settings Importer';
     }
 
-    function execute()
+    public function execute()
     {
         $this->getReport()->debug( 'Using accountcode : ' . $this->getEnvironment()->getAccountCode() );
 
@@ -131,18 +131,25 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
             {
                 $name = $warehouse->getName();
                 $bpid = $warehouse->getBrightpearlId();
-                $report
-                    ->info( "warehouse $name ($bpid)" )
-                    ->indent();
-                $newValue = $report( $api, 'getWarehouseLocationQuarantine', $env->getStoreId(), $env->getAccountCode(), $bpid );
+                if ( $warehouse->getDeleted() )
+                    {
+                        $report->debug( "skipping warehouse $name ($bpid) - deleted" );
+                    }
+                else
+                    {
+                        $report
+                            ->info( "warehouse $name ($bpid)" )
+                            ->indent();
+                        $newValue = $report( $api, 'getWarehouseLocationQuarantine', $env->getStoreId(), $env->getAccountCode(), $bpid );
 
-                $oldValue = $warehouse->getQuarantineLocationId();
-                $warehouse->setQuarantineLocationId( $newValue );
-                $warehouse->save();
-                $report
-                    ->incSuccess()
-                    ->info( "quarantine location id updated from [$oldValue] to [$newValue]" )
-                    ->unindent();
+                        $oldValue = $warehouse->getQuarantineLocationId();
+                        $warehouse->setQuarantineLocationId( $newValue );
+                        $warehouse->save();
+                        $report
+                            ->incSuccess()
+                            ->info( "quarantine location id updated from [$oldValue] to [$newValue]" )
+                            ->unindent();
+                    }
             }
         $report->unindent();
         return $this;

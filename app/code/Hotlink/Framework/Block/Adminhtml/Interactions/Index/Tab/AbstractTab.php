@@ -9,7 +9,7 @@ abstract class AbstractTab extends \Hotlink\Framework\Block\Adminhtml\Tab\Base
      */
     protected $interactionConfigMap;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\Block\Widget\Context $context,
         \Hotlink\Framework\Helper\Html\Fieldset $interactionHtmlFieldsetHelper,
         \Hotlink\Framework\Model\Config\Map $interactionConfigMap,
@@ -22,7 +22,7 @@ abstract class AbstractTab extends \Hotlink\Framework\Block\Adminhtml\Tab\Base
                              $data );
     }
 
-    abstract function initForm( $form, $interaction );
+    abstract public function initForm( $form, $interaction );
 
     protected $_tabId;
 
@@ -34,17 +34,17 @@ abstract class AbstractTab extends \Hotlink\Framework\Block\Adminhtml\Tab\Base
         parent::_prepareLayout();
     }
 
-    function setTabId( $value )
+    public function setTabId( $value )
     {
         $this->_tabId = $value;
     }
 
-    function getTabId()
+    public function getTabId()
     {
         return $this->_tabId;
     }
 
-    function getTabOrder()
+    public function getTabOrder()
     {
         if ( $interaction = $this->getInteraction() )
             {
@@ -104,27 +104,27 @@ abstract class AbstractTab extends \Hotlink\Framework\Block\Adminhtml\Tab\Base
         return '';
     }
 
-    function getTabLabel()
+    public function getTabLabel()
     {
         return __(  "Overload ME!" );
     }
 
-    function getTabTitle()
+    public function getTabTitle()
     {
         return __(  "Overload ME!" );
     }
 
-    function canShowTab()
+    public function canShowTab()
     {
         return true;
     }
 
-    function isHidden()
+    public function isHidden()
     {
         return false;
     }
 
-    function getHeaderCssClass()
+    public function getHeaderCssClass()
     {
         return 'icon-head head-asterix';
         return 'icon-head head-sprocket';

@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\Config\Field\Order\Status\Sort\Order;
 class Source
 {
 
-    function toOptionArray()
+    public function toOptionArray()
     {
         return [
             [ 'label' => __( 'Ascending' ),  'value' => \Magento\Framework\Data\Collection::SORT_ORDER_ASC  ],

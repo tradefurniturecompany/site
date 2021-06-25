@@ -3,12 +3,12 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Accounting\Message\Nominal\Code\
 
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get\AbstractGet
 {
-    function getFunction()
+    public function getFunction()
     {
         return $this->getMethod() . " accounting-service/nominal-code";
     }
 
-    function getAction()
+    public function getAction()
     {
         return sprintf('/public-api/%s/accounting-service/nominal-code/%s',
                        $this->getTransaction()->getAccountCode(),

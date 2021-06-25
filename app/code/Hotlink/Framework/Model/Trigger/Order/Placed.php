@@ -14,7 +14,7 @@ class Placed extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
     protected $streamReaderFactory;
     protected $scopeHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -49,18 +49,18 @@ class Placed extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
         return 'Order created';
     }
 
-    function getMagentoEvents()
+    public function getMagentoEvents()
     {
         return [ 'After Service Quote Submit Success' => self::EVT_SUBMIT_SUCCESS ];
     }
 
-    function getContexts()
+    public function getContexts()
     {
         return [ self::CONTEXT_ON_ORDER_PLACED       => 'On order placed (frontend)',
                  self::CONTEXT_ON_ORDER_PLACED_ADMIN => 'On order placed (admin)'];
     }
 
-    function getContext()
+    public function getContext()
     {
         $context = false;
         if ( $this->scopeHelper->isAdmin() )

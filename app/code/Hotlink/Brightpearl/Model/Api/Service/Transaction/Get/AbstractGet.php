@@ -9,13 +9,13 @@ abstract class AbstractGet extends \Hotlink\Brightpearl\Model\Api\Service\Transa
      */
     protected $idSet;
 
-    function setIdSet( $idSet )
+    public function setIdSet( $idSet )
     {
         $this->idSet = $idSet;
         return $this;
     }
 
-    function geIdSet()
+    public function geIdSet()
     {
         return $this->idSet;
     }

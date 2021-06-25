@@ -4,13 +4,17 @@ namespace Hotlink\Framework\Block\Adminhtml\Interactions\Index;
 class Tabs extends \Magento\Backend\Block\Widget\Tabs
 {
 
+    const HTML_SEPARATOR_HOTLINK = '__';
+    const HTML_SEPARATOR_PLATFORM = '_';
+    const HTML_SEPARATOR_INTERACTION = '_';
+    
     protected $registry;
     protected $storeManager;
     protected $factoryHelper;
     protected $interactionFormFactory;
     protected $htmlHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Json\EncoderInterface $jsonEncoder,
         \Magento\Backend\Model\Auth\Session $authSession,
@@ -52,10 +56,11 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
     protected function _getPlatformHtmlId( $suffix = '' )
     {
         $code = $this->_getPlatform()->getCode();
-        $id = 'hotlink.platform-' . $code;
+        $id = 'hotlink' . self::HTML_SEPARATOR_HOTLINK
+            . 'platform' . self::HTML_SEPARATOR_PLATFORM . $code;
         if ( $suffix )
             {
-                $id .= '.' . $suffix;
+                $id .= self::HTML_SEPARATOR_PLATFORM . $suffix;
             }
         return $id;
     }
@@ -63,10 +68,10 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
     protected function _getInteractionHtmlId( $interaction, $suffix = '' )
     {
         $code = $this->_getHtmlHelper()->encode( $interaction );
-        $id = 'hotlink.' . $code;
+        $id = 'hotlink' . self::HTML_SEPARATOR_HOTLINK . $code;
         if ( $suffix )
             {
-                $id .= '.' . $suffix;
+                $id .= self::HTML_SEPARATOR_INTERACTION . $suffix;
             }
         return $id;
     }

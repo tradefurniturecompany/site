@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Order\Transaction\Credit;
 class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\AbstractGet
 {
 
-    function getName()
+    public function getName()
     {
         return 'Sales Credit GET';
     }

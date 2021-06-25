@@ -3,7 +3,7 @@ namespace Hotlink\Framework\Model\System\Config\Form\Field\Scalar;
 
 class Backend extends \Magento\Framework\App\Config\Value
 {
-    function __construct(
+    public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\App\Config\ScopeConfigInterface $config,
@@ -23,7 +23,7 @@ class Backend extends \Magento\Framework\App\Config\Value
         );
     }
 
-    function setValue( $value )
+    public function setValue( $value )
     {
         if ( $value instanceof \Magento\Framework\App\Config\Element )
             {
@@ -38,7 +38,7 @@ class Backend extends \Magento\Framework\App\Config\Value
         return $this;
     }
 
-    function afterLoad()
+    public function afterLoad()
     {
         return $this;
     }

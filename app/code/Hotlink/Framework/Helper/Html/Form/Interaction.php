@@ -6,7 +6,7 @@ class Interaction extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
 
     protected $factoryHelper;
 
-    function __construct(
+    public function __construct(
         \Hotlink\Framework\Helper\Factory $factoryHelper,
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $interactionHtmlFieldsetHelper,
@@ -19,7 +19,7 @@ class Interaction extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
                              $htmlHelper );
     }
 
-    function getHtmlKey()
+    public function getHtmlKey()
     {
         return 'interaction';
     }
@@ -36,7 +36,7 @@ class Interaction extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
         $fieldset->setName( $restoreName );
     }
 
-    function getObject( $form, $parent )
+    public function getObject( $form, $parent )
     {
         $interaction = $this->factoryHelper->create( $this->_getClass( $form ) );
         if ( $data = $this->_getData( $form ) )

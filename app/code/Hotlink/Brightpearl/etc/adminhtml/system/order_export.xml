@@ -39,6 +39,14 @@
                 <field id="enabled">1</field>
             </depends>
         </field>
+        <field id="default_allocation_warehouse" translate="label" type="select" sortOrder="330" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Default Allocation Warehouse</label>
+            <source_model>\Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Warehouse\Optional</source_model>
+            <comment><![CDATA[Advises Brightpearl which allocation warehouse to use for orders exported from a website.]]></comment>
+            <depends>
+                <field id="enabled">1</field>
+            </depends>
+        </field>
 
         <field id="shipping_heading" translate="label" type="text" sortOrder="400" showInDefault="1">
             <label>Shipping Method Export Maps</label>

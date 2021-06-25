@@ -5,7 +5,7 @@ class Status extends \Magento\Framework\View\Element\Html\Select
 {
     protected $mageOrderStatusSource;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Hotlink\Framework\Model\Config\Field\Order\Status\Source $mageOrderStatusSource,
         array $data = []
@@ -14,12 +14,12 @@ class Status extends \Magento\Framework\View\Element\Html\Select
         parent::__construct( $context, $data  );
     }
 
-    function setInputName( $value )
+    public function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    function _toHtml()
+    public function _toHtml()
     {
         if ( !$this->getOptions() )
             {

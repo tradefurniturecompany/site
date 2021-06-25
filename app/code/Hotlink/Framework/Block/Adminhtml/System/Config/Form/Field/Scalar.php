@@ -6,7 +6,7 @@ class Scalar extends \Magento\Config\Block\System\Config\Form\Field
 
     protected $scalarElementFactory;
 
-    function __construct(
+    public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Hotlink\Framework\Html\Form\Element\ScalarFactory $scalarElementFactory,
         array $data = []
@@ -19,7 +19,7 @@ class Scalar extends \Magento\Config\Block\System\Config\Form\Field
     }
 
 
-    function render( \Magento\Framework\Data\Form\Element\AbstractElement $element )
+    public function render( \Magento\Framework\Data\Form\Element\AbstractElement $element )
     {
         $scalar = $this->scalarElementFactory->create();
         $scalar->setForm( $element->getForm() );

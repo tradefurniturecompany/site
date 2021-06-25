@@ -15,14 +15,14 @@ abstract class AbstractResponse extends \Hotlink\Framework\Model\Api\Response
 
     protected $jsonHelper;
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Json\Helper\Data $jsonHelper,
         \Hotlink\Brightpearl\Helper\Exception $brightpearlExceptionHelper
     ) {
         $this->jsonHelper = $jsonHelper;
         $this->brightpearlExceptionHelper = $brightpearlExceptionHelper;
     }
-    function validate()
+    public function validate()
     {
         if (is_array($this->_content) && array_key_exists('errors', $this->_content)) {
             $this->getExceptionHelper()->throwValidation($this->getErrorMessage());
@@ -36,7 +36,7 @@ abstract class AbstractResponse extends \Hotlink\Framework\Model\Api\Response
         return $this;
     }
 
-    function setContent($content)
+    public function setContent($content)
     {
         if (is_array($content)) {
             $this->_content = $content;
@@ -53,13 +53,13 @@ abstract class AbstractResponse extends \Hotlink\Framework\Model\Api\Response
         return $this;
     }
 
-    function setHeaders( \Zend\Http\Headers $headers )
+    public function setHeaders( \Zend\Http\Headers $headers )
     {
         $this->_headers = $headers;
         return $this;
     }
 
-    function getHeader( $name )
+    public function getHeader( $name )
     {
         return $this->_headers->has( $name )
             ? $this->_headers->get( $name )
@@ -105,7 +105,7 @@ abstract class AbstractResponse extends \Hotlink\Framework\Model\Api\Response
         return array_key_exists($key, $data) ? $data[$key] : null;
     }
 
-    function getExceptionHelper()
+    public function getExceptionHelper()
     {
         return $this->brightpearlExceptionHelper;
     }

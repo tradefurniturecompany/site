@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Test\integration\Model\Config\MapTest;
 class Reader extends \Hotlink\Framework\Model\Config\Map\Reader
 {
 
-    function __construct(
+    public function __construct(
         \Magento\Framework\Config\FileResolverInterface $fileResolver,
         \Magento\Framework\Config\ConverterInterface $converter,
         \Hotlink\Framework\Test\integration\Model\Config\MapTest\Schema\Locator $schemaLocator,
