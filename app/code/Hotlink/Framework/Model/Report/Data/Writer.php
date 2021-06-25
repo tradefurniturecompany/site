@@ -9,8 +9,12 @@ class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
 		return 'data';
 	}
 
-	protected function _write( \Hotlink\Framework\Model\Report\Item $item )
-	{
+	/**
+	 * @used-by \Hotlink\Framework\Model\Report::write()
+	 * @param \Hotlink\Framework\Model\Report\Item $item
+	 * @return $this
+	 */
+	protected function _write(\Hotlink\Framework\Model\Report\Item $item) {
 		if ( $data = $item->getData() )
 			{
 				if ( $reportId = $this->_getReportObject()->getId() )  // ReportId may not be set, in which case cannot write
