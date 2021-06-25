@@ -39,8 +39,12 @@ class Allowed extends \Magento\Shipping\Model\Config\Source\Allmethods
 	 * reason: in some cases $carrierModel->getAllowedMethods(); throws an exception
 	 * and breaks our config screen.
 	 */
-	function toOptionArray($isActiveOnlyFlag=false)
-	{
+	function toOptionArray($isActiveOnlyFlag=false) {
+		# 2020-08-29 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		# «Array to string conversion
+		# in app/code/Hotlink/Brightpearl/Model/Config/Source/Magento/Shipping/Method/Allowed.php on line 66»:
+		# https://github.com/tradefurniturecompany/site/issues/19
+    	$isActiveOnlyFlag = true;
 		$methods = array( array( 'value' => '', 'label' => ' ' ) );
 		try
 			{
