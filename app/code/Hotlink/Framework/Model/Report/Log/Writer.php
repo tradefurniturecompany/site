@@ -41,8 +41,12 @@ class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
 		return parent::getWriterId();
 	}
 
-	function getLog()
-	{
+	/**
+	 * @used-by \Hotlink\Framework\Model\Report::getId()
+	 * @used-by \Hotlink\Framework\Model\Schedule\Cron\AbstractCron::_initOnceReport()
+	 * @return bool
+	 */
+	function getLog() {
 		if ( $this->isOpen() )
 			{
 				return $this->_log;
