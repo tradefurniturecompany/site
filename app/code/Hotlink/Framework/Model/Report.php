@@ -692,8 +692,14 @@ class Report {
 		return $this;
 	}
 
-	function write( \Hotlink\Framework\Model\Report\Item $item )
-	{
+	/**
+	 * @used-by \Hotlink\Framework\Controller\Adminhtml\Report\Render::execute()
+	 * @used-by \Hotlink\Framework\Model\Interaction\Action\Email::_getContent()
+	 * @used-by \Hotlink\Framework\Model\Report::add()
+	 * @param Report\Item $item
+	 * @return $this|void
+	 */
+	function write(\Hotlink\Framework\Model\Report\Item $item) {
 		$this->_items[] = $item;
 		if ( $this->_rentry )
 			{
