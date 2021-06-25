@@ -17,7 +17,7 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
     protected $htmlFormEnvironmentHelper;
     protected $storeManager;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -40,7 +40,7 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
     //
     //  Get implementation module
     //
-    public function getImplementationModel()
+    function getImplementationModel()
     {
         return $this->getConfig()->getImplementationModel( $this->getStoreId() );
     }
@@ -55,22 +55,22 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
         return $this;
     }
 
-    public function getStoreId()
+    function getStoreId()
     {
         return $this->_storeId;
     }
 
-    // public function hasStoreId()
+    // function hasStoreId()
     // {
     //     return $this->_storeId !== FALSE;
     // }
 
-    public function isEnabled()
+    function isEnabled()
     {
         return $this->getConfig()->isEnabled( $this->getStoreId() );
     }
 
-    public function isTriggerEnabled( \Hotlink\Framework\Model\Trigger\AbstractTrigger $trigger )
+    function isTriggerEnabled( \Hotlink\Framework\Model\Trigger\AbstractTrigger $trigger )
     {
         $permitted =
                    [ 'hotlink_framework_trigger_admin_user_request',
@@ -83,7 +83,7 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
         return $this->getConfig()->isTriggerEnabled( $trigger, $this->getStoreId() );
     }
 
-    public function getInteraction()
+    function getInteraction()
     {
         return $this->interaction;
     }
@@ -99,17 +99,17 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
     //
     //  IFormHelper
     //
-    public function getFormHelper()
+    function getFormHelper()
     {
         return $this->htmlFormEnvironmentHelper;
     }
 
-    public function getConfig()
+    function getConfig()
     {
         return $this->interaction->getConfig();
     }
 
-    public function getParameters()
+    function getParameters()
     {
         if ( !$this->_parametersInitialised )
             {
@@ -128,7 +128,7 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
         return $this->_parameters;
     }
 
-    public function addParameter( \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter $parameter )
+    function addParameter( \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter $parameter )
     {
         $key = $parameter->getKey();
         if ( isset( $this->_parameters[ $key ] ) )
@@ -147,7 +147,7 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
         return $this;
     }
 
-    public function setParameter( $key, \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter $parameter )
+    function setParameter( $key, \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter $parameter )
     {
         if ( $parameter->hasEnvironment() && ( $parameter()->getEnvironment() !== $this ) )
             {
@@ -161,19 +161,19 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
         return $this;
     }
 
-    public function getParameter( $key )
+    function getParameter( $key )
     {
         $parameters = $this->getParameters();
         return ( $parameters && isset( $parameters[ $key ] ) ) ? $parameters[ $key ] : false;
     }
 
-    public function getParameterValue( $key )
+    function getParameterValue( $key )
     {
         $parameter = $this->getParameter( $key );
         return ( $parameter ) ? $parameter->getValue() : null;
     }
 
-    public function setParameterValue( $key, $value )
+    function setParameterValue( $key, $value )
     {
         $parameter = $this->getParameter( $key );
         if ( $parameter )
@@ -183,7 +183,7 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
         return false;
     }
 
-    public function status()
+    function status()
     {
         $report = $this->getReport();
         $storeId = $this->getStoreId();
@@ -211,7 +211,7 @@ abstract class AbstractEnvironment extends \Hotlink\Framework\Model\AbstractMode
     //
     //  IReport
     //
-    public function getReportSection()
+    function getReportSection()
     {
         return 'environment';
     }

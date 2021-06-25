@@ -5,18 +5,18 @@ class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\Abstrac
 {
     protected $source;
 
-    public function setSource( $source )
+    function setSource( $source )
     {
         $this->source = $source;
         return $this;
     }
 
-    public function getSource()
+    function getSource()
     {
         return $this->source;
     }
 
-    public function getName()
+    function getName()
     {
         return 'Order Custom Field Metadata GET';
     }

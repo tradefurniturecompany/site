@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Message\Response\Search;
 
 abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\AbstractResponse
 {
-    public function getResults()
+    function getResults()
     {
         if ( $results = $this->_get( array('response', 'results') ) ) {
             $_results = array();
@@ -17,12 +17,12 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Mes
         }
     }
 
-    public function getMetaData()
+    function getMetaData()
     {
         return $this->_get( array('response', 'metaData') );
     }
 
-    public function getPagination()
+    function getPagination()
     {
         $meta    = $this->getMetaData();
         $pagKeys = array( 'morePagesAvailable',
@@ -34,7 +34,7 @@ abstract class AbstractSearch extends \Hotlink\Brightpearl\Model\Api\Service\Mes
         return array_intersect_key( $meta, array_flip($pagKeys) );
     }
 
-    public function getColumns()
+    function getColumns()
     {
         $meta = $this->getMetaData();
         return isset( $meta['columns'] ) ? $meta['columns'] : null;

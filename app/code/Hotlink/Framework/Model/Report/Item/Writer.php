@@ -13,12 +13,12 @@ class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
      */
     protected $interactionReportHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Report $interactionReportHelper
     ) {
         $this->interactionReportHelper = $interactionReportHelper;
     }
-    public function getCode()
+    function getCode()
     {
         return 'detail';
     }

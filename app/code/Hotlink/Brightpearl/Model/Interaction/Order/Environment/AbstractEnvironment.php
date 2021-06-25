@@ -22,7 +22,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
     protected $_warehouseId = null;
     protected $shippingHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -68,7 +68,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         $this->warehouseCollectionFactory = $warehouseCollectionFactory;
     }
 
-    public function getPriceRenderer()
+    function getPriceRenderer()
     {
         if ( is_null( $this->_priceRenderer ) )
             {
@@ -77,17 +77,17 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $this->_priceRenderer;
     }
 
-    public function getUpdateExistingCustomers()
+    function getUpdateExistingCustomers()
     {
         return $this->getConfig()->getUpdateExistingCustomers( $this->getStoreId() );
     }
 
-    public function getIncludeMarketing()
+    function getIncludeMarketing()
     {
         return $this->getConfig()->getIncludeMarketing($this->getStoreId());
     }
 
-    public function isCustomerSubscribedToNewsletter(\Magento\Sales\Model\Order $order)
+    function isCustomerSubscribedToNewsletter(\Magento\Sales\Model\Order $order)
     {
         $subscribed = false;
 
@@ -98,19 +98,19 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $subscribed;
     }
 
-    public function getOrderGiftMessageField()
+    function getOrderGiftMessageField()
     {
         $giftMessage = $this->getConfig()->getGiftMessageField($this->getStoreId());
         return $giftMessage ? $giftMessage : null;
     }
 
-    public function getOrderChannelId()
+    function getOrderChannelId()
     {
         $channelId = $this->getConfig()->getChannel( $this->getStoreId() );
         return $channelId ? (int) $channelId : null;
     }
 
-    public function getDefaultAllocationWarehouse()
+    function getDefaultAllocationWarehouse()
     {
         if ( is_null( $this->_warehouseId ) )
             {
@@ -129,23 +129,23 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $this->_warehouseId;
     }
 
-    public function isDiscountAppliedOnPricesIncludingTax(\Magento\Sales\Model\Order $order)
+    function isDiscountAppliedOnPricesIncludingTax(\Magento\Sales\Model\Order $order)
     {
         return $this->taxConfig->discountTax($this->getStoreId());
     }
 
-    public function isPriceEnteredIncludingTax(\Magento\Sales\Model\Order $order)
+    function isPriceEnteredIncludingTax(\Magento\Sales\Model\Order $order)
     {
         return $this->scopeConfig->getValue(\Magento\Tax\Model\Config::CONFIG_XML_PATH_PRICE_INCLUDES_TAX, \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $this->getStoreId());
     }
 
-    public function useOrderCurrency(\Magento\Sales\Model\Order $order)
+    function useOrderCurrency(\Magento\Sales\Model\Order $order)
     {
         $currency = $this->getConfig()->getUseCurrency($this->getStoreId());
         return ($currency === \Hotlink\Brightpearl\Model\Config\Source\Brightpearl\Order\Currency::ORDER);
     }
 
-    public function getOrderGiftCardsAmount(\Magento\Sales\Model\Order $order)
+    function getOrderGiftCardsAmount(\Magento\Sales\Model\Order $order)
     {
         $giftCardsAmount = $this->useOrderCurrency($order)
             ? $order->getGiftCardsAmount()
@@ -173,27 +173,27 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $fieldValue;
     }
 
-    public function getOrderCustomerEmail(\Magento\Sales\Model\Order $order)
+    function getOrderCustomerEmail(\Magento\Sales\Model\Order $order)
     {
         return $this->getOrderCustomerField($order, 'email');
     }
 
-    public function getOrderCustomerSalutation(\Magento\Sales\Model\Order $order)
+    function getOrderCustomerSalutation(\Magento\Sales\Model\Order $order)
     {
         return $this->getOrderCustomerField($order, 'prefix');
     }
 
-    public function getOrderCustomerFirstName( \Magento\Sales\Model\Order $order )
+    function getOrderCustomerFirstName( \Magento\Sales\Model\Order $order )
     {
         return $this->getOrderCustomerField($order, 'firstname');
 
     }
-    public function getOrderCustomerLastName(\Magento\Sales\Model\Order $order)
+    function getOrderCustomerLastName(\Magento\Sales\Model\Order $order)
     {
         return $this->getOrderCustomerField($order, 'lastname');
     }
 
-    public function getOrderCustomerCompany( \Magento\Sales\Model\Order $order )
+    function getOrderCustomerCompany( \Magento\Sales\Model\Order $order )
     {
         $company = '';
 
@@ -229,12 +229,12 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $company;
     }
 
-    public function getOrderExternalReference(\Magento\Sales\Model\Order $order)
+    function getOrderExternalReference(\Magento\Sales\Model\Order $order)
     {
         return $order->getIncrementId();
     }
 
-    public function getOrderStatus( \Magento\Sales\Model\Order $order )
+    function getOrderStatus( \Magento\Sales\Model\Order $order )
     {
         $storeId     = $this->getStoreId();
         $config      = $this->getConfig();
@@ -261,7 +261,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $status ? (int) $status : null;
     }
 
-    public function getOrderCreatedAt(\Magento\Sales\Model\Order $order)
+    function getOrderCreatedAt(\Magento\Sales\Model\Order $order)
     {
         $time = null;
         if ($createdAt = strtotime($order->getCreatedAt())) {
@@ -270,7 +270,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $time;
     }
 
-    public function getOrderCurrencyCode(\Magento\Sales\Model\Order $order)
+    function getOrderCurrencyCode(\Magento\Sales\Model\Order $order)
     {
         $use = $this->getConfig()->getUseCurrency($this->getStoreId());
 
@@ -283,12 +283,12 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $currencyCode ? $currencyCode : null;
     }
 
-    public function hasShippingMethod(\Magento\Sales\Model\Order $order)
+    function hasShippingMethod(\Magento\Sales\Model\Order $order)
     {
         return $order->hasShippingMethod();
     }
 
-    public function getOrderShippingMethodId( \Magento\Sales\Model\Order $order )
+    function getOrderShippingMethodId( \Magento\Sales\Model\Order $order )
     {
         $storeId = $this->getStoreId();
         $config  = $this->getConfig();
@@ -352,17 +352,17 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return (double) $amount;
     }
 
-    public function getOrderShippingAmountExcludingTax(\Magento\Sales\Model\Order $order)
+    function getOrderShippingAmountExcludingTax(\Magento\Sales\Model\Order $order)
     {
         return $this->getOrderAmountByCurrencyUsage($order, 'shipping_amount', 'base_shipping_amount');
     }
 
-    public function getOrderShippingAmountIncludingTax(\Magento\Sales\Model\Order $order)
+    function getOrderShippingAmountIncludingTax(\Magento\Sales\Model\Order $order)
     {
         return $this->getOrderAmountByCurrencyUsage($order, 'shipping_incl_tax', 'base_shipping_incl_tax');
     }
 
-    public function getOrderShippingTax(\Magento\Sales\Model\Order $order)
+    function getOrderShippingTax(\Magento\Sales\Model\Order $order)
     {
         return $this->getOrderShippingAmountIncludingTax($order) - $this->getOrderShippingAmountExcludingTax($order);
     }
@@ -371,7 +371,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
      * Note: it is uncertain if this value includes taxes or not, this may depend on
      * the Magento tax calculation settings at the time the order was placed.
      */
-    public function getOrderShippingDiscountAmount(\Magento\Sales\Model\Order $order)
+    function getOrderShippingDiscountAmount(\Magento\Sales\Model\Order $order)
     {
         return $this->getOrderAmountByCurrencyUsage($order, 'shipping_discount_amount', 'base_shipping_discount_amount');
     }
@@ -382,7 +382,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
        at the time the order is being sent to BP (there's no historical reference to clear value in Magento, so changing those
        settings can easily lead to errors).
     */
-    public function getOrderDiscountTaxAmount( \Magento\Sales\Model\Order $order )
+    function getOrderDiscountTaxAmount( \Magento\Sales\Model\Order $order )
     {
         return (double) 0.0;
     }
@@ -401,7 +401,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
            by Deepak, totals are supposed to be provided as shown in Magento.
            Reverted to fetching totals from Magento order records.
     */
-    public function getOrderTotalExclTax( \Magento\Sales\Model\Order $order )
+    function getOrderTotalExclTax( \Magento\Sales\Model\Order $order )
     {
         $incl = $this->getOrderTotalInclTax($order);
         $tax  = $this->getOrderTotalTax($order);
@@ -424,7 +424,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
            by Deepak, totals are supposed to be provided as shown in Magento.
            Reverted to fetching totals from Magento order records.
     */
-    public function getOrderTotalInclTax( \Magento\Sales\Model\Order $order )
+    function getOrderTotalInclTax( \Magento\Sales\Model\Order $order )
     {
         return $this->getOrderAmountByCurrencyUsage($order, 'grand_total', 'base_grand_total');
     }
@@ -440,17 +440,17 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
            by Deepak, totals are supposed to be provided as shown in Magento.
            Reverted to fetching totals from Magento order records.
      */
-    public function getOrderTotalTax( \Magento\Sales\Model\Order $order )
+    function getOrderTotalTax( \Magento\Sales\Model\Order $order )
     {
         return $this->getOrderAmountByCurrencyUsage($order, 'tax_amount', 'base_tax_amount');
     }
 
-    public function getOrderTotalAmountPaid( \Magento\Sales\Model\Order $order )
+    function getOrderTotalAmountPaid( \Magento\Sales\Model\Order $order )
     {
         return $this->getOrderAmountByCurrencyUsage($order, 'total_paid', 'base_total_paid');
     }
 
-    public function getOrderGrandTotal( \Magento\Sales\Model\Order $order )
+    function getOrderGrandTotal( \Magento\Sales\Model\Order $order )
     {
         return $this->getOrderAmountByCurrencyUsage($order, 'grand_total', 'base_grand_total');
     }
@@ -460,7 +460,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
      * Changed against the specs, as this new method takes in account EE GiftCards without too many calculations
      * made necessary.
      */
-    public function getOrderFullyPaid( \Magento\Sales\Model\Order $order )
+    function getOrderFullyPaid( \Magento\Sales\Model\Order $order )
     {
         $total = $this->getOrderGrandTotal($order) * 10000.0;
         $paid  = $this->getOrderTotalAmountPaid($order) * 10000.0;
@@ -471,7 +471,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
     // ========= ORDER PAYMENT HELPER FUNCTIONS =========
     // ==================================================
 
-    public function getPaymentCreateSalesReceipts(\Magento\Sales\Model\Order\Payment $payment)
+    function getPaymentCreateSalesReceipts(\Magento\Sales\Model\Order\Payment $payment)
     {
         $storeId = $this->getStoreId();
         $config  = $this->getConfig();
@@ -512,12 +512,12 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return (double) $amount;
     }
 
-    public function getPaymentAmountPaid(\Magento\Sales\Model\Order\Payment $payment)
+    function getPaymentAmountPaid(\Magento\Sales\Model\Order\Payment $payment)
     {
         return $this->getPaymentAmountByCurrencyUsage($payment, 'amount_paid', 'base_amount_paid');
     }
 
-    public function getPaymentDescription( \Magento\Sales\Model\Order\Payment $payment )
+    function getPaymentDescription( \Magento\Sales\Model\Order\Payment $payment )
     {
         $method = $payment->getMethod();
 
@@ -537,7 +537,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $description;
     }
 
-    public function getPaymentNominalCode( \Magento\Sales\Model\Order\Payment $payment )
+    function getPaymentNominalCode( \Magento\Sales\Model\Order\Payment $payment )
     {
         $storeId = $this->getStoreId();
         $method  = (string)$payment->getMethod();
@@ -582,17 +582,17 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return (double) $amount;
     }
 
-    public function getOrderItemAmountExclTax( \Magento\Sales\Model\Order\Item $item )
+    function getOrderItemAmountExclTax( \Magento\Sales\Model\Order\Item $item )
     {
         return $this->getItemAmountByCurrencyUsage($item, 'price', 'base_price');
     }
 
-    public function getOrderItemAmountInclTax( \Magento\Sales\Model\Order\Item $item )
+    function getOrderItemAmountInclTax( \Magento\Sales\Model\Order\Item $item )
     {
         return $this->getItemAmountByCurrencyUsage($item, 'price_incl_tax', 'base_price_incl_tax');
     }
 
-    public function getOrderItemTaxAmount( \Magento\Sales\Model\Order\Item $item )
+    function getOrderItemTaxAmount( \Magento\Sales\Model\Order\Item $item )
     {
         $inc = $this->getOrderItemAmountInclTax($item);
         $exc = $this->getOrderItemAmountExclTax($item);
@@ -600,7 +600,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $inc - $exc;
     }
 
-    public function getOrderItemRowTotalExclTax( \Magento\Sales\Model\Order\Item $item )
+    function getOrderItemRowTotalExclTax( \Magento\Sales\Model\Order\Item $item )
     {
         $inclTax = $this->getOrderItemRowTotalInclTax( $item );
         $tax = $this->getOrderItemRowTotalTax( $item );
@@ -608,17 +608,17 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $exclTax;
     }
 
-    public function getOrderItemRowTotalInclTax( \Magento\Sales\Model\Order\Item $item )
+    function getOrderItemRowTotalInclTax( \Magento\Sales\Model\Order\Item $item )
     {
         return $this->getItemAmountByCurrencyUsage($item, 'row_total_incl_tax', 'base_row_total_incl_tax');
     }
 
-    public function getOrderItemRowTotalTax( \Magento\Sales\Model\Order\Item $item )
+    function getOrderItemRowTotalTax( \Magento\Sales\Model\Order\Item $item )
     {
         return $this->getItemAmountByCurrencyUsage($item, 'tax_amount', 'base_tax_amount');
     }
 
-    public function extractOrderItemOriginalSku( \Magento\Sales\Model\Order\Item $item )
+    function extractOrderItemOriginalSku( \Magento\Sales\Model\Order\Item $item )
     {
         $sku = $item->getSku();
 
@@ -630,7 +630,7 @@ abstract class AbstractEnvironment extends \Hotlink\Brightpearl\Model\Interactio
         return $sku;
     }
 
-    public function extractOrderItemProductOptions( \Magento\Sales\Model\Order\Item $item )
+    function extractOrderItemProductOptions( \Magento\Sales\Model\Order\Item $item )
     {
         $productOptions = array();
         $opts = $item->getProductOptions();

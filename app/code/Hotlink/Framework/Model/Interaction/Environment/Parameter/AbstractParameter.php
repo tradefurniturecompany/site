@@ -4,9 +4,9 @@ namespace Hotlink\Framework\Model\Interaction\Environment\Parameter;
 abstract class AbstractParameter extends \Magento\Framework\DataObject implements \Hotlink\Framework\Html\IFormHelper
 {
 
-    abstract public function getDefault();                         // Returns the default value for a parameter if none has been set
-    abstract public function getName();                            // Returns the name of the runtime option (used as a label)
-    abstract public function getKey();                             // Returns the key of the runtime option (used as a unique identifier)
+    abstract function getDefault();                         // Returns the default value for a parameter if none has been set
+    abstract function getName();                            // Returns the name of the runtime option (used as a label)
+    abstract function getKey();                             // Returns the key of the runtime option (used as a unique identifier)
 
     protected $exceptionHelper;
     protected $parameterHelper;
@@ -15,7 +15,7 @@ abstract class AbstractParameter extends \Magento\Framework\DataObject implement
     protected $_valueInitialised = false;
     protected $_value = null;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Form\Environment\Parameter $parameterHelper,
         array $data = []
@@ -26,12 +26,12 @@ abstract class AbstractParameter extends \Magento\Framework\DataObject implement
         parent::__construct( $data );
     }
 
-    public function exception()
+    function exception()
     {
         return $this->exceptionHelper;
     }
 
-    public function setEnvironment( \Hotlink\Framework\Model\Interaction\Environment\AbstractEnvironment $environment )
+    function setEnvironment( \Hotlink\Framework\Model\Interaction\Environment\AbstractEnvironment $environment )
     {
         if ( !is_null( $this->_environment ) )
             {
@@ -41,12 +41,12 @@ abstract class AbstractParameter extends \Magento\Framework\DataObject implement
         return $this;
     }
 
-    public function hasEnvironment()
+    function hasEnvironment()
     {
         return ( !is_null( $this->_environment ) );
     }
 
-    public function getEnvironment()
+    function getEnvironment()
     {
         if ( is_null( $this->_environment ) )
             {
@@ -58,7 +58,7 @@ abstract class AbstractParameter extends \Magento\Framework\DataObject implement
     //
     //  Overload to specialise parameter values
     //
-    public function getValue()
+    function getValue()
     {
         if ( !$this->_valueInitialised )
             {
@@ -67,7 +67,7 @@ abstract class AbstractParameter extends \Magento\Framework\DataObject implement
         return $this->_value;
     }
 
-    public function setValue( $value )
+    function setValue( $value )
     {
         $this->_value = $value;
         $this->_valueInitialised = true;
@@ -77,12 +77,12 @@ abstract class AbstractParameter extends \Magento\Framework\DataObject implement
     //
     //  Overload to return an array of key/values if parameter has and support options
     //
-    public function getOptions()
+    function getOptions()
     {
         return [];
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         $result = array();
         if ( $options = $this->getOptions() )
@@ -95,12 +95,12 @@ abstract class AbstractParameter extends \Magento\Framework\DataObject implement
         return $result;
     }
 
-    public function getNote()
+    function getNote()
     {
         return '';
     }
 
-    public function getMultiSelect()
+    function getMultiSelect()
     {
         return false;
     }
@@ -108,13 +108,13 @@ abstract class AbstractParameter extends \Magento\Framework\DataObject implement
     //
     //  IFormHelper
     //
-    public function getFormHelper()
+    function getFormHelper()
     {
         //return Mage::helper( 'hotlink_framework/html_form_environment_parameter' );
         return $this->parameterHelper;
     }
 
-    public function asString()
+    function asString()
     {
         $output = "";
 
@@ -171,7 +171,7 @@ abstract class AbstractParameter extends \Magento\Framework\DataObject implement
     //
     // IReport
     //
-    public function getReportSection()
+    function getReportSection()
     {
         return 'parameter';
     }

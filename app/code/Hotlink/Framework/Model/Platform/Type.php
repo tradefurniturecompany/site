@@ -18,12 +18,12 @@ class Type
     protected static $_mappings = array( self::MAGENTO  => '_map_object_magento',
                                          self::HOTLINKXML => '_map_xml_hotlink' );
 
-    public static function getTypes()
+    static function getTypes()
     {
         return self::$_types;
     }
 
-    public static function getMappings()
+    static function getMappings()
     {
         return self::$_mappings;
     }

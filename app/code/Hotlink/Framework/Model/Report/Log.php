@@ -6,7 +6,7 @@ class Log extends \Magento\Framework\Model\AbstractModel
 
     protected $collectionFactory;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Hotlink\Framework\Model\ResourceModel\Report\Log\CollectionFactory $collectionFactory,
@@ -24,12 +24,12 @@ class Log extends \Magento\Framework\Model\AbstractModel
         );
     }
 
-    public function _construct()
+    function _construct()
     {
         $this->_init('Hotlink\Framework\Model\ResourceModel\Report\Log', 'record_id');
     }
 
-    public function exists()
+    function exists()
     {
         $record_id = $this->getRecordId();
         if ( empty($record_id) ) {

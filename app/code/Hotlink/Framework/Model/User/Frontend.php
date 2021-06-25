@@ -6,7 +6,7 @@ class Frontend extends \Hotlink\Framework\Model\User\AbstractUser
 
     protected $_type;
 
-    public function __construct( \Magento\Customer\Model\Session $customerSession )
+    function __construct( \Magento\Customer\Model\Session $customerSession )
     {
         if ( $customerSession->getId() )
             {
@@ -29,7 +29,7 @@ class Frontend extends \Hotlink\Framework\Model\User\AbstractUser
             }
     }
 
-    public function getType()
+    function getType()
     {
         return $this->_type;
     }

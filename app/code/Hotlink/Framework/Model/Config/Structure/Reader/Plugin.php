@@ -7,7 +7,7 @@ class Plugin
     protected $template;
     protected $filter;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Model\Config\Structure\Initialise\Template $template,
         \Hotlink\Framework\Model\Config\Structure\Initialise\Filter $filter
     )
@@ -16,7 +16,7 @@ class Plugin
         $this->filter = $filter;
     }
 
-    public function afterRead( $subject, $result )
+    function afterRead( $subject, $result )
     {
         $result = $this->template->apply( $result );
         $result = $this->filter->apply( $result );

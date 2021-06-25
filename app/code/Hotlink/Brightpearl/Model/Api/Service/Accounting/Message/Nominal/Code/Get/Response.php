@@ -3,7 +3,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Accounting\Message\Nominal\Code\
 
 class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\AbstractResponse
 {
-    public function getCodes()
+    function getCodes()
     {
         return $this->_get('response');
     }

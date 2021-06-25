@@ -4,16 +4,16 @@ namespace Hotlink\Framework\Console;
 abstract class AbstractCommandList implements \Magento\Framework\Console\CommandListInterface
 {
 
-    abstract public function getCommandsClasses();
+    abstract function getCommandsClasses();
 
     private $objectManager;
 
-    public function __construct( \Magento\Framework\ObjectManagerInterface $objectManager )
+    function __construct( \Magento\Framework\ObjectManagerInterface $objectManager )
     {
         $this->objectManager = $objectManager;
     }
 
-    public function getCommands()
+    function getCommands()
     {
         $commands = [];
         foreach ( $this->getCommandsClasses() as $class )

@@ -8,7 +8,7 @@ class Request extends \Hotlink\Framework\Model\Trigger\AbstractTrigger implement
 
     protected $htmlHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -36,12 +36,12 @@ class Request extends \Hotlink\Framework\Model\Trigger\AbstractTrigger implement
       Unlike most triggers, this one overloads _execute to identify interactions from html, and changes the source whilst
       iterating over interactions.
     */
-    public function getMagentoEvents()
+    function getMagentoEvents()
     {
         return [ 'Initiated manually via admin' => 'hotlink_framework_trigger_admin_user_request' ];
     }
 
-    public function getContexts()
+    function getContexts()
     {
         return [ 'hotlink_framework_trigger_admin_user_request' => 'Initiated manually via admin' ];
     }

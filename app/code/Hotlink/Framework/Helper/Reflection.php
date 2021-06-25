@@ -6,7 +6,7 @@ class Reflection
 
     protected static $_config = false;
 
-    public static function parentArgs( $object )
+    static function parentArgs( $object )
     {
         if ( ! self::$_config )
             {
@@ -19,13 +19,13 @@ class Reflection
 
     protected $interactionExceptionHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper
     ) {
         $this->interactionExceptionHelper = $interactionExceptionHelper;
     }
 
-    public function getModule( $object )
+    function getModule( $object )
     {
         $class = false;
         if ( is_object( $object ) )
@@ -51,7 +51,7 @@ class Reflection
     }
 
     // TODO : remove append and leading slash from signature and move to convention - these are not the concern of reflection
-    public function getClass( $object, $append = null, $leadingSlash = true  )
+    function getClass( $object, $append = null, $leadingSlash = true  )
     {
         if ( is_null ( $object ) )
             {
@@ -85,7 +85,7 @@ class Reflection
         return $class;
     }
 
-    public function getClassName( $object )
+    function getClassName( $object )
     {
         if ( is_null ( $object ) )
             {
@@ -95,7 +95,7 @@ class Reflection
     }
 
     /*
-    public function getHelperName( $object )
+    function getHelperName( $object )
     {
         $class = get_class( $object );
         $key = 'Helper';
@@ -106,7 +106,7 @@ class Reflection
         return $module . '/' . $names;
     }
 
-    public function getLastName( $object )
+    function getLastName( $object )
     {
         // NB: PHP cannot resolve explode and array_pop in a single statement (hence two lines of code)
         // Strict Notice: Only variables should be passed by reference
@@ -117,7 +117,7 @@ class Reflection
     //
     //  Returns an xml key for an object
     //
-    public function getXmlKey( $object )
+    function getXmlKey( $object )
     {
         $class = get_class( $object );
         $key = strtolower( $class );
@@ -128,7 +128,7 @@ class Reflection
     //
     //  Provides a descriptive name for a model
     //
-    public function getName( $object )
+    function getName( $object )
     {
         $class = get_class( $object );
         $parts = explode( "_Model_", $class );
@@ -138,12 +138,12 @@ class Reflection
         return $name;
     }
 
-    public function getModelName( $object )
+    function getModelName( $object )
     {
         return $this->extractName( $object, 'Model' );
     }
 
-    public function getModelModule( $object, $lowercase = true )
+    function getModelModule( $object, $lowercase = true )
     {
         return $this->extractModule( $object, 'Model', $lowercase );
     }
@@ -151,7 +151,7 @@ class Reflection
     //
     //  Calcualtes the alias of an object or classname, optionally returns parts thereof.
     //
-    public function getAlias( $thing, $modulePart = true, $classPart = true )
+    function getAlias( $thing, $modulePart = true, $classPart = true )
     {
         if ( $type = $this->getType( $thing ) )
             {
@@ -177,7 +177,7 @@ class Reflection
         return false;
     }
 
-    public function getType( $thing )
+    function getType( $thing )
     {
         if ( $this->isModel( $thing ) )
             {
@@ -197,22 +197,22 @@ class Reflection
     //
     //  Naive tests for models, blocks and helpers (does not handle compund names like Company_Module_Helper_Model_Block_Name)
     //
-    public function isModel( $thing )
+    function isModel( $thing )
     {
         return $this->isType( $thing, 'Model' );
     }
 
-    public function isHelper( $thing )
+    function isHelper( $thing )
     {
         return $this->isType( $thing, 'Helper' );
     }
 
-    public function isBlock( $thing )
+    function isBlock( $thing )
     {
         return $this->isType( $thing, 'Block' );
     }
 
-    public function isController( $thing )
+    function isController( $thing )
     {
         $this->interactionExceptionHelper->throwNotImplemented( 'isController is not yet implemented', $this );
     }
@@ -231,17 +231,17 @@ class Reflection
         return false;
     }
 
-    public function getHelperName( $object )
+    function getHelperName( $object )
     {
         return $this->extractName( $object, 'Helper' );
     }
 
-    public function getHelperModule( $object, $lowercase = true )
+    function getHelperModule( $object, $lowercase = true )
     {
         return $this->extractModule( $object, 'Helper', $lowercase );
     }
 
-    public function classToModel( $class )
+    function classToModel( $class )
     {
         return $this->convertClassToAlias( $class, "Model" );
     }
@@ -291,12 +291,12 @@ class Reflection
         return implode( '_', $lower );
     }
 
-    // public function getHtmlName( $object )
+    // function getHtmlName( $object )
     // {
     //     return strtolower( get_class( $object ) );
     // }
 
-    public function requireMethod( $name, $object )
+    function requireMethod( $name, $object )
     {
         if ( !method_exists( $object, $name ) )
             {

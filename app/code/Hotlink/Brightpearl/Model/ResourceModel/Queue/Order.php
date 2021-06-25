@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\ResourceModel\Queue;
 class Order extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
 
-    public function _construct()
+    function _construct()
     {
         $this->_init( 'hotlink_brightpearl_queue_order', 'id' );
     }

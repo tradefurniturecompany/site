@@ -14,7 +14,7 @@ class Created extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
     protected $streamReaderFactory;
     protected $scopeHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -47,19 +47,19 @@ class Created extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
         return 'Creditmemo created';
     }
 
-    public function getMagentoEvents()
+    function getMagentoEvents()
     {
         return [ 'Credit Memo Created (Admin)'       => self::EVT_CREATED_ADMIN,
                  'Credit Memo Created (Webapi Rest)' => self::EVT_CREATED_WEBAPI_REST ];
     }
 
-    public function getContexts()
+    function getContexts()
     {
         return [ self::CONTEXT_ON_CREATED_ADMIN       => 'On creditmemo created (admin)',
                  self::CONTEXT_ON_CREATED_WEBAPI_REST => 'On creditmemo created (webapi_rest)' ];
     }
 
-    public function getContext()
+    function getContext()
     {
         $context = false;
         if ( $this->scopeHelper->isAdmin() )

@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Controller\Adminhtml\Interactions;
 class Index extends \Hotlink\Framework\Controller\Adminhtml\Interactions\Index\AbstractIndex
 {
 
-    public function __construct(
+    function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Hotlink\Brightpearl\Model\Platform $platform,
         \Magento\Framework\Registry $registry
@@ -17,12 +17,12 @@ class Index extends \Hotlink\Framework\Controller\Adminhtml\Interactions\Index\A
         );
     }
 
-    public function getActiveMenuId()
+    function getActiveMenuId()
     {
         return 'Hotlink_Brightpearl::interactions';
     }
 
-    public function getActiveMenuResource()
+    function getActiveMenuResource()
     {
         return 'Hotlink_Brightpearl::interactions';
     }

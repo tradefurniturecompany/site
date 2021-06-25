@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\User;
 class Admin extends \Hotlink\Framework\Model\User\AbstractUser
 {
 
-    public function __construct( \Magento\Backend\Model\Auth\Session $backendAuthSession )
+    function __construct( \Magento\Backend\Model\Auth\Session $backendAuthSession )
     {
         if ( $user = $backendAuthSession->getUser() )
             {
@@ -26,7 +26,7 @@ class Admin extends \Hotlink\Framework\Model\User\AbstractUser
             }
     }
 
-    public function getType()
+    function getType()
     {
         return "admin";
     }

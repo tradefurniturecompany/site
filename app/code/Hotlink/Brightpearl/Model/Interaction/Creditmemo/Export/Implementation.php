@@ -32,7 +32,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
     protected $_queueCache = [];
     protected $_orderCache = [];
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -92,7 +92,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         return 'Hotlink Brightpearl: Magento Creditmemo Exporter';
     }
 
-    public function execute()
+    function execute()
     {
         $report = $this->getReport();
         $environment = $this->getEnvironment();

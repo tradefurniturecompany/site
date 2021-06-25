@@ -15,7 +15,7 @@ class AbstractInteractionCommand extends \Symfony\Component\Console\Command\Comm
     protected $eventManager;
     protected $magentoAppState;
 
-    public function __construct(
+    function __construct(
         string $name = null,
         \Magento\Framework\App\State $magentoAppState,
         \Magento\Framework\Event\ManagerInterface $eventManager

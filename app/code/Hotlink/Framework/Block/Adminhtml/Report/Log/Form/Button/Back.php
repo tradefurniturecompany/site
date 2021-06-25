@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Block\Adminhtml\Report\Log\Form\Button;
 class Back extends \Hotlink\Framework\Block\Adminhtml\Report\Log\Form\Button  implements \Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface
 {
 
-    public function getButtonData()
+    function getButtonData()
     {
         return [
             'label' => __('Back'),
@@ -14,7 +14,7 @@ class Back extends \Hotlink\Framework\Block\Adminhtml\Report\Log\Form\Button  im
         ];
     }
 
-    public function getBackUrl()
+    function getBackUrl()
     {
         return $this->getUrl('*/*/');
     }

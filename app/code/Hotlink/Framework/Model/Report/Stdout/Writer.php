@@ -33,24 +33,24 @@ class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
                                'normal'      => "[0m",      'bold'        => "[1m",
                                'underscore'  => "[4m",      'reverse'     => "[7m" );
 
-    public function getCode()
+    function getCode()
     {
         return self::CODE;
     }
 
-    public function setColours( $value )
+    function setColours( $value )
     {
         $this->_styled = ( bool ) $value;
         return $this;
     }
 
-    public function setLevel( $value )
+    function setLevel( $value )
     {
         $this->_level = $value;
         return $this;
     }
 
-    public function getContentWidth()
+    function getContentWidth()
     {
         return $this->_contentWidth;
     }
@@ -152,7 +152,7 @@ class Writer extends \Hotlink\Framework\Model\Report\Writer\AbstractWriter
         return $result;
     }
 
-    public function getElapsedTime( $item )
+    function getElapsedTime( $item )
     {
         if ( is_null( $this->_initialTimestamp ) )
             {

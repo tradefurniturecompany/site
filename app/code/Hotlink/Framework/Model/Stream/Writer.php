@@ -4,14 +4,14 @@ namespace Hotlink\Framework\Model\Stream;
 abstract class Writer extends \Hotlink\Framework\Model\Stream\Base
 {
 
-    public function write()
+    function write()
     {
         $this->confirmOpened();
         $args = func_get_args();
         return call_user_func_array( array( $this, '_write' ), $args );
     }
 
-    public function getWriterId()
+    function getWriterId()
     {
         return null;
     }

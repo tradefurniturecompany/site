@@ -30,32 +30,32 @@ class Response extends \Hotlink\Brightpearl\Model\Api\Message\Response\AbstractR
         return $this;
     }
 
-    public function getAccessToken()
+    function getAccessToken()
     {
         return $this->_get( 'access_token' );
     }
 
-    public function getTokenType()
+    function getTokenType()
     {
         return $this->_get( 'token_type' );
     }
 
-    public function getExpiresIn()
+    function getExpiresIn()
     {
         return $this->_get( 'expires_in' );
     }
 
-    public function getRefreshToken()
+    function getRefreshToken()
     {
         return $this->_get( 'refresh_token' );
     }
 
-    public function getInstallationInstanceId()
+    function getInstallationInstanceId()
     {
         return $this->_get( 'installation_instance_id' );
     }
 
-    public function getApiDomain()
+    function getApiDomain()
     {
         return $this->_get( 'api_domain' );
     }

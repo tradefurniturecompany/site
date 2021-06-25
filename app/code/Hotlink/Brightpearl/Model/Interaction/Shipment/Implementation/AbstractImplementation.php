@@ -29,7 +29,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
     protected $warehouseCollectionFactory;
     protected $warehouses;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -311,7 +311,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
         $report->unindent();
     }
 
-    public function getWarehouses()
+    function getWarehouses()
     {
         if ( ! $this->warehouses )
             {
@@ -324,7 +324,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
     //
     //  Provides a convenient interception point for plugins
     //
-    public function processNoteHook( $bpNote, $warehouses )
+    function processNoteHook( $bpNote, $warehouses )
     {
     }
 
@@ -733,7 +733,7 @@ abstract class AbstractImplementation extends \Hotlink\Framework\Model\Interacti
         return !$error;
     }
 
-    public function register( $shipment )
+    function register( $shipment )
     {
         if ($shipment->getId()) {
             throw new \Magento\Framework\Exception\LocalizedException(

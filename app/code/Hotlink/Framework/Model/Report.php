@@ -189,7 +189,7 @@ class Report
     protected $interactionExceptionHelper;
 
     //  -----------------------------------------------------------------------------------------------
-    public function __construct(
+    function __construct(
         $object,
         \Hotlink\Framework\Helper\Report $interactionReportHelper,
         \Hotlink\Framework\Model\Report\Log $interactionReportLog,
@@ -223,12 +223,12 @@ class Report
         $this->setTimeStarted( $this->getNow() );
     }
 
-    public function getObjectId()
+    function getObjectId()
     {
         return $this->_objectId;
     }
 
-    /* public static function delete( $id ) */
+    /* static function delete( $id ) */
     /* { */
     /*     // Remove item file */
     /*     $itemFile = $this->interactionReportHelper->getFilePath( $id, false ); */
@@ -252,7 +252,7 @@ class Report
     /*     return true; */
     /* } */
 
-    public function load( $id )
+    function load( $id )
     {
         if ( $this->getId() )
             {
@@ -263,7 +263,7 @@ class Report
         return $this;
     }
 
-    public function getId()
+    function getId()
     {
         if ( ! $this->_reportId )
             {
@@ -275,7 +275,7 @@ class Report
         return $this->_reportId;
     }
 
-    public function setId( $value )
+    function setId( $value )
     {
         $this->_reportId = $value;
         return $this;
@@ -286,7 +286,7 @@ class Report
     //    Invocation
     //
     //  -----------------------------------------------------------------------------------------------
-    public function __invoke( $object, $method )
+    function __invoke( $object, $method )
     {
         $args = func_get_args();
         $args = array_slice( $args, 2 );
@@ -343,7 +343,7 @@ class Report
     //
     //  Disables the emittion of the call stack trace on the next invocation
     //
-    public function nostacktrace()
+    function nostacktrace()
     {
         $this->_nostacktrace = true;
         return $this;
@@ -354,56 +354,56 @@ class Report
     //    Header
     //
     //  -----------------------------------------------------------------------------------------------
-    public function getUser()
+    function getUser()
     {
         return $this->_user;
     }
 
-    public function setUser( $value )
+    function setUser( $value )
     {
         $this->_user = $value;
         return $this;
     }
 
-    public function getTrigger()
+    function getTrigger()
     {
         return $this->_trigger;
     }
 
-    public function setTrigger( $value )
+    function setTrigger( $value )
     {
         $this->_trigger = $value;
         return $this;
     }
 
-    public function getContext()
+    function getContext()
     {
         return $this->_context;
     }
 
-    public function setContext( $value )
+    function setContext( $value )
     {
         $this->_context = $value;
         return $this;
     }
 
-    public function getEvent()
+    function getEvent()
     {
         return $this->_event;
     }
 
-    public function setEvent( $value )
+    function setEvent( $value )
     {
         $this->_event = $value;
         return $this;
     }
 
-    public function getProcess()
+    function getProcess()
     {
         return $this->_process;
     }
 
-    public function setProcess( $value )
+    function setProcess( $value )
     {
         $this->_process = $value;
         return $this;
@@ -417,24 +417,24 @@ class Report
     //
     //   Success
     //
-    public function incSuccess()
+    function incSuccess()
     {
         $this->_success = $this->_success + 1;
         return $this;
     }
 
-    public function getSuccess()
+    function getSuccess()
     {
         return $this->_success;
     }
 
-    public function setSuccess( $value )
+    function setSuccess( $value )
     {
         $this->_success = $value;
         return $this;
     }
 
-    public function succeeded()
+    function succeeded()
     {
         return ( $this->_success > 0 );
     }
@@ -442,24 +442,24 @@ class Report
     //
     //   Fail
     //
-    public function incFail()
+    function incFail()
     {
         $this->_fail = $this->_fail + 1;
         return $this;
     }
 
-    public function getFail()
+    function getFail()
     {
         return $this->_fail;
     }
 
-    public function setFail( $value )
+    function setFail( $value )
     {
         $this->_fail = $value;
         return $this;
     }
 
-    public function failed()
+    function failed()
     {
         return ( $this->_fail > 0 );
     }
@@ -467,7 +467,7 @@ class Report
     //
     //   Reference
     //
-    public function addReference( $ref )
+    function addReference( $ref )
     {
         if ( is_array( $ref ) )
             {
@@ -490,12 +490,12 @@ class Report
         return $this;
     }
 
-    public function getReference()
+    function getReference()
     {
         return $this->_referenceValue;
     }
 
-    public function getReferenceCount()
+    function getReferenceCount()
     {
         return $this->_referenceCount;
     }
@@ -508,24 +508,24 @@ class Report
     //
     //   Indent
     //
-    public function indent()
+    function indent()
     {
         ++$this->_indent;
         return $this;
     }
 
-    public function unindent()
+    function unindent()
     {
         $this->_indent = max( $this->_indent - 1, 0 );
         return $this;
     }
 
-    public function getIndent()
+    function getIndent()
     {
         return $this->_indent;
     }
 
-    public function setIndent( $val )
+    function setIndent( $val )
     {
         $val = ( int ) $val;
         $this->_indent = ( $val > 0 ) ? $val : 0;
@@ -535,12 +535,12 @@ class Report
     //
     //   Section
     //
-    public function getSection()
+    function getSection()
     {
         return $this->_section;
     }
 
-    public function setSection( $something )
+    function setSection( $something )
     {
         if ( is_string( $something ) )
             {
@@ -565,12 +565,12 @@ class Report
     //
     //   Status
     //
-    public function getStatus()
+    function getStatus()
     {
         return $this->_status;
     }
 
-    public function setStatus( $code )
+    function setStatus( $code )
     {
         $this->_status = $code;
         return $this;
@@ -579,13 +579,13 @@ class Report
     //
     //   Batch
     //
-    public function setBatch( $value )
+    function setBatch( $value )
     {
         $this->_batch = $value;
         return $this;
     }
 
-    public function getBatch()
+    function getBatch()
     {
         return $this->_batch;
     }
@@ -595,7 +595,7 @@ class Report
     //    Reader
     //
     //  -----------------------------------------------------------------------------------------------
-    public function getReader()
+    function getReader()
     {
         if ( ! $this->_reader )
             {
@@ -604,7 +604,7 @@ class Report
         return $this->_reader;
     }
 
-    public function read()
+    function read()
     {
         $reader = $this->getReader();
         if ( ! $reader->isOpen() )
@@ -619,13 +619,13 @@ class Report
         return $item;
     }
 
-    public function setUseDataReader( $value = true )
+    function setUseDataReader( $value = true )
     {
         $this->_useDataReader = $value;
         return $this;
     }
 
-    public function getUseDataReader()
+    function getUseDataReader()
     {
         return $this->_useDataReader;
     }
@@ -635,7 +635,7 @@ class Report
     //    Writers
     //
     //  -----------------------------------------------------------------------------------------------
-    public function addHtmlWriter( $sendHeader = true, $sendJs = true, $restrictLevels = array() )
+    function addHtmlWriter( $sendHeader = true, $sendJs = true, $restrictLevels = array() )
     {
         $writer = $this->interactionReportHtmlWriterFactory->create();
         $writer->open( $this, $sendHeader, $sendJs, $restrictLevels );
@@ -643,40 +643,40 @@ class Report
         return $this;
     }
 
-    public function addLogWriter()
+    function addLogWriter()
     {
         $writer = $this->interactionReportLogWriterFactory->create();
         $this->addWriter( $writer );
         return $this;
     }
 
-    public function addItemWriter()
+    function addItemWriter()
     {
         $writer = $this->interactionReportItemWriterFactory->create();
         $this->addWriter( $writer );
         return $this;
     }
 
-    public function addDataWriter()
+    function addDataWriter()
     {
         $writer = $this->interactionReportDataWriterFactory->create();
         $this->addWriter( $writer );
         return $this;
     }
 
-    public function addStdoutWriter()
+    function addStdoutWriter()
     {
         $writer = $this->interactionReportStdoutWriterFactory->create();
         $this->addWriter( $writer );
         return $this;
     }
 
-    public function getWriters()
+    function getWriters()
     {
         return $this->_writers;
     }
 
-    public function getWriter( $code )
+    function getWriter( $code )
     {
         foreach( $this->getWriters() as $writer )
             {
@@ -688,13 +688,13 @@ class Report
         return false;
     }
 
-    public function addWriter( \Hotlink\Framework\Model\Stream\Writer $writer )
+    function addWriter( \Hotlink\Framework\Model\Stream\Writer $writer )
     {
         $this->_writers[] = $writer;
         return $this;
     }
 
-    public function write( \Hotlink\Framework\Model\Report\Item $item )
+    function write( \Hotlink\Framework\Model\Report\Item $item )
     {
         $this->_items[] = $item;
         if ( $this->_rentry )
@@ -724,7 +724,7 @@ class Report
         return $this;
     }
 
-    public function close()
+    function close()
     {
         foreach ( $this->getWriters() as $writer )
             {
@@ -735,13 +735,13 @@ class Report
             }
     }
 
-    public function setOnDestructReportFatalIfOpen( $value )
+    function setOnDestructReportFatalIfOpen( $value )
     {
         $this->_onDestructReportFatalIfOpen = ( bool ) $value;
         return $this;
     }
 
-    public function __destruct()
+    function __destruct()
     {
         try
             {
@@ -786,18 +786,18 @@ class Report
     //    Timing
     //
     //  -----------------------------------------------------------------------------------------------
-    public function setTimeStarted( $value )
+    function setTimeStarted( $value )
     {
         $this->_timeStarted = $value;
         return $this;
     }
 
-    public function getTimeStarted()
+    function getTimeStarted()
     {
         return $this->_timeStarted;
     }
 
-    public function getNow()
+    function getNow()
     {
         return microtime( true );
     }
@@ -807,32 +807,32 @@ class Report
     //    Messaging
     //
     //  -----------------------------------------------------------------------------------------------
-    public function fatal( $message, $data = false, $dataRenderer = false )
+    function fatal( $message, $data = false, $dataRenderer = false )
     {
         return $this->add( 'fatal', $message, $data, $dataRenderer );
     }
 
-    public function error( $message, $data = false, $dataRenderer = false )
+    function error( $message, $data = false, $dataRenderer = false )
     {
         return $this->add( 'error', $message, $data, $dataRenderer );
     }
 
-    public function warn( $message, $data = false, $dataRenderer = false )
+    function warn( $message, $data = false, $dataRenderer = false )
     {
         return $this->add( 'warn', $message, $data, $dataRenderer );
     }
 
-    public function info( $message, $data = false, $dataRenderer = false )
+    function info( $message, $data = false, $dataRenderer = false )
     {
         return $this->add( 'info', $message, $data, $dataRenderer );
     }
 
-    public function debug( $message, $data = false, $dataRenderer = false )
+    function debug( $message, $data = false, $dataRenderer = false )
     {
         return $this->add( 'debug', $message, $data, $dataRenderer );
     }
 
-    public function trace( $message, $data = false, $dataRenderer = false )
+    function trace( $message, $data = false, $dataRenderer = false )
     {
         return $this->add( 'trace', $message, $data, $dataRenderer );
     }
@@ -840,7 +840,7 @@ class Report
     //
     //  Create a new item with a unique id, and write it to the report
     //
-    public function add( $type, $message, $data, $dataRenderer )
+    function add( $type, $message, $data, $dataRenderer )
     {
         $itemId = $this->_itemId;
         $itemId++;
@@ -948,12 +948,12 @@ class Report
         return $message;
     }
 
-    public function getFormat()
+    function getFormat()
     {
         return $this->interactionReportFormatHelper;
     }
 
-    public static function getStatusOptions()
+    static function getStatusOptions()
     {
         return [
             self::STATUS_PROCESSING => 'processing',

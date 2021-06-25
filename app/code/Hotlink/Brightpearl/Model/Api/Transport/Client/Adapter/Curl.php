@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Transport\Client\Adapter;
 class Curl extends \Zend\Http\Client\Adapter\Curl
 {
 
-    public function write($method, $uri, $httpVersion = 1.1, $headers = array(), $body = '')
+    function write($method, $uri, $httpVersion = 1.1, $headers = array(), $body = '')
     {
         $request = parent::write($method, $uri, $httpVersion, $headers, $body);
 

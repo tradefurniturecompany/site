@@ -4,12 +4,12 @@ namespace Hotlink\Brightpearl\Block\Adminhtml\OAuth2;
 class Confirm extends \Magento\Framework\View\Element\Template
 {
 
-    public function getAccount()
+    function getAccount()
     {
         return $this->getRequest()->getParam( 'account' );
     }
 
-    public function getCode()
+    function getCode()
     {
         return $this->getRequest()->getParam( 'code' );
     }

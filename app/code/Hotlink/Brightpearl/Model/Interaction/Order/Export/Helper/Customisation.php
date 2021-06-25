@@ -11,7 +11,7 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
     protected $transform;
     protected $output;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisation\Evaluate $evaluate,
         \Hotlink\Brightpearl\Model\Interaction\Order\Export\Helper\Customisation\Transform $transform,
@@ -24,7 +24,7 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
         $this->output = $output;
     }
 
-    public function apply( $configMap, $order, $data )
+    function apply( $configMap, $order, $data )
     {
         $report = $this->getReport();
         if ( count( $configMap ) )
@@ -98,22 +98,22 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
             }
     }
 
-    public function report()
+    function report()
     {
         return $this->reportHelper;
     }
 
-    public function getEvaluate()
+    function getEvaluate()
     {
         return $this->evaluate;
     }
 
-    public function getTransform()
+    function getTransform()
     {
         return $this->transform;
     }
 
-    public function getOutput()
+    function getOutput()
     {
         return $this->output;
     }
@@ -121,13 +121,13 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
     //
     //  IReport
     //
-    public function setReport( \Hotlink\Framework\Model\Report $report = null )
+    function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
         return $this;
     }
 
-    public function getReport( $safe = true )
+    function getReport( $safe = true )
     {
         if ( !$this->_report && $safe )
             {
@@ -136,7 +136,7 @@ class Customisation implements \Hotlink\Framework\Model\Report\IReport
         return $this->_report;
     }
 
-    public function getReportSection()
+    function getReportSection()
     {
         return 'customisation';
     }

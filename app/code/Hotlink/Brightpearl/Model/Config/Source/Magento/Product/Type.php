@@ -7,7 +7,7 @@ class Type implements \Magento\Framework\Option\ArrayInterface
 
     protected $productType;
 
-    public function __construct(
+    function __construct(
         \Magento\Catalog\Model\Product\Type $productType
         ) {
         $this->productType = $productType;
@@ -19,7 +19,7 @@ class Type implements \Magento\Framework\Option\ArrayInterface
         return $this;
     }
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         if ( !$this->_options) {
             $this->_initOptions();
@@ -27,7 +27,7 @@ class Type implements \Magento\Framework\Option\ArrayInterface
         return $this->_options;
     }
 
-    public function toArray()
+    function toArray()
     {
         if(!$this->_options)
             $this->_initOptions();

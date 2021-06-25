@@ -6,7 +6,7 @@ class Parameter extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
 
     protected $factory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $fieldsetHelper,
         \Hotlink\Framework\Helper\Html $htmlHelper,
@@ -19,7 +19,7 @@ class Parameter extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
                              $htmlHelper );
     }
 
-    public function getHtmlKey()
+    function getHtmlKey()
     {
         return 'parameter';
     }
@@ -74,7 +74,7 @@ class Parameter extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
             }
     }
 
-    public function getObject( $form, $environment )
+    function getObject( $form, $environment )
     {
         $parameter = $this->factory->create( $this->_getClass( $form ) );
         if ( $data = $this->_getData( $form ) )

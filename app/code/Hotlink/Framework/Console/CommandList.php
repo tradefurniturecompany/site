@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Console;
 class CommandList extends \Hotlink\Framework\Console\AbstractCommandList
 {
 
-    public function getCommandsClasses()
+    function getCommandsClasses()
     {
         return
             [

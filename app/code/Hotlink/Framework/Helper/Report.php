@@ -10,7 +10,7 @@ class Report
     protected $reportLogFactory;
     protected $reportLogWriterFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Path $pathHelper,
         \Hotlink\Framework\Model\Config\Module\Installation $installationConfig,
         \Hotlink\Framework\Model\Report\LogFactory $reportLogFactory,
@@ -25,12 +25,12 @@ class Report
         $this->reportLogWriterFactory = $reportLogWriterFactory;
     }
 
-    public function create( \Hotlink\Framework\Model\Report\IReport $object )
+    function create( \Hotlink\Framework\Model\Report\IReport $object )
     {
         return $this->reportFactory->create( [ 'object' => $object ] );
     }
 
-    public function delete( $log )
+    function delete( $log )
     {
         if ( !is_object( $log ) )
             {
@@ -60,22 +60,22 @@ class Report
         return true;
     }
 
-    public function logFactory()
+    function logFactory()
     {
         return $this->reportLogFactory;
     }
 
-    public function logWriterFactory()
+    function logWriterFactory()
     {
         return $this->reportLogWriterFactory;
     }
 
-    public function createLogWriter()
+    function createLogWriter()
     {
         return $this->reportLogWriterFactory->create();
     }
 
-    public function getFilePath( $id, $autoCreatePath = true, $storeId = null )
+    function getFilePath( $id, $autoCreatePath = true, $storeId = null )
     {
         $file = false;
         if ( $path = $this->getPath( $autoCreatePath, $storeId ) )
@@ -94,7 +94,7 @@ class Report
         return $file;
     }
 
-    public function getFilePathItem( $reportId, $itemId, $autoCreatePath = true, $storeId = null )
+    function getFilePathItem( $reportId, $itemId, $autoCreatePath = true, $storeId = null )
     {
         $file = $this->getFilePath( $reportId, $autoCreatePath, $storeId );
         if ( $file )
@@ -104,7 +104,7 @@ class Report
         return $file;
     }
 
-    public function getPath( $autoCreatePath, $storeId = null )
+    function getPath( $autoCreatePath, $storeId = null )
     {
         $path = $this->_getConfig()->getLogPath( $storeId );
         if ( $path )
@@ -124,7 +124,7 @@ class Report
         return false;
     }
 
-    public function getFilename( $id )
+    function getFilename( $id )
     {
         $ret = false;
         if ( $id )

@@ -4,12 +4,12 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Integration\Message\Configuratio
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get\AbstractGet
 {
 
-    public function getFunction()
+    function getFunction()
     {
         return $this->getMethod() . " integration-service/account-configuration";
     }
 
-    public function getAction()
+    function getAction()
     {
         return sprintf( '/public-api/%s/integration-service/account-configuration', $this->getTransaction()->getAccountCode() );
     }

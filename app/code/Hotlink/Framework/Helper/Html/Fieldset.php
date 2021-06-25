@@ -11,7 +11,7 @@ class Fieldset
     protected $interactionFormElementScalarFactory;
     protected $interactionFormElementIframeFactory;
 
-    public function __construct(
+    function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Hotlink\Framework\Html\Form\Element\CollectionFactory $interactionFormElementCollectionFactory,
         \Hotlink\Framework\Html\Form\Element\ButtonFactory $interactionFormElementButtonFactory,
@@ -28,7 +28,7 @@ class Fieldset
         $this->interactionFormElementIframeFactory = $interactionFormElementIframeFactory;
     }
 
-    public function getFieldsetElementId( $fieldset, $id, $idsuffix )
+    function getFieldsetElementId( $fieldset, $id, $idsuffix )
     {
         if ( $idsuffix )
             {
@@ -37,13 +37,13 @@ class Fieldset
         return $fieldset->getId() . '.' . $id . $idsuffix;
     }
 
-    public function getFieldsetElementName( $fieldset, $name )
+    function getFieldsetElementName( $fieldset, $name )
     {
         return $name;
         return $fieldset->getName() . '[' . $name . ']';
     }
 
-    public function createCollection( $fieldset, $name, $label = '', $value = '', $add = true, $idsuffix = '' )
+    function createCollection( $fieldset, $name, $label = '', $value = '', $add = true, $idsuffix = '' )
     {
         $collection = $this->interactionFormElementCollectionFactory->create();
         if ( $label )
@@ -53,13 +53,13 @@ class Fieldset
         return $this->_initElement( $fieldset, $collection, $add, $name, $label, $value );
     }
 
-    public function createButton( $fieldset, $name, $label, $value = '', $add = true, $idsuffix = '' )
+    function createButton( $fieldset, $name, $label, $value = '', $add = true, $idsuffix = '' )
     {
         $button = $this->interactionFormElementButtonFactory->create();
         return $this->_initElement( $fieldset, $button, $add, $name, $label, $value, $idsuffix = '' );
     }
 
-    public function createFile( $fieldset, $name, $label, $value = '', $add = true, $idsuffix = '' )
+    function createFile( $fieldset, $name, $label, $value = '', $add = true, $idsuffix = '' )
     {
         $file = $this->interactionFormElementFileFactory->create();
         $file->setLabel( $label );
@@ -78,7 +78,7 @@ class Fieldset
         return $element;
     }
 
-    public function createStore( $fieldset, $name, $label, $value = '', $idsuffix = '' )
+    function createStore( $fieldset, $name, $label, $value = '', $idsuffix = '' )
     {
         $fieldset->addType( 'store', "\Hotlink\Framework\Html\Form\Element\Store" );
         $elementId = $this->getFieldsetElementId( $fieldset, $name, $idsuffix );
@@ -91,7 +91,7 @@ class Fieldset
         return $field;
     }
 
-    public function createText( $fieldset, $name, $label, $value = '', $idsuffix = '' )
+    function createText( $fieldset, $name, $label, $value = '', $idsuffix = '' )
     {
         $elementId = $this->getFieldsetElementId( $fieldset, $name, $idsuffix );
         $field = $fieldset->addField( $elementId, 'text',
@@ -103,7 +103,7 @@ class Fieldset
         return $field;
     }
 
-    public function createNote( $fieldset, $name, $label, $value = '', $idsuffix = '' )
+    function createNote( $fieldset, $name, $label, $value = '', $idsuffix = '' )
     {
         $elementId = $this->getFieldsetElementId( $fieldset, $name, $idsuffix );
         $field = $fieldset->addField( $elementId, 'note',
@@ -115,7 +115,7 @@ class Fieldset
         return $field;
     }
 
-    public function createTextArea( $fieldset, $name, $label, $value = '', $idsuffix = '' )
+    function createTextArea( $fieldset, $name, $label, $value = '', $idsuffix = '' )
     {
         $elementId = $this->getFieldsetElementId( $fieldset, $name, $idsuffix );
         $field = $fieldset->addField( $elementId, 'textarea',
@@ -127,7 +127,7 @@ class Fieldset
         return $field;
     }
 
-    public function createHidden( $fieldset, $name, $value = '', $idsuffix = '' )
+    function createHidden( $fieldset, $name, $value = '', $idsuffix = '' )
     {
         $elementId = $this->getFieldsetElementId( $fieldset, $name, $idsuffix );
         $field = $fieldset->addField( $elementId, 'hidden',
@@ -138,7 +138,7 @@ class Fieldset
         return $field;
     }
 
-    public function createSelect( $fieldset, $name, $label, $value = '', $values = array(), $idsuffix = '' )
+    function createSelect( $fieldset, $name, $label, $value = '', $values = array(), $idsuffix = '' )
     {
         $elementId = $this->getFieldsetElementId( $fieldset, $name, $idsuffix );
         $field = $fieldset->addField( $elementId, 'select',
@@ -151,7 +151,7 @@ class Fieldset
         return $field;
     }
 
-    public function createScalar( $fieldset, $name, $label, $value = '', $values = array(), $idsuffix = '' )
+    function createScalar( $fieldset, $name, $label, $value = '', $values = array(), $idsuffix = '' )
     {
         $elementId = $this->getFieldsetElementId( $fieldset, $name, $idsuffix );
         $scalar = $this->interactionFormElementScalarFactory->create();
@@ -166,7 +166,7 @@ class Fieldset
         return $scalar;
     }
 
-    public function createMultiSelect( $fieldset, $name, $label, $value = '', $values = array(), $idsuffix = '' )
+    function createMultiSelect( $fieldset, $name, $label, $value = '', $values = array(), $idsuffix = '' )
     {
         $elementId = $this->getFieldsetElementId( $fieldset, $name, $idsuffix );
         $field = $fieldset->addField( $elementId, 'multiselect',
@@ -179,7 +179,7 @@ class Fieldset
         return $field;
     }
 
-    public function createCheckbox( $fieldset, $name, $label, $value = false, $idsuffix = '' )
+    function createCheckbox( $fieldset, $name, $label, $value = false, $idsuffix = '' )
     {
         $elementId = $this->getFieldsetElementId( $fieldset, $name, $idsuffix );
         $field = $fieldset->addField( $elementId, 'checkbox',
@@ -201,7 +201,7 @@ class Fieldset
      * @param boolean $required is this field required?
      * @param type $image relative URL of the button icon image (null for default one)
      */
-    public function createDate( $fieldset, $name, $label, $value='', $format='yyyy-MM-dd', $required=false, $image=null, $idsuffix = '' )
+    function createDate( $fieldset, $name, $label, $value='', $format='yyyy-MM-dd', $required=false, $image=null, $idsuffix = '' )
     {
         if ( is_null($image) ) {
             $image = $this->storeManager->getBaseUrl( \Magento\Store\Model\Store::URL_TYPE_SKIN ).'/adminhtml/default/default/images/grid-cal.gif';
@@ -218,7 +218,7 @@ class Fieldset
         return $field;
     }
 
-    public function createFrame( $fieldset, $id, $idsuffix = '' )
+    function createFrame( $fieldset, $id, $idsuffix = '' )
     {
         $elementId = $this->getFieldsetElementId( $fieldset, $id, $idsuffix );
         $iframe = $this->interactionFormElementIframeFactory->create();

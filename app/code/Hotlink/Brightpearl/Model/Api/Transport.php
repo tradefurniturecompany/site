@@ -7,7 +7,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport\AbstractTranspo
     protected $curlAdapaterFactory;
     protected $config;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Model\ReportFactory $interactionReportFactory,
         \Hotlink\Framework\Helper\Exception $interactionExceptionHelper,
         \Hotlink\Brightpearl\Helper\Exception $brightpearlExceptionHelper,
@@ -24,7 +24,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport\AbstractTranspo
             $brightpearlExceptionHelper );
     }
 
-    public function _submit(\Hotlink\Framework\Model\Api\Request $request)
+    function _submit(\Hotlink\Framework\Model\Api\Request $request)
     {
         try
             {
@@ -129,7 +129,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport\AbstractTranspo
         return $headers;
     }
 
-    public function setLastFault( $fault )
+    function setLastFault( $fault )
     {
         return $this->_setLastFault( $fault );
     }

@@ -5,7 +5,7 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
 {
     protected $_skus;
 
-    public function getName()
+    function getName()
     {
         return 'Product Instance POST';
     }
@@ -20,13 +20,13 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
         return '\Hotlink\Brightpearl\Model\Api\Service\Workflow\Product\Message\Skus\Post\Response';
     }
 
-    public function setSkus(array $skus)
+    function setSkus(array $skus)
     {
         $this->_skus = $skus;
         return $this;
     }
 
-    public function getSkus()
+    function getSkus()
     {
         return $this->_skus;
     }

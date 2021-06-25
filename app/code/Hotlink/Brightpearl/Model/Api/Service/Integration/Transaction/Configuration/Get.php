@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Integration\Transaction\Configur
 class Get extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\Get\AbstractGet
 {
 
-    public function getName()
+    function getName()
     {
         return 'Account Configuration GET';
     }

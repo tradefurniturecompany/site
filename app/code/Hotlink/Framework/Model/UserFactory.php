@@ -7,7 +7,7 @@ class UserFactory
     protected $scopeHelper;
     protected $factory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Scope $scopeHelper,
         \Hotlink\Framework\Helper\Factory $factory
     )
@@ -16,7 +16,7 @@ class UserFactory
         $this->factory = $factory;
     }
 
-    public function create()
+    function create()
     {
         $sapi = php_sapi_name();
         switch ( $sapi )

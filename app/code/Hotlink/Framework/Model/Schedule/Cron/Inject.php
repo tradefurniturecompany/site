@@ -8,7 +8,7 @@ class Inject extends \Hotlink\Framework\Model\Schedule\Cron\AbstractCron
 
     protected $configMap;
     
-    public function __construct(
+    function __construct(
         \Magento\Framework\App\Console\Request $request,
         \Hotlink\Framework\Model\Schedule\Config $config,
         \Hotlink\Framework\Helper\Report $reportHelper,

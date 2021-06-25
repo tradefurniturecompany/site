@@ -3,27 +3,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Prices\Import\Environment;
 
 class Skus extends \Hotlink\Framework\Model\Interaction\Environment\Parameter\AbstractParameter
 {
-    public function getDefault()
+    function getDefault()
     {
         return null;
     }
 
-    public function getName()
+    function getName()
     {
         return 'SKUs';
     }
 
-    public function getNote()
+    function getNote()
     {
         return 'Separate SKUs with a comma (csv). Leave empty to update all products';
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'skus';
     }
 
-    public function getValue()
+    function getValue()
     {
         return $this->_value;
     }

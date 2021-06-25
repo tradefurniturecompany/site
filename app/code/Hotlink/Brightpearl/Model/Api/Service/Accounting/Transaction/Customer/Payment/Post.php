@@ -6,7 +6,7 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
 
     protected $_refund = null;
 
-    public function getName()
+    function getName()
     {
         return 'Refund Export';
     }
@@ -21,13 +21,13 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
         return 'Hotlink\Brightpearl\Model\Api\Service\Accounting\Message\Customer\Payment\Post\Response';
     }
 
-    public function setRefund( $data )
+    function setRefund( $data )
     {
         $this->_refund = $data;
         return $this;
     }
 
-    public function getRefund()
+    function getRefund()
     {
         return $this->_refund;
     }

@@ -5,7 +5,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 {
     protected $_idFieldName = 'report_id';
 
-    public function _construct()
+    function _construct()
     {
         $this->_init( 'Hotlink\Framework\Model\Report\Log',  'Hotlink\Framework\Model\ResourceModel\Report\Log' );
     }

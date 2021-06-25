@@ -9,7 +9,7 @@ class Implementation extends \Hotlink\Brightpearl\Model\Interaction\Shipment\Imp
         return 'Hotlink Brightpearl Shipping Importer (specific)';
     }
 
-    public function execute()
+    function execute()
     {
         $report = $this->getReport();
         $env    = $this->getEnvironment();

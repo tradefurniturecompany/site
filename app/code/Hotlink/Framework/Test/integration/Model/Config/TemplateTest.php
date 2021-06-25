@@ -8,12 +8,12 @@ namespace Hotlink\Framework\Test\integration\Model\Config;
 class TemplateTest extends \PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    function setUp()
     {
         $this->manager = \Magento\TestFramework\ObjectManager::getInstance();
     }
 
-    public function test_merge()
+    function test_merge()
     {
 
         $templateFields = [ 'arr1' => [ 'id'             => 1,
@@ -96,7 +96,7 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
 
     }
 
-    public function getTestObject()
+    function getTestObject()
     {
         $template = $this->manager->create( \Hotlink\Framework\Model\Config\Structure\Initialise\Template::class );
         return $template;

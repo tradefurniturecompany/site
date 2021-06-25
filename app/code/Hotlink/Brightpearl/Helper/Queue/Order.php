@@ -6,20 +6,20 @@ class Order extends \Hotlink\Brightpearl\Helper\Queue\AbstractQueue
 
     protected $factory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Model\Queue\OrderFactory $factory
     )
     {
         $this->factory = $factory;
     }
 
-    public function getObject( $order )
+    function getObject( $order )
     {
         return $this->_getObject( $order, $this->factory, 'order_id' );
     }
 
 
-    public function update( $object, $inBP, $sendToBP, $sentAt = null, $sentToken = null, $sentOAuth2InstanceId = null )
+    function update( $object, $inBP, $sendToBP, $sentAt = null, $sentToken = null, $sentOAuth2InstanceId = null )
     {
         $object
             ->setInBp( $inBP )

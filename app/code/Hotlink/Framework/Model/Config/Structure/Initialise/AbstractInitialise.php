@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\Config\Structure\Initialise;
 class AbstractInitialise
 {
 
-    public function extract( $data, $path, $missing = false )
+    function extract( $data, $path, $missing = false )
     {
         $parts = explode( '/', $path );
         foreach ( $parts as $part )
@@ -21,7 +21,7 @@ class AbstractInitialise
         return $data;
     }
 
-    public function setReferences( $fields, $sectionName, $groupName )
+    function setReferences( $fields, $sectionName, $groupName )
     {
         foreach ( $fields as $name => $field )
             {
@@ -39,7 +39,7 @@ class AbstractInitialise
         return $fields;
     }
 
-    public function merge( $submissive, $dominant )
+    function merge( $submissive, $dominant )
     {
         $result = array_replace_recursive( $submissive, $dominant );
         return $result;

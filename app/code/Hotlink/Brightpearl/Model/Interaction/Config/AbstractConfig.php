@@ -5,7 +5,7 @@ abstract class AbstractConfig extends \Hotlink\Framework\Model\Interaction\Confi
 {
     protected $generalSharedConfig;
 
-    public function __construct(
+    function __construct(
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Hotlink\Framework\Helper\Convention\Interaction\Config $configConvention,
@@ -27,12 +27,12 @@ abstract class AbstractConfig extends \Hotlink\Framework\Model\Interaction\Confi
             $data );
     }
 
-    public function getApiTimeout($storeId = null)
+    function getApiTimeout($storeId = null)
     {
         return $this->getConfigData('api_timeout', $storeId);
     }
 
-    public function getChannel( $storeId = null )
+    function getChannel( $storeId = null )
     {
         return $this->generalSharedConfig->getChannel($storeId);
     }

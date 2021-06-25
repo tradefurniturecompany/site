@@ -14,7 +14,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
     protected $workflowServiceApi;
     protected $orderQueueCollectionFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -37,7 +37,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         return 'Hotlink Brightpearl: Magento Sales Order Reconciliation';
     }
 
-    public function execute()
+    function execute()
     {
         if ( $this->getEnvironment()->isOAuth2Active() )
             {
@@ -49,7 +49,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
             }
     }
 
-    public function execute_oauth()
+    function execute_oauth()
     {
         $report = $this->getReport();
         $env = $this->getEnvironment();
@@ -208,7 +208,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
 
     }
 
-    public function execute_legacy()
+    function execute_legacy()
     {
         $report = $this->getReport();
         $env = $this->getEnvironment();
@@ -388,7 +388,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         return $statuses;
     }
 
-    public function getQueueItemInfo( \Hotlink\Brightpearl\Model\Queue\Order $item )
+    function getQueueItemInfo( \Hotlink\Brightpearl\Model\Queue\Order $item )
     {
         return array( $item->getIncrementId(), $item->getStoreId() );
     }
@@ -403,7 +403,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         return ($item && $item->getStatus() );
     }
 
-    public function extractItemFields( array $fields, $collection, $indexField = null )
+    function extractItemFields( array $fields, $collection, $indexField = null )
     {
         $result = array();
 

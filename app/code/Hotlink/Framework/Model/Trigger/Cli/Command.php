@@ -15,7 +15,7 @@ class Command extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
     const KEY_COLOURS     = "colours";
     const KEY_LEVEL       = "report_level";
 
-    public static function getEventConfiguration( $interaction, $colours, $level )
+    static function getEventConfiguration( $interaction, $colours, $level )
     {
         return
             [ self::KEY_INTERACTION => $interaction,
@@ -29,22 +29,22 @@ class Command extends \Hotlink\Framework\Model\Trigger\AbstractTrigger
         return 'Command line';
     }
 
-    public function getMagentoEvents()
+    function getMagentoEvents()
     {
         return [ 'Initiated by command line' => self::EVENT ];
     }
 
-    public function getContexts()
+    function getContexts()
     {
         return [ self::CONTEXT => 'Initiated manually from command line' ];
     }
 
-    public function getContext()
+    function getContext()
     {
         return self::CONTEXT;
     }
 
-    public function getContextLabel()
+    function getContextLabel()
     {
         if ( isset( $_SERVER[ 'argv' ] ) && ( is_array( $_SERVER[ 'argv' ] ) ) )
             {

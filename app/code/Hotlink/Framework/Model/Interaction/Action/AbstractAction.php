@@ -14,14 +14,14 @@ abstract class AbstractAction extends \Hotlink\Framework\Model\AbstractModel
     //
     //  Called before an interaction is invoked
     //
-    abstract public function before();
+    abstract function before();
 
     //
     //  Called after an interaction has completed and the result is known
     //
-    abstract public function after();
+    abstract function after();
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -47,7 +47,7 @@ abstract class AbstractAction extends \Hotlink\Framework\Model\AbstractModel
         $this->registry->register( self::REGISTRY_KEY, $actions, true );
     }
 
-    public function getInteraction()
+    function getInteraction()
     {
         return $this->interaction;
     }
@@ -55,12 +55,12 @@ abstract class AbstractAction extends \Hotlink\Framework\Model\AbstractModel
     //
     //  IReport
     //
-    public function setReport( \Hotlink\Framework\Model\Report $report = null )
+    function setReport( \Hotlink\Framework\Model\Report $report = null )
     {
         $this->_report = $report;
     }
 
-    public function getReport( $safe = true )
+    function getReport( $safe = true )
     {
         if ( !$this->_report && $safe )
             {
@@ -71,7 +71,7 @@ abstract class AbstractAction extends \Hotlink\Framework\Model\AbstractModel
         return $this->_report;
     }
 
-    public function getReportSection()
+    function getReportSection()
     {
         return 'action';
     }

@@ -9,7 +9,7 @@ class Environment extends \Hotlink\Brightpearl\Model\Interaction\Environment\Abs
      */
     protected $brightpearlConfigSharedPrice;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -46,27 +46,27 @@ class Environment extends \Hotlink\Brightpearl\Model\Interaction\Environment\Abs
             '\Hotlink\Brightpearl\Model\Interaction\Prices\Import\Environment\Skip\Tier' ];
     }
 
-    public function getProductTypes()
+    function getProductTypes()
     {
         return $this->brightpearlConfigSharedPrice->getProductType( $this->getStoreId() );
     }
 
-    public function getBasePriceList()
+    function getBasePriceList()
     {
         return $this->brightpearlConfigSharedPrice->getBasePriceList( $this->getStoreId() );
     }
 
-    public function getPriceAttributeMapping()
+    function getPriceAttributeMapping()
     {
         return $this->brightpearlConfigSharedPrice->getPriceAttributeMapping( $this->getStoreId() );
     }
 
-    public function getCustomerGroupPriceListMap()
+    function getCustomerGroupPriceListMap()
     {
         return $this->brightpearlConfigSharedPrice->getCustomerGroupPriceListMap( $this->getStoreId() );
     }
 
-    public function getTierPriceListMap( $websiteId = 0 )
+    function getTierPriceListMap( $websiteId = 0 )
     {
         $result = array();
         $tierPriceMapping = $this->brightpearlConfigSharedPrice->getTierPriceListMap( $this->getStoreId() );
@@ -80,17 +80,17 @@ class Environment extends \Hotlink\Brightpearl\Model\Interaction\Environment\Abs
         return $result;
     }
 
-    public function getBatch()
+    function getBatch()
     {
         return $this->getConfig()->getBatch( $this->getStoreId() );
     }
 
-    public function getSleep()
+    function getSleep()
     {
         return $this->getConfig()->getSleep( $this->getStoreId() );
     }
 
-    public function getCheckTaxCompatibility()
+    function getCheckTaxCompatibility()
     {
         return $this->getConfig()->getCheckTaxCompatibility( $this->getStoreId() );
     }

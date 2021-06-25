@@ -6,7 +6,7 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
 
     protected $_credit = null;
 
-    public function getName()
+    function getName()
     {
         return 'Creditmemo Export';
     }
@@ -21,13 +21,13 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
         return 'Hotlink\Brightpearl\Model\Api\Service\Order\Message\Credit\Post\Response';
     }
 
-    public function setCredit( $data )
+    function setCredit( $data )
     {
         $this->_credit = $data;
         return $this;
     }
 
-    public function getCredit()
+    function getCredit()
     {
         return $this->_credit;
     }

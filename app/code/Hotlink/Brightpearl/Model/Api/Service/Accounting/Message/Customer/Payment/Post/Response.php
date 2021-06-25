@@ -4,7 +4,7 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Accounting\Message\Customer\Paym
 class Response extends \Hotlink\Brightpearl\Model\Api\Service\Message\Response\AbstractResponse
 {
 
-    public function getRefundId()
+    function getRefundId()
     {
         return $this->_get( "response" );
     }

@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\Config\Field\Order\Status\Sort;
 class Source
 {
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             [ 'label' => __( 'Entity Id' ),    'value' => 'entity_id'    ],

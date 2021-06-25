@@ -6,7 +6,7 @@ class Type implements \Magento\Framework\Option\ArrayInterface
     const DROP_SHIP = 'drop_ship';
     const GOODS_OUT = 'goods_out';
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             [ 'value' => self::GOODS_OUT, 'label' => __( 'Goods Out' ) ],
@@ -14,7 +14,7 @@ class Type implements \Magento\Framework\Option\ArrayInterface
 
     }
 
-    public function toArray()
+    function toArray()
     {
         return [
             self::DROP_SHIP => __( 'Drop Ship' ),

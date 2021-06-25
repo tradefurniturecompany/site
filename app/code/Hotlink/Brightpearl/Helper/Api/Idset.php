@@ -15,22 +15,22 @@ class Idset
     const ORDERED_LIST_SEPARATOR   = ',';
     const UNORDERED_LIST_SEPARATOR = '.';
 
-    public function single($value)
+    function single($value)
     {
         return $value;
     }
 
-    public function range($left, $right)
+    function range($left, $right)
     {
         return $left . self::RANGE_SEPARATOR . $right;
     }
 
-    public function orderedList(array $values)
+    function orderedList(array $values)
     {
         return implode(self::ORDERED_LIST_SEPARATOR, $values);
     }
 
-    public function unorderedList(array $values)
+    function unorderedList(array $values)
     {
         return implode(self::UNORDERED_LIST_SEPARATOR, $values);
     }

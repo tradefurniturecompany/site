@@ -6,17 +6,17 @@ class PlatformLocator
 
     protected static $classes = [];
 
-    public static function register( $rootfile )
+    static function register( $rootfile )
     {
         self::$classes[] = $rootfile;
     }
 
-    public static function getClasses()
+    static function getClasses()
     {
         return self::$classes;
     }
 
-    public static function getPlatforms()
+    static function getPlatforms()
     {
         $result = [];
         foreach ( self::getClasses() as $class )
@@ -31,7 +31,7 @@ class PlatformLocator
         return $result;
     }
 
-    public static function getPlatform( $code )
+    static function getPlatform( $code )
     {
         foreach ( self::getPlatforms() as $platform )
             {

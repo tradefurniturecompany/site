@@ -9,29 +9,29 @@ abstract class AbstractUser
     protected $_name = false;
     protected $_description = false;
 
-    abstract public function getType();
+    abstract function getType();
 
-    public function getIP()
+    function getIP()
     {
         return ( isset( $_SERVER[ "REMOTE_ADDR" ] ) ) ? $_SERVER[ "REMOTE_ADDR" ] : 'mystery';
     }
 
-    public function getUsername()
+    function getUsername()
     {
         return $this->_username;
     }
 
-    public function getFullname()
+    function getFullname()
     {
         return $this->_fullname;
     }
 
-    public function getName()
+    function getName()
     {
         return $this->_name;
     }
 
-    public function getDescription()
+    function getDescription()
     {
         return $this->_description;
     }

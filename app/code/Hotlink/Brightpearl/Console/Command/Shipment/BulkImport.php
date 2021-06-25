@@ -13,7 +13,7 @@ class BulkImport extends \Hotlink\Framework\Console\Command\AbstractInteractionC
 
     protected $interaction;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\App\State $magentoAppState,
         \Magento\Framework\Event\ManagerInterface $eventManager,
 

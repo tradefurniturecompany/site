@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\Config\Structure\Initialise;
 class Filter extends \Hotlink\Framework\Model\Config\Structure\Initialise\AbstractInitialise
 {
 
-    public function apply( $config )
+    function apply( $config )
     {
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $map = $objectManager->get( \Hotlink\Framework\Model\Config\Map::class );
@@ -32,7 +32,7 @@ class Filter extends \Hotlink\Framework\Model\Config\Structure\Initialise\Abstra
     //
     //  Remove the given config key
     //
-    public function remove( $config, $path )
+    function remove( $config, $path )
     {
         $parts = explode( '/', $path );
         $deletekey = array_pop( $parts );

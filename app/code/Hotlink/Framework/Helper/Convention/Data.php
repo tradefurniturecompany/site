@@ -13,7 +13,7 @@ class Data
     protected $factory;
 
     //
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Convention\Check $conventionCheckHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Factory $factory
@@ -23,7 +23,7 @@ class Data
         $this->factory = $factory;
     }
 
-    public function getModel( \Hotlink\Framework\Model\Api\Data $data, $child )
+    function getModel( \Hotlink\Framework\Model\Api\Data $data, $child )
     {
         if ( strpos( $child, '\\' ) !== false )
             {

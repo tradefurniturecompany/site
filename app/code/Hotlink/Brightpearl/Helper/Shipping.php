@@ -8,12 +8,12 @@ class Shipping
 
     protected $exception;
 
-    public function __construct( \Hotlink\Framework\Helper\Exception $exception )
+    function __construct( \Hotlink\Framework\Helper\Exception $exception )
     {
         $this->exception = $exception;
     }
 
-    public function encode( $carrier, $method )
+    function encode( $carrier, $method )
     {
         if ( !$carrier )
             {
@@ -33,7 +33,7 @@ class Shipping
         return $result;
     }
 
-    public function decode( $carrierMethod )
+    function decode( $carrierMethod )
     {
         if ( !$carrierMethod )
             {
@@ -55,12 +55,12 @@ class Shipping
         return [ $carrier, $method ];
     }
 
-    public function decodeCarrier( $carrierMethod )
+    function decodeCarrier( $carrierMethod )
     {
         return $this->decode( $carrierMethod )[ 0 ];
     }
 
-    public function decodeMethod( $carrierMethod )
+    function decodeMethod( $carrierMethod )
     {
         return $this->decode( $carrierMethod )[ 1 ];
     }
@@ -68,7 +68,7 @@ class Shipping
     //
     //  Covnert our encoding to a Magento encoding
     //
-    public function toMagento( $encoded )
+    function toMagento( $encoded )
     {
         $result = str_replace( self::SEP, "_", $encoded );
         return $result;

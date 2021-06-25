@@ -6,13 +6,13 @@ class Collection extends \Magento\Framework\Data\Form\Element\AbstractElement
 
     protected $items = array();
 
-    public function addItem( $item )
+    function addItem( $item )
     {
         $this->items[] = $item;
         return $this;
     }
 
-    public function getElementHtml()
+    function getElementHtml()
     {
         $html = '';
         foreach ( $this->items as $item )

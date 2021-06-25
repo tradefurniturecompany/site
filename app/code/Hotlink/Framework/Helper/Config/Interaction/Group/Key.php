@@ -5,20 +5,20 @@ class Key
 {
     protected $reflectionHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Reflection $reflectionHelper
     )
     {
         $this->reflectionHelper = $reflectionHelper;
     }
 
-    public function encode( $thing )
+    function encode( $thing )
     {
         $class = $this->reflectionHelper->getClass( $thing, null, false );
         return str_replace( '\\', '_', $class );
     }
 
-    public function decode( $string )
+    function decode( $string )
     {
         $psr4 = str_replace( '_', '\\', $string );
         $class = $this->reflectionHelper->getClass( $psr4 );

@@ -4,7 +4,7 @@ namespace Hotlink\Framework;
 class Filesystem
 {
 
-    public static function getRelativePath( $from, $down = [], $up = 0 )
+    static function getRelativePath( $from, $down = [], $up = 0 )
     {
         $parts = explode( DIRECTORY_SEPARATOR, $from );
         if ( count( $parts ) > 0 )
@@ -30,7 +30,7 @@ class Filesystem
         return $path;
     }
 
-    public static function isFilename( $thing )
+    static function isFilename( $thing )
     {
         return substr( $thing, -4, 1 ) == '.';
     }

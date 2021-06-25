@@ -8,7 +8,7 @@ class Platform extends \Hotlink\Framework\Model\Platform\AbstractPlatform
     const APP_REF_M2 = 'bpmagento2';
     const DEV_REF = 'brightpearl';
 
-    public function getCode()
+    function getCode()
     {
         return 'brightpearl';
     }
@@ -18,22 +18,22 @@ class Platform extends \Hotlink\Framework\Model\Platform\AbstractPlatform
         return "Brightpearl";
     }
 
-    public function getModulePath()
+    function getModulePath()
     {
         return \Hotlink\Framework\Filesystem::getRelativePath( __FILE__, [], 1 );
     }
 
-    public function getSection()
+    function getSection()
     {
         return 'hotlink_brightpearl';
     }
 
-    public function getGroup()
+    function getGroup()
     {
         return 'authorisation';
     }
 
-    public function getField()
+    function getField()
     {
         return 'accountCode';
     }

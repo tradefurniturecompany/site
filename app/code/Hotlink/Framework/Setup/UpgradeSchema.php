@@ -8,7 +8,7 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 class UpgradeSchema implements UpgradeSchemaInterface
 {
 
-    public function upgrade( SchemaSetupInterface $setup, ModuleContextInterface $context )
+    function upgrade( SchemaSetupInterface $setup, ModuleContextInterface $context )
     {
         $setup->startSetup();
 
@@ -42,10 +42,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
       vi lib/internal/Magento/Framework/DB/Adapter/Pdo/Mysql.php
 
-      public function addColumn($tableName, $columnName, $definition, $schemaName = null)
-      public function changeColumn($tableName, $oldColumnName, $newColumnName, $definition, $flushData = false, $schemaName = null)
-      public function modifyColumn($tableName, $columnName, $definition, $flushData = false, $schemaName = null)
-      public function dropColumn($tableName, $columnName, $schemaName = null)
+      function addColumn($tableName, $columnName, $definition, $schemaName = null)
+      function changeColumn($tableName, $oldColumnName, $newColumnName, $definition, $flushData = false, $schemaName = null)
+      function modifyColumn($tableName, $columnName, $definition, $flushData = false, $schemaName = null)
+      function dropColumn($tableName, $columnName, $schemaName = null)
 
     */
 

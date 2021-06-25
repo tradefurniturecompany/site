@@ -6,7 +6,7 @@ class Plugin
 
     protected $eventManager;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Event\ManagerInterface $eventManager,
         \Magento\Sales\Api\CreditmemoRepositoryInterface $creditmemoRepository,
         \Magento\Framework\App\AreaList $areaList,
@@ -19,7 +19,7 @@ class Plugin
         $this->request = $requestHttp;
     }
 
-    public function afterRefund( $subject, $result )
+    function afterRefund( $subject, $result )
     {
         if ( $result instanceof \Magento\Sales\Model\Order\Creditmemo )
             {

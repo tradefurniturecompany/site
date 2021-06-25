@@ -3,12 +3,12 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Integration\Message\Webhook\Get;
 
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Get\AbstractGet
 {
-    public function getFunction()
+    function getFunction()
     {
         return $this->getMethod() . " integration-service/webhook";
     }
 
-    public function getAction()
+    function getAction()
     {
         return sprintf( '/public-api/%s/integration-service/webhook/%s',
                        $this->getTransaction()->getAccountCode(),

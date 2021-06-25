@@ -5,7 +5,7 @@ class Scalar extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
 {
     protected $factoryHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $fieldsetHelper,
         \Hotlink\Framework\Helper\Html $htmlHelper,
@@ -17,7 +17,7 @@ class Scalar extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
         $this->factoryHelper = $factoryHelper;
     }
 
-    public function getHtmlKey()
+    function getHtmlKey()
     {
         return 'scalar';
     }
@@ -34,7 +34,7 @@ class Scalar extends \Hotlink\Framework\Helper\Html\Form\AbstractForm
         $scalar->setNote( $parameter->getNote() );
     }
 
-    public function getObject( $form, $environment )
+    function getObject( $form, $environment )
     {
         $scalar = $this->factoryHelper->create( $this->_getClass( $form ) );
         if ( $data = $this->_getData( $form ) )

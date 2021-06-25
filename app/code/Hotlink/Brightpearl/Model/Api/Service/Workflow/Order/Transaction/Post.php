@@ -6,7 +6,7 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
 
     protected $_order = null;
 
-    public function getName()
+    function getName()
     {
         return 'Order Export';
     }
@@ -21,13 +21,13 @@ class Post extends \Hotlink\Brightpearl\Model\Api\Service\Transaction\AbstractTr
         return '\Hotlink\Brightpearl\Model\Api\Service\Workflow\Order\Message\Post\Response';
     }
 
-    public function setOrder( $order )
+    function setOrder( $order )
     {
         $this->_order = $order;
         return $this;
     }
 
-    public function getOrder()
+    function getOrder()
     {
         return $this->_order;
     }

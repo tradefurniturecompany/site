@@ -20,7 +20,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
     protected $clockHelper;
     protected $sourcePriceLists;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Reflection $reflectionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
@@ -111,7 +111,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
       The module enforces option 2.
 
     */
-    public function execute()
+    function execute()
     {
         $environment = $this->getEnvironment();
         $report = $this->getReport();
@@ -141,7 +141,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
             }
     }
 
-    public function process( $websiteId, $skipAttributes, $skipTier, $skuFilter )
+    function process( $websiteId, $skipAttributes, $skipTier, $skuFilter )
     {
         $report = $this->getReport();
         $idle = 0;
@@ -765,7 +765,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         $product->setTierPrice( null );
     }
 
-    public function mergeTierPricing( $oldTierPrices, $newTierPrices )
+    function mergeTierPricing( $oldTierPrices, $newTierPrices )
     {
         $inserts = [];
         $deletes = [];
@@ -807,7 +807,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
                  'updates' => $updates ];
     }
 
-    public function getIndexedTierPrices( $tierPrices )
+    function getIndexedTierPrices( $tierPrices )
     {
         $result = [];
         foreach ( $tierPrices as $tierPrice )
@@ -822,7 +822,7 @@ class Implementation extends \Hotlink\Framework\Model\Interaction\Implementation
         return $result;
     }
 
-    public function getTierPriceKey( $tierPrice )
+    function getTierPriceKey( $tierPrice )
     {
         $result = [];
         $result[] = array_key_exists( 'website_id', $tierPrice ) ? $tierPrice[ 'website_id' ] : '?';

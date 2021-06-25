@@ -6,7 +6,7 @@ class Reader extends \Hotlink\Framework\Html\Form\Environment\Parameter\Stream\A
 
     protected $factoryHelper;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Framework\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Html\Fieldset $fieldsetHelper,
         \Hotlink\Framework\Helper\Html $htmlHelper,
@@ -18,7 +18,7 @@ class Reader extends \Hotlink\Framework\Html\Form\Environment\Parameter\Stream\A
         $this->factoryHelper = $factoryHelper;
     }
 
-    public function getHtmlKey()
+    function getHtmlKey()
     {
         return 'parameter_stream_reader';
     }
@@ -28,7 +28,7 @@ class Reader extends \Hotlink\Framework\Html\Form\Environment\Parameter\Stream\A
         $this->_initObjectHeader( $parameter, $fieldset );
     }
 
-    public function getObject( $form, $environment )
+    function getObject( $form, $environment )
     {
         return $this->factoryHelper->create( $this->_getClass( $form ) );
     }

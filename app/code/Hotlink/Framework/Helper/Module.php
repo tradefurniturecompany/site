@@ -7,7 +7,7 @@ class Module
     protected $moduleList;
     protected $reflectionHelper;
 
-    public function __construct( \Magento\Framework\Module\ModuleListInterface $moduleList,
+    function __construct( \Magento\Framework\Module\ModuleListInterface $moduleList,
                                  \Hotlink\Framework\Helper\Reflection $reflectionHelper
     )
     {
@@ -15,12 +15,12 @@ class Module
         $this->reflectionHelper = $reflectionHelper;
     }
 
-    public function getName( $object )
+    function getName( $object )
     {
         return $this->reflectionHelper->getModule( $object );
     }
 
-    public function getVersion( $moduleName )
+    function getVersion( $moduleName )
     {
         $module = $this->moduleList->getOne( $moduleName );
         if ( $module )
@@ -30,12 +30,12 @@ class Module
         return false;
     }
 
-    public function getDBVersion( $moduleName )
+    function getDBVersion( $moduleName )
     {
         return \Magento\Framework\Module\ResourceInterface::getDbVersion( $moduleName );
     }
 
-    public function isEnabled( $moduleName )
+    function isEnabled( $moduleName )
     {
         return $this->moduleList->has( $moduleName );
     }

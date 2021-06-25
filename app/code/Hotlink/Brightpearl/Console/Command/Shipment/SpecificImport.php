@@ -13,7 +13,7 @@ class SpecificImport extends \Hotlink\Framework\Console\Command\AbstractInteract
 
     protected $interaction;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\App\State $magentoAppState,
         \Magento\Framework\Event\ManagerInterface $eventManager,
 

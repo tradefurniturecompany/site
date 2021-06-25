@@ -9,7 +9,7 @@ class Plugin
     protected $areaList;
     protected $request;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Event\ManagerInterface $eventManager,
         \Magento\Sales\Api\CreditmemoRepositoryInterface $creditmemoRepository,
         \Magento\Framework\App\AreaList $areaList,
@@ -22,7 +22,7 @@ class Plugin
         $this->request = $requestHttp;
     }
 
-    public function afterExecute( $subject, $result )
+    function afterExecute( $subject, $result )
     {
         if ( is_numeric( $result ) )
             {

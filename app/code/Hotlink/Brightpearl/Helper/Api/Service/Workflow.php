@@ -16,7 +16,7 @@ class Workflow extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
     protected $orderStatusTransactionGetFactory;
     protected $platformDataFactory;
 
-    public function __construct(
+    function __construct(
         \Hotlink\Brightpearl\Helper\Exception $exceptionHelper,
         \Hotlink\Framework\Helper\Report $reportHelper,
         \Hotlink\Brightpearl\Model\Config\Api $brightpearlConfigApi,
@@ -60,12 +60,12 @@ class Workflow extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
 
     }
 
-    public function getName()
+    function getName()
     {
         return 'Workflow Integration API';
     }
 
-    public function getProductAvailability($storeId, $accountCode, array $skus, array $warehouses, $timeout = 5000)
+    function getProductAvailability($storeId, $accountCode, array $skus, array $warehouses, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -142,7 +142,7 @@ class Workflow extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $this->dataBrightpearlStockListFactory->create()->map( $availability );
     }
 
-    public function exportOrder($storeId, $accountCode, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Order\Export $order, $timeout = 5000)
+    function exportOrder($storeId, $accountCode, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Order\Export $order, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -159,7 +159,7 @@ class Workflow extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $response;
     }
 
-    public function exportOrderPayment( $storeId, $accountCode, $orderIncrementId, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Order\Payments $payment, $timeout = 5000 )
+    function exportOrderPayment( $storeId, $accountCode, $orderIncrementId, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Order\Payments $payment, $timeout = 5000 )
     {
         $report = $this->getReport();
         $this
@@ -179,7 +179,7 @@ class Workflow extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $response;
     }
 
-    public function exportOrderStatus( $storeId, $accountCode, $orderIncrementId, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Order\Status\Export $orderStatus, $timeout = 5000)
+    function exportOrderStatus( $storeId, $accountCode, $orderIncrementId, \Hotlink\Brightpearl\Model\Platform\Data\Brightpearl\Order\Status\Export $orderStatus, $timeout = 5000)
     {
         $report = $this->getReport();
         $this
@@ -199,7 +199,7 @@ class Workflow extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $response;
     }
 
-    public function postInstanceProducts($storeId, $accountCode, array $skus, $timeout = 5000)
+    function postInstanceProducts($storeId, $accountCode, array $skus, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -214,7 +214,7 @@ class Workflow extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         $this->submit( $transaction, $this->_getTransport($storeId, $timeout));
     }
 
-    public function getProductPricing($storeId, $accountCode, array $pricelists, array $skus = array(), $timeout = 5000)
+    function getProductPricing($storeId, $accountCode, array $pricelists, array $skus = array(), $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)
@@ -286,7 +286,7 @@ class Workflow extends \Hotlink\Brightpearl\Helper\Api\Service\AbstractService
         return $pricelists;
     }
 
-    public function getOrderStatus( $storeId, $accountCode, $orderIncrementId, $timeout = 5000)
+    function getOrderStatus( $storeId, $accountCode, $orderIncrementId, $timeout = 5000)
     {
         $this
             ->_assertNotEmpty('storeId', $storeId)

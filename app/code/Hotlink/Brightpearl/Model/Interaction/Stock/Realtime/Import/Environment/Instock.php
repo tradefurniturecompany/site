@@ -4,27 +4,27 @@ namespace Hotlink\Brightpearl\Model\Interaction\Stock\Realtime\Import\Environmen
 class Instock extends \Hotlink\Brightpearl\Model\Interaction\Stock\Realtime\Import\Environment\YesNo\AbstractYesNo
 {
 
-    public function getDefault()
+    function getDefault()
     {
         return 1;
     }
 
-    public function getKey()
+    function getKey()
     {
         return 'put_back_instock';
     }
 
-    public function getName()
+    function getName()
     {
         return 'Back in stock';
     }
 
-    public function getNote()
+    function getNote()
     {
         return "Select Yes to set product back in stock when availability greater than out of stock threshold. Select No to leave product out of stock. Qty is updated in both cases.";
     }
 
-    public function getValue()
+    function getValue()
     {
         if ( !$this->_valueInitialised )
             {

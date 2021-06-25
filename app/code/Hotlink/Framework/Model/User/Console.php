@@ -4,7 +4,7 @@ namespace Hotlink\Framework\Model\User;
 class Console extends \Hotlink\Framework\Model\User\AbstractUser
 {
 
-    public function __construct()
+    function __construct()
     {
         list( $uid, $gid ) = $this->getLinuxUserGroupIds();
         $user  = $this->getLinuxUser( $uid );
@@ -18,12 +18,12 @@ class Console extends \Hotlink\Framework\Model\User\AbstractUser
         $this->_name        = "$user:$group";
     }
 
-    public function getType()
+    function getType()
     {
         return "cli";
     }
 
-    public function getIP()
+    function getIP()
     {
         return gethostname();
     }

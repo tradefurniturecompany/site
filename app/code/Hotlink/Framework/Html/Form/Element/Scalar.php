@@ -7,7 +7,7 @@ class Scalar extends \Magento\Framework\Data\Form\Element\AbstractElement
     protected $selectFactory;
     protected $textFactory;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\Data\Form\Element\Factory $factoryElement,
         \Magento\Framework\Data\Form\Element\CollectionFactory $factoryCollection,
         \Magento\Framework\Escaper $escaper,
@@ -26,7 +26,7 @@ class Scalar extends \Magento\Framework\Data\Form\Element\AbstractElement
             $data );
     }
 
-    public function getElementHtml()
+    function getElementHtml()
     {
         $value = $this->getValue();
         $parts = explode( ' ', $value );
@@ -46,7 +46,7 @@ class Scalar extends \Magento\Framework\Data\Form\Element\AbstractElement
         return $html;
     }
 
-    public function getSelectElement( $value = '', $values = array() )
+    function getSelectElement( $value = '', $values = array() )
     {
         $name = $this->getName() . '[units]';
         $id = $this->getId() . '_units';
@@ -62,7 +62,7 @@ class Scalar extends \Magento\Framework\Data\Form\Element\AbstractElement
         return $select;
     }
 
-    public function getTextElement( $value = '' )
+    function getTextElement( $value = '' )
     {
         $name = $this->getName() . '[value]';
         $id = $this->getId();

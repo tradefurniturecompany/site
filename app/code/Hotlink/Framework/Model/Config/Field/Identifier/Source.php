@@ -7,7 +7,7 @@ class Source
     const ID_INCREMENT = 'increment_id';
     const ID_ENTITY    = 'entity_id';
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return array(
                      array('value' => self::ID_INCREMENT,
@@ -17,7 +17,7 @@ class Source
                      );
     }
 
-    public function getOptions()
+    function getOptions()
     {
         return array(
                      'Increment ID'  => self::ID_INCREMENT,

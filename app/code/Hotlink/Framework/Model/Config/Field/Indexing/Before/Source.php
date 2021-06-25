@@ -8,7 +8,7 @@ class Source
     const MANUAL = 1;
     const REALTIME = 2;
 
-    public function toOptionArray()
+    function toOptionArray()
     {
         return [
             [ 'label' => __( 'Use system settings' ), 'value' => self::SYSTEM ],

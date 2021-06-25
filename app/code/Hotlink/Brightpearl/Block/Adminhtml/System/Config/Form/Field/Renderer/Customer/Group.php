@@ -9,7 +9,7 @@ class Group extends \Magento\Framework\View\Element\Html\Select
      */
     protected $customerSourceGroup;
 
-    public function __construct(
+    function __construct(
         \Magento\Framework\View\Element\Context $context,
         \Magento\Customer\Model\Customer\Source\Group $customerSourceGroup,
         array $data = []
@@ -21,12 +21,12 @@ class Group extends \Magento\Framework\View\Element\Html\Select
         );
     }
 
-    public function setInputName( $value )
+    function setInputName( $value )
     {
         return $this->setName( $value );
     }
 
-    public function clean( $item )
+    function clean( $item )
     {
         if ( is_array( $item ) )
             {
@@ -40,7 +40,7 @@ class Group extends \Magento\Framework\View\Element\Html\Select
         return $this->escapeJsQuote( $item );
     }
 
-    public function _toHtml()
+    function _toHtml()
     {
         if ( !$this->getOptions() )
             {

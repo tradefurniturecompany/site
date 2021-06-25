@@ -4,23 +4,23 @@ namespace Hotlink\Brightpearl\Model\Api\Service\Workflow\Product\Message\Skus\Po
 class Request extends \Hotlink\Brightpearl\Model\Api\Service\Message\Request\Post\AbstractPost
 {
 
-    public function getFunction()
+    function getFunction()
     {
         return $this->getMethod(). " workflow-integration-service/instance-products";
     }
 
-    public function getAction()
+    function getAction()
     {
         // TODO: replace hardcoded api version
         return sprintf('/2.0.0/%s/workflow-integration-service/instance-products', $this->getTransaction()->getAccountCode());
     }
 
-    public function validate()
+    function validate()
     {
         return $this->_assertNotEmpty($this->getTransaction()->getSkus(), 'skus');
     }
 
-    public function getBody()
+    function getBody()
     {
         return $this->jsonHelper()->jsonEncode( $this->getTransaction()->getSkus() );
     }
