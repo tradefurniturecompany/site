@@ -75,8 +75,17 @@ class Report
 		return $this->reportLogWriterFactory->create();
 	}
 
-	function getFilePath( $id, $autoCreatePath = true, $storeId = null )
-	{
+	/**
+	 * @used-by \Hotlink\Framework\Helper\Report::delete()
+	 * @used-by \Hotlink\Framework\Helper\Report::getFilePathItem()
+	 * @used-by \Hotlink\Framework\Model\Report\Item\Writer::_open()
+	 * @used-by \Hotlink\Framework\Model\Report\Reader::_openItemFile()
+	 * @param $id
+	 * @param bool $autoCreatePath
+	 * @param null $storeId
+	 * @return bool|string|string[]
+	 */
+	function getFilePath($id, $autoCreatePath = true, $storeId = null) {
 		$file = false;
 		if ( $path = $this->getPath( $autoCreatePath, $storeId ) )
 			{
@@ -94,8 +103,16 @@ class Report
 		return $file;
 	}
 
-	function getFilePathItem( $reportId, $itemId, $autoCreatePath = true, $storeId = null )
-	{
+	/**
+	 * @used-by \Hotlink\Framework\Model\Report\Data\Writer::_write()
+	 * @used-by \Hotlink\Framework\Model\Report\Reader::_readItemData()
+	 * @param $reportId
+	 * @param $itemId
+	 * @param bool $autoCreatePath
+	 * @param null $storeId
+	 * @return bool|string|string[]
+	 */
+	function getFilePathItem($reportId, $itemId, $autoCreatePath = true, $storeId = null) {
 		$file = $this->getFilePath( $reportId, $autoCreatePath, $storeId );
 		if ( $file )
 			{
