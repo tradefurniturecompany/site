@@ -1,8 +1,7 @@
 <?php
 namespace Hotlink\Framework\Model;
-
-class Report
-{
+use Hotlink\Framework\Model\Report\Log;
+class Report {
 	/*
 
 	  This class is divided into sections
@@ -263,15 +262,14 @@ class Report
 		return $this;
 	}
 
-	function getId()
-	{
-		if ( ! $this->_reportId )
-			{
-				if ( $writer = $this->getWriter( 'log' ) )
-					{
-						$this->_reportId = $writer->getLog()->getId();
-					}
-			}
+	function getId() {
+		# 2020-02-16 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		# «Call to a member function setInteraction() on boolean
+		# at app/code/Hotlink/Framework/Model/Schedule/Cron/AbstractCron.php:87»:
+		# https://github.com/tradefurniturecompany/site/issues/44
+		if (!$this->_reportId && ($w = $this->getWriter('log')) && ($l = $w->getLog())) {
+			$this->_reportId = $l->getId();
+		}
 		return $this->_reportId;
 	}
 
