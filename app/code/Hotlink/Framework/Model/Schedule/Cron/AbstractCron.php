@@ -42,7 +42,12 @@ abstract class AbstractCron extends \Hotlink\Framework\Model\Schedule\AbstractSc
 		return ( is_null( $group ) || ( $group == 'default' ) );
 	}
 
-	function execute( $thing )
+	/**
+	 * @used-by \Hotlink\Framework\Model\Schedule\Cron\Config\Plugin::afterGetJobs()
+	 * @param $thing
+	 * @return mixed
+	 */
+	final function execute( $thing )
 	{
 		if ( ! $this->isRelevantRequest() )
 			{
