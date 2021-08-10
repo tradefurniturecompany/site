@@ -75,10 +75,8 @@
     "version": "2.3.2",
     "minimum-stability": "stable",
     "repositories": [
-        {
-            "type": "composer",
-            "url": "https://repo.magento.com/"
-        }
+		{"type": "composer", "url": "https://composer.amasty.com/community/"}
+        ,{"type": "composer", "url": "https://repo.magento.com/"}
     ],
     "extra": {
         "magento-force": "override"
