@@ -11,6 +11,7 @@
         "sort-packages": true
     },
     "require": {
+        "amasty/base": "1.12.9",
         "elgentos/regenerate-catalog-urls": "*",
         "fishpig/magento2-wordpress-integration": "*",
         "fishpig/magento2-wordpress-integration-yoastseo": "*",
