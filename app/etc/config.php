@@ -206,6 +206,8 @@ return [
         'Amasty_Base' => 1,
         'Amasty_Conditions' => 1,
         'Amasty_CommonRules' => 1,
+        'Amasty_CronScheduleList' => 1,
+        'Amasty_Feed' => 1,
         'Amasty_MegaMenu' => 1,
         'Amasty_Payrestriction' => 1,
         'Amasty_ShippingTableRates' => 1,
