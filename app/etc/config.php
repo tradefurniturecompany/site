@@ -300,7 +300,6 @@ return [
         'Mageplaza_Core' => 1,
         'Mageplaza_DeliveryTime' => 1,
         'Mageplaza_Osc' => 1,
-        'Mageplaza_Seo' => 1,
         'OlegKoval_RegenerateUrlRewrites' => 1,
         'Rcreek_AlsoAvailable' => 1,
         'Rcreek_BlockOverrides' => 1,
