@@ -25,6 +25,7 @@ require([
       margin: '<?= $block->anchorMargin ?>',
       width: '<?= $block->anchorWidth ?>',
       financeFilter: '<?= $block->getFinanceFilter() ?>',
+      hideIfNotInRange: <?= $block->hideIfNotInRange ? 'true' : 'false' ?>,
       page: 'cart'
   });
 });

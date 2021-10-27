@@ -31,4 +31,18 @@ class CheckoutData extends AbstractHelper {
       );
     }
 
+    public function disablePaymentMethodIfNoFilter($scope = 'store'){
+      return $this->scopeConfig->getValue(
+          'retailfinance/checkout_settings/disable_if_no_filter',
+          $scope
+      );
+    }
+
+    public function checkoutOnPayment($scope = 'store'){
+      return $this->scopeConfig->getValue(
+          'retailfinance/checkout_settings/checkout_on_payment',
+          $scope
+      );
+    }
+
   }

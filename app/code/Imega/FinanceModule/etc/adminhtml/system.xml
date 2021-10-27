@@ -21,6 +21,14 @@
                 <field id="enc_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Encryption Key*</label>
                 </field>
+                <field id="enable_order_email_status" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Custom Order Confirmation Email Trigger</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_email_status" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Trigger Confirmation Emails On Custom Status</label>
+                  <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
             </group>
             <group id="productpage" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Product Page Settings</label>
@@ -52,12 +60,16 @@
                     <label>Anchor Width</label>
                     <comment>Should be a valid CSS width value</comment>
                 </field>
+                <field id="hide_if_not_in_range" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide If Not In Range</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
                 <field id="show_inline" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Show Inline</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="inline_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Inline Selector</label>                    
+                    <label>Inline Selector</label>
                 </field>
             </group>
             <group id="cartpage" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -90,12 +102,19 @@
                     <label>Anchor Width</label>
                     <comment>Should be a valid CSS width value</comment>
                 </field>
+                <field id="hide_if_not_in_range" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide If Not In Range</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
             </group>
             <group id="categorypage" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Category Page Settings</label>
                 <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable Monthly Amount Display</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="holder_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Holder Selector</label>
                 </field>
                 <field id="outer_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Outer Selector*</label>
@@ -119,12 +138,28 @@
                 <field id="custom_css" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Custom CSS</label>
                 </field>
+                <field id="custom_term" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Term</label>
+                </field>
+                <field id="custom_apr" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom APR</label>
+                </field>
+                <field id="custom_deposit" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Deposit</label>
+                </field>
             </group>
             <group id="checkout_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Checkout Settings</label>
+                <field id="checkout_on_payment" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Enable checkout widget on payment method</label>
+                  <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
                 <field id="position_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Positioning Selector*</label>
                     <comment>jQuery selector used to position the checkout form</comment>
+                    <depends>
+                        <field id="checkout_on_payment">0</field>
+                    </depends>
                 </field>
                 <field id="logo_css" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Logo CSS</label>
@@ -133,6 +168,41 @@
                 <field id="payment_method" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Payment Method Used*</label>
                     <comment>The payment method used for finance (Enter Magento payment method code)</comment>
+                    <depends>
+                        <field id="checkout_on_payment">0</field>
+                    </depends>
+                </field>
+                <field id="price_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Price Text Selector</label>
+                    <comment>jQuery selector to watch for dynamic price text</comment>
+                    <depends>
+                        <field id="checkout_on_payment">1</field>
+                    </depends>
+                </field>
+                <field id="inner_price_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Inner Price Text Selector</label>
+                    <comment>jQuery selector for element containing price text, only set if element not selected by "Price Text Selector"</comment>
+                    <depends>
+                        <field id="checkout_on_payment">1</field>
+                    </depends>
+                </field>
+                <field id="payment_position_selector" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Positioning Selector*</label>
+                    <comment>jQuery selector used to position the widget</comment>
+                    <depends>
+                        <field id="checkout_on_payment">1</field>
+                    </depends>
+                </field>
+                <field id="position" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position*</label>
+                    <source_model>Imega\FinanceModule\Model\Config\Source\PositionList</source_model>
+                    <depends>
+                        <field id="checkout_on_payment">1</field>
+                    </depends>
+                </field>
+                <field id="disable_if_no_filter" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                  <label>Disable Payment Method If Basket Has No Finance Filter</label>
+                  <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
         </section>

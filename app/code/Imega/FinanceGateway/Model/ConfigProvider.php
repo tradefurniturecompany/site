@@ -7,42 +7,39 @@ namespace Imega\FinanceGateway\Model;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Framework\Escaper;
 use Magento\Payment\Helper\Data as PaymentHelper;
+use Imega\FinanceModule\Helper\Data as FinanceHelper;
 
 class ConfigProvider implements ConfigProviderInterface
 {
     const METHOD_CODE = 'financegateway';
 
-    /**
-     * @var \Magento\Payment\Model\Method\AbstractMethod
-     */
     protected $methodInstance;
 
-    /**
-     * @var Escaper
-     */
     protected $escaper;
 
-    /**
-     * @param PaymentHelper $paymentHelper
-     * @param Escaper $escaper
-     */
+    protected $financeHelper;
+
     public function __construct(
         PaymentHelper $paymentHelper,
-        Escaper $escaper
+        Escaper $escaper,
+        FinanceHelper $financeHelper
     ) {
         $this->escaper = $escaper;
         $this->methodInstance = $paymentHelper->getMethodInstance(self::METHOD_CODE);
-
+        $this->financeHelper = $financeHelper;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function getConfig()
     {
         $config = [];
-        $config['payment']['instructions'][self::METHOD_CODE] = $this->getInstructions();
-
+        $config['payment']['immFinanceGateway']['instructions'] = $this->getInstructions();
+        $config['payment']['immFinanceGateway']['key'] = $this->financeHelper->getApiKey();
+        $config['payment']['immFinanceGateway']['checkoutOnPayment'] = intval($this->financeHelper->checkoutOnPayment());
+        $config['payment']['immFinanceGateway']['priceElement'] = $this->financeHelper->getPriceSelector();
+        $config['payment']['immFinanceGateway']['priceElementInner'] = $this->financeHelper->getInnerPriceSelector();
+        $config['payment']['immFinanceGateway']['element'] = $this->financeHelper->getPositionSelector();
+        $config['payment']['immFinanceGateway']['insertion'] = $this->financeHelper->getPosition();
         return $config;
     }
 
@@ -53,6 +50,6 @@ class ConfigProvider implements ConfigProviderInterface
      */
     protected function getInstructions()
     {
-        return nl2br($this->methodInstance->getConfigData('instructions'));        
+        return nl2br($this->methodInstance->getConfigData('instructions'));
     }
 }

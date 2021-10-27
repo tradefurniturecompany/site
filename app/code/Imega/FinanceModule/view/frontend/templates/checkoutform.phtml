@@ -20,13 +20,14 @@ $customerData = $order->getBillingAddress();
 $firstName = $customerData->getData("firstname");
 $lastName = $customerData->getData("lastname");
 $address = $customerData->getData("street");
-$street = preg_replace( "/\r|\n/", "", $address);
+$street = preg_replace( "/\r|\n/", ", ", $address);
 $houseNum = substr($street, 0, strpos($street, ' '));
 $city = $customerData->getData("city");
 $region = $customerData->getData("region");
 $postcode = $customerData->getData("postcode");
 $email = $customerData->getData("email");
 $telephone = $customerData->getData("telephone");
+$checkoutOnPayment = $this->helper('Imega\FinanceModule\Helper\CheckoutData')->checkoutOnPayment();
 
 $items = $order->getAllVisibleItems();
 
@@ -38,7 +39,7 @@ foreach($items as $item){
   if (in_array($item->getProductType(), ['bundle'])){
     foreach($item->getChildrenItems() as $childItem){
       $orderDesc.= htmlspecialchars($childItem->getName(), ENT_QUOTES).'|||';
-      $productsArr[$i]['productId'] = $childItem->getSku();
+      $productsArr[$i]['productId'] = htmlspecialchars($childItem->getSku(), ENT_QUOTES);
       $productsArr[$i]['description'] = htmlspecialchars($childItem->getName(), ENT_QUOTES);
       $productsArr[$i]['price'] = $childItem->getPrice();
       $productsArr[$i]['quantity'] = $childItem->getQtyToInvoice();
@@ -47,7 +48,7 @@ foreach($items as $item){
     }
   } else {
     $orderDesc.= htmlspecialchars($item->getName(), ENT_QUOTES).'|||';
-    $productsArr[$i]['productId'] = $item->getSku();
+    $productsArr[$i]['productId'] = htmlspecialchars($item->getSku(), ENT_QUOTES);
     $productsArr[$i]['description'] = htmlspecialchars($item->getName(), ENT_QUOTES);
     $productsArr[$i]['price'] = $item->getPrice();
     $productsArr[$i]['quantity'] = $item->getQtyToInvoice();
@@ -68,7 +69,7 @@ $veriString = $total.$orderId;
 $vKey = hash_hmac('sha256',$veriString, $encKey);
 ?>
 
-<?php if (!strcmp($orderPaymentMethod, $financePaymentMethod)) : ?>
+<?php if (!strcmp($orderPaymentMethod, $financePaymentMethod) && !$checkoutOnPayment) : ?>
   <!--<div id="example" style="position:relative;width:100%;min-height:600px;">
     <div style="position:absolute; width:100%; text-align:center;">
       <svg width="200px"  height="200px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;"><circle cx="50" cy="50" fill="none" stroke="#e6e6e6" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>

@@ -17,6 +17,7 @@ if ($this->helper('Imega\FinanceModule\Helper\ProductData')->widgetIsEnabled()){
   $anchorPosition = $this->helper('Imega\FinanceModule\Helper\ProductData')->getPosition();
   $showInline = $this->helper('Imega\FinanceModule\Helper\ProductData')->showInline();
   $inlineSelector = $this->helper('Imega\FinanceModule\Helper\ProductData')->getInlineSelector();
+  $hideIfNotInRange = $this->helper('Imega\FinanceModule\Helper\ProductData')->hideIfNotInRange();
   $product = $block->getProduct();
   $productPrice = $product->getFinalPrice();
   $productDesc = htmlspecialchars($product->getName(), ENT_QUOTES);
@@ -43,8 +44,9 @@ if ($this->helper('Imega\FinanceModule\Helper\ProductData')->widgetIsEnabled()){
       width: '<?php echo $anchorWidth ?>',
       <?php if($showInline) :?>
       inlineSelector: '<?php echo $inlineSelector ?>',
-      inlineInsertMethod: 'append'
+      inlineInsertMethod: 'append',
       <?php endif ?>
+      hideIfNotInRange: <?php echo $hideIfNotInRange ? 'true' : 'false'; ?>
     });
   });
   </script>

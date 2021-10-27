@@ -71,6 +71,12 @@ class ProductData extends AbstractHelper {
           $scope
       );
     }
+    public function hideIfNotInRange($scope = 'store'){
+      return $this->scopeConfig->getValue(
+          'retailfinance/productpage/hide_if_not_in_range',
+          $scope
+      );
+    }
 
 
 

@@ -1,0 +1,14 @@
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="test" type="host">https://angus.finance-calculator.co.uk</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="test-c" type="host">https://angus.finance-calculator.co.uk</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

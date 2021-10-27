@@ -59,5 +59,11 @@ class CartData extends AbstractHelper {
           $scope
       );
     }
+    public function hideIfNotInRange($scope = 'store'){
+      return $this->scopeConfig->getValue(
+          'retailfinance/cartpage/hide_if_not_in_range',
+          $scope
+      );
+    }
 
   }

@@ -13,6 +13,7 @@
       <checkout_settings>
         <position_selector>.page-title-wrapper</position_selector>
         <payment_method>financegateway</payment_method>
+        <payment_position_selector>#finance-options-selection</payment_position_selector>
       </checkout_settings>
     </retailfinance>
   </default>

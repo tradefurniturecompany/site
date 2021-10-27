@@ -26,6 +26,13 @@ class CategoryData extends AbstractHelper {
         );
     }
 
+    public function getHolderSelector($scope = 'store'){
+        return $this->scopeConfig->getValue(
+            'retailfinance/categorypage/holder_selector',
+            $scope
+        );
+    }
+
 
     public function getPositionSelector($scope = 'store'){
         return $this->scopeConfig->getValue(
@@ -65,6 +72,27 @@ class CategoryData extends AbstractHelper {
     public function getCss($scope = 'store'){
       return $this->scopeConfig->getValue(
           'retailfinance/categorypage/custom_css',
+          $scope
+      );
+    }
+
+    public function getCustomTerm($scope = 'store'){
+      return $this->scopeConfig->getValue(
+          'retailfinance/categorypage/custom_term',
+          $scope
+      );
+    }
+
+    public function getCustomApr($scope = 'store'){
+      return $this->scopeConfig->getValue(
+          'retailfinance/categorypage/custom_apr',
+          $scope
+      );
+    }
+
+    public function getCustomDeposit($scope = 'store'){
+      return $this->scopeConfig->getValue(
+          'retailfinance/categorypage/custom_deposit',
           $scope
       );
     }

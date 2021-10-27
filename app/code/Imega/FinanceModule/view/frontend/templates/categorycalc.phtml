@@ -8,6 +8,7 @@
 <?php
 if ($this->helper('Imega\FinanceModule\Helper\CategoryData')->widgetIsEnabled()){
   $apiKey = $this->helper('Imega\FinanceModule\Helper\Data')->getApiKey();
+  $holderSelector = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getHolderSelector();
   $outerElement = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getElement();
   $priceElement = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getPriceElement();
   $positionElement = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getPositionSelector();
@@ -15,6 +16,9 @@ if ($this->helper('Imega\FinanceModule\Helper\CategoryData')->widgetIsEnabled())
   $prefix = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getPrefix();
   $suffix = $this->helper('Imega\FinanceModule\Helper\CategoryData')->getSuffix();
   $customCss = json_encode($this->helper('Imega\FinanceModule\Helper\CategoryData')->getCss());
+  $customTerm = json_encode($this->helper('Imega\FinanceModule\Helper\CategoryData')->getCustomTerm());
+  $customApr = json_encode($this->helper('Imega\FinanceModule\Helper\CategoryData')->getCustomApr());
+  $customDeposit = json_encode($this->helper('Imega\FinanceModule\Helper\CategoryData')->getCustomDeposit());
 ?>
 <script>
 require([
@@ -23,12 +27,22 @@ require([
   imm.init({
     insertion: '<?php echo $insertion ?>',
     apiKey: '<?php echo $apiKey ?>',
+    holderSelector: '<?php echo $holderSelector ?>',
     outerElement: '<?php echo $outerElement ?>',
     priceSelector: '<?php echo $priceElement ?>',
     positionElement: '<?php echo $positionElement ?>',
     prefix: '<?php echo $prefix ?>',
     suffix: '<?php echo $suffix ?>',
-    customCss: <?php echo $customCss ?>
+    customCss: <?php echo $customCss ?>,
+    <?php if(!empty($customTerm)) : ?>
+    customTerm: <?php echo $customTerm ?>,
+    <?php endif ?>
+    <?php if(!empty($customApr)) : ?>
+    customApr: <?php echo $customApr ?>,
+    <?php endif ?>
+    <?php if(!empty($customDeposit)) : ?>
+    customDeposit: <?php echo $customDeposit ?>,
+    <?php endif ?>
   });
 });
 </script>

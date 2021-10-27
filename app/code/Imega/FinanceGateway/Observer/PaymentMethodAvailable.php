@@ -4,6 +4,7 @@ namespace Imega\FinanceGateway\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Checkout\Model\Session as CheckoutSession;
+use Imega\FinanceModule\Helper\CheckoutData;
 
 
 class PaymentMethodAvailable implements ObserverInterface
@@ -14,8 +15,9 @@ class PaymentMethodAvailable implements ObserverInterface
 
     protected $checkoutSession;
 
-    public function __construct(CheckoutSession $checkoutSession) {
+    public function __construct(CheckoutSession $checkoutSession, CheckoutData $checkoutData) {
         $this->checkoutSession = $checkoutSession;
+        $this->checkoutData = $checkoutData;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
@@ -32,16 +34,32 @@ class PaymentMethodAvailable implements ObserverInterface
     {
         $items = $this->checkoutSession->getQuote()->getAllVisibleItems();
         $productKeywords =[];
+        $productCount = 0;
         foreach ($items as $item) {
           if (in_array($item->getProductType(),self::MULTI_PRODUCT_ITEMS)){
             foreach($item->getChildren() as $childItem){
-              array_push($productKeywords, $childItem->getProduct()->getImegamediaFinanceFilter());
+              $filter = $childItem->getProduct()->getImegamediaFinanceFilter();
+              if(!empty($filter)){
+                array_push($productKeywords, $filter);
+              }
+              $productCount++;
             }
           } else {
-            array_push($productKeywords, $item->getProduct()->getImegamediaFinanceFilter());
+            $filter = $item->getProduct()->getImegamediaFinanceFilter();
+            if(!empty($filter)){
+              array_push($productKeywords, $filter);
+            }
+            $productCount++;
           }
         }
         if(in_array(self::FINANCE_FILTER_EXCLUDE, array_map('strtolower', $productKeywords))){
+          return true;
+        }
+
+        if(
+          $this->checkoutData->disablePaymentMethodIfNoFilter()
+          && (!count($productKeywords) || count($productKeywords)!=$productCount)
+        ){
           return true;
         }
 

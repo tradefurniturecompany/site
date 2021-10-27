@@ -26,5 +26,8 @@ class Gateway extends \Magento\Payment\Model\Method\AbstractMethod
       */
      protected $_isInitializeNeeded = true;
 
+     protected $_canCapture = true;
+     protected $_isGateway = true;
+
 
 }

@@ -24,6 +24,7 @@ class CartCalc extends Template
     public $anchorMargin;
     public $anchorWidth;
     public $anchorPosition;
+    public $hideIfNotInRange;
 
     public function __construct(
         CartData $cartConfig,
@@ -43,6 +44,7 @@ class CartCalc extends Template
         $this->anchorMargin = $cartConfig->getMargin();
         $this->anchorWidth = $cartConfig->getWidth();
         $this->anchorPosition = $cartConfig->getPosition();
+        $this->hideIfNotInRange = $cartConfig->hideIfNotInRange();
         parent::__construct($context, $data);
     }
 
