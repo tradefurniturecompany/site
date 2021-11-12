@@ -246,6 +246,7 @@ return [
         'Df_Rss' => 1,
         'Df_OQ' => 1,
         'Df_SampleData' => 1,
+        'Df_Security' => 1,
         'Df_Sentry' => 1,
         'Df_Setup' => 1,
         'Df_Shipping' => 1,
