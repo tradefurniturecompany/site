@@ -8,12 +8,14 @@ sudo service php-fpm stop
 bin/magento maintenance:enable      
 composer remove tradefurniturecompany/core
 composer remove tradefurniturecompany/blog
+composer remove tradefurniturecompany/google-shopping
 composer remove tradefurniturecompany/image 
 composer remove tradefurniturecompany/report  
 rm -rf composer.lock
 composer clear-cache
 composer require tradefurniturecompany/core:*
 composer require tradefurniturecompany/blog:*
+composer require tradefurniturecompany/google-shopping:*
 composer require tradefurniturecompany/image:*
 composer require tradefurniturecompany/report:* 
 bin/magento setup:upgrade
