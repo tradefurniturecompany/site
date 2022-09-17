@@ -13,11 +13,12 @@ composer remove tradefurniturecompany/image
 composer remove tradefurniturecompany/report  
 rm -rf composer.lock
 composer clear-cache
-composer require tradefurniturecompany/core:*
-composer require tradefurniturecompany/blog:*
-composer require tradefurniturecompany/google-shopping:*
-composer require tradefurniturecompany/image:*
-composer require tradefurniturecompany/report:* 
+composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/core:*
+composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/blog:*
+composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/google-shopping:*
+composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/image:*
+composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/report:*
+composer update 
 bin/magento setup:upgrade
 bin/magento cache:enable
 rm -rf var/di var/generation generated/*
