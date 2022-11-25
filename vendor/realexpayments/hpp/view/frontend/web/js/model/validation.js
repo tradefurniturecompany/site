@@ -2,9 +2,10 @@ define(
     [
         'mage/translate',
         'Magento_Ui/js/model/messageList',
-        'Magento_Checkout/js/model/quote'
+        'Magento_Checkout/js/model/quote',
+		'jquery'
     ],
-    function ($t, messageList, quote) {
+    function ($t, messageList, quote, $) {
         'use strict';
         var errorMessages = {
             invalidShippingAddress:  $t('Please check the Shipping address. '),
@@ -39,6 +40,16 @@ define(
                  * Normal flow
                  */
                 if (shippingAddress && shippingAddress.firstname && shippingAddress.lastname) {
+					// 2022-11-25 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+					// 1) [Global Payments / Realex] The «Place order» button is not working sometimes:
+					// «Cannot read properties of undefined (reading 'forEach') at Object.isValidStreet»:
+					// https://github.com/tradefurniturecompany/site/issues/239
+					// 2) https://caniuse.com/?search=Logical%20nullish
+					// 3) https://stackoverflow.com/a/55685094
+					// 4) https://stackoverflow.com/a/62824667
+					shippingAddress.street ||=
+						[$("input[name='street[0]']").val(),$("input[name='street[1]']").val()].filter(i => i)
+					;
                     return (this.isValidAddress(shippingAddress, errorMessages.invalidShippingAddress) &&
                         this.isValidAddress(billingAddress, errorMessages.invalidBillingAddress));
                 }
@@ -101,15 +112,19 @@ define(
              * @return {Boolean}
              */
             isValidStreet: function (street) {
-                let pattern = /^[ÀÁÂÃÂÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ_a-zA-Z0-9.'\s,\-\/\u0152\u0153\u017D\u0161\u017E\u0178]*$/;
-
-                var isValid = true;
-                street.forEach(function (item) {
-                    if (!pattern.test(item) || item.length>40) {
-                        isValid = false;
-                    }
-                });
-
+				// 2022-11-25 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+				// 1) [Global Payments / Realex] The «Place order» button is not working sometimes:
+				// «Cannot read properties of undefined (reading 'forEach') at Object.isValidStreet»:
+				// https://github.com/tradefurniturecompany/site/issues/239
+				var isValid = !!street;
+				if (isValid) {
+					let pattern = /^[ÀÁÂÃÂÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ_a-zA-Z0-9.'\s,\-\/\u0152\u0153\u017D\u0161\u017E\u0178]*$/;
+					street.forEach(function (item) {
+						if (!pattern.test(item) || item.length>40) {
+							isValid = false;
+						}
+					});
+				}
                 return isValid;
             },
 
