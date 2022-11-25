@@ -47,9 +47,9 @@ define(
 					// 2) https://caniuse.com/?search=Logical%20nullish
 					// 3) https://stackoverflow.com/a/55685094
 					// 4) https://stackoverflow.com/a/62824667
-					shippingAddress.street ||=
-						[$("input[name='street[0]']").val(),$("input[name='street[1]']").val()].filter(i => i)
-					;
+					const street = [$("input[name='street[0]']").val(), $("input[name='street[1]']").val()].filter(i => i);
+					shippingAddress.street ||= street;
+					billingAddress.street ||= street;
                     return (this.isValidAddress(shippingAddress, errorMessages.invalidShippingAddress) &&
                         this.isValidAddress(billingAddress, errorMessages.invalidBillingAddress));
                 }
