@@ -55,6 +55,11 @@
 # at vendor/magento/module-quote/Model/QuoteRepository/Plugin/AccessChangeQuoteControl.php:45»:
 # https://github.com/tradefurniturecompany/site/issues/171
 !/vendor/magento/module-quote/Model/ChangeQuoteControl.php
+# 2022-11-25 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# [Global Payments / Realex] The «Place order» button is not working sometimes:
+# «Cannot read properties of undefined (reading 'forEach') at Object.isValidStreet»:
+# https://github.com/tradefurniturecompany/site/issues/239
+!/vendor/realexpayments/hpp/view/frontend/web/js/model/validation.js
 /dev
 /vendor/codeception
 /vendor/magento/framework/Test
