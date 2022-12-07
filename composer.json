@@ -8,7 +8,10 @@
     ],
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "magento/magento-composer-installer": true
+        }
     },
     "require": {
         "amasty/base": "1.12.9",
@@ -25,6 +28,7 @@
         "tradefurniturecompany/core": "*",
         "tradefurniturecompany/google-shopping": "*",
         "tradefurniturecompany/image": "*",
+        "tradefurniturecompany/realex": "*",
         "tradefurniturecompany/report": "*",
         "yireo/magento2-disablelog2": "*"
     },

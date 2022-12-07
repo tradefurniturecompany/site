@@ -18,7 +18,7 @@ composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/blog
 composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/google-shopping:*
 composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/image:*
 composer2 require --ignore-platform-reqs --no-plugins tradefurniturecompany/report:*
-composer update 
+composer update # https://mage2.pro/t/6327/2 
 bin/magento setup:upgrade
 bin/magento cache:enable
 rm -rf var/di var/generation generated/*
