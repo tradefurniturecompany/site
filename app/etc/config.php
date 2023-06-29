@@ -315,6 +315,7 @@ return [
         'TFC_Core' => 1,
         'TFC_GoogleShopping' => 1,
         'TFC_Image' => 1,
+        'TFC_Realex' => 1,
         'TFC_Report' => 1,
         'Temando_Shipping' => 0,
         'Trustedshops_Trustedshops' => 1,
