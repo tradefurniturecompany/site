@@ -60,6 +60,7 @@
 # «Cannot read properties of undefined (reading 'forEach') at Object.isValidStreet»:
 # https://github.com/tradefurniturecompany/site/issues/239
 !/vendor/realexpayments/hpp/view/frontend/web/js/model/validation.js
+app/code/Amasty
 /dev
 /vendor/codeception
 /vendor/magento/framework/Test
