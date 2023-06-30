@@ -621,6 +621,15 @@ class SessionManager implements SessionManagerInterface
         }
 
         foreach ($this->sessionConfig->getOptions() as $option => $value) {
+			# 2023-06-30 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+			# 1) [Magento 2.3.6 with PHP 7.2] "«InvalidArgumentException:
+			# Failed to set ini option "session.cookie_samesite" to value "Lax"»
+			# in `vendor/magento/framework/Session/SessionManager.php:630`":
+			# https://github.com/tradefurniturecompany/site/issues/247
+			# 2) https://meetanshi.com/blog/solution-failed-to-set-ini-option-session-cookie-samesite-to-value-lax-in-magento-2-3-6-p1
+			if ($option === 'session.cookie_samesite') {
+				continue;
+			}
             if ($option=='session.save_handler') {
                 continue;
             } else {
