@@ -63,6 +63,11 @@
 # at vendor/magento/module-quote/Model/QuoteRepository/Plugin/AccessChangeQuoteControl.php:45»:
 # https://github.com/tradefurniturecompany/site/issues/171
 !/vendor/magento/module-quote/Model/ChangeQuoteControl.php
+# 2023-07-01 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+# [Magento 2.3.7] «strtotime() expects parameter 1 to be string, null given
+# in vendor/magento/module-security/Model/AdminSessionInfo.php:136»
+# https://github.com/tradefurniturecompany/site/issues/255
+!/vendor/magento/module-security/Model/AdminSessionInfo.php
 # 2022-11-25 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # [Global Payments / Realex] The «Place order» button is not working sometimes:
 # «Cannot read properties of undefined (reading 'forEach') at Object.isValidStreet»:
