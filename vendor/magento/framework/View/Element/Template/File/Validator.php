@@ -141,9 +141,7 @@ class Validator
 		// https://mage2.pro/t/5774
 		$isWin = 'WIN' === strtoupper(substr(PHP_OS, 0, 3)); /** @var bool $isWin */
 		foreach ($directories as $directory) {
-			if (0 === strpos($realPath,
-				!$isWin ? $directory : $this->fileDriver->getRealPath($directory))
-			) {
+			if (0 === strpos($realPath, !$isWin ? $directory : str_replace('/', DIRECTORY_SEPARATOR, $directory))) {
                 return true;
             }
         }
