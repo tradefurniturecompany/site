@@ -161,7 +161,7 @@ return [
         'Magento_MsrpGroupedProduct' => 1,
         'Magento_Multishipping' => 1,
         'Magento_MysqlMq' => 1,
-        'Magento_NewRelicReporting' => 1,
+        'Magento_NewRelicReporting' => 0,
         'Magento_Newsletter' => 1,
         'Magento_OfflinePayments' => 1,
         'Magento_SalesRule' => 1,
@@ -198,7 +198,7 @@ return [
         'Magento_SendFriend' => 1,
         'Magento_SendFriendGraphQl' => 1,
         'Magento_InventoryShippingAdminUi' => 0,
-        'Magento_Signifyd' => 1,
+        'Magento_Signifyd' => 0,
         'Magento_Sitemap' => 1,
         'Magento_InventoryGraphQl' => 0,
         'Magento_UrlRewriteGraphQl' => 1,
@@ -296,7 +296,7 @@ return [
         'Df_Xml' => 1,
         'Df_Zf' => 1,
         'Dotdigitalgroup_Email' => 0,
-        'Dotdigitalgroup_Chat' => 1,
+        'Dotdigitalgroup_Chat' => 0,
         'Ebizmarts_MailChimp' => 1,
         'FishPig_WordPress' => 1,
         'FishPig_WordPress_Yoast' => 1,
@@ -352,13 +352,13 @@ return [
         'Temando_ShippingRemover' => 1,
         'Trustedshops_Trustedshops' => 1,
         'Vertex_Tax' => 0,
-        'Vertex_AddressValidation' => 1,
+        'Vertex_AddressValidation' => 0,
         'Ves_All' => 1,
         'Ves_ImageSlider' => 1,
         'Ves_Setup' => 1,
         'WeltPixel_Backend' => 1,
         'WeltPixel_OwlCarouselSlider' => 1,
         'Yireo_DisableLog2' => 1,
-        'Yotpo_Yotpo' => 1
+        'Yotpo_Yotpo' => 0
     ]
 ];
