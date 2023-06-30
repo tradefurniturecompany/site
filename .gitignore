@@ -25,6 +25,11 @@
 !/lib/web/i18n/en_GB.csv
 !/pub/errors/default/503.phtml
 /update/
+# 2023-06-30 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+# "«InvalidArgumentException: Failed to set ini option "session.cookie_samesite" to value "Lax"»
+# in `vendor/magento/framework/Session/SessionManager.php:630`":
+# https://github.com/tradefurniturecompany/site/issues/247
+!/vendor/magento/framework/Session/SessionManager.php
 # 2020-10-22 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
 # 1) «Unable to send the cookie. Size of 'mage-messages' is <…> bytes.»
 # https://github.com/tradefurniturecompany/site/issues/186
