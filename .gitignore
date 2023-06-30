@@ -26,6 +26,9 @@
 !/pub/errors/default/503.phtml
 /update/
 # 2023-06-30 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+# "Fix product images for Magento ≥ 2.3.5 in Windows": https://github.com/tradefurniturecompany/site/issues/248
+!/vendor/magento/framework/Image/Adapter/Gd2.php
+# 2023-06-30 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
 # "«InvalidArgumentException: Failed to set ini option "session.cookie_samesite" to value "Lax"»
 # in `vendor/magento/framework/Session/SessionManager.php:630`":
 # https://github.com/tradefurniturecompany/site/issues/247
