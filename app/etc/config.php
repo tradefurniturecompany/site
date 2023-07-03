@@ -352,6 +352,7 @@ return [
         'Temando_ShippingRemover' => 1,
         'Trustedshops_Trustedshops' => 1,
         'Vertex_Tax' => 0,
+        'Vertex_AddressValidationApi' => 0,
         'Vertex_AddressValidation' => 0,
         'Ves_All' => 1,
         'Ves_ImageSlider' => 1,
