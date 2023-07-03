@@ -360,6 +360,7 @@ return [
         'WeltPixel_Backend' => 1,
         'WeltPixel_OwlCarouselSlider' => 1,
         'Yireo_DisableLog2' => 1,
+        'Yireo_GoogleTagManager2' => 1,
         'Yotpo_Yotpo' => 0
     ]
 ];
