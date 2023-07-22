@@ -3,6 +3,10 @@
 # http://stackoverflow.com/questions/9162919
 # http://stackoverflow.com/questions/8024924#comment15884195_8025106
 *
+# 2023-07-22
+# Today I noticed that `git add . && git commit -a -m refactoring && git push`
+# started to commit subfolders which are git repositories (for an unknown reason).
+/wp/**/*
 !*/
 !/.editorconfig
 !/.gitignore
