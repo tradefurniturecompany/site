@@ -6,7 +6,7 @@
 # 2023-07-22
 # Today I noticed that `git add . && git commit -a -m refactoring && git push`
 # started to commit subfolders which are git repositories (for an unknown reason).
-/wp/**/*
+/wp/*
 !*/
 !/.editorconfig
 !/.gitignore
