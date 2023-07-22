@@ -27,7 +27,7 @@ class ImageBuilder extends \Magento\Catalog\Block\Product\ImageBuilder
 
 
     /**
-	 * 2019-10-06 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+	 * 2019-10-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * «Declaration of WeltPixel\OwlCarouselSlider\Block\Product\ImageBuilder::create()
 	 * should be compatible with Magento\Catalog\Block\Product\ImageBuilder::create» in Magento 2.3.2:
 	 * https://github.com/tradefurniturecompany/core/issues/7

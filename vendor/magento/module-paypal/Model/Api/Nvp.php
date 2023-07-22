@@ -1241,7 +1241,7 @@ class Nvp extends \Magento\Paypal\Model\Api\AbstractApi
             return $response;
         }
 		/**
-		 * 2020-02-18 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * 2020-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		 * "«PayPal gateway has rejected request.
 		 * You do not have permissions to make this API call» / «#10002: Authentication/Authorization Failed»":
 		 * https://github.com/tradefurniturecompany/site/issues/18
@@ -1249,7 +1249,7 @@ class Nvp extends \Magento\Paypal\Model\Api\AbstractApi
         $errors = $this->_extractErrorsFromResponse($response);
         if ($errors) {
 			/**
-			 * 2020-06-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			 * 2020-06-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			 * I skip logging the
 			 * "[PayPal 10486] «This transaction couldn't be completed. Please redirect your customer to PayPal»"
 			 * error because it is not a bug:

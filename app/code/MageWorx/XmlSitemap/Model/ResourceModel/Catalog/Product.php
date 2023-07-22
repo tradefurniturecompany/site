@@ -155,7 +155,7 @@ class Product extends \Magento\Sitemap\Model\ResourceModel\Catalog\Product
                 ['url' => 'request_path']
             )
 			/**
-			 * 2021-06-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+			 * 2021-06-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			 * 1) «Remove redirected pages from the sitemap»: https://github.com/tradefurniturecompany/core/issues/41
 			 * 2) I have implemented it by analogy with
 			 * @see \MageWorx\HtmlSitemap\Model\ResourceModel\Catalog\Product::getCollection

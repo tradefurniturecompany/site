@@ -132,7 +132,7 @@ class AdminSessionInfo extends \Magento\Framework\Model\AbstractModel
         $lifetime = $this->securityConfig->getAdminSessionLifetime();
         $currentTime = $this->dateTime->gmtTimestamp();
         $lastUpdatedTime = $this->getUpdatedAt();
-		# 2023-07-03 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+		# 2023-07-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# [Magento 2.3.7] «strtotime() expects parameter 1 to be string, null given
 		# in vendor/magento/module-security/Model/AdminSessionInfo.php:136»
 		# https://github.com/tradefurniturecompany/site/issues/255

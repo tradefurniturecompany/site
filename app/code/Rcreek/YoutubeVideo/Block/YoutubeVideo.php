@@ -79,7 +79,7 @@ class YoutubeVideo extends \Magento\Framework\View\Element\Template
 	function getFirstFrameUrl() {
 		$product = $this->getProduct();
 		$html = $product->getYoutubeVideo();
-		// 2020-02-17 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		// 2020-02-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		// 1) «Undefined offset: 1 in app/code/Rcreek/YoutubeVideo/Block/YoutubeVideo.php on line 82»:
 		// https://github.com/tradefurniturecompany/site/issues/47
 		// 2) The previous regular expression was: ~src=".*/([a-zA-Z0-9]*)"~
@@ -87,7 +87,7 @@ class YoutubeVideo extends \Magento\Framework\View\Element\Template
 		// https://www.youtube.com/embed/1iYEQ-tLaXo
 		preg_match('~src=".*/([a-zA-Z0-9\-]*)"~', $html, $matches);
 		/**
-		 * 2020-02-17 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * 2020-02-17 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		 * «Undefined offset: 1 in app/code/Rcreek/YoutubeVideo/Block/YoutubeVideo.php on line 82»:
 		 * https://github.com/tradefurniturecompany/site/issues/47
 		 */

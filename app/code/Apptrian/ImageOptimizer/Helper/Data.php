@@ -385,7 +385,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 			'apptrian_imageoptimizer/utility/' . $type . '_options'
 		);
 		/**
-		 * 2020-02-13 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * 2020-02-13 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		 * 1) "«sh: -c: line 0: syntax error near unexpected token `('»
 		 * caused by `app/code/Apptrian/ImageOptimizer/bin/elf64/jpegtran`":
 		 * https://github.com/tradefurniturecompany/site/issues/26

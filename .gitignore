@@ -1,4 +1,4 @@
-# 2020-01-14 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# 2020-01-14 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # http://stackoverflow.com/questions/987142
 # http://stackoverflow.com/questions/9162919
 # http://stackoverflow.com/questions/8024924#comment15884195_8025106
@@ -18,37 +18,37 @@
 !/lib/internal/System/**/*
 !/lib/internal/loader.php
 !/lib/internal/openssl.php
-# 2019-09-19 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# 2019-09-19 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # «Provide a way to enlarge product images on frontend product pages»:
 # https://github.com/tradefurniturecompany/core/issues/2
 !/lib/web/fotorama/fotorama.js
 !/lib/web/i18n/en_GB.csv
 !/pub/errors/default/503.phtml
 /update/
-# 2023-06-30 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+# 2023-06-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Fix product images for Magento ≥ 2.3.5 in Windows": https://github.com/tradefurniturecompany/site/issues/248
 !/vendor/magento/framework/Image/Adapter/Gd2.php
-# 2023-06-30 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+# 2023-06-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "«InvalidArgumentException: Failed to set ini option "session.cookie_samesite" to value "Lax"»
 # in `vendor/magento/framework/Session/SessionManager.php:630`":
 # https://github.com/tradefurniturecompany/site/issues/247
 !/vendor/magento/framework/Session/SessionManager.php
-# 2020-10-22 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# 2020-10-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # 1) «Unable to send the cookie. Size of 'mage-messages' is <…> bytes.»
 # https://github.com/tradefurniturecompany/site/issues/186
 # 2) https://magento.stackexchange.com/a/292945
 # 3) https://magento.stackexchange.com/a/314402
 # 4) https://magento.stackexchange.com/a/307744
 !/vendor/magento/framework/Stdlib/Cookie/PhpCookieManager.php
-# 2019-10-06 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# 2019-10-06 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # How to fix the «Invalid template file» / «require_js.phtml» failure of Magento 2.3.x in Windows?
 # https://mage2.pro/t/5774
 !/vendor/magento/framework/View/Element/Template/File/Validator.php
-# 2020-02-18 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# 2020-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "«PayPal gateway has rejected request.
 # You do not have permissions to make this API call» / «#10002: Authentication/Authorization Failed»":
 # https://github.com/tradefurniturecompany/site/issues/18
-# 2020-06-24 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# 2020-06-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # I skip logging the
 # "[PayPal 10486] «This transaction couldn't be completed. Please redirect your customer to PayPal»"
 # error because it is not a bug:
@@ -58,22 +58,22 @@
 # "PayPal responds on `GetExpressCheckoutDetails` with the error 10002
 # («You do not have permissions to make this API call»)": https://github.com/tradefurniturecompany/site/issues/179
 !/vendor/magento/module-paypal/Model/Api/Nvp.php
-# 2020-06-30 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# 2020-06-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # «Invalid state change requested
 # at vendor/magento/module-quote/Model/QuoteRepository/Plugin/AccessChangeQuoteControl.php:45»:
 # https://github.com/tradefurniturecompany/site/issues/171
 !/vendor/magento/module-quote/Model/ChangeQuoteControl.php
-# 2023-07-01 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+# 2023-07-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # [Magento 2.3.7] «strtotime() expects parameter 1 to be string, null given
 # in vendor/magento/module-security/Model/AdminSessionInfo.php:136»
 # https://github.com/tradefurniturecompany/site/issues/255
 !/vendor/magento/module-security/Model/AdminSessionInfo.php
-# 2022-11-25 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+# 2022-11-25 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # [Global Payments / Realex] The «Place order» button is not working sometimes:
 # «Cannot read properties of undefined (reading 'forEach') at Object.isValidStreet»:
 # https://github.com/tradefurniturecompany/site/issues/239
 !/vendor/realexpayments/hpp/view/frontend/web/js/model/validation.js
-# 2023-07-03 Dmitrii Fediuk https://www.upwork.com/fl/mage2pro
+# 2023-07-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # 1) A temporary quick and dirty workaround for the problem:
 # «Property "DisableTmpl" does not have accessor method "getDisableTmpl" in class "Magento\Quote\Api\Data\PaymentInterface"»:
 # https://github.com/tradefurniturecompany/site/issues/259

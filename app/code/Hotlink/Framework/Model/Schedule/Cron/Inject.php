@@ -54,7 +54,7 @@ class Inject extends AbstractCron {
 	//  Inject config before Magento cron mechanism executes
 	//
 	protected function _execute($crontabConfigData) {
-		# 2020-02-23 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		# 2020-02-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# `n98-magerun2 sys:cron:run <...>`:
 		# «Argument 1 passed to N98\Magento\Command\System\Cron\AbstractCronCommand::getSchedule()
 		# must be of the type array, boolean given»: https://github.com/tradefurniturecompany/site/issues/127

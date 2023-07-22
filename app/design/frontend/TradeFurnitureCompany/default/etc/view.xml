@@ -14,7 +14,7 @@
 				<width>165</width>
 				<height>165</height>
 			</image>
-<!-- 2020-10-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+<!-- 2020-10-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Make images squared on the frontend category page": https://github.com/tradefurniturecompany/site/issues/195
 2020-10-27 The frontend category page uses the `listing_image` settings, not `category_page_grid`. -->
 			<image id='category_page_grid' type='small_image'>
@@ -44,7 +44,7 @@
 				<width>100</width>
 				<height>100</height>
 			</image>
-<!-- 2020-10-26 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+<!-- 2020-10-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "Make images squared on the frontend category page": https://github.com/tradefurniturecompany/site/issues/195
 2020-10-27 The `listing_image` settings are used on the frontend category page. -->
 			<image id='listing_image' type='listing_image'>
@@ -91,7 +91,7 @@
 				<height>620</height>
 				<frame>false</frame>
 			</image>
-<!-- 2020-10-27 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+<!-- 2020-10-27 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 It is used for the carousel's thumbnails on the frontend product page on wide screens. -->
 			<image id='product_page_image_small' type='thumbnail'>
 				<width>130</width>

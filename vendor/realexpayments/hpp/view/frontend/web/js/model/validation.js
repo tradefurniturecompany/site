@@ -40,7 +40,7 @@ define(
                  * Normal flow
                  */
                 if (shippingAddress && shippingAddress.firstname && shippingAddress.lastname) {
-					// 2022-11-25 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+					// 2022-11-25 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 					// 1) [Global Payments / Realex] The «Place order» button is not working sometimes:
 					// «Cannot read properties of undefined (reading 'forEach') at Object.isValidStreet»:
 					// https://github.com/tradefurniturecompany/site/issues/239
@@ -112,7 +112,7 @@ define(
              * @return {Boolean}
              */
             isValidStreet: function (street) {
-				// 2022-11-25 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+				// 2022-11-25 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 				// 1) [Global Payments / Realex] The «Place order» button is not working sometimes:
 				// «Cannot read properties of undefined (reading 'forEach') at Object.isValidStreet»:
 				// https://github.com/tradefurniturecompany/site/issues/239

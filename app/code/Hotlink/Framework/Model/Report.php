@@ -263,7 +263,7 @@ class Report {
 	}
 
 	function getId() {
-		# 2020-02-16 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		# 2020-02-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# «Call to a member function setInteraction() on boolean
 		# at app/code/Hotlink/Framework/Model/Schedule/Cron/AbstractCron.php:87»:
 		# https://github.com/tradefurniturecompany/site/issues/44
@@ -827,7 +827,7 @@ class Report {
 	}
 
 	/**
-	 * 2020-02-15 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+	 * 2020-02-15 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 	 * 1) "Prevent `Hotlink_Framework` from logging `Hotlink\Framework\Model\Report\Item`":
 	 * https://github.com/tradefurniturecompany/site/issues/40
 	 * 2) «Call to a member function incSuccess() on null

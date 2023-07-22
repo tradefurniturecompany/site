@@ -234,7 +234,7 @@ class PhpCookieManager implements CookieManagerInterface
         }
 
         if ($sizeOfCookie > static::MAX_COOKIE_SIZE) {
-        	# 2020-10-22 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+        	# 2020-10-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# 1) «Unable to send the cookie. Size of 'mage-messages' is <…> bytes.»
 			# https://github.com/tradefurniturecompany/site/issues/186
 			# 2) https://magento.stackexchange.com/a/292945

@@ -56,7 +56,7 @@ class Transport extends \Hotlink\Brightpearl\Model\Api\Transport\AbstractTranspo
 				$response = $client->send();
 
 				if (!$response->isSuccess()) {
-					# 2020-10-22 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+					# 2020-10-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 					# "«Unable to export status: Failed API request to Brightpearl: [400] Bad Request»
 					# in a `hotlink_framework/report` log file": https://github.com/tradefurniturecompany/site/issues/122
 					df_log_l($this, [

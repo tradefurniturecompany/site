@@ -11,7 +11,7 @@ class QuoteAddAfter implements ObserverInterface {
 	 */
 	public function execute(Observer $o) {
 		/**
-		 * 2020-03-01 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		 * 2020-03-01 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		 * 1) «Registry key "mgk_adcpopup_items" already exists at vendor/magento/framework/Registry.php:60»:
 		 * https://github.com/tradefurniturecompany/site/issues/130
 		 * 2) If a customer reorder his previous order with multple items,

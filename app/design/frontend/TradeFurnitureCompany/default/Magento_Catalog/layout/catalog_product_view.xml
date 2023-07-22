@@ -22,7 +22,7 @@
 				<argument translate='true' name='title' xsi:type='string'>Product Dimensions</argument>
 			</arguments>
 		</referenceBlock>
-<!-- 2020-12-31 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+<!-- 2020-12-31 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 "The «Add to Basket» button should be visible on the frontend mobile product view without the need to scroll it":
 https://github.com/tradefurniturecompany/site/issues/213 -->
 		<move before='-' destination='desktop-sticky-bar' element='page.main.title'/>

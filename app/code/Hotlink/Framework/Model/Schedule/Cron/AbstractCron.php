@@ -93,7 +93,7 @@ abstract class AbstractCron extends \Hotlink\Framework\Model\Schedule\AbstractSc
 			->debug( 'Date/Time: '. date( "Y-m-d H:i:s", $this->dateTimeFactory->create()->timestamp( time() ) ) )
 			->trace( 'report initialised' );
 
-		# 2020-02-16 Dmitry Fedyuk https://www.upwork.com/fl/mage2pro
+		# 2020-02-16 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 		# «Call to a member function setInteraction() on boolean
 		# at app/code/Hotlink/Framework/Model/Schedule/Cron/AbstractCron.php:87»:
 		# https://github.com/tradefurniturecompany/site/issues/44
