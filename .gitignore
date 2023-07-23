@@ -58,6 +58,11 @@
 # "PayPal responds on `GetExpressCheckoutDetails` with the error 10002
 # («You do not have permissions to make this API call»)": https://github.com/tradefurniturecompany/site/issues/179
 !/vendor/magento/module-paypal/Model/Api/Nvp.php
+# 2023-07-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "«Unable to unserialize value. Error: Syntax error» on `/customer/ajax/login`
+# in `Magento\Persistent\Observer\SetRememberMeStatusForAjaxLoginObserver->execute()`":
+# https://github.com/tradefurniturecompany/site/issues/263
+!/vendor/magento/module-persistent/Observer/SetRememberMeStatusForAjaxLoginObserver.php
 # 2020-06-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # «Invalid state change requested
 # at vendor/magento/module-quote/Model/QuoteRepository/Plugin/AccessChangeQuoteControl.php:45»:
