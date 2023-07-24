@@ -171,7 +171,16 @@ class CheckoutRegister
         $quote->setCustomer($customer);
 
         /** Create customer */
-        $this->customerManagement->populateCustomerInfo($quote);
+		# 2023-07-25 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# "[Mageplaza_Osc / PayPal] «A customer with the same email address already exists in an associated website»
+		# on `/paypal/express/return`": https://github.com/tradefurniturecompany/site/issues/268
+		try {
+			$this->customerManagement->populateCustomerInfo($quote);
+		}
+		catch (\Exception $e) {
+			df_log($e);
+			throw $e;
+		}
 
         $this->_oscHelper->setFlagOscMethodRegister(true);
 
