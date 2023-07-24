@@ -25,6 +25,10 @@
 !/lib/web/i18n/en_GB.csv
 !/pub/errors/default/503.phtml
 /update/
+# 2023-07-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# «strtr() expects parameter 1 to be string, array given in vendor/magento/framework/Encryption/UrlCoder.php on line 47»:
+# https://github.com/tradefurniturecompany/site/issues/267
+!/vendor/magento/framework/Encryption/UrlCoder.php
 # 2023-06-30 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "Fix product images for Magento ≥ 2.3.5 in Windows": https://github.com/tradefurniturecompany/site/issues/248
 !/vendor/magento/framework/Image/Adapter/Gd2.php
