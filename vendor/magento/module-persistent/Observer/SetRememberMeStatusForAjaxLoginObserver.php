@@ -73,7 +73,15 @@ class SetRememberMeStatusForAjaxLoginObserver implements ObserverInterface
             $requestData = [];
             $content = $request->getContent();
             if ($content) {
-                $requestData = $this->serializer->unserialize($content);
+				# 2023-07-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "«Unable to unserialize value. Error: Syntax error» on `/customer/ajax/login`
+				# in `Magento\Persistent\Observer\SetRememberMeStatusForAjaxLoginObserver->execute()`":
+				# https://github.com/tradefurniturecompany/site/issues/263
+				try {$requestData = $this->serializer->unserialize($content);}
+				catch (\Exception $e) {
+					df_log($e);
+					throw $e;
+				}
             }
             $isRememberMeChecked = empty($requestData['persistent_remember_me']) ? false : true;
             $this->_persistentSession->setRememberMeChecked((bool)$isRememberMeChecked);
