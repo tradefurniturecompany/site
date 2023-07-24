@@ -240,7 +240,12 @@ class PhpCookieManager implements CookieManagerInterface
 			# 2) https://magento.stackexchange.com/a/292945
 			# 3) https://magento.stackexchange.com/a/314402
 			# 4) https://magento.stackexchange.com/a/307744
-        	df_log_l($this, ['name' => $name, 'size' => $sizeOfCookie, 'value' => $value]);
+        	df_log([
+				'issue' => 'https://github.com/tradefurniturecompany/site/issues/186'
+				,'name' => $name
+				,'size' => $sizeOfCookie
+				,'value' => $value
+			]);
             throw new CookieSizeLimitReachedException(
                 new Phrase(
                     'Unable to send the cookie. Size of \'%name\' is %size bytes.',
