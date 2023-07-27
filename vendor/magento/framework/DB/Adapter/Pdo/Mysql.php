@@ -3099,6 +3099,18 @@ class Mysql extends \Zend_Db_Adapter_Pdo_Mysql implements AdapterInterface
             case 'mediumtext':
             case 'text':
             case 'longtext':
+				/**
+				 * 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				 * 1) [`Mageplaza_Osc`] «Object of class Magento\Customer\Model\Data\Region could not be converted to string
+				 * in vendor/magento/framework/DB/Adapter/Pdo/Mysql.php:3102»:
+				 * https://github.com/tradefurniturecompany/site/issues/260
+				 * 2) It is just for logging similar errors in future.
+				 * The real fix in the
+				 * @see \Mageplaza\Osc\Model\Plugin\Checkout\ShippingMethodManagement::saveAddress() method.
+				 */
+				if ($value instanceof \Magento\Customer\Model\Data\Region) {
+					df_log('https://github.com/tradefurniturecompany/site/issues/260');
+				}
                 $value  = (string)$value;
                 if ($column['NULLABLE'] && $value == '') {
                     $value = null;
