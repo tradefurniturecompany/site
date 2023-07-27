@@ -29,6 +29,13 @@
 !/lib/web/jquery/ui-modules/accordion.js
 !/pub/errors/default/503.phtml
 /update/
+# 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) [`Mageplaza_Osc`] «Object of class Magento\Customer\Model\Data\Region could not be converted to string
+# in vendor/magento/framework/DB/Adapter/Pdo/Mysql.php:3102»:
+# https://github.com/tradefurniturecompany/site/issues/260
+# 2) It is just for logging similar errors in future.
+# The real fix in the \Mageplaza\Osc\Model\Plugin\Checkout\ShippingMethodManagement::saveAddress() method.
+!/vendor/magento/framework/DB/Adapter/Pdo/Mysql.php
 # 2023-07-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # «strtr() expects parameter 1 to be string, array given in vendor/magento/framework/Encryption/UrlCoder.php on line 47»:
 # https://github.com/tradefurniturecompany/site/issues/267
