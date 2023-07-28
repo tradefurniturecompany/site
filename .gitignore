@@ -59,6 +59,9 @@
 # How to fix the «Invalid template file» / «require_js.phtml» failure of Magento 2.3.x in Windows?
 # https://mage2.pro/t/5774
 !/vendor/magento/framework/View/Element/Template/File/Validator.php
+# 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# "«Invalid state change requested» on `/onestepcheckout/`": https://github.com/tradefurniturecompany/site/issues/271
+!/vendor/magento/module-checkout/Model/ShippingInformationManagement.php
 # 2020-02-18 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 # "«PayPal gateway has rejected request.
 # You do not have permissions to make this API call» / «#10002: Authentication/Authorization Failed»":
