@@ -153,6 +153,10 @@ class ShippingMethodManagement
                     ->save();
                 $this->quoteRepository->save($quote);
             } catch (Exception $e) {
+				# 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# "`Mageplaza\Osc\Model\Plugin\Checkout\ShippingMethodManagement::saveAddress()` should not suppress errors":
+				# https://github.com/tradefurniturecompany/site/issues/270
+				df_log($e, null, ['addressData' => $addressData, 'quote' => $quote]);
                 return $this;
             }
         }
