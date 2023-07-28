@@ -185,7 +185,7 @@ class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInf
         } catch (\Exception $e) {
 			# 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
 			# "«Invalid state change requested» on `/onestepcheckout/`":
-			# c
+			# https://github.com/tradefurniturecompany/site/issues/271
 			df_log($e, null, [
 				'addressInformation' => $addressInformation
 				,'billingAddress' => $addressInformation->getBillingAddress()
