@@ -146,7 +146,13 @@ class ShippingMethodManagement
                 AddressInterface::KEY_CITY            => $address->getCity(),
                 AddressInterface::CUSTOMER_ADDRESS_ID => $address->getId()
             ];
-
+			# 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "[`Mageplaza_Osc`] «Object of class Magento\Customer\Model\Data\Region could not be converted to string
+			# in vendor/magento/framework/DB/Adapter/Pdo/Mysql.php:3102»":
+			# https://github.com/tradefurniturecompany/site/issues/260
+			if (!$address->getRegionId()) {
+				$addressData = dfa_unset($addressData, AddressInterface::KEY_REGION, AddressInterface::KEY_REGION_ID);
+			}
             $shippingAddress = $quote->getShippingAddress();
             try {
                 $shippingAddress->addData($addressData)
