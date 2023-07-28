@@ -183,6 +183,16 @@ class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInf
 
             $this->quoteRepository->save($quote);
         } catch (\Exception $e) {
+			# 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# "«Invalid state change requested» on `/onestepcheckout/`":
+			# c
+			df_log($e, null, [
+				'addressInformation' => $addressInformation
+				,'billingAddress' => $addressInformation->getBillingAddress()
+				,'cartId' => $cartId
+				,'quote' => $quote
+				,'shippingAddress' => $address
+			]);
             $this->logger->critical($e);
             throw new InputException(
                 __('The shipping information was unable to be saved. Verify the input data and try again.')
