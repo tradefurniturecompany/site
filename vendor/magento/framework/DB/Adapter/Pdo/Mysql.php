@@ -3109,7 +3109,7 @@ class Mysql extends \Zend_Db_Adapter_Pdo_Mysql implements AdapterInterface
 				 * @see \Mageplaza\Osc\Model\Plugin\Checkout\ShippingMethodManagement::saveAddress() method.
 				 */
 				if ($value instanceof \Magento\Customer\Model\Data\Region) {
-					df_log('https://github.com/tradefurniturecompany/site/issues/260');
+					df_log('https://github.com/tradefurniturecompany/site/issues/260', null, ['region' => $value]);
 				}
                 $value  = (string)$value;
                 if ($column['NULLABLE'] && $value == '') {
