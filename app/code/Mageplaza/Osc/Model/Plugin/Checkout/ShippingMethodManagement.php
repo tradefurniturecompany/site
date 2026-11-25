@@ -146,7 +146,7 @@ class ShippingMethodManagement
                 AddressInterface::KEY_CITY            => $address->getCity(),
                 AddressInterface::CUSTOMER_ADDRESS_ID => $address->getId()
             ];
-			# 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 2023-07-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
 			# "[`Mageplaza_Osc`] «Object of class Magento\Customer\Model\Data\Region could not be converted to string
 			# in vendor/magento/framework/DB/Adapter/Pdo/Mysql.php:3102»":
 			# https://github.com/tradefurniturecompany/site/issues/260
@@ -159,7 +159,7 @@ class ShippingMethodManagement
                     ->save();
                 $this->quoteRepository->save($quote);
             } catch (Exception $e) {
-				# 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+				# 2023-07-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
 				# "`Mageplaza\Osc\Model\Plugin\Checkout\ShippingMethodManagement::saveAddress()` should not suppress errors":
 				# https://github.com/tradefurniturecompany/site/issues/270
 				df_log($e, null, ['addressData' => $addressData, 'quote' => $quote]);

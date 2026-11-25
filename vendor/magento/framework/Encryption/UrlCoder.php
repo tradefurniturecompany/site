@@ -44,7 +44,7 @@ class UrlCoder
      */
     public function decode($url)
     {
-		# 2023-07-24 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+		# 2023-07-24 Dmitrii Fediuk https://github.com/dmitrii-fediuk
 		# «strtr() expects parameter 1 to be string, array given
 		# in vendor/magento/framework/Encryption/UrlCoder.php on line 47»:
 		# https://github.com/tradefurniturecompany/site/issues/267

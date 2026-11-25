@@ -183,7 +183,7 @@ class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInf
 
             $this->quoteRepository->save($quote);
         } catch (\Exception $e) {
-			# 2023-07-28 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+			# 2023-07-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
 			# "«Invalid state change requested» on `/onestepcheckout/`":
 			# https://github.com/tradefurniturecompany/site/issues/271
 			df_log($e, null, [
